@@ -27,6 +27,38 @@
             line-height: 1.6;
         }
 
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            50% {
+                transform: translateY(-10px) translateX(-10px);
+            }
+            75% {
+                transform: translateY(-30px) translateX(5px);
+            }
+        }
+
         /* Language Switcher */
         .lang-switcher {
             position: fixed;
@@ -39,6 +71,7 @@
             padding: 0.5rem;
             border-radius: 30px;
             border: 1px solid rgba(16, 185, 129, 0.3);
+            animation: slideInRight 0.8s ease-out;
         }
 
         .lang-btn {
@@ -71,6 +104,7 @@
             padding: 1.2rem 5%;
             z-index: 1000;
             border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+            animation: slideDown 0.8s ease-out;
         }
 
         nav ul {
@@ -105,6 +139,7 @@
 
         nav a:hover {
             color: var(--verde);
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
         }
 
         /* Hero Section */
@@ -121,8 +156,18 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 50%, rgba(220, 38, 38, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(220, 38, 38, 0.15) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
         }
 
         .hero-content {
@@ -138,18 +183,31 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: gradientShift 3s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .hero .subtitle {
             font-size: 1.5rem;
             color: var(--gris-claro);
             margin-bottom: 1rem;
+            animation: fadeIn 1.5s ease-out;
         }
 
         .hero .location {
             font-size: 1.1rem;
             color: var(--verde);
             margin-bottom: 2rem;
+            animation: fadeIn 2s ease-out;
         }
 
         .cta-button {
@@ -160,8 +218,25 @@
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
             margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
@@ -176,6 +251,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            position: relative;
         }
 
         h2 {
@@ -183,6 +259,14 @@
             margin-bottom: 3rem;
             text-align: center;
             position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        h2.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         h2::after {
@@ -191,9 +275,26 @@
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--verde), var(--rojo));
+            transition: width 1s ease-out 0.5s;
+        }
+
+        h2.visible::after {
+            width: 100px;
+        }
+
+        /* Fade in animation for elements */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* About */
@@ -204,6 +305,12 @@
             padding: 3rem;
             border-radius: 20px;
             border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.3s;
+        }
+
+        .about-content:hover {
+            border-color: var(--verde);
+            box-shadow: 0 10px 40px rgba(16, 185, 129, 0.2);
         }
 
         .about-content p {
@@ -219,6 +326,12 @@
             background: rgba(16, 185, 129, 0.1);
             border-radius: 10px;
             border-left: 4px solid var(--verde);
+            transition: all 0.3s;
+        }
+
+        .education:hover {
+            transform: translateX(10px);
+            background: rgba(16, 185, 129, 0.15);
         }
 
         .education h3 {
@@ -239,11 +352,29 @@
             margin-bottom: 2rem;
             border-left: 4px solid var(--verde);
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .experience-item:hover::before {
+            left: 100%;
         }
 
         .experience-item:hover {
             transform: translateX(10px);
             box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+            border-left-width: 8px;
         }
 
         .experience-header {
@@ -274,6 +405,12 @@
             padding: 0.5rem 0;
             padding-left: 1.5rem;
             position: relative;
+            transition: all 0.3s;
+        }
+
+        .experience-item li:hover {
+            color: #fff;
+            padding-left: 2rem;
         }
 
         .experience-item li::before {
@@ -296,24 +433,57 @@
             padding: 2rem;
             border-radius: 15px;
             border: 1px solid rgba(16, 185, 129, 0.2);
-            transition: transform 0.3s, border-color 0.3s;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .skill-category:hover::before {
+            opacity: 1;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .skill-category:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.02);
             border-color: var(--verde);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
         }
 
         .skill-category h3 {
             color: var(--verde);
             margin-bottom: 1.5rem;
             font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.8rem;
+            position: relative;
+            z-index: 1;
         }
 
         .skill-tag {
@@ -323,12 +493,14 @@
             font-size: 0.9rem;
             border: 1px solid var(--verde);
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .skill-tag:hover {
             background: var(--verde);
             color: var(--negro);
-            transform: scale(1.05);
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
         }
 
         /* Services */
@@ -344,11 +516,28 @@
             padding: 2.5rem;
             border-radius: 20px;
             border: 1px solid rgba(220, 38, 38, 0.2);
-            transition: all 0.3s;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(220, 38, 38, 0.1));
+            transition: top 0.5s;
+        }
+
+        .service-card:hover::after {
+            top: 0;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.02);
             border-color: var(--rojo);
             box-shadow: 0 15px 40px rgba(220, 38, 38, 0.3);
         }
@@ -356,17 +545,29 @@
         .service-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(10deg);
         }
 
         .service-card h3 {
             color: var(--rojo);
             margin-bottom: 1rem;
             font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .service-card ul {
             list-style: none;
             padding: 0;
+            position: relative;
+            z-index: 1;
         }
 
         .service-card li {
@@ -374,6 +575,12 @@
             padding: 0.5rem 0;
             padding-left: 1.5rem;
             position: relative;
+            transition: all 0.3s;
+        }
+
+        .service-card li:hover {
+            color: #fff;
+            padding-left: 2rem;
         }
 
         .service-card li::before {
@@ -396,12 +603,31 @@
             border-radius: 20px;
             overflow: hidden;
             border: 1px solid rgba(16, 185, 129, 0.2);
-            transition: all 0.3s;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(220, 38, 38, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 0;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(16, 185, 129, 0.4);
+            border-color: var(--verde);
         }
 
         .project-image {
@@ -413,15 +639,28 @@
             justify-content: center;
             font-size: 4rem;
             opacity: 0.3;
+            transition: all 0.4s;
+        }
+
+        .project-card:hover .project-image {
+            opacity: 0.5;
+            transform: scale(1.1);
         }
 
         .project-info {
             padding: 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .project-info h3 {
             color: var(--verde);
             margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+
+        .project-card:hover .project-info h3 {
+            color: #fff;
         }
 
         .project-info p {
@@ -442,17 +681,16 @@
             border-radius: 15px;
             font-size: 0.85rem;
             color: var(--rojo);
+            transition: all 0.3s;
+        }
+
+        .tech-badge:hover {
+            background: var(--rojo);
+            color: #fff;
+            transform: translateY(-2px);
         }
 
         /* Contact */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
         .contact-info {
             display: flex;
             flex-direction: column;
@@ -467,83 +705,60 @@
             background: var(--gris);
             border-radius: 15px;
             border: 1px solid rgba(16, 185, 129, 0.2);
-            transition: all 0.3s;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -100%;
+            width: 100%;
+            height: 0;
+            background: rgba(16, 185, 129, 0.1);
+            transform: translateY(-50%);
+            transition: all 0.4s;
+        }
+
+        .contact-item:hover::before {
+            left: 0;
+            height: 100%;
         }
 
         .contact-item:hover {
             border-color: var(--verde);
-            transform: translateX(10px);
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
         }
 
         .contact-icon {
             font-size: 2rem;
             color: var(--verde);
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .contact-item a, .contact-item p {
+            position: relative;
+            z-index: 1;
         }
 
         .contact-item a {
             color: var(--gris-claro);
             text-decoration: none;
             word-break: break-all;
+            transition: color 0.3s;
         }
 
         .contact-item a:hover {
             color: var(--verde);
-        }
-
-        .contact-form {
-            background: var(--gris);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(220, 38, 38, 0.2);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--verde);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            background: var(--negro);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 10px;
-            color: #fff;
-            font-family: inherit;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--verde);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--rojo), var(--verde));
-            border: none;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
         }
 
         /* Footer */
@@ -566,9 +781,31 @@
             }
         }
 
-        /* Hidden class for language switching */
-        .hidden {
-            display: none;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
         }
 
         /* Responsive */
@@ -599,10 +836,6 @@
                 font-size: 2rem;
             }
 
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
             .projects-grid,
             .skills-grid,
             .services-grid {
@@ -612,6 +845,9 @@
     </style>
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="animated-bg" id="animatedBg"></div>
+
     <!-- Language Switcher -->
     <div class="lang-switcher">
         <button class="lang-btn active" onclick="changeLanguage('es')">ES</button>
@@ -637,7 +873,7 @@
         <div class="hero-content">
             <h1>Sahar Gabriela Chain Mayorga</h1>
             <p class="subtitle" data-es="Programadora | Diseñadora | Desarrolladora Web" data-en="Programmer | Designer | Web Developer">Programadora | Diseñadora | Desarrolladora Web</p>
-            <p class="location">📍 Bogotá, Colombia ↔ Toronto, Canada</p>
+            <p class="location">Transformando ideas en experiencias digitales innovadoras</p>
             <p style="max-width: 600px; margin: 0 auto; color: var(--gris-claro);" data-es="Profesional bilingüe especializada en desarrollo web, programación y marketing digital" data-en="Bilingual professional specialized in web development, programming and digital marketing">
                 Profesional bilingüe especializada en desarrollo web, programación y marketing digital
             </p>
@@ -648,9 +884,9 @@
     <!-- About Section -->
     <section id="sobre-mi">
         <h2 data-es="Sobre Mí" data-en="About Me">Sobre Mí</h2>
-        <div class="about-content">
-            <p data-es="Profesional bilingüe (inglés-español) en Programación, Desarrollo Web y Marketing Digital, con experiencia en diseño web, community management y branding." data-en="Bilingual professional (English-Spanish) in Programming, Web Development and Digital Marketing, with experience in web design, community management and branding.">
-                Profesional bilingüe (inglés-español) en Programación, Desarrollo Web y Marketing Digital, con experiencia en diseño web, community management y branding.
+        <div class="about-content fade-in">
+            <p data-es="Profesional en Programación, Desarrollo Web y Marketing Digital, con experiencia en diseño web, community management y branding." data-en="Professional in Programming, Web Development and Digital Marketing, with experience in web design, community management and branding.">
+                Profesional en Programación, Desarrollo Web y Marketing Digital, con experiencia en diseño web, community management y branding.
             </p>
             <p data-es="Me destaco por combinar habilidades técnicas en programación (SQL, .NET, Python, PHP, Java, JavaScript, HTML, CSS) con una sólida experiencia en marketing digital y gestión de comunidades online, logrando resultados medibles en eficiencia operativa, posicionamiento de marca y crecimiento en redes sociales." data-en="I stand out for combining technical programming skills (SQL, .NET, Python, PHP, Java, JavaScript, HTML, CSS) with solid experience in digital marketing and online community management, achieving measurable results in operational efficiency, brand positioning and social media growth.">
                 Me destaco por combinar habilidades técnicas en programación (SQL, .NET, Python, PHP, Java, JavaScript, HTML, CSS) con una sólida experiencia en marketing digital y gestión de comunidades online, logrando resultados medibles en eficiencia operativa, posicionamiento de marca y crecimiento en redes sociales.
@@ -664,7 +900,6 @@
                 <p><strong>Computer Programmer</strong> - Lambton College, Toronto, Canadá (2025)</p>
                 <p data-es="Especialización en desarrollo de software, bases de datos e inteligencia artificial" data-en="Specialization in software development, databases and artificial intelligence">Especialización en desarrollo de software, bases de datos e inteligencia artificial</p>
                 <p style="margin-top: 1rem;"><strong data-es="Producción de Imágenes Digitales" data-en="Digital Image Production">Producción de Imágenes Digitales</strong> - SENA, Colombia (2018)</p>
-                <p><strong data-es="Bachiller Académico" data-en="High School Diploma">Bachiller Académico</strong> - Colegio Bolivariano (2019)</p>
             </div>
 
             <div class="education" style="margin-top: 1.5rem; background: rgba(220, 38, 38, 0.1); border-left-color: var(--rojo);">
@@ -681,7 +916,7 @@
     <section id="experiencia">
         <h2 data-es="Experiencia Laboral" data-en="Work Experience">Experiencia Laboral</h2>
         
-        <div class="experience-timeline">
+        <div class="experience-timeline fade-in">
             <div class="experience-item">
                 <div class="experience-header">
                     <div>
@@ -734,7 +969,7 @@
     <!-- Skills Section -->
     <section id="habilidades">
         <h2 data-es="Habilidades Técnicas" data-en="Technical Skills">Habilidades Técnicas</h2>
-        <div class="skills-grid">
+        <div class="skills-grid fade-in">
             <div class="skill-category">
                 <h3>💻 Backend & <span data-es="Bases de Datos" data-en="Databases">Bases de Datos</span></h3>
                 <div class="skill-tags">
@@ -815,7 +1050,7 @@
     <!-- Services Section -->
     <section id="servicios">
         <h2 data-es="Servicios Profesionales" data-en="Professional Services">Servicios Profesionales</h2>
-        <div class="services-grid">
+        <div class="services-grid fade-in">
             <div class="service-card">
                 <div class="service-icon">🌐</div>
                 <h3 data-es="Desarrollo Web & Tecnología" data-en="Web Development & Technology">Desarrollo Web & Tecnología</h3>
@@ -902,7 +1137,7 @@
         <p style="text-align: center; color: var(--gris-claro); margin-bottom: 2rem;" data-es="Proyectos desarrollados durante mi formación en Lambton College" data-en="Projects developed during my training at Lambton College">
             Proyectos desarrollados durante mi formación en Lambton College
         </p>
-        <div class="projects-grid">
+        <div class="projects-grid fade-in">
             <div class="project-card">
                 <div class="project-image">🌾</div>
                 <div class="project-info">
@@ -976,57 +1211,45 @@
     <!-- Contact Section -->
     <section id="contacto">
         <h2 data-es="Contacto" data-en="Contact">Contacto</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">📧</div>
-                    <div>
-                        <h3>Email</h3>
-                        <a href="mailto:sahargabriela9@gmail.com">sahargabriela9@gmail.com</a>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">📱</div>
-                    <div>
-                        <h3 data-es="Teléfono" data-en="Phone">Teléfono</h3>
-                        <a href="tel:+573204499948">+57 (320) 449 9948</a>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">💼</div>
-                    <div>
-                        <h3>LinkedIn</h3>
-                        <a href="https://www.linkedin.com/in/sahar-gabriela-chain-mayorga-b76433289" target="_blank">linkedin.com/in/sahar-gabriela-chain-mayorga</a>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div>
-                        <h3 data-es="Ubicación" data-en="Location">Ubicación</h3>
-                        <p style="color: var(--gris-claro);">Bogotá, Colombia</p>
-                    </div>
+        <div class="contact-info fade-in" style="max-width: 800px; margin: 0 auto;">
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div>
+                    <h3>Email</h3>
+                    <a href="mailto:sahargabriela9@gmail.com">sahargabriela9@gmail.com</a>
                 </div>
             </div>
 
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label data-es="Nombre" data-en="Name">Nombre</label>
-                        <input type="text" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label data-es="Mensaje" data-en="Message">Mensaje</label>
-                        <textarea name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn" data-es="Enviar Mensaje" data-en="Send Message">Enviar Mensaje</button>
-                </form>
+            <div class="contact-item">
+                <div class="contact-icon">📱</div>
+                <div>
+                    <h3 data-es="Teléfono" data-en="Phone">Teléfono</h3>
+                    <a href="tel:+573204499948">+57 (320) 449 9948</a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">💼</div>
+                <div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/sahar-gabriela-chain-mayorga-b76433289" target="_blank">linkedin.com/in/sahar-gabriela-chain-mayorga</a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">💻</div>
+                <div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/SaharLambton" target="_blank">github.com/SaharLambton</a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                    <h3 data-es="Ubicación" data-en="Location">Ubicación</h3>
+                    <p style="color: var(--gris-claro);">Bogotá, Colombia</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1039,16 +1262,15 @@
     <script>
         let currentLang = 'es';
 
+        // Language switcher
         function changeLanguage(lang) {
             currentLang = lang;
             
-            // Update button states
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
 
-            // Update all translatable elements
             document.querySelectorAll('[data-es][data-en]').forEach(el => {
                 const text = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
@@ -1056,6 +1278,63 @@
                 } else {
                     el.textContent = text;
                 }
+            });
+        }
+
+        // Create animated background particles
+        function createParticles() {
+            const bg = document.getElementById('animatedBg');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 4 + 1;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 10 + 5;
+                const delay = Math.random() * 5;
+                
+                const colors = ['rgba(16, 185, 129, 0.3)', 'rgba(220, 38, 38, 0.3)', 'rgba(255, 255, 255, 0.2)'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}%;
+                    top: ${y}%;
+                    background: ${color};
+                    animation: float ${duration}s ease-in-out ${delay}s infinite;
+                `;
+                
+                bg.appendChild(particle);
+            }
+        }
+
+        // Intersection Observer for scroll animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all h2 elements
+            document.querySelectorAll('h2').forEach(h2 => {
+                observer.observe(h2);
+            });
+
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
             });
         }
 
@@ -1073,25 +1352,87 @@
             });
         });
 
-        // Form handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const message = currentLang === 'es' 
-                ? '¡Gracias por tu mensaje! Te contactaré pronto.' 
-                : 'Thank you for your message! I will contact you soon.';
-            alert(message);
-            this.reset();
-        });
-
         // Navbar background on scroll
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 100) {
                 nav.style.background = 'rgba(10, 10, 10, 0.98)';
+                nav.style.boxShadow = '0 5px 20px rgba(16, 185, 129, 0.1)';
             } else {
                 nav.style.background = 'rgba(10, 10, 10, 0.95)';
+                nav.style.boxShadow = 'none';
             }
         });
+
+        // Mouse parallax effect on hero section
+        document.querySelector('.hero').addEventListener('mousemove', (e) => {
+            const hero = e.currentTarget;
+            const rect = hero.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            
+            const heroBg = hero.querySelector('.hero-bg');
+            heroBg.style.transform = `translate(${x * 20}px, ${y * 20}px)`;
+        });
+
+        // Add stagger animation to skill tags
+        document.querySelectorAll('.skill-category').forEach(category => {
+            const tags = category.querySelectorAll('.skill-tag');
+            tags.forEach((tag, index) => {
+                tag.style.animationDelay = `${index * 0.05}s`;
+            });
+        });
+
+        // Initialize everything when page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            initScrollAnimations();
+            
+            // Add a slight delay to initial animations
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Add cursor trail effect (optional, subtle)
+        let cursorTrail = [];
+        document.addEventListener('mousemove', (e) => {
+            if (cursorTrail.length > 5) {
+                const old = cursorTrail.shift();
+                if (old && old.parentNode) {
+                    old.parentNode.removeChild(old);
+                }
+            }
+            
+            const dot = document.createElement('div');
+            dot.style.cssText = `
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: rgba(16, 185, 129, 0.5);
+                border-radius: 50%;
+                pointer-events: none;
+                left: ${e.clientX}px;
+                top: ${e.clientY}px;
+                z-index: 9999;
+                animation: fadeOut 0.5s ease-out forwards;
+            `;
+            
+            document.body.appendChild(dot);
+            cursorTrail.push(dot);
+        });
+
+        // Add fadeOut animation for cursor trail
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                to {
+                    opacity: 0;
+                    transform: scale(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
