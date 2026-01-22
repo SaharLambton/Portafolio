@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Store - Sahar Chain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --negro: #0a0a0a;
+            --verde: #10b981;
+            --rojo: #dc2626;
+            --gris: #1f1f1f;
+            --gris-claro: #a3a3a3;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--negro);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--verde);
+            text-decoration: none;
+            margin: 2rem 0;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            gap: 0.8rem;
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .project-header .subtitle {
+            font-size: 1.3rem;
+            color: var(--gris-claro);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .tech-badge {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid var(--verde);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .tech-badge:hover {
+            background: var(--verde);
+            color: var(--negro);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            margin: 4rem 0;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: var(--verde);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--verde), var(--rojo));
+        }
+
+        .section p, .section ul {
+            color: var(--gris-claro);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--verde);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            background: var(--gris);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--verde);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-item .caption {
+            padding: 1rem;
+            text-align: center;
+            color: var(--gris-claro);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: var(--gris);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            border-color: var(--verde);
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: var(--verde);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 5rem 0;
+            padding: 3rem;
+            background: var(--gris);
+            border-radius: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../prueba portafolio.html#proyectos" class="back-button">← Volver al Portafolio</a>
+
+        <div class="project-header">
+            <h1>Sports Store</h1>
+            <p class="subtitle">Sitio web completo para tienda de artículos deportivos con enfoque en responsabilidad social y educación deportiva</p>
+            <div class="tech-stack">
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS3</span>
+                <span class="tech-badge">Responsive Design</span>
+                <span class="tech-badge">YouTube Integration</span>
+                <span class="tech-badge">UI/UX Design</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📋 Resumen del Proyecto</h2>
+            <p>
+                Proyecto académico desarrollado en Lambton College que consiste en un sitio web completo para una tienda de artículos deportivos enfocada en los deportes más populares de Canadá. El proyecto va más allá de un simple e-commerce, incorporando un programa de becas para jóvenes atletas y recursos educativos para padres, demostrando un enfoque de responsabilidad social corporativa.
+            </p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🎯 Objetivo</h3>
+                <p>Crear un sitio web profesional y funcional para una tienda deportiva que combine comercio electrónico con impacto social positivo en la comunidad juvenil.</p>
+            </div>
+            <div class="info-card">
+                <h3>⏱️ Duración</h3>
+                <p>20 días de desarrollo completo, incluyendo diseño de interfaz, estructura de contenido, implementación y optimización responsive.</p>
+            </div>
+            <div class="info-card">
+                <h3>💥 Rol</h3>
+                <p>Desarrolladora Frontend - Diseño de interfaz, estructura HTML semántica, diseño CSS responsive y arquitectura de información.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✨ Características Principales</h2>
+            <ul>
+                <li>Página de inicio (Home) con hero section impactante y navegación intuitiva</li>
+                <li>Catálogo dinámico de productos deportivos organizados por categorías</li>
+                <li>Sección "About Us" con información corporativa y valores de la empresa</li>
+                <li>Formulario de contacto funcional con validación de datos</li>
+                <li>Programa de becas para jóvenes atletas con formulario de aplicación</li>
+                <li>Integración de videos educativos de YouTube sobre beneficios del deporte</li>
+                <li>Sección de noticias y actualizaciones (términos y condiciones, nuevas becas)</li>
+                <li>Footer informativo con ubicaciones de tiendas en GTA (Greater Toronto Area)</li>
+                <li>Diseño completamente responsive adaptable a todos los dispositivos</li>
+                <li>Iconos de redes sociales para conexión con la comunidad</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🖼️ Estructura del Sitio</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="image-placeholder">🏠</div>
+                    <div class="caption">Página Principal (Home)</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">🏀</div>
+                    <div class="caption">Catálogo de Productos</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">ℹ️</div>
+                    <div class="caption">About Us - Quiénes Somos</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">📞</div>
+                    <div class="caption">Página de Contacto</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">🎓</div>
+                    <div class="caption">Programa de Becas</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">📹</div>
+                    <div class="caption">Recursos Educativos</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Tecnologías y Técnicas Utilizadas</h2>
+            <p><strong>HTML5 Semántico:</strong> Uso de etiquetas semánticas (header, nav, main, section, article, footer) para mejor accesibilidad y SEO</p>
+            <p><strong>CSS3 Avanzado:</strong> Flexbox y Grid Layout para diseños complejos, animaciones CSS, transiciones suaves y efectos hover</p>
+            <p><strong>Responsive Design:</strong> Media queries y diseño mobile-first para garantizar funcionalidad en todos los dispositivos</p>
+            <p><strong>Integración Multimedia:</strong> Embeds de YouTube con iframes responsivos para contenido educativo</p>
+            <p><strong>Optimización de Recursos:</strong> Gestión eficiente de imágenes y estructura de archivos organizada (CSS, img, media separados)</p>
+        </div>
+
+        <div class="section">
+            <h2>🏆 Secciones Destacadas</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Home - Bienvenida</h3>
+                    <p>Hero section con imagen impactante, animación de flecha descendente, navegación clara a productos, información corporativa y programa de becas.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Products - Catálogo</h3>
+                    <p>Exhibición dinámica de productos deportivos para hockey sobre hielo, béisbol, basketball y otros deportes populares en Canadá.</p>
+                </div>
+                <div class="info-card">
+                    <h3>About Us - Identidad</h3>
+                    <p>Información sobre la misión de la empresa, valores corporativos y compromiso con el desarrollo deportivo juvenil.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Contact - Conectividad</h3>
+                    <p>Formulario funcional de contacto, ubicaciones físicas de tiendas en el área de Toronto, y canales de comunicación.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Programa de Becas</h3>
+                    <p>Sistema de solicitud de becas para jóvenes atletas que necesitan apoyo para equipamiento deportivo, demostrando responsabilidad social.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Recursos Educativos</h3>
+                    <p>Carrusel de videos de YouTube cuidadosamente seleccionados sobre beneficios del deporte en niños y jóvenes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎨 Decisiones de Diseño</h2>
+            <ul>
+                <li>Paleta de colores inspirada en deportes canadienses y naturaleza</li>
+                <li>Tipografía clara y legible para facilitar la navegación</li>
+                <li>Espaciado generoso para mejor experiencia de usuario</li>
+                <li>Imágenes de alta calidad que transmiten energía y dinamismo deportivo</li>
+                <li>Barras transparentes sobre imágenes para mejorar legibilidad del texto</li>
+                <li>Efectos hover interactivos para mejorar la experiencia del usuario</li>
+                <li>Footer estructurado con tabla para organización clara de información</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>📚 Contenido y Recursos</h2>
+            <p><strong>Deportes Destacados:</strong> Hockey sobre hielo, béisbol, basketball, fútbol y otros deportes populares en Canadá</p>
+            <p><strong>Ubicaciones:</strong> Tres tiendas principales en Greater Toronto Area (Yorkland Boulevard Toronto, Scarborough, Brampton)</p>
+            <p><strong>Videos Educativos:</strong> 
+                <ul>
+                    <li>"How playing sports benefits your body and your brain"</li>
+                    <li>"Why you should care about youth sports"</li>
+                    <li>"Youth in Sport - Keeping Kids in The Game"</li>
+                </ul>
+            </p>
+            <p><strong>Documentación:</strong> Términos y condiciones actualizados disponibles en formato PDF</p>
+        </div>
+
+        <div class="section">
+            <h2>💡 Enfoque de Responsabilidad Social</h2>
+            <p>
+                Este proyecto se diferencia por su fuerte componente de responsabilidad social corporativa. No es solo una tienda deportiva comercial, sino una plataforma que busca facilitar el acceso al deporte para jóvenes en situación de necesidad a través de su programa de becas. La integración de recursos educativos para padres demuestra un compromiso con la educación y concientización sobre la importancia del deporte en el desarrollo juvenil.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>📊 Estructura de Archivos</h2>
+            <ul>
+                <li>Organización modular con carpetas separadas para CSS, imágenes y media</li>
+                <li>Navegación clara entre las 4 páginas principales (home, products, about, contact)</li>
+                <li>Recursos multimedia organizados por sección (home, footer, icons)</li>
+                <li>Documentos legales accesibles (términos y condiciones en PDF)</li>
+                <li>Favicon personalizado para identidad de marca</li>
+            </ul>
+        </div>
+
+        <div class="cta-section">
+            <h2 style="color: #fff; margin-bottom: 1rem;">¿Necesitas un sitio web profesional?</h2>
+            <p style="color: var(--gris-claro); margin-bottom: 2rem;">Puedo crear sitios web responsive y funcionales para tu negocio</p>
+            <a href="../prueba portafolio.html#contacto" class="cta-button">Contáctame</a>
+            <a href="../prueba portafolio.html#proyectos" class="cta-button" style="background: var(--gris); border: 1px solid var(--verde);">Ver más proyectos</a>
+        </div>
+    </div>
+</body>
+</html>
