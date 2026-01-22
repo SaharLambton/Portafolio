@@ -2854,13 +2854,13 @@
         Selección de proyectos en Desarrollo Web, Diseño Gráfico y Programación
     </p>
 
-    <!-- Project Filter Buttons -->
-    <div class="project-filters fade-in" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
-        <button class="filter-btn active" onclick="filterProjects('all')" data-es="Todos" data-en="All">Todos</button>
-        <button class="filter-btn" onclick="filterProjects('web')" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</button>
-        <button class="filter-btn" onclick="filterProjects('design')" data-es="Diseño Gráfico" data-en="Graphic Design">Diseño Gráfico</button>
-        <button class="filter-btn" onclick="filterProjects('programming')" data-es="Programación" data-en="Programming">Programación</button>
-    </div>
+   <!-- Project Filter Buttons -->
+<div class="project-filters fade-in" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
+    <button class="filter-btn active" onclick="filterProjects('all', this)" data-es="Todos" data-en="All">Todos</button>
+    <button class="filter-btn" onclick="filterProjects('web', this)" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</button>
+    <button class="filter-btn" onclick="filterProjects('design', this)" data-es="Diseño Gráfico" data-en="Graphic Design">Diseño Gráfico</button>
+    <button class="filter-btn" onclick="filterProjects('programming', this)" data-es="Programación" data-en="Programming">Programación</button>
+</div>
 
     <div class="projects-grid fade-in">
         <!-- WEB DEVELOPMENT PROJECTS -->
@@ -3308,35 +3308,34 @@
             }, 100);
         });
 
-        // Project filtering function
-        function filterProjects(category) {
-            const cards = document.querySelectorAll('.project-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            
-            // Update active button
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Filter cards with animation
-            cards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                
-                if (category === 'all' || cardCategory === category) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 10);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
-            });
+      /// Project filtering function
+function filterProjects(category, button) {
+    const cards = document.querySelectorAll('.project-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    // Update active button
+    buttons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    
+    // Filter cards with animation
+    cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        
+        if (category === 'all' || cardCategory === category) {
+            card.style.display = 'block';
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 10);
+        } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                card.style.display = 'none';
+            }, 300);
         }
-
+    });
+}
         // Add cursor trail effect (optional, subtle)
         let cursorTrail = [];
         document.addEventListener('mousemove', (e) => {
