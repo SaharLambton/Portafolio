@@ -1633,3 +1633,1749 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahar Chain - Programadora & Diseñadora</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --negro: #0a0a0a;
+            --verde: #10b981;
+            --rojo: #dc2626;
+            --gris: #1f1f1f;
+            --gris-claro: #a3a3a3;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--negro);
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            50% {
+                transform: translateY(-10px) translateX(-10px);
+            }
+            75% {
+                transform: translateY(-30px) translateX(5px);
+            }
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 80px;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--gris);
+            padding: 0.5rem;
+            border-radius: 30px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--gris-claro);
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            color: #fff;
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--verde);
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--verde);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--verde);
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(220, 38, 38, 0.15) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--gris-claro);
+            margin-bottom: 1rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero .location {
+            font-size: 1.1rem;
+            color: var(--verde);
+            margin-bottom: 2rem;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 10%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        h2.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--verde), var(--rojo));
+            transition: width 1s ease-out 0.5s;
+        }
+
+        h2.visible::after {
+            width: 100px;
+        }
+
+        /* Fade in animation for elements */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* About */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--gris);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.3s;
+        }
+
+        .about-content:hover {
+            border-color: var(--verde);
+            box-shadow: 0 10px 40px rgba(16, 185, 129, 0.2);
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--gris-claro);
+            margin-bottom: 1.5rem;
+        }
+
+        .education {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--verde);
+            transition: all 0.3s;
+        }
+
+        .education:hover {
+            transform: translateX(10px);
+            background: rgba(16, 185, 129, 0.15);
+        }
+
+        .education h3 {
+            color: var(--verde);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            max-width: 1000px;
+            margin: 2rem auto;
+        }
+
+        .experience-item {
+            background: var(--gris);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--verde);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .experience-item:hover::before {
+            left: 100%;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+            border-left-width: 8px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            color: var(--verde);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-period {
+            color: var(--rojo);
+            font-weight: 600;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-item li {
+            color: var(--gris-claro);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .experience-item li:hover {
+            color: #fff;
+            padding-left: 2rem;
+        }
+
+        .experience-item li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--verde);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: var(--gris);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .skill-category:hover::before {
+            opacity: 1;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--verde);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .skill-category h3 {
+            color: var(--verde);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-tag {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--verde);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .skill-tag:hover {
+            background: var(--verde);
+            color: var(--negro);
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--gris);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(220, 38, 38, 0.1));
+            transition: top 0.5s;
+        }
+
+        .service-card:hover::after {
+            top: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--rojo);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .service-card h3 {
+            color: var(--rojo);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card li {
+            color: var(--gris-claro);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .service-card li:hover {
+            color: #fff;
+            padding-left: 2rem;
+        }
+
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--rojo);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-filters {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .project-filters.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.8rem;
+            background: var(--gris);
+            color: var(--gris-claro);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--verde);
+            color: var(--verde);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.2);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .project-card {
+            background: var(--gris);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.4s;
+            position: relative;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card.hide {
+            display: none;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(220, 38, 38, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 0;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(16, 185, 129, 0.4);
+            border-color: var(--verde);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            opacity: 0.3;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img,
+        .project-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .project-image.has-media {
+            opacity: 1;
+            background: var(--negro);
+        }
+
+        .project-card:hover .project-image {
+            opacity: 0.5;
+            transform: scale(1.1);
+        }
+
+        .project-card:hover .project-image.has-media {
+            opacity: 1;
+        }
+
+        .project-info {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-info h3 {
+            color: var(--verde);
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+
+        .project-card:hover .project-info h3 {
+            color: #fff;
+        }
+
+        .project-info p {
+            color: var(--gris-claro);
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-badge {
+            background: rgba(220, 38, 38, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--rojo);
+            transition: all 0.3s;
+        }
+
+        .tech-badge:hover {
+            background: var(--rojo);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .media-placeholder {
+            font-size: 2rem;
+            color: var(--gris-claro);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Contact */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--gris);
+            border-radius: 15px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -100%;
+            width: 100%;
+            height: 0;
+            background: rgba(16, 185, 129, 0.1);
+            transform: translateY(-50%);
+            transition: all 0.4s;
+        }
+
+        .contact-item:hover::before {
+            left: 0;
+            height: 100%;
+        }
+
+        .contact-item:hover {
+            border-color: var(--verde);
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--verde);
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .contact-item a, .contact-item p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item a {
+            color: var(--gris-claro);
+            text-decoration: none;
+            word-break: break-all;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--verde);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--gris);
+            border-top: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .lang-switcher {
+                top: 70px;
+                right: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .projects-grid,
+            .skills-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-filters {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg" id="animatedBg"></div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="changeLanguage('es')">ES</button>
+        <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <ul id="nav-menu">
+            <li><a href="#inicio" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a></li>
+            <li><a href="#sobre-mi" class="nav-link" data-es="Sobre Mí" data-en="About">Sobre Mí</a></li>
+            <li><a href="#experiencia" class="nav-link" data-es="Experiencia" data-en="Experience">Experiencia</a></li>
+            <li><a href="#habilidades" class="nav-link" data-es="Habilidades" data-en="Skills">Habilidades</a></li>
+            <li><a href="#servicios" class="nav-link" data-es="Servicios" data-en="Services">Servicios</a></li>
+            <li><a href="#proyectos" class="nav-link" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+            <li><a href="#contacto" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Sahar Gabriela Chain Mayorga</h1>
+            <p class="subtitle" data-es="Programadora | Diseñadora | Desarrolladora Web" data-en="Programmer | Designer | Web Developer">Programadora | Diseñadora | Desarrolladora Web</p>
+            <p class="location">Transformando ideas en experiencias digitales innovadoras</p>
+            <p style="max-width: 600px; margin: 0 auto; color: var(--gris-claro);" data-es="Profesional bilingüe especializada en desarrollo web, programación y marketing digital" data-en="Bilingual professional specialized in web development, programming and digital marketing">
+                Profesional bilingüe especializada en desarrollo web, programación y marketing digital
+            </p>
+            <a href="#contacto" class="cta-button" data-es="Conectemos" data-en="Let's Connect">Conectemos</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-mi">
+        <h2 data-es="Sobre Mí" data-en="About Me">Sobre Mí</h2>
+        <div class="about-content fade-in">
+            <p data-es="Profesional en Programación, Desarrollo Web y Marketing Digital, con experiencia en diseño web, community management y branding." data-en="Professional in Programming, Web Development and Digital Marketing, with experience in web design, community management and branding.">
+                Profesional en Programación, Desarrollo Web y Marketing Digital, con experiencia en diseño web, community management y branding.
+            </p>
+            <p data-es="Me destaco por combinar habilidades técnicas en programación (SQL, .NET, Python, PHP, Java, JavaScript, HTML, CSS) con una sólida experiencia en marketing digital y gestión de comunidades online, logrando resultados medibles en eficiencia operativa, posicionamiento de marca y crecimiento en redes sociales." data-en="I stand out for combining technical programming skills (SQL, .NET, Python, PHP, Java, JavaScript, HTML, CSS) with solid experience in digital marketing and online community management, achieving measurable results in operational efficiency, brand positioning and social media growth.">
+                Me destaco por combinar habilidades técnicas en programación (SQL, .NET, Python, PHP, Java, JavaScript, HTML, CSS) con una sólida experiencia en marketing digital y gestión de comunidades online, logrando resultados medibles en eficiencia operativa, posicionamiento de marca y crecimiento en redes sociales.
+            </p>
+            <p data-es="Soy una profesional creativa, analítica y orientada a resultados, capaz de integrar la tecnología con estrategias digitales para aportar soluciones innovadoras y escalables. Con más de 5 años de experiencia freelance y 4 años liderando proyectos en empresas." data-en="I am a creative, analytical and results-oriented professional, capable of integrating technology with digital strategies to provide innovative and scalable solutions. With over 5 years of freelance experience and 4 years leading projects in companies.">
+                Soy una profesional creativa, analítica y orientada a resultados, capaz de integrar la tecnología con estrategias digitales para aportar soluciones innovadoras y escalables. Con más de 5 años de experiencia freelance y 4 años liderando proyectos en empresas.
+            </p>
+            
+            <div class="education">
+                <h3>🎓 <span data-es="Formación Académica" data-en="Education">Formación Académica</span></h3>
+                <p><strong>Computer Programmer</strong> - Lambton College, Toronto, Canadá (2025)</p>
+                <p data-es="Especialización en desarrollo de software, bases de datos e inteligencia artificial" data-en="Specialization in software development, databases and artificial intelligence">Especialización en desarrollo de software, bases de datos e inteligencia artificial</p>
+                <p style="margin-top: 1rem;"><strong data-es="Producción de Imágenes Digitales" data-en="Digital Image Production">Producción de Imágenes Digitales</strong> - SENA, Colombia (2018)</p>
+            </div>
+
+            <div class="education" style="margin-top: 1.5rem; background: rgba(220, 38, 38, 0.1); border-left-color: var(--rojo);">
+                <h3 style="color: var(--rojo);">🌍 <span data-es="Experiencia Internacional" data-en="International Experience">Experiencia Internacional</span></h3>
+                <p data-es="Formación técnica canadiense combinada con experiencia empresarial colombiana. Comprendo perfectamente ambos mercados y culturas de trabajo, lo que me permite adaptarme fácilmente a diferentes entornos profesionales." data-en="Canadian technical training combined with Colombian business experience. I perfectly understand both markets and work cultures, which allows me to easily adapt to different professional environments.">
+                    Formación técnica canadiense combinada con experiencia empresarial colombiana. Comprendo perfectamente ambos mercados y culturas de trabajo, lo que me permite adaptarme fácilmente a diferentes entornos profesionales.
+                </p>
+                <p style="margin-top: 1rem;"><strong data-es="Idiomas:" data-en="Languages:">Idiomas:</strong> <span data-es="Español (Nativo) | Inglés (Intermedio-Avanzado)" data-en="Spanish (Native) | English (Intermediate-Advanced)">Español (Nativo) | Inglés (Intermedio-Avanzado)</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experiencia">
+        <h2 data-es="Experiencia Laboral" data-en="Work Experience">Experiencia Laboral</h2>
+        
+        <div class="experience-timeline fade-in">
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title" data-es="Freelancer – Desarrollo Web, Programación & Community Management" data-en="Freelancer – Web Development, Programming & Community Management">Freelancer – Desarrollo Web, Programación & Community Management</h3>
+                        <p class="experience-period">2020 - <span data-es="Presente" data-en="Present">Presente</span></p>
+                    </div>
+                </div>
+                <ul>
+                    <li data-es="Desarrollo de sitios web modernos y responsivos en .NET, PHP, JavaScript, HTML5 y CSS3" data-en="Development of modern and responsive websites in .NET, PHP, JavaScript, HTML5 and CSS3">Desarrollo de sitios web modernos y responsivos en .NET, PHP, JavaScript, HTML5 y CSS3</li>
+                    <li data-es="Implementación de APIs RESTful y consumo desde frontend con Angular y Razor Pages" data-en="Implementation of RESTful APIs and consumption from frontend with Angular and Razor Pages">Implementación de APIs RESTful y consumo desde frontend con Angular y Razor Pages</li>
+                    <li data-es="Creación de sistemas de bases de datos personalizados, reduciendo errores administrativos en 25% y mejorando la eficiencia en 40%" data-en="Creation of custom database systems, reducing administrative errors by 25% and improving efficiency by 40%">Creación de sistemas de bases de datos personalizados, reduciendo errores administrativos en 25% y mejorando la eficiencia en 40%</li>
+                    <li data-es="Diseño de estrategias de marketing digital y gestión de redes sociales, logrando incrementos del 30% en engagement" data-en="Design of digital marketing strategies and social media management, achieving 30% increases in engagement">Diseño de estrategias de marketing digital y gestión de redes sociales, logrando incrementos del 30% en engagement</li>
+                    <li data-es="Automatización con chatbots, mejorando la atención al cliente y reduciendo tiempos de respuesta en 40%" data-en="Automation with chatbots, improving customer service and reducing response times by 40%">Automatización con chatbots, mejorando la atención al cliente y reduciendo tiempos de respuesta en 40%</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title" data-es="Diseñadora Gráfica & Especialista en Desarrollo Digital" data-en="Graphic Designer & Digital Development Specialist">Diseñadora Gráfica & Especialista en Desarrollo Digital</h3>
+                        <p style="color: var(--gris-claro); margin-bottom: 0.5rem;">Diseños Lasser - Bogotá, Colombia</p>
+                        <p class="experience-period" data-es="Febrero 2019 - Marzo 2023" data-en="February 2019 - March 2023">Febrero 2019 - Marzo 2023</p>
+                    </div>
+                </div>
+                <ul>
+                    <li data-es="Lideré proyectos de desarrollo web y soluciones digitales para clientes de diferentes sectores" data-en="Led web development projects and digital solutions for clients from different sectors">Lideré proyectos de desarrollo web y soluciones digitales para clientes de diferentes sectores</li>
+                    <li data-es="Implementé sistemas de bases de datos para gestión de clientes y campañas, mejorando la organización de datos en un 30%" data-en="Implemented database systems for client and campaign management, improving data organization by 30%">Implementé sistemas de bases de datos para gestión de clientes y campañas, mejorando la organización de datos en un 30%</li>
+                    <li data-es="Desarrollé software y herramientas de automatización, optimizando la productividad en un 35%" data-en="Developed software and automation tools, optimizing productivity by 35%">Desarrollé software y herramientas de automatización, optimizando la productividad en un 35%</li>
+                    <li data-es="Creación de piezas gráficas y campañas publicitarias que aumentaron la interacción con clientes en un 20%" data-en="Creation of graphic pieces and advertising campaigns that increased client interaction by 20%">Creación de piezas gráficas y campañas publicitarias que aumentaron la interacción con clientes en un 20%</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title" data-es="Gestora de Marca y Comunicación" data-en="Brand & Communication Manager">Gestora de Marca y Comunicación</h3>
+                        <p style="color: var(--gris-claro); margin-bottom: 0.5rem;" data-es="Independiente" data-en="Independent">Independiente</p>
+                        <p class="experience-period">2020 - 2025</p>
+                    </div>
+                </div>
+                <ul>
+                    <li data-es="Creación de estrategias de marca y comunicación que aumentaron en promedio un 25% el reconocimiento de marca" data-en="Creation of brand and communication strategies that increased brand recognition by an average of 25%">Creación de estrategias de marca y comunicación que aumentaron en promedio un 25% el reconocimiento de marca</li>
+                    <li data-es="Dirección de talleres con clientes para definir narrativas de marca y objetivos de comunicación" data-en="Led workshops with clients to define brand narratives and communication objectives">Dirección de talleres con clientes para definir narrativas de marca y objetivos de comunicación</li>
+                    <li data-es="Administración de presupuestos y optimización del ROI en campañas digitales" data-en="Budget management and ROI optimization in digital campaigns">Administración de presupuestos y optimización del ROI en campañas digitales</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="habilidades">
+        <h2 data-es="Habilidades Técnicas" data-en="Technical Skills">Habilidades Técnicas</h2>
+        <div class="skills-grid fade-in">
+            <div class="skill-category">
+                <h3>💻 Backend & <span data-es="Bases de Datos" data-en="Databases">Bases de Datos</span></h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">C#</span>
+                    <span class="skill-tag">.NET</span>
+                    <span class="skill-tag">VB.NET</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">SQL Server</span>
+                    <span class="skill-tag">MySQL</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🎨 Frontend & <span data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</span></h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">jQuery</span>
+                    <span class="skill-tag">Angular</span>
+                    <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag">Responsive Design</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🔧 Frameworks & <span data-es="Tecnologías" data-en="Technologies">Tecnologías</span></h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">.NET Core</span>
+                    <span class="skill-tag">ASP.NET</span>
+                    <span class="skill-tag">WordPress</span>
+                    <span class="skill-tag">Wix</span>
+                    <span class="skill-tag">APIs RESTful</span>
+                    <span class="skill-tag">Razor Pages</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🎨 <span data-es="Diseño & Branding" data-en="Design & Branding">Diseño & Branding</span></h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Adobe Illustrator</span>
+                    <span class="skill-tag">Canva</span>
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag" data-es="Producción Digital" data-en="Digital Production">Producción Digital</span>
+                    <span class="skill-tag" data-es="Identidad de Marca" data-en="Brand Identity">Identidad de Marca</span>
+                    <span class="skill-tag" data-es="Diseño de Logos" data-en="Logo Design">Diseño de Logos</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>📈 Marketing & Analytics</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">SEO</span>
+                    <span class="skill-tag">Google Analytics</span>
+                    <span class="skill-tag" data-es="Gestión de Redes" data-en="Social Media Mgmt">Gestión de Redes</span>
+                    <span class="skill-tag">Chatbots</span>
+                    <span class="skill-tag">WhatsApp Business</span>
+                    <span class="skill-tag" data-es="Automatización" data-en="Automation">Automatización</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🚀 <span data-es="Gestión & Metodologías" data-en="Management & Methodologies">Gestión & Metodologías</span></h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Scrum</span>
+                    <span class="skill-tag" data-es="Metodologías Ágiles" data-en="Agile Methodologies">Metodologías Ágiles</span>
+                    <span class="skill-tag" data-es="Gestión de Proyectos" data-en="Project Management">Gestión de Proyectos</span>
+                    <span class="skill-tag" data-es="Liderazgo" data-en="Leadership">Liderazgo</span>
+                    <span class="skill-tag" data-es="Planificación Estratégica" data-en="Strategic Planning">Planificación Estratégica</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios">
+        <h2 data-es="Servicios Profesionales" data-en="Professional Services">Servicios Profesionales</h2>
+        <div class="services-grid fade-in">
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3 data-es="Desarrollo Web & Tecnología" data-en="Web Development & Technology">Desarrollo Web & Tecnología</h3>
+                <ul>
+                    <li data-es="Sitios web WordPress y desarrollo custom" data-en="WordPress sites and custom development">Sitios web WordPress y desarrollo custom</li>
+                    <li data-es="Implementación de chatbots con IA" data-en="AI chatbot implementation">Implementación de chatbots con IA</li>
+                    <li data-es="Automatizaciones de marketing y ventas" data-en="Marketing and sales automation">Automatizaciones de marketing y ventas</li>
+                    <li data-es="Integración WhatsApp Business" data-en="WhatsApp Business integration">Integración WhatsApp Business</li>
+                    <li data-es="SEO técnico y optimización" data-en="Technical SEO and optimization">SEO técnico y optimización</li>
+                    <li data-es="Sitios multilingües (ES/EN/FR)" data-en="Multilingual sites (ES/EN/FR)">Sitios multilingües (ES/EN/FR)</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Community Management & Marketing</h3>
+                <ul>
+                    <li data-es="Gestión completa de Redes Sociales" data-en="Complete Social Media Management">Gestión completa de Redes Sociales</li>
+                    <li data-es="Creación de contenido original multilingüe" data-en="Original multilingual content creation">Creación de contenido original multilingüe</li>
+                    <li data-es="Diseño gráfico para todas las publicaciones" data-en="Graphic design for all posts">Diseño gráfico para todas las publicaciones</li>
+                    <li data-es="Estrategias de engagement y crecimiento" data-en="Engagement and growth strategies">Estrategias de engagement y crecimiento</li>
+                    <li data-es="Respuesta a comentarios y mensajes" data-en="Response to comments and messages">Respuesta a comentarios y mensajes</li>
+                    <li data-es="Reportes mensuales detallados" data-en="Detailed monthly reports">Reportes mensuales detallados</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3 data-es="Diseño & Branding" data-en="Design & Branding">Diseño & Branding</h3>
+                <ul>
+                    <li data-es="Diseño gráfico cohesivo para todas las plataformas" data-en="Cohesive graphic design for all platforms">Diseño gráfico cohesivo para todas las plataformas</li>
+                    <li data-es="Templates branded personalizados" data-en="Custom branded templates">Templates branded personalizados</li>
+                    <li data-es="Material promocional digital" data-en="Digital promotional material">Material promocional digital</li>
+                    <li data-es="Creación de identidades visuales completas" data-en="Complete visual identity creation">Creación de identidades visuales completas</li>
+                    <li data-es="Diseño de logotipos profesionales" data-en="Professional logo design">Diseño de logotipos profesionales</li>
+                    <li data-es="Adaptación visual para diferentes canales" data-en="Visual adaptation for different channels">Adaptación visual para diferentes canales</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3 data-es="Consultoría & Estrategia" data-en="Consulting & Strategy">Consultoría & Estrategia</h3>
+                <ul>
+                    <li data-es="Diagnóstico completo de estado actual" data-en="Complete current state diagnosis">Diagnóstico completo de estado actual</li>
+                    <li data-es="Auditorías de presencia digital" data-en="Digital presence audits">Auditorías de presencia digital</li>
+                    <li data-es="Estrategias personalizadas de crecimiento" data-en="Personalized growth strategies">Estrategias personalizadas de crecimiento</li>
+                    <li data-es="Consultoría en transformación digital" data-en="Digital transformation consulting">Consultoría en transformación digital</li>
+                    <li data-es="Optimización de procesos y automatización" data-en="Process optimization and automation">Optimización de procesos y automatización</li>
+                    <li data-es="Análisis de métricas y KPIs" data-en="Metrics and KPIs analysis">Análisis de métricas y KPIs</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💾</div>
+                <h3 data-es="Bases de Datos & Software" data-en="Databases & Software">Bases de Datos & Software</h3>
+                <ul>
+                    <li data-es="Diseño e implementación de bases de datos" data-en="Database design and implementation">Diseño e implementación de bases de datos</li>
+                    <li data-es="Optimización y administración SQL" data-en="SQL optimization and administration">Optimización y administración SQL</li>
+                    <li data-es="Desarrollo de software personalizado" data-en="Custom software development">Desarrollo de software personalizado</li>
+                    <li data-es="Sistemas de gestión empresarial" data-en="Business management systems">Sistemas de gestión empresarial</li>
+                    <li data-es="Migración y respaldo de datos" data-en="Data migration and backup">Migración y respaldo de datos</li>
+                    <li data-es="Integración de sistemas existentes" data-en="Existing systems integration">Integración de sistemas existentes</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3 data-es="Automatización & Eficiencia" data-en="Automation & Efficiency">Automatización & Eficiencia</h3>
+                <ul>
+                    <li data-es="Automatización de procesos repetitivos" data-en="Repetitive process automation">Automatización de procesos repetitivos</li>
+                    <li data-es="Chatbots inteligentes para atención al cliente" data-en="Intelligent chatbots for customer service">Chatbots inteligentes para atención al cliente</li>
+                    <li data-es="Scripts de automatización personalizados" data-en="Custom automation scripts">Scripts de automatización personalizados</li>
+                    <li data-es="Integración de herramientas empresariales" data-en="Business tools integration">Integración de herramientas empresariales</li>
+                    <li data-es="Optimización de workflows" data-en="Workflow optimization">Optimización de workflows</li>
+                    <li data-es="Reducción de tiempos operativos" data-en="Operational time reduction">Reducción de tiempos operativos</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+<!-- Projects Section -->
+<section id="proyectos">
+    <h2 data-es="Portafolio de Proyectos" data-en="Project Portfolio">Portafolio de Proyectos</h2>
+    <p style="text-align: center; color: var(--gris-claro); margin-bottom: 3rem;" data-es="Selección de proyectos en Desarrollo Web, Diseño Gráfico y Programación" data-en="Selection of projects in Web Development, Graphic Design and Programming">
+        Selección de proyectos en Desarrollo Web, Diseño Gráfico y Programación
+    </p>
+
+    <!-- Project Filter Buttons -->
+    <div class="project-filters fade-in" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
+        <button class="filter-btn active" onclick="filterProjects('all')" data-es="Todos" data-en="All">Todos</button>
+        <button class="filter-btn" onclick="filterProjects('web')" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</button>
+        <button class="filter-btn" onclick="filterProjects('design')" data-es="Diseño Gráfico" data-en="Graphic Design">Diseño Gráfico</button>
+        <button class="filter-btn" onclick="filterProjects('programming')" data-es="Programación" data-en="Programming">Programación</button>
+    </div>
+
+    <div class="projects-grid fade-in">
+        <!-- WEB DEVELOPMENT PROJECTS -->
+        <div class="project-card" data-category="web">
+            <div class="project-image has-media">
+                <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                <img src="images/projects/crm-system.jpg" alt="Sistema CRM">
+                <!-- O usa video: -->
+                <!-- <video src="images/projects/crm-demo.mp4" autoplay loop muted playsinline></video> -->
+            </div>
+            <div class="project-info">
+                <h3 data-es="Sistema CRM Empresarial" data-en="Enterprise CRM System">Sistema CRM Empresarial</h3>
+                <p data-es="Desarrollo de sistema de gestión de clientes personalizado con .NET Core y SQL Server. Incluye módulos de seguimiento, reportes avanzados y automatización de procesos." data-en="Custom client management system development with .NET Core and SQL Server. Includes tracking modules, advanced reporting and process automation.">
+                    Desarrollo de sistema de gestión de clientes personalizado con .NET Core y SQL Server. Incluye módulos de seguimiento, reportes avanzados y automatización de procesos.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">.NET Core</span>
+                    <span class="tech-badge">SQL Server</span>
+                    <span class="tech-badge">ASP.NET</span>
+                    <span class="tech-badge">API REST</span>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="projects/crm-system.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="web">
+            <div class="project-image has-media">
+                <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                <img src="images/projects/chatbot.jpg" alt="Chatbot WhatsApp">
+            </div>
+            <div class="project-info">
+                <h3 data-es="Chatbot WhatsApp Business" data-en="WhatsApp Business Chatbot">Chatbot WhatsApp Business</h3>
+                <p data-es="Implementación de chatbot inteligente para atención al cliente 24/7 con integración WhatsApp Business API. Automatización de respuestas y gestión de consultas frecuentes." data-en="Implementation of intelligent chatbot for 24/7 customer service with WhatsApp Business API integration. Response automation and FAQ management.">
+                    Implementación de chatbot inteligente para atención al cliente 24/7 con integración WhatsApp Business API. Automatización de respuestas y gestión de consultas frecuentes.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">WhatsApp API</span>
+                    <span class="tech-badge">AI/NLP</span>
+                    <span class="tech-badge">Automation</span>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="projects/chatbot-whatsapp.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="web">
+            <div class="project-image has-media">
+                <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                <img src="images/projects/website.jpg" alt="Sitio Web Corporativo">
+            </div>
+            <div class="project-info">
+                <h3 data-es="Sitios Web Corporativos Multi-idioma" data-en="Multi-language Corporate Websites">Sitios Web Corporativos Multi-idioma</h3>
+                <p data-es="Desarrollo de sitios web responsivos en WordPress y desarrollo custom con soporte para múltiples idiomas (ES/EN/FR). Optimización SEO e integración con redes sociales." data-en="Development of responsive websites in WordPress and custom development with support for multiple languages (ES/EN/FR). SEO optimization and social media integration.">
+                    Desarrollo de sitios web responsivos en WordPress y desarrollo custom con soporte para múltiples idiomas (ES/EN/FR). Optimización SEO e integración con redes sociales.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">WordPress</span>
+                    <span class="tech-badge">PHP</span>
+                    <span class="tech-badge">HTML/CSS</span>
+                    <span class="tech-badge">SEO</span>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="projects/corporate-websites.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="web">
+            <div class="project-image has-media">
+                <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                <img src="images/projects/dashboard.jpg" alt="Dashboard Analytics">
+            </div>
+            <div class="project-info">
+                <h3 data-es="Dashboard Analytics Interactivo" data-en="Interactive Analytics Dashboard">Dashboard Analytics Interactivo</h3>
+                <p data-es="Desarrollo de dashboard web con Angular para visualización de métricas en tiempo real. Integración con Google Analytics y bases de datos SQL." data-en="Web dashboard development with Angular for real-time metrics visualization. Integration with Google Analytics and SQL databases.">
+                    Desarrollo de dashboard web con Angular para visualización de métricas en tiempo real. Integración con Google Analytics y bases de datos SQL.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">Angular</span>
+                    <span class="tech-badge">TypeScript</span>
+                    <span class="tech-badge">SQL</span>
+                    <span class="tech-badge">Charts.js</span>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="projects/dashboard-analytics.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRAPHIC DESIGN PROJECTS -->
+        <!-- PROYECTO ZOHAR - ACTUALIZADO -->
+        <div class="project-card" data-category="design">
+            <div class="project-image has-media">
+                <img src="Zohar/4x/Logo.png" alt="Zohar Brand Identity">
+            </div>
+            <div class="project-info">
+                <h3 data-es="Zohar - Identidad de Marca de Lujo" data-en="Zohar - Luxury Brand Identity">Zohar - Identidad de Marca de Lujo</h3>
+                <p data-es="Desarrollo completo de identidad visual para marca de joyería de lujo. Incluye diseño de logo, paleta de colores, tipografía, manual de marca de 40+ páginas, aplicaciones en packaging, papelería y estrategia digital completa." data-en="Complete visual identity development for luxury jewelry brand. Includes logo design, color palette, typography, 40+ page brand manual, packaging applications, stationery and complete digital strategy.">
+                    Desarrollo completo de identidad visual para marca de joyería de lujo. Incluye diseño de logo, paleta de colores, tipografía, manual de marca de 40+ páginas, aplicaciones en packaging, papelería y estrategia digital completa.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">Adobe Illustrator</span>
+                    <span class="tech-badge">Branding</span>
+                    <span class="tech-badge">Manual de Marca</span>
+                    <span class="tech-badge">Luxury Design</span>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="projects/Zohar.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="design">
+            <div class="project-image has-media">
+                <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                <img src="images/projects/social-media.jpg" alt="Contenido Redes Sociales">
+            </div>
+            <div class="project-info">
+                <h3 data-es="Diseño de Contenido para Redes Sociales" data-en="Social Media Content Design">Diseño de Contenido para Redes Sociales</h3>
+                <p data-es="Creación de contenido visual para campañas en Instagram, Facebook y LinkedIn. Diseño de posts, stories, carruseles y material promocional coherente con identidad de marca." data-en="Visual content creation for campaigns on Instagram, Facebook and LinkedIn. Design of posts, stories, carousels and promotional material consistent with brand identity.">
+                    Creación de contenido visual para campañas en Instagram, Facebook y LinkedIn. Diseño de posts, stories, carruseles y material promocional coherente con identidad de marca.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">Canva</span>
+                    <span class="tech-badge">Adobe Illustrator</span>
+                    <span class="tech-badge">Social Media</span>
+                    <span class="tech-badge">Visual Marketing</span>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="projects/social-media-design.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="design">
+            <div class="project-image has-media">
+                <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                <img src="images/projects/ads-campaign.jpg" alt="Campañas Publicitarias">
+            </div>
+            <div class="project-info">
+                <h3 data-es="Campañas Publicitarias Digitales" data-en="Digital Advertising Campaigns">Campañas Publicitarias Digitales</h3>
+                <p data-es="Diseño y producción de material publicitario digital para Google Ads, Facebook Ads y email marketing. Banners, infografías, presentaciones y assets visuales optimizados para conversión." data-en="Design and production of digital advertising material for Google Ads, Facebook Ads and email marketing. Banners, infographics, presentations and visual assets optimized for conversion.">
+                    Diseño y producción de material publicitario digital para Google Ads, Facebook Ads y email marketing. Banners, infografías, presentaciones y assets visuales optimizados para conversión.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">Figma</span>
+                    <span class="tech-badge">Canva</span>
+                    <span class="tech-badge">Digital Ads</span>
+                    <span class="tech-badge">Conversion Design</span>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="projects/digital-campaigns.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="design">
+            <div class="project-image has-media">
+                <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                <img src="images/projects/ui-ux.jpg" alt="UI/UX Design">
+            </div>
+            <div class="project-info">
+                <h3 data-es="UI/UX Design para Aplicaciones Web" data-en="UI/UX Design for Web Applications">UI/UX Design para Aplicaciones Web</h3>
+                <p data-es="Diseño de interfaces de usuario modernas y wireframes para aplicaciones web. Prototipos interactivos, sistemas de diseño escalables y componentes reutilizables." data-en="Modern user interface design and wireframes for web applications. Interactive prototypes, scalable design systems and reusable components.">
+                    Diseño de interfaces de usuario modernas y wireframes para aplicaciones web. Prototipos interactivos, sistemas de diseño escalables y componentes reutilizables.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">Figma</span>
+                    <span class="tech-badge">UI/UX</span>
+                    <span class="tech-badge">Prototyping</span>
+                    <span class="tech-badge">User Research</span>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="projects/ui-ux-design.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROGRAMMING PROJECTS -->
+        <div class="project-card" data-category="programming">
+            <div class="project-image">🌾</div>
+            <div class="project-info">
+                <h3 data-es="Smart Agriculture" data-en="Smart Agriculture">Smart Agriculture</h3>
+                <p data-es="Sistema de agricultura inteligente y agricultura de precisión. Integra monitoreo de sensores ambientales, control automatizado de riego basado en datos meteorológicos, detección de enfermedades en plantas e integración con drones." data-en="Smart agriculture and precision farming system. Integrates environmental sensor monitoring, automated irrigation control based on weather data, plant disease detection and drone integration.">
+                    Sistema de agricultura inteligente y agricultura de precisión. Integra monitoreo de sensores ambientales, control automatizado de riego basado en datos meteorológicos, detección de enfermedades en plantas e integración con drones.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">TypeScript</span>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">Sensors</span>
+                    <span class="tech-badge">IoT</span>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="https://github.com/SaharLambton/Smart-Agriculture" target="_blank" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="programming">
+            <div class="project-image">📚</div>
+            <div class="project-info">
+                <h3 data-es="Bookstore - Gestión de Biblioteca" data-en="Bookstore - Library Management">Bookstore - Gestión de Biblioteca</h3>
+                <p data-es="Sistema de gestión de biblioteca desarrollado con TypeScript y Jest. Permite gestionar libros y clientes, realizar préstamos y devoluciones con validación de disponibilidad. Incluye pruebas unitarias completas." data-en="Library management system developed with TypeScript and Jest. Allows management of books and customers, borrowing and returns with availability validation. Includes comprehensive unit testing.">
+                    Sistema de gestión de biblioteca desarrollado con TypeScript y Jest. Permite gestionar libros y clientes, realizar préstamos y devoluciones con validación de disponibilidad. Incluye pruebas unitarias completas.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">TypeScript</span>
+                    <span class="tech-badge">Jest</span>
+                    <span class="tech-badge">OOP</span>
+                    <span class="tech-badge">Unit Testing</span>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="https://github.com/SaharLambton/Assigment3" target="_blank" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="programming">
+            <div class="project-image">⚙️</div>
+            <div class="project-info">
+                <h3 data-es="Jest CI con GitHub Actions" data-en="Jest CI with GitHub Actions">Jest CI con GitHub Actions</h3>
+                <p data-es="Implementación de Integración Continua (CI) para proyecto JavaScript usando Jest para testing y GitHub Actions para workflows automatizados. Configuración completa de pipeline que ejecuta pruebas automáticamente en cada push." data-en="Continuous Integration (CI) implementation for JavaScript project using Jest for testing and GitHub Actions for automated workflows. Complete pipeline setup that automatically runs tests on every push.">
+                    Implementación de Integración Continua (CI) para proyecto JavaScript usando Jest para testing y GitHub Actions para workflows automatizados. Configuración completa de pipeline que ejecuta pruebas automáticamente en cada push.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">Jest</span>
+                    <span class="tech-badge">GitHub Actions</span>
+                    <span class="tech-badge">CI/CD</span>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="https://github.com/SaharLambton/Assigment4" target="_blank" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="programming">
+            <div class="project-image">💻</div>
+            <div class="project-info">
+                <h3 data-es="Assignment 1 - TypeScript" data-en="Assignment 1 - TypeScript">Assignment 1 - TypeScript</h3>
+                <p data-es="Proyecto académico desarrollado en TypeScript enfocado en fundamentos de programación orientada a objetos, manejo de tipos y estructuras de datos. Implementa conceptos avanzados de TypeScript y buenas prácticas de desarrollo." data-en="Academic project developed in TypeScript focused on object-oriented programming fundamentals, type handling and data structures. Implements advanced TypeScript concepts and development best practices.">
+                    Proyecto académico desarrollado en TypeScript enfocado en fundamentos de programación orientada a objetos, manejo de tipos y estructuras de datos. Implementa conceptos avanzados de TypeScript y buenas prácticas de desarrollo.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">TypeScript</span>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">OOP</span>
+                    <span class="tech-badge">Best Practices</span>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="https://github.com/SaharLambton/Assigment1" target="_blank" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contacto">
+        <h2 data-es="Contacto" data-en="Contact">Contacto</h2>
+        <div class="contact-info fade-in" style="max-width: 800px; margin: 0 auto;">
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div>
+                    <h3>Email</h3>
+                    <a href="mailto:sahargabriela9@gmail.com">sahargabriela9@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">📱</div>
+                <div>
+                    <h3 data-es="Teléfono" data-en="Phone">Teléfono</h3>
+                    <a href="tel:+573204499948">+57 (320) 449 9948</a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">💼</div>
+                <div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/sahar-gabriela-chain-mayorga-b76433289" target="_blank">linkedin.com/in/sahar-gabriela-chain-mayorga</a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">💻</div>
+                <div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/SaharLambton" target="_blank">github.com/SaharLambton</a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                    <h3 data-es="Ubicación" data-en="Location">Ubicación</h3>
+                    <p style="color: var(--gris-claro);">Bogotá, Colombia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Sahar Gabriela Chain Mayorga. <span data-es="Todos los derechos reservados" data-en="All rights reserved">Todos los derechos reservados</span>.</p>
+    </footer>
+
+    <script>
+        let currentLang = 'es';
+
+        // Language switcher
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            document.querySelectorAll('[data-es][data-en]').forEach(el => {
+                const text = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+        }
+
+        // Create animated background particles
+        function createParticles() {
+            const bg = document.getElementById('animatedBg');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 4 + 1;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 10 + 5;
+                const delay = Math.random() * 5;
+                
+                const colors = ['rgba(16, 185, 129, 0.3)', 'rgba(220, 38, 38, 0.3)', 'rgba(255, 255, 255, 0.2)'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}%;
+                    top: ${y}%;
+                    background: ${color};
+                    animation: float ${duration}s ease-in-out ${delay}s infinite;
+                `;
+                
+                bg.appendChild(particle);
+            }
+        }
+
+        // Intersection Observer for scroll animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all h2 elements
+            document.querySelectorAll('h2').forEach(h2 => {
+                observer.observe(h2);
+            });
+
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(10, 10, 10, 0.98)';
+                nav.style.boxShadow = '0 5px 20px rgba(16, 185, 129, 0.1)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 10, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Mouse parallax effect on hero section
+        document.querySelector('.hero').addEventListener('mousemove', (e) => {
+            const hero = e.currentTarget;
+            const rect = hero.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            
+            const heroBg = hero.querySelector('.hero-bg');
+            heroBg.style.transform = `translate(${x * 20}px, ${y * 20}px)`;
+        });
+
+        // Add stagger animation to skill tags
+        document.querySelectorAll('.skill-category').forEach(category => {
+            const tags = category.querySelectorAll('.skill-tag');
+            tags.forEach((tag, index) => {
+                tag.style.animationDelay = `${index * 0.05}s`;
+            });
+        });
+
+        // Initialize everything when page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            initScrollAnimations();
+            
+            // Add a slight delay to initial animations
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Project filtering function
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter cards with animation
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Add cursor trail effect (optional, subtle)
+        let cursorTrail = [];
+        document.addEventListener('mousemove', (e) => {
+            if (cursorTrail.length > 5) {
+                const old = cursorTrail.shift();
+                if (old && old.parentNode) {
+                    old.parentNode.removeChild(old);
+                }
+            }
+            
+            const dot = document.createElement('div');
+            dot.style.cssText = `
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: rgba(16, 185, 129, 0.5);
+                border-radius: 50%;
+                pointer-events: none;
+                left: ${e.clientX}px;
+                top: ${e.clientY}px;
+                z-index: 9999;
+                animation: fadeOut 0.5s ease-out forwards;
+            `;
+            
+            document.body.appendChild(dot);
+            cursorTrail.push(dot);
+        });
+
+        // Add fadeOut animation for cursor trail
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                to {
+                    opacity: 0;
+                    transform: scale(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
