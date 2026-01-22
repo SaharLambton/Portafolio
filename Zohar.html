@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zohar - Identidad de Marca Completa | Sahar Chain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --negro: #0a0a0a;
+            --verde: #10b981;
+            --rojo: #dc2626;
+            --gris: #1f1f1f;
+            --gris-claro: #a3a3a3;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--negro);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--rojo);
+            text-decoration: none;
+            margin: 2rem 0;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            gap: 0.8rem;
+            text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .project-header .subtitle {
+            font-size: 1.3rem;
+            color: var(--gris-claro);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .category-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .category-badge {
+            background: rgba(220, 38, 38, 0.2);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid var(--rojo);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .category-badge:hover {
+            background: var(--rojo);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            margin: 4rem 0;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: var(--rojo);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--rojo), var(--verde));
+        }
+
+        .section p {
+            color: var(--gris-claro);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            background: var(--gris);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--rojo);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .gallery-item .caption {
+            padding: 1.5rem;
+        }
+
+        .gallery-item .caption h3 {
+            color: var(--rojo);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .gallery-item .caption p {
+            color: var(--gris-claro);
+            font-size: 0.95rem;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #0A0D1B, #171A32);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            opacity: 0.5;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: var(--gris);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            border-color: var(--rojo);
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: var(--rojo);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .deliverables-list {
+            background: var(--gris);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--rojo);
+        }
+
+        .deliverables-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .deliverables-list li {
+            color: var(--gris-claro);
+            padding: 0.8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            border-bottom: 1px solid rgba(220, 38, 38, 0.1);
+        }
+
+        .deliverables-list li:last-child {
+            border-bottom: none;
+        }
+
+        .deliverables-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--rojo);
+            font-weight: bold;
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .color-box {
+            text-align: center;
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 120px;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .highlight-box {
+            background: rgba(220, 38, 38, 0.1);
+            border-left: 4px solid var(--rojo);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--rojo);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 5rem 0;
+            padding: 3rem;
+            background: var(--gris);
+            border-radius: 20px;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../prueba portafolio.html#proyectos" class="back-button">← Volver al Portafolio</a>
+
+        <div class="project-header">
+            <!-- IMAGEN PRINCIPAL DEL PROYECTO -->
+            <div style="margin-bottom: 2rem;">
+                <img src="../Zohar/4x/Logo.png" alt="Zohar Brand" style="max-width: 600px; width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 40px rgba(220, 38, 38, 0.3);">
+            </div>
+            <p class="subtitle">Diseño integral de marca de joyería de lujo: del concepto a la implementación visual completa</p>
+            <div class="category-badges">
+                <span class="category-badge">Branding Completo</span>
+                <span class="category-badge">Diseño de Logo</span>
+                <span class="category-badge">Manual de Marca</span>
+                <span class="category-badge">Aplicaciones</span>
+                <span class="category-badge">Estrategia Digital</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📋 Descripción del Proyecto</h2>
+            <p>
+                Desarrollo completo de identidad visual para Zohar, una marca de joyería de lujo que busca trascender lo convencional para ofrecer experiencias auténticas y exclusivas. El proyecto abarcó desde la conceptualización del nombre y filosofía de marca hasta la creación de todos los elementos visuales y estrategia de comunicación.
+            </p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🎯 Cliente</h3>
+                <p>Marca de joyería de lujo enfocada en piezas exclusivas y personalizadas para un público sofisticado.</p>
+            </div>
+            <div class="info-card">
+                <h3>⏱️ Duración</h3>
+                <p>6 semanas de desarrollo completo, desde investigación hasta entrega de manual de marca.</p>
+            </div>
+            <div class="info-card">
+                <h3>👥 Mi Rol</h3>
+                <p>Diseñadora de marca - Concepto completo, identidad visual, manual de marca y estrategia digital.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎨 Concepto de Marca</h2>
+            <div class="highlight-box">
+                <h3>Significado: "Zohar" - Esplendor</h3>
+                <p style="font-style: italic; font-size: 1.15rem; color: #fff;">
+                    "Conectamos emociones, creamos relaciones. Tu lujo, tu historia. Descubre la autenticidad en cada joya."
+                </p>
+            </div>
+            <p>
+                El logo de Zohar encapsula la esencia del "esplendor" a través de un diseño minimalista y elegante. En un fondo profundo de azul, reminiscente del océano en su estado más sereno, se encuentran suaves olas del mar, aportando una sensación de movimiento y fluidez.
+            </p>
+            <p>
+                El nombre "Zohar", escrito en una tipografía estilizada y elegante, resplandece en un plateado brillante. Las letras, aunque algo cuadradas, incorporan suavemente curvas que evocan tanto la elegancia como las ondas del mar.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>🖼️ Logo y Variaciones</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <!-- REEMPLAZA CON TUS IMÁGENES -->
+                    <img src="../images/projects/zohar/logo-principal.png" alt="Logo Principal Zohar">
+                    <!-- O usa placeholder: -->
+                    <!-- <div class="image-placeholder">💎</div> -->
+                    <div class="caption">
+                        <h3>Logo Principal</h3>
+                        <p>Versión plateada sobre fondo oscuro azul profundo (#0A0D1B)</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/projects/zohar/logo-alternativo.png" alt="Logo Alternativo Zohar">
+                    <!-- <div class="image-placeholder">💎</div> -->
+                    <div class="caption">
+                        <h3>Logo Alternativo</h3>
+                        <p>Versión azul oscuro sobre fondo claro para aplicaciones especiales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎨 Paleta de Colores</h2>
+            <div class="color-palette">
+                <div class="color-box">
+                    <div class="color-swatch" style="background: #0A0D1B; color: #fff;">
+                        AZUL OSCURO
+                    </div>
+                    <p style="color: var(--gris-claro); font-size: 0.9rem; margin-top: 0.5rem;">#0A0D1B</p>
+                    <p style="color: var(--gris-claro); font-size: 0.85rem;">RGB: 10, 13, 27</p>
+                </div>
+                <div class="color-box">
+                    <div class="color-swatch" style="background: #171A32; color: #fff;">
+                        BLUE
+                    </div>
+                    <p style="color: var(--gris-claro); font-size: 0.9rem; margin-top: 0.5rem;">#171A32</p>
+                    <p style="color: var(--gris-claro); font-size: 0.85rem;">RGB: 23, 26, 50</p>
+                </div>
+                <div class="color-box">
+                    <div class="color-swatch" style="background: #C0C0C0; color: #000;">
+                        PLATA
+                    </div>
+                    <p style="color: var(--gris-claro); font-size: 0.9rem; margin-top: 0.5rem;">#C0C0C0</p>
+                    <p style="color: var(--gris-claro); font-size: 0.85rem;">RGB: 192, 192, 192</p>
+                </div>
+                <div class="color-box">
+                    <div class="color-swatch" style="background: #6D6D6C; color: #fff;">
+                        GRIS CLARO
+                    </div>
+                    <p style="color: var(--gris-claro); font-size: 0.9rem; margin-top: 0.5rem;">#6D6D6C</p>
+                    <p style="color: var(--gris-claro); font-size: 0.85rem;">RGB: 109, 109, 108</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🖼️ Aplicaciones de Marca</h2>
+            <p style="margin-bottom: 2rem;">La identidad visual se extiende a través de múltiples puntos de contacto, creando una experiencia de marca cohesiva y memorable.</p>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="../images/projects/zohar/packaging.png" alt="Packaging Zohar">
+                    <!-- <div class="image-placeholder">📦</div> -->
+                    <div class="caption">
+                        <h3>Packaging de Lujo</h3>
+                        <p>Cajas personalizadas con elementos visuales de marca</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/projects/zohar/papeleria.png" alt="Papelería Corporativa">
+                    <!-- <div class="image-placeholder">✏️</div> -->
+                    <div class="caption">
+                        <h3>Papelería Corporativa</h3>
+                        <p>Tarjetas de presentación, sobres y material de marca</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/projects/zohar/bolsas.png" alt="Shopping Bags">
+                    <!-- <div class="image-placeholder">🛍️</div> -->
+                    <div class="caption">
+                        <h3>Shopping Bags</h3>
+                        <p>Bolsas de compra elegantes con identidad de marca</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/projects/zohar/senaletica.png" alt="Señalética">
+                    <!-- <div class="image-placeholder">🏢</div> -->
+                    <div class="caption">
+                        <h3>Señalética de Tienda</h3>
+                        <p>Aplicación del logo en espacios comerciales</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/projects/zohar/redes-sociales.png" alt="Redes Sociales">
+                    <!-- <div class="image-placeholder">📱</div> -->
+                    <div class="caption">
+                        <h3>Templates Redes Sociales</h3>
+                        <p>Diseños para Instagram, Facebook y Pinterest</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/projects/zohar/manual-marca.png" alt="Manual de Marca">
+                    <!-- <div class="image-placeholder">📖</div> -->
+                    <div class="caption">
+                        <h3>Manual de Marca</h3>
+                        <p>Guía completa de uso de identidad visual</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Estrategia de Marca</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Misión</h3>
+                    <p>Trascender la joyería convencional para ofrecer experiencias auténticas y exclusivas que cuenten historias, conecten emociones y fortalezcan relaciones.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Visión</h3>
+                    <p>Convertirnos en un referente mundial de la joyería de lujo, reconocidos por la conexión genuina con cada cliente y el esplendor de cada pieza.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>👥 Público Objetivo</h2>
+            <div class="deliverables-list">
+                <ul>
+                    <li><strong>Jóvenes Profesionales en Ascenso:</strong> Individuos exitosos que buscan expresar su éxito de manera única</li>
+                    <li><strong>Amantes de la Moda y el Estilo:</strong> Personas con gusto refinado que buscan joyas que realcen su estilo personal</li>
+                    <li><strong>Clientes Experimentados:</strong> Conocedores del lujo que buscan autenticidad y conexión emocional</li>
+                    <li><strong>Regaladores Conscientes:</strong> Personas que buscan regalos significativos y personalizados</li>
+                    <li><strong>Seguidores de Tendencias:</strong> Individuos que desean piezas a la vanguardia del estilo</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✨ Tipografía</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Cinzel Medium</h3>
+                    <p style="font-family: 'Georgia', serif; font-size: 1.3rem; color: #fff; margin: 1rem 0;">ZOHAR</p>
+                    <p>Tipografía principal para títulos y logo. Elegante y con carácter distintivo.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Montserrat Regular</h3>
+                    <p style="font-size: 1.2rem; color: #fff; margin: 1rem 0;">Zohar Jewelry</p>
+                    <p>Tipografía secundaria para textos y cuerpos. Moderna y legible.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📱 Estrategia Digital</h2>
+            <div class="deliverables-list">
+                <ul>
+                    <li><strong>Instagram y Facebook:</strong> Plataformas principales con enfoque en contenido visual de alta calidad</li>
+                    <li><strong>Contenido de Usuarios:</strong> Compartir experiencias reales con hashtag de marca</li>
+                    <li><strong>Historias Cautivadoras:</strong> Proceso de creación y artesanía detrás de cada pieza</li>
+                    <li><strong>Publicidad Segmentada:</strong> Anuncios dirigidos a amantes del lujo y estilo exclusivo</li>
+                    <li><strong>KPIs:</strong> Ventas, interacción en redes sociales, satisfacción del cliente</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📦 Entregables del Proyecto</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Archivos de Logo</h3>
+                    <p>AI, EPS, SVG, PNG en todas las variantes de color y fondos</p>
+                </div>
+                <div class="info-card">
+                    <h3>Manual de Marca</h3>
+                    <p>PDF de 40+ páginas con guía completa de uso y aplicaciones</p>
+                </div>
+                <div class="info-card">
+                    <h3>Mockups</h3>
+                    <p>Aplicaciones en packaging, papelería, señalética y digital</p>
+                </div>
+                <div class="info-card">
+                    <h3>Templates Digitales</h3>
+                    <p>Diseños para redes sociales, web y material promocional</p>
+                </div>
+                <div class="info-card">
+                    <h3>Paleta de Colores</h3>
+                    <p>Especificaciones técnicas en HEX, RGB, CMYK y Pantone</p>
+                </div>
+                <div class="info-card">
+                    <h3>Guías de Tipografía</h3>
+                    <p>Especificaciones de uso y jerarquía tipográfica</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Resultados e Impacto</h2>
+            <div class="highlight-box">
+                <p>✓ Identidad visual completa y cohesiva que refleja lujo y autenticidad</p>
+                <p>✓ Manual de marca profesional de 40+ páginas para guiar todas las aplicaciones</p>
+                <p>✓ Sistema visual flexible que funciona en múltiples medios y formatos</p>
+                <p>✓ Estrategia de comunicación clara enfocada en público objetivo definido</p>
+                <p>✓ Diferenciación clara en el mercado de joyería de lujo</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Herramientas Utilizadas</h2>
+            <p><strong>Diseño Principal:</strong> Adobe Illustrator para creación vectorial del logo y elementos gráficos</p>
+            <p><strong>Maquetación:</strong> Adobe InDesign para manual de marca completo</p>
+            <p><strong>Mockups:</strong> Photoshop y Figma para visualización de aplicaciones</p>
+            <p><strong>Tipografías:</strong> Google Fonts (Cinzel y Montserrat)</p>
+            <p><strong>Presentación:</strong> HTML/CSS para brand guide interactivo</p>
+        </div>
+
+        <div class="cta-section">
+            <h2 style="color: #fff; margin-bottom: 1rem;">¿Necesitas una identidad de marca de lujo?</h2>
+            <p style="color: var(--gris-claro); margin-bottom: 2rem;">Puedo ayudarte a crear una marca memorable, elegante y profesional como Zohar</p>
+            <a href="../prueba portafolio.html#contacto" class="cta-button">Contáctame</a>
+            <a href="../prueba portafolio.html#proyectos" class="cta-button" style="background: var(--gris); border: 1px solid var(--rojo);">Ver más proyectos</a>
+        </div>
+    </div>
+</body>
+</html>
