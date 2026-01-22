@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Services and Graphic Products - Sahar Chain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --negro: #0a0a0a;
+            --verde: #10b981;
+            --rojo: #dc2626;
+            --gris: #1f1f1f;
+            --gris-claro: #a3a3a3;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--negro);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--verde);
+            text-decoration: none;
+            margin: 2rem 0;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            gap: 0.8rem;
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .project-header .subtitle {
+            font-size: 1.3rem;
+            color: var(--gris-claro);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .tech-badge {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid var(--verde);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .tech-badge:hover {
+            background: var(--verde);
+            color: var(--negro);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            margin: 4rem 0;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: var(--verde);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--verde), var(--rojo));
+        }
+
+        .section p, .section ul {
+            color: var(--gris-claro);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--verde);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            background: var(--gris);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--verde);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-item .caption {
+            padding: 1rem;
+            text-align: center;
+            color: var(--gris-claro);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: var(--gris);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            border-color: var(--verde);
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: var(--verde);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 5rem 0;
+            padding: 3rem;
+            background: var(--gris);
+            border-radius: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../prueba portafolio.html#proyectos" class="back-button">← Volver al Portafolio</a>
+
+        <div class="project-header">
+            <h1>Sell Services and Graphic Products</h1>
+            <p class="subtitle">Plataforma e-commerce completa para venta de servicios y productos gráficos con sistema de seguridad multinivel</p>
+            <div class="tech-stack">
+                <span class="tech-badge">PHP</span>
+                <span class="tech-badge">MySQL</span>
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS3</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">jQuery</span>
+                <span class="tech-badge">E-commerce</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📋 Resumen del Proyecto</h2>
+            <p>
+                Proyecto académico desarrollado en Lambton College que consiste en una plataforma e-commerce completa especializada en la venta de servicios y productos gráficos personalizados. El sistema integra funcionalidades avanzadas de comercio electrónico con un robusto sistema de seguridad que implementa encriptación multinivel para proteger la información de usuarios y transacciones.
+            </p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🎯 Objetivo</h3>
+                <p>Crear una plataforma segura y funcional para la comercialización de productos y servicios gráficos, facilitando la conexión entre diseñadores y clientes.</p>
+            </div>
+            <div class="info-card">
+                <h3>⏱️ Duración</h3>
+                <p>1 mes de desarrollo completo, incluyendo diseño, implementación, pruebas de seguridad y optimización.</p>
+            </div>
+            <div class="info-card">
+                <h3>💥 Rol</h3>
+                <p>Desarrolladora Full Stack - Diseño de arquitectura, desarrollo backend PHP, frontend interactivo y base de datos MySQL.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✨ Características Principales</h2>
+            <ul>
+                <li>Sistema de registro y autenticación de usuarios con encriptación multinivel</li>
+                <li>Catálogo dinámico de productos y servicios gráficos personalizables</li>
+                <li>Carrito de compras interactivo con actualización en tiempo real</li>
+                <li>Pasarela de pagos integrada con procesamiento seguro de transacciones</li>
+                <li>Panel de administración para gestión de productos, pedidos y usuarios</li>
+                <li>Sistema de ofertas y descuentos con temporizador countdown</li>
+                <li>Popup promocional dinámico al ingresar al sitio</li>
+                <li>Diseño responsive adaptable a todos los dispositivos</li>
+                <li>Galería visual de productos (camisetas, cuadernos, termos personalizados)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🖼️ Capturas del Sistema</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="image-placeholder">🏠</div>
+                    <div class="caption">Página Principal</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">🔐</div>
+                    <div class="caption">Sistema de Login/Registro</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">🛍️</div>
+                    <div class="caption">Catálogo de Productos</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">🛒</div>
+                    <div class="caption">Carrito de Compras</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">💳</div>
+                    <div class="caption">Pasarela de Pagos</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">⚙️</div>
+                    <div class="caption">Panel de Administración</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Tecnologías Utilizadas</h2>
+            <p><strong>Backend:</strong> PHP 7.4+, manejo de sesiones, validación de datos del lado del servidor</p>
+            <p><strong>Base de Datos:</strong> MySQL con consultas preparadas para prevenir SQL Injection</p>
+            <p><strong>Frontend:</strong> HTML5, CSS3 con diseño responsive, JavaScript ES6+ y jQuery</p>
+            <p><strong>Seguridad:</strong> Encriptación multinivel de contraseñas (bcrypt/password_hash), HTTPS, validación de entradas, protección CSRF</p>
+            <p><strong>Funcionalidades:</strong> Sistema de sesiones PHP, cookies seguras, AJAX para interacciones dinámicas</p>
+        </div>
+
+        <div class="section">
+            <h2>🔒 Arquitectura de Seguridad</h2>
+            <ul>
+                <li>Encriptación de contraseñas con algoritmo bcrypt (múltiples rondas de hash)</li>
+                <li>Validación de datos tanto en frontend como backend</li>
+                <li>Consultas preparadas (Prepared Statements) para prevenir SQL Injection</li>
+                <li>Protección contra Cross-Site Scripting (XSS)</li>
+                <li>Tokens CSRF para formularios críticos</li>
+                <li>Gestión segura de sesiones con regeneración de ID</li>
+                <li>Encriptación de datos sensibles en la base de datos</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>💡 Desafíos y Soluciones</h2>
+            <p><strong>Desafío:</strong> Implementar un sistema de seguridad robusto que proteja tanto datos de usuarios como transacciones</p>
+            <p><strong>Solución:</strong> Desarrollo de arquitectura de seguridad multinivel con encriptación de contraseñas, validación estricta de inputs, y uso de prepared statements en todas las consultas SQL.</p>
+            <br>
+            <p><strong>Desafío:</strong> Crear una experiencia de compra fluida y dinámica sin recargas de página</p>
+            <p><strong>Solución:</strong> Implementación de AJAX con jQuery para actualizar el carrito y procesar acciones en tiempo real, mejorando significativamente la experiencia de usuario.</p>
+        </div>
+
+        <div class="section">
+            <h2>📊 Funcionalidades del Sistema</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Para Clientes</h3>
+                    <p>Navegación intuitiva del catálogo, carrito de compras persistente, seguimiento de pedidos, gestión de perfil personal y acceso a ofertas especiales.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Para Administradores</h3>
+                    <p>Panel de control completo, gestión de inventario, procesamiento de pedidos, administración de usuarios y configuración de promociones.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Procesamiento de Pagos</h3>
+                    <p>Integración con pasarela de pagos segura, múltiples métodos de pago, confirmación automática y generación de comprobantes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2 style="color: #fff; margin-bottom: 1rem;">¿Interesado en un proyecto similar?</h2>
+            <p style="color: var(--gris-claro); margin-bottom: 2rem;">Puedo desarrollar plataformas e-commerce seguras y personalizadas</p>
+            <a href="../prueba portafolio.html#contacto" class="cta-button">Contáctame</a>
+            <a href="../prueba portafolio.html#proyectos" class="cta-button" style="background: var(--gris); border: 1px solid var(--verde);">Ver más proyectos</a>
+        </div>
+    </div>
+</body>
+</html>
