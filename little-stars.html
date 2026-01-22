@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Stars - Sahar Chain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --negro: #0a0a0a;
+            --verde: #10b981;
+            --rojo: #dc2626;
+            --gris: #1f1f1f;
+            --gris-claro: #a3a3a3;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--negro);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--verde);
+            text-decoration: none;
+            margin: 2rem 0;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            gap: 0.8rem;
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .project-header .subtitle {
+            font-size: 1.3rem;
+            color: var(--gris-claro);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .tech-badge {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid var(--verde);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .tech-badge:hover {
+            background: var(--verde);
+            color: var(--negro);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            margin: 4rem 0;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: var(--verde);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--verde), var(--rojo));
+        }
+
+        .section p, .section ul {
+            color: var(--gris-claro);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--verde);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            background: var(--gris);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--verde);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-item .caption {
+            padding: 1rem;
+            text-align: center;
+            color: var(--gris-claro);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: var(--gris);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            border-color: var(--verde);
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: var(--verde);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 5rem 0;
+            padding: 3rem;
+            background: var(--gris);
+            border-radius: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../prueba portafolio.html#proyectos" class="back-button">← Volver al Portafolio</a>
+
+        <div class="project-header">
+            <h1>Little Stars - Tienda de Ropa Infantil</h1>
+            <p class="subtitle">Proyecto de práctica personal para reforzar habilidades de diseño web frontend y maquetación responsive</p>
+            <div class="tech-stack">
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS3</span>
+                <span class="tech-badge">Font Awesome</span>
+                <span class="tech-badge">Responsive Design</span>
+                <span class="tech-badge">UI/UX</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📋 Resumen del Proyecto</h2>
+            <p>
+                Proyecto personal de práctica desarrollado para reforzar y perfeccionar habilidades de frontend web. Little Stars es un sitio web moderno para una tienda ficticia de ropa infantil que demuestra el dominio de HTML5 semántico, CSS3 avanzado y principios de diseño responsive. El proyecto simula una experiencia real de e-commerce con énfasis en la estética visual y usabilidad.
+            </p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🎯 Objetivo</h3>
+                <p>Practicar y reforzar habilidades de maquetación web, diseño responsive y crear una interfaz atractiva para e-commerce infantil.</p>
+            </div>
+            <div class="info-card">
+                <h3>⏱️ Duración</h3>
+                <p>2 días de desarrollo intensivo, enfocados en diseño visual, estructura HTML y estilos CSS.</p>
+            </div>
+            <div class="info-card">
+                <h3>💥 Rol</h3>
+                <p>Desarrolladora Frontend - Diseño de interfaz, maquetación HTML/CSS, diseño responsive y arquitectura de componentes.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✨ Características Implementadas</h2>
+            <ul>
+                <li>Página de inicio (Home) con hero section atractiva y llamada a la acción</li>
+                <li>Sistema de navegación limpio y funcional</li>
+                <li>Sección de categorías populares (Niñas, Niños, Bebés)</li>
+                <li>Página de tienda con grid de productos</li>
+                <li>Sistema de filtros por categoría y talla (interfaz diseñada)</li>
+                <li>Barra de búsqueda de productos</li>
+                <li>Cards de productos con imagen, título, precio y botón de acción</li>
+                <li>Sección "Por qué elegirnos" con íconos Font Awesome</li>
+                <li>Footer informativo con enlaces rápidos y datos de contacto</li>
+                <li>Diseño completamente responsive para todos los dispositivos</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🖼️ Estructura del Sitio</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="image-placeholder">🏠</div>
+                    <div class="caption">Página Principal - Hero Section</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">👶</div>
+                    <div class="caption">Categorías Populares</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">🛍️</div>
+                    <div class="caption">Página de Tienda</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">🔍</div>
+                    <div class="caption">Sistema de Filtros</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">👕</div>
+                    <div class="caption">Cards de Productos</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">⭐</div>
+                    <div class="caption">Sección de Beneficios</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Tecnologías y Técnicas</h2>
+            <p><strong>HTML5 Semántico:</strong> Uso correcto de etiquetas semánticas (nav, header, section, footer) para estructura clara y accesible</p>
+            <p><strong>CSS3 Avanzado:</strong> Grid y Flexbox para layouts modernos, transiciones suaves, efectos hover y diseño de componentes reutilizables</p>
+            <p><strong>Font Awesome:</strong> Integración de iconografía profesional para mejorar la experiencia visual</p>
+            <p><strong>Responsive Design:</strong> Técnicas de diseño adaptativo para garantizar funcionalidad en móviles, tablets y desktop</p>
+            <p><strong>Arquitectura CSS:</strong> Organización de estilos en un archivo externo centralizado (styles.css)</p>
+        </div>
+
+        <div class="section">
+            <h2>🎨 Elementos de Diseño</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Hero Section</h3>
+                    <p>Sección principal impactante con título llamativo, descripción de colección actual y botón CTA prominente para dirigir a la tienda.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Categorías Visuales</h3>
+                    <p>Grid de tarjetas con imágenes para Niñas, Niños y Bebés, facilitando la navegación por segmento de edad.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Sistema de Filtros</h3>
+                    <p>Selectores dropdown para categoría y rango de talla, más campo de búsqueda textual para encontrar productos específicos.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Product Cards</h3>
+                    <p>Tarjetas de producto elegantes con imagen destacada, nombre del artículo, precio visible y botón de acción "Añadir al carrito".</p>
+                </div>
+                <div class="info-card">
+                    <h3>Sección de Valor</h3>
+                    <p>Destacados de beneficios clave: Calidad Premium, Envío Rápido y Devolución Gratuita con íconos ilustrativos.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Footer Informativo</h3>
+                    <p>Pie de página estructurado con información de la marca, enlaces rápidos y datos de contacto organizados en columnas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>👗 Categorías de Productos</h2>
+            <ul>
+                <li><strong>Niñas:</strong> Vestidos, conjuntos, accesorios diseñados específicamente para niñas</li>
+                <li><strong>Niños:</strong> Ropa deportiva, casual y formal para niños</li>
+                <li><strong>Bebés:</strong> Prendas especiales para bebés de 0-12 meses</li>
+                <li><strong>Rangos de Talla:</strong> 0-3 meses, 3-6 meses, 6-12 meses, 1-2 años</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Propuesta de Valor</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Calidad Premium</h3>
+                    <p>Énfasis en materiales suaves y duraderos, apropiados para la piel sensible de los niños.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Envío Rápido</h3>
+                    <p>Promesa de entrega en 24-48 horas para conveniencia de los padres.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Devolución Gratuita</h3>
+                    <p>Garantía de 30 días para generar confianza en las compras online.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Aprendizajes y Práctica</h2>
+            <ul>
+                <li>Refuerzo de habilidades de maquetación con CSS Grid y Flexbox</li>
+                <li>Práctica de diseño de componentes reutilizables (cards, botones, navegación)</li>
+                <li>Implementación de diseño responsive con enfoque mobile-first</li>
+                <li>Uso efectivo de espaciado, tipografía y jerarquía visual</li>
+                <li>Integración de librerías externas (Font Awesome) de forma eficiente</li>
+                <li>Creación de estructura HTML semántica y accesible</li>
+                <li>Diseño de interfaz limpia y moderna para e-commerce</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>📊 Estructura de Archivos</h2>
+            <ul>
+                <li><strong>index.html:</strong> Página principal con hero, categorías y sección de valor</li>
+                <li><strong>tienda.html:</strong> Página de catálogo con filtros y productos</li>
+                <li><strong>styles.css:</strong> Hoja de estilos centralizada para todo el sitio</li>
+                <li><strong>img/:</strong> Carpeta de imágenes organizadas (niñas.jpg, niños.jpg, bebés.jpg, productos)</li>
+                <li><strong>Font Awesome CDN:</strong> Iconografía profesional integrada vía CDN</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🔮 Características Planificadas (No Implementadas)</h2>
+            <p>
+                Como proyecto de práctica en fase inicial, el sitio se enfoca en diseño y maquetación. Las siguientes funcionalidades están diseñadas visualmente pero no implementadas funcionalmente:
+            </p>
+            <ul>
+                <li>Funcionalidad JavaScript para filtros dinámicos</li>
+                <li>Sistema de carrito de compras con almacenamiento local</li>
+                <li>Backend para gestión de productos y pedidos</li>
+                <li>Base de datos para catálogo de productos</li>
+                <li>Páginas adicionales (Colecciones, Contacto, Sobre Nosotros)</li>
+                <li>Sistema de pago integrado</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🎨 Paleta de Colores y Diseño</h2>
+            <p>
+                El diseño visual utiliza una paleta suave y amigable apropiada para un público infantil, con colores pasteles y tonos cálidos que transmiten confianza y calidez. La tipografía es clara y legible, con jerarquías bien definidas para facilitar la navegación.
+            </p>
+        </div>
+
+        <div class="cta-section">
+            <h2 style="color: #fff; margin-bottom: 1rem;">¿Necesitas un diseño web atractivo?</h2>
+            <p style="color: var(--gris-claro); margin-bottom: 2rem;">Puedo crear interfaces modernas y responsive para tu negocio</p>
+            <a href="../prueba portafolio.html#contacto" class="cta-button">Contáctame</a>
+            <a href="../prueba portafolio.html#proyectos" class="cta-button" style="background: var(--gris); border: 1px solid var(--verde);">Ver más proyectos</a>
+        </div>
+    </div>
+</body>
+</html>
