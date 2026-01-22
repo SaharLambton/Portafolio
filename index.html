@@ -1131,19 +1131,209 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+ <!-- Projects Section -->
     <section id="proyectos">
-        <h2 data-es="Proyectos en GitHub" data-en="GitHub Projects">Proyectos en GitHub</h2>
-        <p style="text-align: center; color: var(--gris-claro); margin-bottom: 2rem;" data-es="Proyectos desarrollados durante mi formación en Lambton College" data-en="Projects developed during my training at Lambton College">
-            Proyectos desarrollados durante mi formación en Lambton College
+        <h2 data-es="Portafolio de Proyectos" data-en="Project Portfolio">Portafolio de Proyectos</h2>
+        <p style="text-align: center; color: var(--gris-claro); margin-bottom: 3rem;" data-es="Selección de proyectos en Desarrollo Web, Diseño Gráfico y Programación" data-en="Selection of projects in Web Development, Graphic Design and Programming">
+            Selección de proyectos en Desarrollo Web, Diseño Gráfico y Programación
         </p>
+
+        <!-- Project Filter Buttons -->
+        <div class="project-filters fade-in" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
+            <button class="filter-btn active" onclick="filterProjects('all')" data-es="Todos" data-en="All">Todos</button>
+            <button class="filter-btn" onclick="filterProjects('web')" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</button>
+            <button class="filter-btn" onclick="filterProjects('design')" data-es="Diseño Gráfico" data-en="Graphic Design">Diseño Gráfico</button>
+            <button class="filter-btn" onclick="filterProjects('programming')" data-es="Programación" data-en="Programming">Programación</button>
+        </div>
+
         <div class="projects-grid fade-in">
-            <div class="project-card">
+            <!-- WEB DEVELOPMENT PROJECTS -->
+            <div class="project-card" data-category="web">
+                <div class="project-image has-media">
+                    <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                    <img src="images/projects/crm-system.jpg" alt="Sistema CRM">
+                    <!-- O usa video: -->
+                    <!-- <video src="images/projects/crm-demo.mp4" autoplay loop muted playsinline></video> -->
+                </div>
+                <div class="project-info">
+                    <h3 data-es="Sistema CRM Empresarial" data-en="Enterprise CRM System">Sistema CRM Empresarial</h3>
+                    <p data-es="Desarrollo de sistema de gestión de clientes personalizado con .NET Core y SQL Server. Incluye módulos de seguimiento, reportes avanzados y automatización de procesos." data-en="Custom client management system development with .NET Core and SQL Server. Includes tracking modules, advanced reporting and process automation.">
+                        Desarrollo de sistema de gestión de clientes personalizado con .NET Core y SQL Server. Incluye módulos de seguimiento, reportes avanzados y automatización de procesos.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">.NET Core</span>
+                        <span class="tech-badge">SQL Server</span>
+                        <span class="tech-badge">ASP.NET</span>
+                        <span class="tech-badge">API REST</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <a href="projects/crm-system.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="web">
+                <div class="project-image has-media">
+                    <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                    <img src="images/projects/chatbot.jpg" alt="Chatbot WhatsApp">
+                </div>
+                <div class="project-info">
+                    <h3 data-es="Chatbot WhatsApp Business" data-en="WhatsApp Business Chatbot">Chatbot WhatsApp Business</h3>
+                    <p data-es="Implementación de chatbot inteligente para atención al cliente 24/7 con integración WhatsApp Business API. Automatización de respuestas y gestión de consultas frecuentes." data-en="Implementation of intelligent chatbot for 24/7 customer service with WhatsApp Business API integration. Response automation and FAQ management.">
+                        Implementación de chatbot inteligente para atención al cliente 24/7 con integración WhatsApp Business API. Automatización de respuestas y gestión de consultas frecuentes.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">WhatsApp API</span>
+                        <span class="tech-badge">AI/NLP</span>
+                        <span class="tech-badge">Automation</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <a href="projects/chatbot-whatsapp.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="web">
+                <div class="project-image has-media">
+                    <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                    <img src="images/projects/website.jpg" alt="Sitio Web Corporativo">
+                </div>
+                <div class="project-info">
+                    <h3 data-es="Sitios Web Corporativos Multi-idioma" data-en="Multi-language Corporate Websites">Sitios Web Corporativos Multi-idioma</h3>
+                    <p data-es="Desarrollo de sitios web responsivos en WordPress y desarrollo custom con soporte para múltiples idiomas (ES/EN/FR). Optimización SEO e integración con redes sociales." data-en="Development of responsive websites in WordPress and custom development with support for multiple languages (ES/EN/FR). SEO optimization and social media integration.">
+                        Desarrollo de sitios web responsivos en WordPress y desarrollo custom con soporte para múltiples idiomas (ES/EN/FR). Optimización SEO e integración con redes sociales.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">PHP</span>
+                        <span class="tech-badge">HTML/CSS</span>
+                        <span class="tech-badge">SEO</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <a href="projects/corporate-websites.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="web">
+                <div class="project-image has-media">
+                    <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                    <img src="images/projects/dashboard.jpg" alt="Dashboard Analytics">
+                </div>
+                <div class="project-info">
+                    <h3 data-es="Dashboard Analytics Interactivo" data-en="Interactive Analytics Dashboard">Dashboard Analytics Interactivo</h3>
+                    <p data-es="Desarrollo de dashboard web con Angular para visualización de métricas en tiempo real. Integración con Google Analytics y bases de datos SQL." data-en="Web dashboard development with Angular for real-time metrics visualization. Integration with Google Analytics and SQL databases.">
+                        Desarrollo de dashboard web con Angular para visualización de métricas en tiempo real. Integración con Google Analytics y bases de datos SQL.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Angular</span>
+                        <span class="tech-badge">TypeScript</span>
+                        <span class="tech-badge">SQL</span>
+                        <span class="tech-badge">Charts.js</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <a href="projects/dashboard-analytics.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRAPHIC DESIGN PROJECTS -->
+            <div class="project-card" data-category="design">
+                <div class="project-image has-media">
+                    <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                    <img src="images/projects/branding.jpg" alt="Identidad Visual">
+                </div>
+                <div class="project-info">
+                    <h3 data-es="Identidad Visual Corporativa Completa" data-en="Complete Corporate Visual Identity">Identidad Visual Corporativa Completa</h3>
+                    <p data-es="Diseño integral de identidad de marca para múltiples empresas: logotipo, paleta de colores, tipografía, manual de marca, papelería corporativa y templates digitales." data-en="Comprehensive brand identity design for multiple companies: logo, color palette, typography, brand manual, corporate stationery and digital templates.">
+                        Diseño integral de identidad de marca para múltiples empresas: logotipo, paleta de colores, tipografía, manual de marca, papelería corporativa y templates digitales.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Adobe Illustrator</span>
+                        <span class="tech-badge">Branding</span>
+                        <span class="tech-badge">Visual Identity</span>
+                        <span class="tech-badge">Design Systems</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <a href="projects/brand-identity.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="design">
+                <div class="project-image has-media">
+                    <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                    <img src="images/projects/social-media.jpg" alt="Contenido Redes Sociales">
+                </div>
+                <div class="project-info">
+                    <h3 data-es="Diseño de Contenido para Redes Sociales" data-en="Social Media Content Design">Diseño de Contenido para Redes Sociales</h3>
+                    <p data-es="Creación de contenido visual para campañas en Instagram, Facebook y LinkedIn. Diseño de posts, stories, carruseles y material promocional coherente con identidad de marca." data-en="Visual content creation for campaigns on Instagram, Facebook and LinkedIn. Design of posts, stories, carousels and promotional material consistent with brand identity.">
+                        Creación de contenido visual para campañas en Instagram, Facebook y LinkedIn. Diseño de posts, stories, carruseles y material promocional coherente con identidad de marca.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Canva</span>
+                        <span class="tech-badge">Adobe Illustrator</span>
+                        <span class="tech-badge">Social Media</span>
+                        <span class="tech-badge">Visual Marketing</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <a href="projects/social-media-design.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="design">
+                <div class="project-image has-media">
+                    <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                    <img src="images/projects/ads-campaign.jpg" alt="Campañas Publicitarias">
+                </div>
+                <div class="project-info">
+                    <h3 data-es="Campañas Publicitarias Digitales" data-en="Digital Advertising Campaigns">Campañas Publicitarias Digitales</h3>
+                    <p data-es="Diseño y producción de material publicitario digital para Google Ads, Facebook Ads y email marketing. Banners, infografías, presentaciones y assets visuales optimizados para conversión." data-en="Design and production of digital advertising material for Google Ads, Facebook Ads and email marketing. Banners, infographics, presentations and visual assets optimized for conversion.">
+                        Diseño y producción de material publicitario digital para Google Ads, Facebook Ads y email marketing. Banners, infografías, presentaciones y assets visuales optimizados para conversión.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Figma</span>
+                        <span class="tech-badge">Canva</span>
+                        <span class="tech-badge">Digital Ads</span>
+                        <span class="tech-badge">Conversion Design</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <a href="projects/digital-campaigns.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="design">
+                <div class="project-image has-media">
+                    <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
+                    <img src="images/projects/ui-ux.jpg" alt="UI/UX Design">
+                </div>
+                <div class="project-info">
+                    <h3 data-es="UI/UX Design para Aplicaciones Web" data-en="UI/UX Design for Web Applications">UI/UX Design para Aplicaciones Web</h3>
+                    <p data-es="Diseño de interfaces de usuario modernas y wireframes para aplicaciones web. Prototipos interactivos, sistemas de diseño escalables y componentes reutilizables." data-en="Modern user interface design and wireframes for web applications. Interactive prototypes, scalable design systems and reusable components.">
+                        Diseño de interfaces de usuario modernas y wireframes para aplicaciones web. Prototipos interactivos, sistemas de diseño escalables y componentes reutilizables.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Figma</span>
+                        <span class="tech-badge">UI/UX</span>
+                        <span class="tech-badge">Prototyping</span>
+                        <span class="tech-badge">User Research</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <a href="projects/ui-ux-design.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROGRAMMING PROJECTS -->
+            <div class="project-card" data-category="programming">
                 <div class="project-image">🌾</div>
                 <div class="project-info">
                     <h3 data-es="Smart Agriculture" data-en="Smart Agriculture">Smart Agriculture</h3>
-                    <p data-es="Sistema de agricultura inteligente y agricultura de precisión. Integra monitoreo de sensores ambientales, control automatizado de riego basado en datos meteorológicos, detección de enfermedades en plantas e integración con drones para operaciones agrícolas." data-en="Smart agriculture and precision farming system. Integrates environmental sensor monitoring, automated irrigation control based on weather data, plant disease detection and drone integration for agricultural operations.">
-                        Sistema de agricultura inteligente y agricultura de precisión. Integra monitoreo de sensores ambientales, control automatizado de riego basado en datos meteorológicos, detección de enfermedades en plantas e integración con drones para operaciones agrícolas.
+                    <p data-es="Sistema de agricultura inteligente y agricultura de precisión. Integra monitoreo de sensores ambientales, control automatizado de riego basado en datos meteorológicos, detección de enfermedades en plantas e integración con drones." data-en="Smart agriculture and precision farming system. Integrates environmental sensor monitoring, automated irrigation control based on weather data, plant disease detection and drone integration.">
+                        Sistema de agricultura inteligente y agricultura de precisión. Integra monitoreo de sensores ambientales, control automatizado de riego basado en datos meteorológicos, detección de enfermedades en plantas e integración con drones.
                     </p>
                     <div class="project-tech">
                         <span class="tech-badge">TypeScript</span>
@@ -1151,16 +1341,18 @@
                         <span class="tech-badge">Sensors</span>
                         <span class="tech-badge">IoT</span>
                     </div>
-                    <a href="https://github.com/SaharLambton/Smart-Agriculture" target="_blank" class="cta-button" style="display: inline-block; margin-top: 1rem; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <a href="https://github.com/SaharLambton/Smart-Agriculture" target="_blank" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-category="programming">
                 <div class="project-image">📚</div>
                 <div class="project-info">
                     <h3 data-es="Bookstore - Gestión de Biblioteca" data-en="Bookstore - Library Management">Bookstore - Gestión de Biblioteca</h3>
-                    <p data-es="Sistema de gestión de biblioteca desarrollado con TypeScript y Jest. Permite gestionar libros y clientes, realizar préstamos y devoluciones con validación de disponibilidad. Incluye pruebas unitarias completas para garantizar funcionalidad." data-en="Library management system developed with TypeScript and Jest. Allows management of books and customers, borrowing and returns with availability validation. Includes comprehensive unit testing to ensure functionality.">
-                        Sistema de gestión de biblioteca desarrollado con TypeScript y Jest. Permite gestionar libros y clientes, realizar préstamos y devoluciones con validación de disponibilidad. Incluye pruebas unitarias completas para garantizar funcionalidad.
+                    <p data-es="Sistema de gestión de biblioteca desarrollado con TypeScript y Jest. Permite gestionar libros y clientes, realizar préstamos y devoluciones con validación de disponibilidad. Incluye pruebas unitarias completas." data-en="Library management system developed with TypeScript and Jest. Allows management of books and customers, borrowing and returns with availability validation. Includes comprehensive unit testing.">
+                        Sistema de gestión de biblioteca desarrollado con TypeScript y Jest. Permite gestionar libros y clientes, realizar préstamos y devoluciones con validación de disponibilidad. Incluye pruebas unitarias completas.
                     </p>
                     <div class="project-tech">
                         <span class="tech-badge">TypeScript</span>
@@ -1168,16 +1360,18 @@
                         <span class="tech-badge">OOP</span>
                         <span class="tech-badge">Unit Testing</span>
                     </div>
-                    <a href="https://github.com/SaharLambton/Assigment3" target="_blank" class="cta-button" style="display: inline-block; margin-top: 1rem; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <a href="https://github.com/SaharLambton/Assigment3" target="_blank" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-category="programming">
                 <div class="project-image">⚙️</div>
                 <div class="project-info">
                     <h3 data-es="Jest CI con GitHub Actions" data-en="Jest CI with GitHub Actions">Jest CI con GitHub Actions</h3>
-                    <p data-es="Implementación de Integración Continua (CI) para proyecto JavaScript usando Jest para testing y GitHub Actions para workflows automatizados. Configuración completa de pipeline que ejecuta pruebas automáticamente en cada push, garantizando calidad y confiabilidad del código." data-en="Continuous Integration (CI) implementation for JavaScript project using Jest for testing and GitHub Actions for automated workflows. Complete pipeline setup that automatically runs tests on every push, ensuring code quality and reliability.">
-                        Implementación de Integración Continua (CI) para proyecto JavaScript usando Jest para testing y GitHub Actions para workflows automatizados. Configuración completa de pipeline que ejecuta pruebas automáticamente en cada push, garantizando calidad y confiabilidad del código.
+                    <p data-es="Implementación de Integración Continua (CI) para proyecto JavaScript usando Jest para testing y GitHub Actions para workflows automatizados. Configuración completa de pipeline que ejecuta pruebas automáticamente en cada push." data-en="Continuous Integration (CI) implementation for JavaScript project using Jest for testing and GitHub Actions for automated workflows. Complete pipeline setup that automatically runs tests on every push.">
+                        Implementación de Integración Continua (CI) para proyecto JavaScript usando Jest para testing y GitHub Actions para workflows automatizados. Configuración completa de pipeline que ejecuta pruebas automáticamente en cada push.
                     </p>
                     <div class="project-tech">
                         <span class="tech-badge">JavaScript</span>
@@ -1185,11 +1379,13 @@
                         <span class="tech-badge">GitHub Actions</span>
                         <span class="tech-badge">CI/CD</span>
                     </div>
-                    <a href="https://github.com/SaharLambton/Assigment4" target="_blank" class="cta-button" style="display: inline-block; margin-top: 1rem; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <a href="https://github.com/SaharLambton/Assigment4" target="_blank" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-category="programming">
                 <div class="project-image">💻</div>
                 <div class="project-info">
                     <h3 data-es="Assignment 1 - TypeScript" data-en="Assignment 1 - TypeScript">Assignment 1 - TypeScript</h3>
@@ -1202,12 +1398,13 @@
                         <span class="tech-badge">OOP</span>
                         <span class="tech-badge">Best Practices</span>
                     </div>
-                    <a href="https://github.com/SaharLambton/Assigment1" target="_blank" class="cta-button" style="display: inline-block; margin-top: 1rem; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <a href="https://github.com/SaharLambton/Assigment1" target="_blank" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Contact Section -->
     <section id="contacto">
         <h2 data-es="Contacto" data-en="Contact">Contacto</h2>
