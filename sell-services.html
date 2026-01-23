@@ -24,12 +24,83 @@
             background-color: var(--negro);
             color: #fff;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(220, 38, 38, 0.1) 0%, transparent 50%);
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            50% {
+                transform: translateY(-10px) translateX(-10px);
+            }
+            75% {
+                transform: translateY(-30px) translateX(5px);
+            }
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--gris);
+            padding: 0.5rem;
+            border-radius: 30px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--gris-claro);
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            color: #fff;
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--verde);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 5%;
+            position: relative;
+            z-index: 1;
         }
 
         .back-button {
@@ -238,6 +309,11 @@
         }
 
         @media (max-width: 768px) {
+            .lang-switcher {
+                top: 1rem;
+                right: 1rem;
+            }
+
             .project-header h1 {
                 font-size: 2rem;
             }
@@ -249,12 +325,21 @@
     </style>
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="animated-bg" id="animatedBg"></div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="changeLanguage('es')">ES</button>
+        <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+    </div>
+
     <div class="container">
-        <a href="../prueba portafolio.html#proyectos" class="back-button">← Volver al Portafolio</a>
+        <a href="index.html" class="back-button" data-es="← Volver al Portafolio" data-en="← Back to Portfolio">← Volver al Portafolio</a>
 
         <div class="project-header">
             <h1>Sell Services and Graphic Products</h1>
-            <p class="subtitle">Plataforma e-commerce completa para venta de servicios y productos gráficos con sistema de seguridad multinivel</p>
+            <p class="subtitle" data-es="Plataforma e-commerce completa para venta de servicios y productos gráficos con sistema de seguridad multinivel" data-en="Complete e-commerce platform for selling graphic services and products with multi-level security system">Plataforma e-commerce completa para venta de servicios y productos gráficos con sistema de seguridad multinivel</p>
             <div class="tech-stack">
                 <span class="tech-badge">PHP</span>
                 <span class="tech-badge">MySQL</span>
@@ -267,127 +352,186 @@
         </div>
 
         <div class="section">
-            <h2>📋 Resumen del Proyecto</h2>
-            <p>
+            <h2 data-es="📋 Resumen del Proyecto" data-en="📋 Project Summary">📋 Resumen del Proyecto</h2>
+            <p data-es="Proyecto académico desarrollado en Lambton College que consiste en una plataforma e-commerce completa especializada en la venta de servicios y productos gráficos personalizados. El sistema integra funcionalidades avanzadas de comercio electrónico con un robusto sistema de seguridad que implementa encriptación multinivel para proteger la información de usuarios y transacciones." data-en="Academic project developed at Lambton College consisting of a complete e-commerce platform specialized in selling custom graphic services and products. The system integrates advanced e-commerce functionalities with a robust security system that implements multi-level encryption to protect user information and transactions.">
                 Proyecto académico desarrollado en Lambton College que consiste en una plataforma e-commerce completa especializada en la venta de servicios y productos gráficos personalizados. El sistema integra funcionalidades avanzadas de comercio electrónico con un robusto sistema de seguridad que implementa encriptación multinivel para proteger la información de usuarios y transacciones.
             </p>
         </div>
 
         <div class="info-grid">
             <div class="info-card">
-                <h3>🎯 Objetivo</h3>
-                <p>Crear una plataforma segura y funcional para la comercialización de productos y servicios gráficos, facilitando la conexión entre diseñadores y clientes.</p>
+                <h3 data-es="🎯 Objetivo" data-en="🎯 Objective">🎯 Objetivo</h3>
+                <p data-es="Crear una plataforma segura y funcional para la comercialización de productos y servicios gráficos, facilitando la conexión entre diseñadores y clientes." data-en="Create a secure and functional platform for marketing graphic products and services, facilitating the connection between designers and clients.">Crear una plataforma segura y funcional para la comercialización de productos y servicios gráficos, facilitando la conexión entre diseñadores y clientes.</p>
             </div>
             <div class="info-card">
-                <h3>⏱️ Duración</h3>
-                <p>1 mes de desarrollo completo, incluyendo diseño, implementación, pruebas de seguridad y optimización.</p>
+                <h3 data-es="⏱️ Duración" data-en="⏱️ Duration">⏱️ Duración</h3>
+                <p data-es="1 mes de desarrollo completo, incluyendo diseño, implementación, pruebas de seguridad y optimización." data-en="1 month of complete development, including design, implementation, security testing and optimization.">1 mes de desarrollo completo, incluyendo diseño, implementación, pruebas de seguridad y optimización.</p>
             </div>
             <div class="info-card">
-                <h3>💥 Rol</h3>
-                <p>Desarrolladora Full Stack - Diseño de arquitectura, desarrollo backend PHP, frontend interactivo y base de datos MySQL.</p>
+                <h3 data-es="💥 Rol" data-en="💥 Role">💥 Rol</h3>
+                <p data-es="Desarrolladora Full Stack - Diseño de arquitectura, desarrollo backend PHP, frontend interactivo y base de datos MySQL." data-en="Full Stack Developer - Architecture design, PHP backend development, interactive frontend and MySQL database.">Desarrolladora Full Stack - Diseño de arquitectura, desarrollo backend PHP, frontend interactivo y base de datos MySQL.</p>
             </div>
         </div>
 
         <div class="section">
-            <h2>✨ Características Principales</h2>
+            <h2 data-es="✨ Características Principales" data-en="✨ Main Features">✨ Características Principales</h2>
             <ul>
-                <li>Sistema de registro y autenticación de usuarios con encriptación multinivel</li>
-                <li>Catálogo dinámico de productos y servicios gráficos personalizables</li>
-                <li>Carrito de compras interactivo con actualización en tiempo real</li>
-                <li>Pasarela de pagos integrada con procesamiento seguro de transacciones</li>
-                <li>Panel de administración para gestión de productos, pedidos y usuarios</li>
-                <li>Sistema de ofertas y descuentos con temporizador countdown</li>
-                <li>Popup promocional dinámico al ingresar al sitio</li>
-                <li>Diseño responsive adaptable a todos los dispositivos</li>
-                <li>Galería visual de productos (camisetas, cuadernos, termos personalizados)</li>
+                <li data-es="Sistema de registro y autenticación de usuarios con encriptación multinivel" data-en="User registration and authentication system with multi-level encryption">Sistema de registro y autenticación de usuarios con encriptación multinivel</li>
+                <li data-es="Catálogo dinámico de productos y servicios gráficos personalizables" data-en="Dynamic catalog of customizable graphic products and services">Catálogo dinámico de productos y servicios gráficos personalizables</li>
+                <li data-es="Carrito de compras interactivo con actualización en tiempo real" data-en="Interactive shopping cart with real-time updates">Carrito de compras interactivo con actualización en tiempo real</li>
+                <li data-es="Pasarela de pagos integrada con procesamiento seguro de transacciones" data-en="Integrated payment gateway with secure transaction processing">Pasarela de pagos integrada con procesamiento seguro de transacciones</li>
+                <li data-es="Panel de administración para gestión de productos, pedidos y usuarios" data-en="Admin panel for product, order and user management">Panel de administración para gestión de productos, pedidos y usuarios</li>
+                <li data-es="Sistema de ofertas y descuentos con temporizador countdown" data-en="Offers and discounts system with countdown timer">Sistema de ofertas y descuentos con temporizador countdown</li>
+                <li data-es="Popup promocional dinámico al ingresar al sitio" data-en="Dynamic promotional popup on site entry">Popup promocional dinámico al ingresar al sitio</li>
+                <li data-es="Diseño responsive adaptable a todos los dispositivos" data-en="Responsive design adaptable to all devices">Diseño responsive adaptable a todos los dispositivos</li>
+                <li data-es="Galería visual de productos (camisetas, cuadernos, termos personalizados)" data-en="Visual gallery of products (custom t-shirts, notebooks, thermoses)">Galería visual de productos (camisetas, cuadernos, termos personalizados)</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>🖼️ Capturas del Sistema</h2>
+            <h2 data-es="🖼️ Capturas del Sistema" data-en="🖼️ System Screenshots">🖼️ Capturas del Sistema</h2>
             <div class="gallery">
                 <div class="gallery-item">
                     <div class="image-placeholder">🏠</div>
-                    <div class="caption">Página Principal</div>
+                    <div class="caption" data-es="Página Principal" data-en="Home Page">Página Principal</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">🔐</div>
-                    <div class="caption">Sistema de Login/Registro</div>
+                    <div class="caption" data-es="Sistema de Login/Registro" data-en="Login/Register System">Sistema de Login/Registro</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">🛍️</div>
-                    <div class="caption">Catálogo de Productos</div>
+                    <div class="caption" data-es="Catálogo de Productos" data-en="Product Catalog">Catálogo de Productos</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">🛒</div>
-                    <div class="caption">Carrito de Compras</div>
+                    <div class="caption" data-es="Carrito de Compras" data-en="Shopping Cart">Carrito de Compras</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">💳</div>
-                    <div class="caption">Pasarela de Pagos</div>
+                    <div class="caption" data-es="Pasarela de Pagos" data-en="Payment Gateway">Pasarela de Pagos</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">⚙️</div>
-                    <div class="caption">Panel de Administración</div>
+                    <div class="caption" data-es="Panel de Administración" data-en="Admin Panel">Panel de Administración</div>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>🛠️ Tecnologías Utilizadas</h2>
-            <p><strong>Backend:</strong> PHP 7.4+, manejo de sesiones, validación de datos del lado del servidor</p>
-            <p><strong>Base de Datos:</strong> MySQL con consultas preparadas para prevenir SQL Injection</p>
-            <p><strong>Frontend:</strong> HTML5, CSS3 con diseño responsive, JavaScript ES6+ y jQuery</p>
-            <p><strong>Seguridad:</strong> Encriptación multinivel de contraseñas (bcrypt/password_hash), HTTPS, validación de entradas, protección CSRF</p>
-            <p><strong>Funcionalidades:</strong> Sistema de sesiones PHP, cookies seguras, AJAX para interacciones dinámicas</p>
+            <h2 data-es="🛠️ Tecnologías Utilizadas" data-en="🛠️ Technologies Used">🛠️ Tecnologías Utilizadas</h2>
+            <p><strong>Backend:</strong> <span data-es="PHP 7.4+, manejo de sesiones, validación de datos del lado del servidor" data-en="PHP 7.4+, session management, server-side data validation">PHP 7.4+, manejo de sesiones, validación de datos del lado del servidor</span></p>
+            <p><strong data-es="Base de Datos:" data-en="Database:">Base de Datos:</strong> <span data-es="MySQL con consultas preparadas para prevenir SQL Injection" data-en="MySQL with prepared statements to prevent SQL Injection">MySQL con consultas preparadas para prevenir SQL Injection</span></p>
+            <p><strong>Frontend:</strong> <span data-es="HTML5, CSS3 con diseño responsive, JavaScript ES6+ y jQuery" data-en="HTML5, CSS3 with responsive design, JavaScript ES6+ and jQuery">HTML5, CSS3 con diseño responsive, JavaScript ES6+ y jQuery</span></p>
+            <p><strong data-es="Seguridad:" data-en="Security:">Seguridad:</strong> <span data-es="Encriptación multinivel de contraseñas (bcrypt/password_hash), HTTPS, validación de entradas, protección CSRF" data-en="Multi-level password encryption (bcrypt/password_hash), HTTPS, input validation, CSRF protection">Encriptación multinivel de contraseñas (bcrypt/password_hash), HTTPS, validación de entradas, protección CSRF</span></p>
+            <p><strong data-es="Funcionalidades:" data-en="Features:">Funcionalidades:</strong> <span data-es="Sistema de sesiones PHP, cookies seguras, AJAX para interacciones dinámicas" data-en="PHP session system, secure cookies, AJAX for dynamic interactions">Sistema de sesiones PHP, cookies seguras, AJAX para interacciones dinámicas</span></p>
         </div>
 
         <div class="section">
-            <h2>🔒 Arquitectura de Seguridad</h2>
+            <h2 data-es="🔒 Arquitectura de Seguridad" data-en="🔒 Security Architecture">🔒 Arquitectura de Seguridad</h2>
             <ul>
-                <li>Encriptación de contraseñas con algoritmo bcrypt (múltiples rondas de hash)</li>
-                <li>Validación de datos tanto en frontend como backend</li>
-                <li>Consultas preparadas (Prepared Statements) para prevenir SQL Injection</li>
-                <li>Protección contra Cross-Site Scripting (XSS)</li>
-                <li>Tokens CSRF para formularios críticos</li>
-                <li>Gestión segura de sesiones con regeneración de ID</li>
-                <li>Encriptación de datos sensibles en la base de datos</li>
+                <li data-es="Encriptación de contraseñas con algoritmo bcrypt (múltiples rondas de hash)" data-en="Password encryption with bcrypt algorithm (multiple hashing rounds)">Encriptación de contraseñas con algoritmo bcrypt (múltiples rondas de hash)</li>
+                <li data-es="Validación de datos tanto en frontend como backend" data-en="Data validation in both frontend and backend">Validación de datos tanto en frontend como backend</li>
+                <li data-es="Consultas preparadas (Prepared Statements) para prevenir SQL Injection" data-en="Prepared Statements to prevent SQL Injection">Consultas preparadas (Prepared Statements) para prevenir SQL Injection</li>
+                <li data-es="Protección contra Cross-Site Scripting (XSS)" data-en="Protection against Cross-Site Scripting (XSS)">Protección contra Cross-Site Scripting (XSS)</li>
+                <li data-es="Tokens CSRF para formularios críticos" data-en="CSRF tokens for critical forms">Tokens CSRF para formularios críticos</li>
+                <li data-es="Gestión segura de sesiones con regeneración de ID" data-en="Secure session management with ID regeneration">Gestión segura de sesiones con regeneración de ID</li>
+                <li data-es="Encriptación de datos sensibles en la base de datos" data-en="Encryption of sensitive data in the database">Encriptación de datos sensibles en la base de datos</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>💡 Desafíos y Soluciones</h2>
-            <p><strong>Desafío:</strong> Implementar un sistema de seguridad robusto que proteja tanto datos de usuarios como transacciones</p>
-            <p><strong>Solución:</strong> Desarrollo de arquitectura de seguridad multinivel con encriptación de contraseñas, validación estricta de inputs, y uso de prepared statements en todas las consultas SQL.</p>
+            <h2 data-es="💡 Desafíos y Soluciones" data-en="💡 Challenges and Solutions">💡 Desafíos y Soluciones</h2>
+            <p><strong data-es="Desafío:" data-en="Challenge:">Desafío:</strong> <span data-es="Implementar un sistema de seguridad robusto que proteja tanto datos de usuarios como transacciones" data-en="Implement a robust security system that protects both user data and transactions">Implementar un sistema de seguridad robusto que proteja tanto datos de usuarios como transacciones</span></p>
+            <p><strong data-es="Solución:" data-en="Solution:">Solución:</strong> <span data-es="Desarrollo de arquitectura de seguridad multinivel con encriptación de contraseñas, validación estricta de inputs, y uso de prepared statements en todas las consultas SQL." data-en="Development of multi-level security architecture with password encryption, strict input validation, and use of prepared statements in all SQL queries.">Desarrollo de arquitectura de seguridad multinivel con encriptación de contraseñas, validación estricta de inputs, y uso de prepared statements en todas las consultas SQL.</span></p>
             <br>
-            <p><strong>Desafío:</strong> Crear una experiencia de compra fluida y dinámica sin recargas de página</p>
-            <p><strong>Solución:</strong> Implementación de AJAX con jQuery para actualizar el carrito y procesar acciones en tiempo real, mejorando significativamente la experiencia de usuario.</p>
+            <p><strong data-es="Desafío:" data-en="Challenge:">Desafío:</strong> <span data-es="Crear una experiencia de compra fluida y dinámica sin recargas de página" data-en="Create a smooth and dynamic shopping experience without page reloads">Crear una experiencia de compra fluida y dinámica sin recargas de página</span></p>
+            <p><strong data-es="Solución:" data-en="Solution:">Solución:</strong> <span data-es="Implementación de AJAX con jQuery para actualizar el carrito y procesar acciones en tiempo real, mejorando significativamente la experiencia de usuario." data-en="Implementation of AJAX with jQuery to update the cart and process actions in real-time, significantly improving user experience.">Implementación de AJAX con jQuery para actualizar el carrito y procesar acciones en tiempo real, mejorando significativamente la experiencia de usuario.</span></p>
         </div>
 
         <div class="section">
-            <h2>📊 Funcionalidades del Sistema</h2>
+            <h2 data-es="📊 Funcionalidades del Sistema" data-en="📊 System Features">📊 Funcionalidades del Sistema</h2>
             <div class="info-grid">
                 <div class="info-card">
-                    <h3>Para Clientes</h3>
-                    <p>Navegación intuitiva del catálogo, carrito de compras persistente, seguimiento de pedidos, gestión de perfil personal y acceso a ofertas especiales.</p>
+                    <h3 data-es="Para Clientes" data-en="For Customers">Para Clientes</h3>
+                    <p data-es="Navegación intuitiva del catálogo, carrito de compras persistente, seguimiento de pedidos, gestión de perfil personal y acceso a ofertas especiales." data-en="Intuitive catalog navigation, persistent shopping cart, order tracking, personal profile management and access to special offers.">Navegación intuitiva del catálogo, carrito de compras persistente, seguimiento de pedidos, gestión de perfil personal y acceso a ofertas especiales.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Para Administradores</h3>
-                    <p>Panel de control completo, gestión de inventario, procesamiento de pedidos, administración de usuarios y configuración de promociones.</p>
+                    <h3 data-es="Para Administradores" data-en="For Administrators">Para Administradores</h3>
+                    <p data-es="Panel de control completo, gestión de inventario, procesamiento de pedidos, administración de usuarios y configuración de promociones." data-en="Complete control panel, inventory management, order processing, user administration and promotion configuration.">Panel de control completo, gestión de inventario, procesamiento de pedidos, administración de usuarios y configuración de promociones.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Procesamiento de Pagos</h3>
-                    <p>Integración con pasarela de pagos segura, múltiples métodos de pago, confirmación automática y generación de comprobantes.</p>
+                    <h3 data-es="Procesamiento de Pagos" data-en="Payment Processing">Procesamiento de Pagos</h3>
+                    <p data-es="Integración con pasarela de pagos segura, múltiples métodos de pago, confirmación automática y generación de comprobantes." data-en="Integration with secure payment gateway, multiple payment methods, automatic confirmation and receipt generation.">Integración con pasarela de pagos segura, múltiples métodos de pago, confirmación automática y generación de comprobantes.</p>
                 </div>
             </div>
         </div>
 
         <div class="cta-section">
-            <h2 style="color: #fff; margin-bottom: 1rem;">¿Interesado en un proyecto similar?</h2>
-            <p style="color: var(--gris-claro); margin-bottom: 2rem;">Puedo desarrollar plataformas e-commerce seguras y personalizadas</p>
-            <a href="../prueba portafolio.html#contacto" class="cta-button">Contáctame</a>
-            <a href="../prueba portafolio.html#proyectos" class="cta-button" style="background: var(--gris); border: 1px solid var(--verde);">Ver más proyectos</a>
+            <h2 style="color: #fff; margin-bottom: 1rem;" data-es="¿Interesado en un proyecto similar?" data-en="Interested in a similar project?">¿Interesado en un proyecto similar?</h2>
+            <p style="color: var(--gris-claro); margin-bottom: 2rem;" data-es="Puedo desarrollar plataformas e-commerce seguras y personalizadas" data-en="I can develop secure and customized e-commerce platforms">Puedo desarrollar plataformas e-commerce seguras y personalizadas</p>
+            <a href="../prueba portafolio.html#contacto" class="cta-button" data-es="Contáctame" data-en="Contact Me">Contáctame</a>
+            <a href="../prueba portafolio.html#proyectos" class="cta-button" style="background: var(--gris); border: 1px solid var(--verde);" data-es="Ver más proyectos" data-en="See more projects">Ver más proyectos</a>
         </div>
     </div>
+
+    <script>
+        let currentLang = 'es';
+
+        // Language switcher
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            document.querySelectorAll('[data-es][data-en]').forEach(el => {
+                const text = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+        }
+
+        // Create animated background particles
+        function createParticles() {
+            const bg = document.getElementById('animatedBg');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 4 + 1;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 10 + 5;
+                const delay = Math.random() * 5;
+                
+                const colors = ['rgba(16, 185, 129, 0.3)', 'rgba(220, 38, 38, 0.3)', 'rgba(255, 255, 255, 0.2)'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}%;
+                    top: ${y}%;
+                    background: ${color};
+                    animation: float ${duration}s ease-in-out ${delay}s infinite;
+                `;
+                
+                bg.appendChild(particle);
+            }
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+        });
+    </script>
 </body>
 </html>
