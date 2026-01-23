@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Únicos - Agencia Creativa | Sahar Chain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --negro: #0a0a0a;
+            --rojo-unicos: #D4424F;
+            --rojo-suave: #E85D6A;
+            --cafe-oscuro: #5A4240;
+            --cafe-medio: #7A5E5C;
+            --plata: #C0C0C0;
+            --verde: #10b981;
+            --magenta: #E91E63;
+            --cyan: #00BCD4;
+            --gris: #1f1f1f;
+            --gris-claro: #a3a3a3;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--negro);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .gradient-bg {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(212, 66, 79, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(90, 66, 64, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(232, 93, 106, 0.06) 0%, transparent 40%);
+            animation: gradientMove 25s ease-in-out infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(-10%, -10%) rotate(120deg);
+            }
+            66% {
+                transform: translate(-5%, -20%) rotate(240deg);
+            }
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(1px);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) scale(1) rotate(0deg);
+                opacity: 0.7;
+            }
+            25% {
+                transform: translateY(-40px) translateX(20px) scale(1.2) rotate(90deg);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translateY(-25px) translateX(-20px) scale(0.9) rotate(180deg);
+                opacity: 0.6;
+            }
+            75% {
+                transform: translateY(-50px) translateX(15px) scale(1.1) rotate(270deg);
+                opacity: 0.8;
+            }
+        }
+
+        .design-shape {
+            position: absolute;
+            opacity: 0.05;
+            animation: shapeFloat 20s infinite ease-in-out;
+        }
+
+        @keyframes shapeFloat {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translate(50px, -50px) rotate(120deg) scale(1.1);
+            }
+            66% {
+                transform: translate(-30px, -80px) rotate(240deg) scale(0.9);
+            }
+        }
+
+        .grid-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(212, 66, 79, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(90, 66, 64, 0.02) 1px, transparent 1px);
+            background-size: 80px 80px;
+            animation: gridMove 30s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(80px, 80px);
+            }
+        }
+
+        .color-trail {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 66, 79, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            filter: blur(50px);
+            mix-blend-mode: screen;
+        }
+
+        /* Manchas de pintura */
+        .paint-splash {
+            position: absolute;
+            opacity: 0.06;
+            filter: blur(8px);
+            animation: paintFloat 30s infinite ease-in-out;
+        }
+
+        @keyframes paintFloat {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(30px, -40px) rotate(15deg) scale(1.15);
+            }
+            50% {
+                transform: translate(-20px, -60px) rotate(-10deg) scale(0.95);
+            }
+            75% {
+                transform: translate(40px, -30px) rotate(20deg) scale(1.1);
+            }
+        }
+
+        .paint-splash svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .pixel {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--rojo-unicos);
+            animation: pixelGlow 4s infinite;
+        }
+
+        @keyframes pixelGlow {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+                box-shadow: 0 0 5px currentColor;
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.8);
+                box-shadow: 0 0 15px currentColor;
+            }
+        }
+
+        .lang-switcher {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--gris);
+            padding: 0.5rem;
+            border-radius: 30px;
+            border: 1px solid rgba(212, 66, 79, 0.25);
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--gris-claro);
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--rojo-unicos), var(--cafe-oscuro));
+            color: #fff;
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--rojo-unicos);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--rojo-unicos);
+            text-decoration: none;
+            margin: 2rem 0;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            gap: 0.8rem;
+            text-shadow: 0 0 10px rgba(212, 66, 79, 0.5);
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(212, 66, 79, 0.15);
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--rojo-unicos), var(--cafe-oscuro));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .project-header .subtitle {
+            font-size: 1.3rem;
+            color: var(--gris-claro);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .category-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .category-badge {
+            background: rgba(212, 66, 79, 0.08);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid var(--rojo-unicos);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .category-badge:hover {
+            background: var(--rojo-unicos);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 66, 79, 0.3);
+        }
+
+        .section {
+            margin: 4rem 0;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--rojo-unicos), var(--cafe-oscuro));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--rojo-unicos), var(--cafe-oscuro));
+        }
+
+        .section p, .section ul {
+            color: var(--gris-claro);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--rojo-unicos);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            background: var(--gris);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 66, 79, 0.15);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--rojo-unicos);
+            box-shadow: 0 15px 40px rgba(212, 66, 79, 0.25);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .gallery-item .caption {
+            padding: 1.5rem;
+        }
+
+        .gallery-item .caption h3 {
+            color: var(--rojo-unicos);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .gallery-item .caption p {
+            color: var(--gris-claro);
+            font-size: 0.95rem;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(230, 0, 18, 0.2), rgba(61, 31, 31, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            opacity: 0.5;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: var(--gris);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 66, 79, 0.15);
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            border-color: var(--rojo-unicos);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 66, 79, 0.2);
+        }
+
+        .info-card h3 {
+            background: linear-gradient(135deg, var(--rojo-unicos), var(--cafe-oscuro));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .deliverables-list {
+            background: var(--gris);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--rojo-unicos);
+        }
+
+        .deliverables-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .deliverables-list li {
+            color: var(--gris-claro);
+            padding: 0.8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            border-bottom: 1px solid rgba(212, 66, 79, 0.08);
+        }
+
+        .deliverables-list li:last-child {
+            border-bottom: none;
+        }
+
+        .deliverables-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--rojo-unicos);
+            font-weight: bold;
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .color-box {
+            text-align: center;
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 120px;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(212, 66, 79, 0.25);
+        }
+
+        .highlight-box {
+            background: rgba(212, 66, 79, 0.08);
+            border-left: 4px solid var(--rojo-unicos);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            background: linear-gradient(135deg, var(--rojo-unicos), var(--cafe-oscuro));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 5rem 0;
+            padding: 3rem;
+            background: var(--gris);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 66, 79, 0.15);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--rojo-unicos), var(--cafe-oscuro));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 66, 79, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .lang-switcher {
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg" id="animatedBg">
+        <div class="gradient-bg"></div>
+        <div class="grid-lines"></div>
+        <div class="color-trail" id="colorTrail"></div>
+        
+        <!-- Manchas de pintura decorativas -->
+        <div class="paint-splash" style="width: 300px; height: 300px; top: 10%; left: 15%;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#D4424F" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C87,14.6,81.4,29.2,73.1,42.3C64.8,55.4,53.8,67,40.8,73.8C27.8,80.6,13.9,82.6,-0.5,83.5C-14.9,84.4,-29.8,84.2,-43.3,78.4C-56.8,72.6,-68.9,61.2,-76.8,47.1C-84.7,33,-88.4,16.5,-87.7,0.3C-87,-15.9,-81.9,-31.8,-73.5,-45.3C-65.1,-58.8,-53.4,-69.9,-39.8,-77.4C-26.2,-84.9,-13.1,-88.8,1.1,-90.6C15.3,-92.4,30.6,-83.6,44.7,-76.4Z" transform="translate(100 100)" opacity="0.8"/>
+            </svg>
+        </div>
+        
+        <div class="paint-splash" style="width: 250px; height: 250px; top: 60%; right: 10%;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#5A4240" d="M39.5,-65.6C51.4,-58.1,61.5,-47.3,68.4,-34.8C75.3,-22.3,79,-8.1,78.3,6.3C77.6,20.7,72.5,35.3,63.8,47.2C55.1,59.1,42.8,68.3,29.2,73.1C15.6,77.9,0.7,78.3,-14.5,76.2C-29.7,74.1,-45.2,69.5,-57.9,60.3C-70.6,51.1,-80.5,37.3,-84.4,21.9C-88.3,6.5,-86.2,-10.5,-78.9,-24.2C-71.6,-37.9,-59.1,-48.3,-45.3,-55.2C-31.5,-62.1,-15.8,-65.5,-0.3,-65.1C15.2,-64.7,27.6,-73.1,39.5,-65.6Z" transform="translate(100 100)" opacity="0.8"/>
+            </svg>
+        </div>
+        
+        <div class="paint-splash" style="width: 200px; height: 200px; top: 40%; left: 70%;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#E85D6A" d="M34.4,-58.1C44.2,-51.4,52,-41.2,58.4,-29.8C64.8,-18.4,69.8,-5.8,70.1,7.1C70.4,20,66,33.2,57.8,43.7C49.6,54.2,37.6,62,24.8,66.2C12,70.4,-1.6,71,-14.5,67.5C-27.4,64,-39.6,56.4,-49.3,46.5C-59,36.6,-66.2,24.4,-68.8,11.2C-71.4,-2,-69.4,-16.2,-63.2,-28.8C-57,-41.4,-46.6,-52.4,-35.1,-58.5C-23.6,-64.6,-10.5,-65.8,1.8,-68.5C14.1,-71.2,24.6,-64.8,34.4,-58.1Z" transform="translate(100 100)" opacity="0.8"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="changeLanguage('es')">ES</button>
+        <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+    </div>
+
+    <div class="container">
+        <a href="index.html#proyectos" class="back-button" data-es="← Volver al Portafolio" data-en="← Back to Portfolio">← Volver al Portafolio</a>
+
+        <div class="project-header">
+            <div style="margin-bottom: 2rem;">
+                <img src="unicos-logo.png" alt="Únicos Agencia Creativa" style="max-width: 500px; width: 100%; height: auto;">
+            </div>
+            <h1>Únicos - Agencia Creativa</h1>
+            <p class="subtitle" data-es="Agencia de marketing, diseño gráfico y desarrollo web que rompe los moldes tradicionales" data-en="Marketing, graphic design and web development agency that breaks traditional molds">Agencia de marketing, diseño gráfico y desarrollo web que rompe los moldes tradicionales</p>
+            <div class="category-badges">
+                <span class="category-badge">Branding Completo</span>
+                <span class="category-badge">Diseño Gráfico</span>
+                <span class="category-badge">Marketing Digital</span>
+                <span class="category-badge">Desarrollo Web</span>
+                <span class="category-badge">Material Publicitario</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="📋 Descripción del Proyecto" data-en="📋 Project Description">📋 Descripción del Proyecto</h2>
+            <p data-es="Únicos MKT fue una agencia creativa propia dedicada al diseño gráfico, marketing digital y desarrollo web. El proyecto abarcó desde la creación de la identidad de marca de la agencia hasta la ejecución de múltiples proyectos para diversos clientes, incluyendo diseño de logos, material publicitario, pendones, imprimibles y estampados personalizados." data-en="Únicos MKT was my own creative agency dedicated to graphic design, digital marketing and web development. The project ranged from creating the agency's brand identity to executing multiple projects for various clients, including logo design, advertising material, banners, printables and custom prints.">
+                Únicos MKT fue una agencia creativa propia dedicada al diseño gráfico, marketing digital y desarrollo web. El proyecto abarcó desde la creación de la identidad de marca de la agencia hasta la ejecución de múltiples proyectos para diversos clientes, incluyendo diseño de logos, material publicitario, pendones, imprimibles y estampados personalizados.
+            </p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3 data-es="🎯 Tipo de Proyecto" data-en="🎯 Project Type">🎯 Tipo de Proyecto</h3>
+                <p data-es="Agencia creativa propia - Desde branding hasta ejecución de proyectos para clientes variados (B2B, B2C, emprendimientos y empresas establecidas)" data-en="Own creative agency - From branding to project execution for varied clients (B2B, B2C, startups and established companies)">Agencia creativa propia - Desde branding hasta ejecución de proyectos para clientes variados (B2B, B2C, emprendimientos y empresas establecidas)</p>
+            </div>
+            <div class="info-card">
+                <h3 data-es="⏱️ Duración" data-en="⏱️ Duration">⏱️ Duración</h3>
+                <p data-es="3 meses de desarrollo inicial de la agencia + operación continua con múltiples proyectos simultáneos" data-en="3 months of initial agency development + continuous operation with multiple simultaneous projects">3 meses de desarrollo inicial de la agencia + operación continua con múltiples proyectos simultáneos</p>
+            </div>
+            <div class="info-card">
+                <h3 data-es="👥 Mi Rol" data-en="👥 My Role">👥 Mi Rol</h3>
+                <p data-es="Fundadora y Diseñadora Principal - Dirección creativa, branding, diseño gráfico y gestión de proyectos" data-en="Founder and Lead Designer - Creative direction, branding, graphic design and project management">Fundadora y Diseñadora Principal - Dirección creativa, branding, diseño gráfico y gestión de proyectos</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="🎨 Concepto de Marca" data-en="🎨 Brand Concept">🎨 Concepto de Marca</h2>
+            <div class="highlight-box">
+                <h3>"Únicos" - Rompiendo los Moldes</h3>
+                <p style="font-style: italic; font-size: 1.15rem; color: #fff;">
+                    <span data-es="Una agencia fuera de lo común que busca creatividad sin límites y soluciones únicas para cada cliente." data-en="An out-of-the-ordinary agency that seeks unlimited creativity and unique solutions for each client.">Una agencia fuera de lo común que busca creatividad sin límites y soluciones únicas para cada cliente.</span>
+                </p>
+            </div>
+            <p data-es="El logo de Únicos captura la esencia de una agencia creativa disruptiva a través de una mancha roja vibrante que simboliza la creatividad en su forma más pura y orgánica. Este elemento visual representa la explosión de ideas, la innovación y el pensamiento fuera de lo convencional." data-en="The Únicos logo captures the essence of a disruptive creative agency through a vibrant red splash that symbolizes creativity in its purest and most organic form. This visual element represents the explosion of ideas, innovation and thinking outside the conventional.">
+                El logo de Únicos captura la esencia de una agencia creativa disruptiva a través de una mancha roja vibrante que simboliza la creatividad en su forma más pura y orgánica. Este elemento visual representa la explosión de ideas, la innovación y el pensamiento fuera de lo convencional.
+            </p>
+            <p data-es="La tipografía combina elegantemente el nombre 'únicos' con 'MKT' en una fuente café oscuro moderna y profesional, complementada por el descriptor 'AGENCIA CREATIVA' que establece claramente la identidad del negocio." data-en="The typography elegantly combines the name 'únicos' with 'MKT' in a modern and professional dark brown font, complemented by the 'AGENCIA CREATIVA' descriptor that clearly establishes the business identity.">
+                La tipografía combina elegantemente el nombre "únicos" con "MKT" en una fuente café oscuro moderna y profesional, complementada por el descriptor "AGENCIA CREATIVA" que establece claramente la identidad del negocio.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 data-es="🎨 Paleta de Colores" data-en="🎨 Color Palette">🎨 Paleta de Colores</h2>
+            <div class="color-palette">
+                <div class="color-box">
+                    <div class="color-swatch" style="background: #D4424F; color: #fff;">
+                        <span data-es="ROJO SUAVE" data-en="SOFT RED">ROJO SUAVE</span>
+                    </div>
+                    <p style="color: var(--gris-claro); font-size: 0.9rem; margin-top: 0.5rem;">#D4424F</p>
+                    <p style="color: var(--gris-claro); font-size: 0.85rem;">RGB: 212, 66, 79</p>
+                </div>
+                <div class="color-box">
+                    <div class="color-swatch" style="background: #5A4240; color: #fff;">
+                        <span data-es="CAFÉ SUAVE" data-en="SOFT BROWN">CAFÉ SUAVE</span>
+                    </div>
+                    <p style="color: var(--gris-claro); font-size: 0.9rem; margin-top: 0.5rem;">#5A4240</p>
+                    <p style="color: var(--gris-claro); font-size: 0.85rem;">RGB: 90, 66, 64</p>
+                </div>
+                <div class="color-box">
+                    <div class="color-swatch" style="background: #FFFFFF; color: #000;">
+                        <span data-es="BLANCO" data-en="WHITE">BLANCO</span>
+                    </div>
+                    <p style="color: var(--gris-claro); font-size: 0.9rem; margin-top: 0.5rem;">#FFFFFF</p>
+                    <p style="color: var(--gris-claro); font-size: 0.85rem;">RGB: 255, 255, 255</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="🖼️ Proyectos Destacados" data-en="🖼️ Featured Projects">🖼️ Proyectos Destacados</h2>
+            <p style="margin-bottom: 2rem;" data-es="Muestra de trabajos realizados para diferentes clientes a través de Únicos Agencia Creativa" data-en="Sample of work done for different clients through Únicos Creative Agency">Muestra de trabajos realizados para diferentes clientes a través de Únicos Agencia Creativa</p>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="image-placeholder">🏭</div>
+                    <div class="caption">
+                        <h3>MetalTec - Identidad Corporativa</h3>
+                        <p data-es="Diseño completo de identidad visual para empresa metalúrgica, incluyendo logo, papelería y aplicaciones" data-en="Complete visual identity design for metallurgical company, including logo, stationery and applications">Diseño completo de identidad visual para empresa metalúrgica, incluyendo logo, papelería y aplicaciones</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">🛍️</div>
+                    <div class="caption">
+                        <h3 data-es="Volante Promocional - Ofertas Únicas" data-en="Promotional Flyer - Unique Offers">Volante Promocional - Ofertas Únicas</h3>
+                        <p data-es="Diseño vibrante en morado con promoción de 40% de descuento, incluyendo variedad de productos y servicios" data-en="Vibrant purple design with 40% discount promotion, including variety of products and services">Diseño vibrante en morado con promoción de 40% de descuento, incluyendo variedad de productos y servicios</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">👓</div>
+                    <div class="caption">
+                        <h3>Óptica Vision Center Care</h3>
+                        <p data-es="Volante creativo estilo cómic con Superman, destacando 10% de descuento en servicios ópticos" data-en="Creative comic-style flyer with Superman, highlighting 10% discount on optical services">Volante creativo estilo cómic con Superman, destacando 10% de descuento en servicios ópticos</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">📋</div>
+                    <div class="caption">
+                        <h3 data-es="Pendones y Señalética" data-en="Banners and Signage">Pendones y Señalética</h3>
+                        <p data-es="Diseño de material publicitario de gran formato para eventos y puntos de venta" data-en="Large format advertising material design for events and points of sale">Diseño de material publicitario de gran formato para eventos y puntos de venta</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">👕</div>
+                    <div class="caption">
+                        <h3 data-es="Estampados Personalizados" data-en="Custom Prints">Estampados Personalizados</h3>
+                        <p data-es="Diseños para camisetas, bolsos y esferos con identidad de marca de clientes" data-en="Designs for t-shirts, bags and pens with client brand identity">Diseños para camisetas, bolsos y esferos con identidad de marca de clientes</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">📱</div>
+                    <div class="caption">
+                        <h3 data-es="Material Digital" data-en="Digital Material">Material Digital</h3>
+                        <p data-es="Diseños para redes sociales, web y campañas digitales" data-en="Designs for social media, web and digital campaigns">Diseños para redes sociales, web y campañas digitales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="🎯 Filosofía de la Agencia" data-en="🎯 Agency Philosophy">🎯 Filosofía de la Agencia</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3 data-es="Misión" data-en="Mission">Misión</h3>
+                    <p data-es="Ofrecer soluciones creativas únicas que rompan los moldes tradicionales del diseño y el marketing, ayudando a cada cliente a destacar en su mercado." data-en="Offer unique creative solutions that break traditional design and marketing molds, helping each client stand out in their market.">Ofrecer soluciones creativas únicas que rompan los moldes tradicionales del diseño y el marketing, ayudando a cada cliente a destacar en su mercado.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="Visión" data-en="Vision">Visión</h3>
+                    <p data-es="Ser reconocidos como la agencia que transforma ideas en realidades visuales impactantes, con creatividad sin límites." data-en="Be recognized as the agency that transforms ideas into impactful visual realities, with unlimited creativity.">Ser reconocidos como la agencia que transforma ideas en realidades visuales impactantes, con creatividad sin límites.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="Valores" data-en="Values">Valores</h3>
+                    <p data-es="Creatividad, Innovación, Autenticidad, Compromiso con el cliente, y Diseño que comunica." data-en="Creativity, Innovation, Authenticity, Client commitment, and Design that communicates.">Creatividad, Innovación, Autenticidad, Compromiso con el cliente, y Diseño que comunica.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="💼 Servicios Ofrecidos" data-en="💼 Services Offered">💼 Servicios Ofrecidos</h2>
+            <div class="deliverables-list">
+                <ul>
+                    <li><strong data-es="Diseño de Identidad Corporativa:" data-en="Corporate Identity Design:">Diseño de Identidad Corporativa:</strong> <span data-es="Logos, manuales de marca, paletas de color y tipografías" data-en="Logos, brand manuals, color palettes and typography">Logos, manuales de marca, paletas de color y tipografías</span></li>
+                    <li><strong data-es="Material Publicitario:" data-en="Advertising Material:">Material Publicitario:</strong> <span data-es="Volantes, flyers, pendones, catálogos y brochures" data-en="Flyers, flyers, banners, catalogs and brochures">Volantes, flyers, pendones, catálogos y brochures</span></li>
+                    <li><strong data-es="Diseño Digital:" data-en="Digital Design:">Diseño Digital:</strong> <span data-es="Templates para redes sociales, banners web, newsletters" data-en="Social media templates, web banners, newsletters">Templates para redes sociales, banners web, newsletters</span></li>
+                    <li><strong data-es="Estampados Personalizados:" data-en="Custom Prints:">Estampados Personalizados:</strong> <span data-es="Diseños para camisetas, bolsos, esferos y merchandising" data-en="Designs for t-shirts, bags, pens and merchandising">Diseños para camisetas, bolsos, esferos y merchandising</span></li>
+                    <li><strong data-es="Desarrollo Web:" data-en="Web Development:">Desarrollo Web:</strong> <span data-es="Sitios web corporativos, landing pages y tiendas online" data-en="Corporate websites, landing pages and online stores">Sitios web corporativos, landing pages y tiendas online</span></li>
+                    <li><strong data-es="Marketing Digital:" data-en="Digital Marketing:">Marketing Digital:</strong> <span data-es="Estrategias de contenido, manejo de redes sociales, campañas publicitarias" data-en="Content strategies, social media management, advertising campaigns">Estrategias de contenido, manejo de redes sociales, campañas publicitarias</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="👥 Clientes Atendidos" data-en="👥 Clients Served">👥 Clientes Atendidos</h2>
+            <div class="highlight-box">
+                <p data-es="✓ Empresas B2B: Servicios de branding e identidad corporativa" data-en="✓ B2B Companies: Branding and corporate identity services">✓ <strong>Empresas B2B:</strong> Servicios de branding e identidad corporativa</p>
+                <p data-es="✓ Negocios B2C: Material publicitario y estrategias de marketing digital" data-en="✓ B2C Businesses: Advertising material and digital marketing strategies">✓ <strong>Negocios B2C:</strong> Material publicitario y estrategias de marketing digital</p>
+                <p data-es="✓ Emprendimientos: Desarrollo de marca desde cero" data-en="✓ Startups: Brand development from scratch">✓ <strong>Emprendimientos:</strong> Desarrollo de marca desde cero</p>
+                <p data-es="✓ Empresas Establecidas: Renovación de imagen y campañas específicas" data-en="✓ Established Companies: Image renewal and specific campaigns">✓ <strong>Empresas Establecidas:</strong> Renovación de imagen y campañas específicas</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="✨ Análisis del Volante Óptica Vision Center" data-en="✨ Vision Center Optical Flyer Analysis">✨ Análisis del Volante Óptica Vision Center</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3 data-es="Concepto Creativo" data-en="Creative Concept">Concepto Creativo</h3>
+                    <p data-es="Uso innovador de estética de cómic con Superman para conectar el concepto de 'súper visión' con los servicios ópticos, haciendo el mensaje memorable y atractivo." data-en="Innovative use of comic aesthetic with Superman to connect the concept of 'super vision' with optical services, making the message memorable and attractive.">Uso innovador de estética de cómic con Superman para conectar el concepto de "súper visión" con los servicios ópticos, haciendo el mensaje memorable y atractivo.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="Paleta de Colores" data-en="Color Palette">Paleta de Colores</h3>
+                    <p data-es="Combinación tricolor vibrante: Rojo intenso, azul corporativo y amarillo energético que captura la atención y refuerza la identidad de marca." data-en="Vibrant three-color combination: Intense red, corporate blue and energetic yellow that captures attention and reinforces brand identity.">Combinación tricolor vibrante: Rojo intenso, azul corporativo y amarillo energético que captura la atención y refuerza la identidad de marca.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="Jerarquía Visual" data-en="Visual Hierarchy">Jerarquía Visual</h3>
+                    <p data-es="Descuento destacado en negro (10%), servicios organizados con íconos claros, información de contacto accesible con horarios y ubicación." data-en="Highlighted discount in black (10%), services organized with clear icons, accessible contact information with hours and location.">Descuento destacado en negro (10%), servicios organizados con íconos claros, información de contacto accesible con horarios y ubicación.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="✨ Análisis del Volante Promocional Morado" data-en="✨ Purple Promotional Flyer Analysis">✨ Análisis del Volante Promocional Morado</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3 data-es="Diseño Visual" data-en="Visual Design">Diseño Visual</h3>
+                    <p data-es="Degradado morado intenso con elementos gráficos geométricos dorados que transmiten modernidad y sofisticación. Copos de nieve blancos añaden elemento temático invernal." data-en="Intense purple gradient with golden geometric graphic elements that convey modernity and sophistication. White snowflakes add winter thematic element.">Degradado morado intenso con elementos gráficos geométricos dorados que transmiten modernidad y sofisticación. Copos de nieve blancos añaden elemento temático invernal.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="Estrategia Comercial" data-en="Commercial Strategy">Estrategia Comercial</h3>
+                    <p data-es="Muestra productos específicos con precios antes/después, descuento del 40% destacado, y amplia gama de servicios listados para maximizar alcance." data-en="Shows specific products with before/after prices, 40% discount highlighted, and wide range of services listed to maximize reach.">Muestra productos específicos con precios antes/después, descuento del 40% destacado, y amplia gama de servicios listados para maximizar alcance.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="Información de Contacto" data-en="Contact Information">Información de Contacto</h3>
+                    <p data-es="Múltiples canales claramente visibles: Teléfono, redes sociales (Facebook, Instagram), ubicación con íconos reconocibles." data-en="Multiple clearly visible channels: Phone, social media (Facebook, Instagram), location with recognizable icons.">Múltiples canales claramente visibles: Teléfono, redes sociales (Facebook, Instagram), ubicación con íconos reconocibles.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="🎯 Resultados e Impacto" data-en="🎯 Results and Impact">🎯 Resultados e Impacto</h2>
+            <div class="highlight-box">
+                <p data-es="✓ Identidad de marca sólida y diferenciada para la agencia" data-en="✓ Solid and differentiated brand identity for the agency">✓ Identidad de marca sólida y diferenciada para la agencia</p>
+                <p data-es="✓ Portfolio diverso con proyectos para múltiples sectores" data-en="✓ Diverse portfolio with projects for multiple sectors">✓ Portfolio diverso con proyectos para múltiples sectores</p>
+                <p data-es="✓ Soluciones creativas que rompieron moldes tradicionales" data-en="✓ Creative solutions that broke traditional molds">✓ Soluciones creativas que rompieron moldes tradicionales</p>
+                <p data-es="✓ Clientes satisfechos en B2B, B2C y emprendimientos" data-en="✓ Satisfied clients in B2B, B2C and startups">✓ Clientes satisfechos en B2B, B2C y emprendimientos</p>
+                <p data-es="✓ Experiencia completa en gestión de agencia creativa" data-en="✓ Complete experience in creative agency management">✓ Experiencia completa en gestión de agencia creativa</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="🛠️ Herramientas Utilizadas" data-en="🛠️ Tools Used">🛠️ Herramientas Utilizadas</h2>
+            <p><strong data-es="Diseño Principal:" data-en="Main Design:">Diseño Principal:</strong> Adobe Illustrator, Photoshop</p>
+            <p><strong data-es="Identidad Visual:" data-en="Visual Identity:">Identidad Visual:</strong> <span data-es="Creación de logos vectoriales y sistemas de marca" data-en="Vector logo creation and brand systems">Creación de logos vectoriales y sistemas de marca</span></p>
+            <p><strong data-es="Material Impreso:" data-en="Print Material:">Material Impreso:</strong> InDesign <span data-es="para maquetación de volantes, catálogos" data-en="for layout of flyers, catalogs">para maquetación de volantes, catálogos</span></p>
+            <p><strong data-es="Mockups:" data-en="Mockups:">Mockups:</strong> Photoshop <span data-es="para presentación de diseños" data-en="for design presentation">para presentación de diseños</span></p>
+            <p><strong data-es="Desarrollo Web:" data-en="Web Development:">Desarrollo Web:</strong> HTML, CSS, JavaScript</p>
+        </div>
+
+        <div class="cta-section">
+            <h2 style="color: #fff; margin-bottom: 1rem;" data-es="¿Necesitas diseño gráfico y marketing creativo?" data-en="Need graphic design and creative marketing?">¿Necesitas diseño gráfico y marketing creativo?</h2>
+            <p style="color: var(--gris-claro); margin-bottom: 2rem;" data-es="Puedo ayudarte a crear diseños únicos que rompan los moldes tradicionales" data-en="I can help you create unique designs that break traditional molds">Puedo ayudarte a crear diseños únicos que rompan los moldes tradicionales</p>
+            <a href="index.html#contacto" class="cta-button" data-es="Contáctame" data-en="Contact Me">Contáctame</a>
+            <a href="index.html#proyectos" class="cta-button" style="background: var(--gris); border: 1px solid var(--rojo-unicos);" data-es="Ver más proyectos" data-en="See more projects">Ver más proyectos</a>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'es';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            document.querySelectorAll('[data-es][data-en]').forEach(el => {
+                const text = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+        }
+
+        function createDesignParticles() {
+            const bg = document.getElementById('animatedBg');
+            const particleCount = 60;
+            
+            const colors = [
+                'rgba(212, 66, 79, 0.4)',
+                'rgba(90, 66, 64, 0.4)',
+                'rgba(232, 93, 106, 0.3)'
+            ];
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 6 + 3;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 20 + 15;
+                const delay = Math.random() * 10;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}%;
+                    top: ${y}%;
+                    background: ${color};
+                    animation: float ${duration}s ease-in-out ${delay}s infinite;
+                    box-shadow: 0 0 ${size * 3}px ${color};
+                `;
+                
+                bg.appendChild(particle);
+            }
+        }
+
+        function createDesignShapes() {
+            const bg = document.getElementById('animatedBg');
+            const shapes = ['◆', '●', '■', '▲', '★'];
+            const colors = [
+                'rgba(212, 66, 79, 0.12)',
+                'rgba(90, 66, 64, 0.12)',
+                'rgba(232, 93, 106, 0.08)'
+            ];
+            
+            for (let i = 0; i < 15; i++) {
+                const shape = document.createElement('div');
+                shape.className = 'design-shape';
+                shape.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+                
+                const size = Math.random() * 60 + 40;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 25 + 20;
+                const delay = Math.random() * 15;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                shape.style.cssText = `
+                    font-size: ${size}px;
+                    left: ${x}%;
+                    top: ${y}%;
+                    color: ${color};
+                    animation-duration: ${duration}s;
+                    animation-delay: ${delay}s;
+                `;
+                
+                bg.appendChild(shape);
+            }
+        }
+
+        function createPixels() {
+            const bg = document.getElementById('animatedBg');
+            const pixelCount = 80;
+            
+            const colors = [
+                'rgba(212, 66, 79, 0.9)',
+                'rgba(90, 66, 64, 0.9)',
+                'rgba(232, 93, 106, 0.7)'
+            ];
+            
+            for (let i = 0; i < pixelCount; i++) {
+                const pixel = document.createElement('div');
+                pixel.className = 'pixel';
+                
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 4 + 3;
+                const delay = Math.random() * 6;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                pixel.style.cssText = `
+                    left: ${x}%;
+                    top: ${y}%;
+                    background: ${color};
+                    animation-duration: ${duration}s;
+                    animation-delay: ${delay}s;
+                `;
+                
+                bg.appendChild(pixel);
+            }
+        }
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let trailX = 0;
+        let trailY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateColorTrail() {
+            const trail = document.getElementById('colorTrail');
+            
+            trailX += (mouseX - trailX) * 0.1;
+            trailY += (mouseY - trailY) * 0.1;
+            
+            trail.style.left = trailX + 'px';
+            trail.style.top = trailY + 'px';
+            
+            requestAnimationFrame(animateColorTrail);
+        }
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            const gradient = document.querySelector('.gradient-bg');
+            const shapes = document.querySelectorAll('.design-shape');
+            
+            if (gradient) {
+                gradient.style.transform = `translate(${currentScrollY * 0.15}px, ${currentScrollY * 0.08}px) rotate(${currentScrollY * 0.08}deg)`;
+            }
+            
+            shapes.forEach((shape, index) => {
+                const speed = 0.03 + (index * 0.01);
+                shape.style.transform = `translate(${currentScrollY * speed}px, ${currentScrollY * speed}px) rotate(${currentScrollY * (speed * 2)}deg)`;
+            });
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            createDesignParticles();
+            createDesignShapes();
+            createPixels();
+            animateColorTrail();
+            
+            document.querySelectorAll('.info-card, .gallery-item').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 0 30px rgba(212, 66, 79, 0.25)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '';
+                });
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            const ripple = document.createElement('div');
+            const colors = [
+                'rgba(212, 66, 79, 0.6)',
+                'rgba(90, 66, 64, 0.6)'
+            ];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            ripple.style.cssText = `
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: radial-gradient(circle, ${color} 0%, transparent 70%);
+                pointer-events: none;
+                left: ${e.clientX - 10}px;
+                top: ${e.clientY - 10}px;
+                z-index: 9999;
+                animation: rippleExpand 0.8s ease-out forwards;
+            `;
+            
+            document.body.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 800);
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rippleExpand {
+                to {
+                    transform: scale(12);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
