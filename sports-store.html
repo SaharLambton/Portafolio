@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports Store - Sahar Chain</title>
+    <title>Sell Services and Graphic Products - Sahar Chain</title>
     <style>
         * {
             margin: 0;
@@ -24,12 +24,201 @@
             background-color: var(--negro);
             color: #fff;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background - SUPER DINÁMICO */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        /* Gradiente animado de fondo */
+        .gradient-bg {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 40%);
+            animation: gradientMove 20s ease-in-out infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(-10%, -10%) rotate(120deg);
+            }
+            66% {
+                transform: translate(-5%, -20%) rotate(240deg);
+            }
+        }
+
+        /* Partículas flotantes */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(1px);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.6;
+            }
+            25% {
+                transform: translateY(-30px) translateX(15px) scale(1.1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-20px) translateX(-15px) scale(0.9);
+                opacity: 0.5;
+            }
+            75% {
+                transform: translateY(-40px) translateX(10px) scale(1.05);
+                opacity: 0.7;
+            }
+        }
+
+        /* Ondas animadas */
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            opacity: 0.03;
+            border-radius: 40%;
+            animation: wave 15s infinite linear;
+        }
+
+        .wave:nth-child(1) {
+            background: radial-gradient(circle, var(--verde) 0%, transparent 70%);
+            animation-duration: 12s;
+        }
+
+        .wave:nth-child(2) {
+            background: radial-gradient(circle, var(--rojo) 0%, transparent 70%);
+            animation-duration: 18s;
+            animation-delay: -5s;
+        }
+
+        .wave:nth-child(3) {
+            background: radial-gradient(circle, var(--verde) 0%, transparent 70%);
+            animation-duration: 20s;
+            animation-delay: -10s;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg) scale(1.2);
+            }
+        }
+
+        /* Efecto de seguimiento del mouse */
+        .mouse-trail {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            filter: blur(40px);
+        }
+
+        /* Líneas de conexión animadas */
+        .grid-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+            background-size: 100px 100px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(100px, 100px);
+            }
+        }
+
+        /* Estrellas parpadeantes */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(16, 185, 129, 0.8);
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--gris);
+            padding: 0.5rem;
+            border-radius: 30px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--gris-claro);
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            color: #fff;
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--verde);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 5%;
+            position: relative;
+            z-index: 1;
         }
 
         .back-button {
@@ -238,6 +427,11 @@
         }
 
         @media (max-width: 768px) {
+            .lang-switcher {
+                top: 1rem;
+                right: 1rem;
+            }
+
             .project-header h1 {
                 font-size: 2rem;
             }
@@ -249,179 +443,433 @@
     </style>
 </head>
 <body>
+    <!-- Animated Background - SUPER DINÁMICO -->
+    <div class="animated-bg" id="animatedBg">
+        <!-- Gradiente animado -->
+        <div class="gradient-bg"></div>
+        
+        <!-- Ondas -->
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        
+        <!-- Grid animado -->
+        <div class="grid-lines"></div>
+        
+        <!-- Mouse trail -->
+        <div class="mouse-trail" id="mouseTrail"></div>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="changeLanguage('es')">ES</button>
+        <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+    </div>
+
     <div class="container">
-        <a href="../prueba portafolio.html#proyectos" class="back-button">← Volver al Portafolio</a>
+        <a href="index.html#proyectos" class="back-button" data-es="← Volver al Portafolio" data-en="← Back to Portfolio">← Volver al Portafolio</a>
 
         <div class="project-header">
-            <h1>Sports Store</h1>
-            <p class="subtitle">Sitio web completo para tienda de artículos deportivos con enfoque en responsabilidad social y educación deportiva</p>
+            <h1>Sell Services and Graphic Products</h1>
+            <p class="subtitle" data-es="Plataforma e-commerce completa para venta de servicios y productos gráficos con sistema de seguridad multinivel" data-en="Complete e-commerce platform for selling graphic services and products with multi-level security system">Plataforma e-commerce completa para venta de servicios y productos gráficos con sistema de seguridad multinivel</p>
             <div class="tech-stack">
+                <span class="tech-badge">PHP</span>
+                <span class="tech-badge">MySQL</span>
                 <span class="tech-badge">HTML5</span>
                 <span class="tech-badge">CSS3</span>
-                <span class="tech-badge">Responsive Design</span>
-                <span class="tech-badge">YouTube Integration</span>
-                <span class="tech-badge">UI/UX Design</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">jQuery</span>
+                <span class="tech-badge">E-commerce</span>
             </div>
         </div>
 
         <div class="section">
-            <h2>📋 Resumen del Proyecto</h2>
-            <p>
-                Proyecto académico desarrollado en Lambton College que consiste en un sitio web completo para una tienda de artículos deportivos enfocada en los deportes más populares de Canadá. El proyecto va más allá de un simple e-commerce, incorporando un programa de becas para jóvenes atletas y recursos educativos para padres, demostrando un enfoque de responsabilidad social corporativa.
+            <h2 data-es="📋 Resumen del Proyecto" data-en="📋 Project Summary">📋 Resumen del Proyecto</h2>
+            <p data-es="Proyecto académico desarrollado en Lambton College que consiste en una plataforma e-commerce completa especializada en la venta de servicios y productos gráficos personalizados. El sistema integra funcionalidades avanzadas de comercio electrónico con un robusto sistema de seguridad que implementa encriptación multinivel para proteger la información de usuarios y transacciones." data-en="Academic project developed at Lambton College consisting of a complete e-commerce platform specialized in selling custom graphic services and products. The system integrates advanced e-commerce functionalities with a robust security system that implements multi-level encryption to protect user information and transactions.">
+                Proyecto académico desarrollado en Lambton College que consiste en una plataforma e-commerce completa especializada en la venta de servicios y productos gráficos personalizados. El sistema integra funcionalidades avanzadas de comercio electrónico con un robusto sistema de seguridad que implementa encriptación multinivel para proteger la información de usuarios y transacciones.
             </p>
         </div>
 
         <div class="info-grid">
             <div class="info-card">
-                <h3>🎯 Objetivo</h3>
-                <p>Crear un sitio web profesional y funcional para una tienda deportiva que combine comercio electrónico con impacto social positivo en la comunidad juvenil.</p>
+                <h3 data-es="🎯 Objetivo" data-en="🎯 Objective">🎯 Objetivo</h3>
+                <p data-es="Crear una plataforma segura y funcional para la comercialización de productos y servicios gráficos, facilitando la conexión entre diseñadores y clientes." data-en="Create a secure and functional platform for marketing graphic products and services, facilitating the connection between designers and clients.">Crear una plataforma segura y funcional para la comercialización de productos y servicios gráficos, facilitando la conexión entre diseñadores y clientes.</p>
             </div>
             <div class="info-card">
-                <h3>⏱️ Duración</h3>
-                <p>20 días de desarrollo completo, incluyendo diseño de interfaz, estructura de contenido, implementación y optimización responsive.</p>
+                <h3 data-es="⏱️ Duración" data-en="⏱️ Duration">⏱️ Duración</h3>
+                <p data-es="1 mes de desarrollo completo, incluyendo diseño, implementación, pruebas de seguridad y optimización." data-en="1 month of complete development, including design, implementation, security testing and optimization.">1 mes de desarrollo completo, incluyendo diseño, implementación, pruebas de seguridad y optimización.</p>
             </div>
             <div class="info-card">
-                <h3>💥 Rol</h3>
-                <p>Desarrolladora Frontend - Diseño de interfaz, estructura HTML semántica, diseño CSS responsive y arquitectura de información.</p>
+                <h3 data-es="💥 Rol" data-en="💥 Role">💥 Rol</h3>
+                <p data-es="Desarrolladora Full Stack - Diseño de arquitectura, desarrollo backend PHP, frontend interactivo y base de datos MySQL." data-en="Full Stack Developer - Architecture design, PHP backend development, interactive frontend and MySQL database.">Desarrolladora Full Stack - Diseño de arquitectura, desarrollo backend PHP, frontend interactivo y base de datos MySQL.</p>
             </div>
         </div>
 
         <div class="section">
-            <h2>✨ Características Principales</h2>
+            <h2 data-es="✨ Características Principales" data-en="✨ Main Features">✨ Características Principales</h2>
             <ul>
-                <li>Página de inicio (Home) con hero section impactante y navegación intuitiva</li>
-                <li>Catálogo dinámico de productos deportivos organizados por categorías</li>
-                <li>Sección "About Us" con información corporativa y valores de la empresa</li>
-                <li>Formulario de contacto funcional con validación de datos</li>
-                <li>Programa de becas para jóvenes atletas con formulario de aplicación</li>
-                <li>Integración de videos educativos de YouTube sobre beneficios del deporte</li>
-                <li>Sección de noticias y actualizaciones (términos y condiciones, nuevas becas)</li>
-                <li>Footer informativo con ubicaciones de tiendas en GTA (Greater Toronto Area)</li>
-                <li>Diseño completamente responsive adaptable a todos los dispositivos</li>
-                <li>Iconos de redes sociales para conexión con la comunidad</li>
+                <li data-es="Sistema de registro y autenticación de usuarios con encriptación multinivel" data-en="User registration and authentication system with multi-level encryption">Sistema de registro y autenticación de usuarios con encriptación multinivel</li>
+                <li data-es="Catálogo dinámico de productos y servicios gráficos personalizables" data-en="Dynamic catalog of customizable graphic products and services">Catálogo dinámico de productos y servicios gráficos personalizables</li>
+                <li data-es="Carrito de compras interactivo con actualización en tiempo real" data-en="Interactive shopping cart with real-time updates">Carrito de compras interactivo con actualización en tiempo real</li>
+                <li data-es="Pasarela de pagos integrada con procesamiento seguro de transacciones" data-en="Integrated payment gateway with secure transaction processing">Pasarela de pagos integrada con procesamiento seguro de transacciones</li>
+                <li data-es="Panel de administración para gestión de productos, pedidos y usuarios" data-en="Admin panel for product, order and user management">Panel de administración para gestión de productos, pedidos y usuarios</li>
+                <li data-es="Sistema de ofertas y descuentos con temporizador countdown" data-en="Offers and discounts system with countdown timer">Sistema de ofertas y descuentos con temporizador countdown</li>
+                <li data-es="Popup promocional dinámico al ingresar al sitio" data-en="Dynamic promotional popup on site entry">Popup promocional dinámico al ingresar al sitio</li>
+                <li data-es="Diseño responsive adaptable a todos los dispositivos" data-en="Responsive design adaptable to all devices">Diseño responsive adaptable a todos los dispositivos</li>
+                <li data-es="Galería visual de productos (camisetas, cuadernos, termos personalizados)" data-en="Visual gallery of products (custom t-shirts, notebooks, thermoses)">Galería visual de productos (camisetas, cuadernos, termos personalizados)</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>🖼️ Estructura del Sitio</h2>
+            <h2 data-es="🖼️ Capturas del Sistema" data-en="🖼️ System Screenshots">🖼️ Capturas del Sistema</h2>
             <div class="gallery">
                 <div class="gallery-item">
                     <div class="image-placeholder">🏠</div>
-                    <div class="caption">Página Principal (Home)</div>
+                    <div class="caption" data-es="Página Principal" data-en="Home Page">Página Principal</div>
                 </div>
                 <div class="gallery-item">
-                    <div class="image-placeholder">🏀</div>
-                    <div class="caption">Catálogo de Productos</div>
+                    <div class="image-placeholder">🔐</div>
+                    <div class="caption" data-es="Sistema de Login/Registro" data-en="Login/Register System">Sistema de Login/Registro</div>
                 </div>
                 <div class="gallery-item">
-                    <div class="image-placeholder">ℹ️</div>
-                    <div class="caption">About Us - Quiénes Somos</div>
+                    <div class="image-placeholder">🛍️</div>
+                    <div class="caption" data-es="Catálogo de Productos" data-en="Product Catalog">Catálogo de Productos</div>
                 </div>
                 <div class="gallery-item">
-                    <div class="image-placeholder">📞</div>
-                    <div class="caption">Página de Contacto</div>
+                    <div class="image-placeholder">🛒</div>
+                    <div class="caption" data-es="Carrito de Compras" data-en="Shopping Cart">Carrito de Compras</div>
                 </div>
                 <div class="gallery-item">
-                    <div class="image-placeholder">🎓</div>
-                    <div class="caption">Programa de Becas</div>
+                    <div class="image-placeholder">💳</div>
+                    <div class="caption" data-es="Pasarela de Pagos" data-en="Payment Gateway">Pasarela de Pagos</div>
                 </div>
                 <div class="gallery-item">
-                    <div class="image-placeholder">📹</div>
-                    <div class="caption">Recursos Educativos</div>
+                    <div class="image-placeholder">⚙️</div>
+                    <div class="caption" data-es="Panel de Administración" data-en="Admin Panel">Panel de Administración</div>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>🛠️ Tecnologías y Técnicas Utilizadas</h2>
-            <p><strong>HTML5 Semántico:</strong> Uso de etiquetas semánticas (header, nav, main, section, article, footer) para mejor accesibilidad y SEO</p>
-            <p><strong>CSS3 Avanzado:</strong> Flexbox y Grid Layout para diseños complejos, animaciones CSS, transiciones suaves y efectos hover</p>
-            <p><strong>Responsive Design:</strong> Media queries y diseño mobile-first para garantizar funcionalidad en todos los dispositivos</p>
-            <p><strong>Integración Multimedia:</strong> Embeds de YouTube con iframes responsivos para contenido educativo</p>
-            <p><strong>Optimización de Recursos:</strong> Gestión eficiente de imágenes y estructura de archivos organizada (CSS, img, media separados)</p>
+            <h2 data-es="🛠️ Tecnologías Utilizadas" data-en="🛠️ Technologies Used">🛠️ Tecnologías Utilizadas</h2>
+            <p><strong>Backend:</strong> <span data-es="PHP 7.4+, manejo de sesiones, validación de datos del lado del servidor" data-en="PHP 7.4+, session management, server-side data validation">PHP 7.4+, manejo de sesiones, validación de datos del lado del servidor</span></p>
+            <p><strong data-es="Base de Datos:" data-en="Database:">Base de Datos:</strong> <span data-es="MySQL con consultas preparadas para prevenir SQL Injection" data-en="MySQL with prepared statements to prevent SQL Injection">MySQL con consultas preparadas para prevenir SQL Injection</span></p>
+            <p><strong>Frontend:</strong> <span data-es="HTML5, CSS3 con diseño responsive, JavaScript ES6+ y jQuery" data-en="HTML5, CSS3 with responsive design, JavaScript ES6+ and jQuery">HTML5, CSS3 con diseño responsive, JavaScript ES6+ y jQuery</span></p>
+            <p><strong data-es="Seguridad:" data-en="Security:">Seguridad:</strong> <span data-es="Encriptación multinivel de contraseñas (bcrypt/password_hash), HTTPS, validación de entradas, protección CSRF" data-en="Multi-level password encryption (bcrypt/password_hash), HTTPS, input validation, CSRF protection">Encriptación multinivel de contraseñas (bcrypt/password_hash), HTTPS, validación de entradas, protección CSRF</span></p>
+            <p><strong data-es="Funcionalidades:" data-en="Features:">Funcionalidades:</strong> <span data-es="Sistema de sesiones PHP, cookies seguras, AJAX para interacciones dinámicas" data-en="PHP session system, secure cookies, AJAX for dynamic interactions">Sistema de sesiones PHP, cookies seguras, AJAX para interacciones dinámicas</span></p>
         </div>
 
         <div class="section">
-            <h2>🏆 Secciones Destacadas</h2>
+            <h2 data-es="🔒 Arquitectura de Seguridad" data-en="🔒 Security Architecture">🔒 Arquitectura de Seguridad</h2>
+            <ul>
+                <li data-es="Encriptación de contraseñas con algoritmo bcrypt (múltiples rondas de hash)" data-en="Password encryption with bcrypt algorithm (multiple hashing rounds)">Encriptación de contraseñas con algoritmo bcrypt (múltiples rondas de hash)</li>
+                <li data-es="Validación de datos tanto en frontend como backend" data-en="Data validation in both frontend and backend">Validación de datos tanto en frontend como backend</li>
+                <li data-es="Consultas preparadas (Prepared Statements) para prevenir SQL Injection" data-en="Prepared Statements to prevent SQL Injection">Consultas preparadas (Prepared Statements) para prevenir SQL Injection</li>
+                <li data-es="Protección contra Cross-Site Scripting (XSS)" data-en="Protection against Cross-Site Scripting (XSS)">Protección contra Cross-Site Scripting (XSS)</li>
+                <li data-es="Tokens CSRF para formularios críticos" data-en="CSRF tokens for critical forms">Tokens CSRF para formularios críticos</li>
+                <li data-es="Gestión segura de sesiones con regeneración de ID" data-en="Secure session management with ID regeneration">Gestión segura de sesiones con regeneración de ID</li>
+                <li data-es="Encriptación de datos sensibles en la base de datos" data-en="Encryption of sensitive data in the database">Encriptación de datos sensibles en la base de datos</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 data-es="💡 Desafíos y Soluciones" data-en="💡 Challenges and Solutions">💡 Desafíos y Soluciones</h2>
+            <p><strong data-es="Desafío:" data-en="Challenge:">Desafío:</strong> <span data-es="Implementar un sistema de seguridad robusto que proteja tanto datos de usuarios como transacciones" data-en="Implement a robust security system that protects both user data and transactions">Implementar un sistema de seguridad robusto que proteja tanto datos de usuarios como transacciones</span></p>
+            <p><strong data-es="Solución:" data-en="Solution:">Solución:</strong> <span data-es="Desarrollo de arquitectura de seguridad multinivel con encriptación de contraseñas, validación estricta de inputs, y uso de prepared statements en todas las consultas SQL." data-en="Development of multi-level security architecture with password encryption, strict input validation, and use of prepared statements in all SQL queries.">Desarrollo de arquitectura de seguridad multinivel con encriptación de contraseñas, validación estricta de inputs, y uso de prepared statements en todas las consultas SQL.</span></p>
+            <br>
+            <p><strong data-es="Desafío:" data-en="Challenge:">Desafío:</strong> <span data-es="Crear una experiencia de compra fluida y dinámica sin recargas de página" data-en="Create a smooth and dynamic shopping experience without page reloads">Crear una experiencia de compra fluida y dinámica sin recargas de página</span></p>
+            <p><strong data-es="Solución:" data-en="Solution:">Solución:</strong> <span data-es="Implementación de AJAX con jQuery para actualizar el carrito y procesar acciones en tiempo real, mejorando significativamente la experiencia de usuario." data-en="Implementation of AJAX with jQuery to update the cart and process actions in real-time, significantly improving user experience.">Implementación de AJAX con jQuery para actualizar el carrito y procesar acciones en tiempo real, mejorando significativamente la experiencia de usuario.</span></p>
+        </div>
+
+        <div class="section">
+            <h2 data-es="📊 Funcionalidades del Sistema" data-en="📊 System Features">📊 Funcionalidades del Sistema</h2>
             <div class="info-grid">
                 <div class="info-card">
-                    <h3>Home - Bienvenida</h3>
-                    <p>Hero section con imagen impactante, animación de flecha descendente, navegación clara a productos, información corporativa y programa de becas.</p>
+                    <h3 data-es="Para Clientes" data-en="For Customers">Para Clientes</h3>
+                    <p data-es="Navegación intuitiva del catálogo, carrito de compras persistente, seguimiento de pedidos, gestión de perfil personal y acceso a ofertas especiales." data-en="Intuitive catalog navigation, persistent shopping cart, order tracking, personal profile management and access to special offers.">Navegación intuitiva del catálogo, carrito de compras persistente, seguimiento de pedidos, gestión de perfil personal y acceso a ofertas especiales.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Products - Catálogo</h3>
-                    <p>Exhibición dinámica de productos deportivos para hockey sobre hielo, béisbol, basketball y otros deportes populares en Canadá.</p>
+                    <h3 data-es="Para Administradores" data-en="For Administrators">Para Administradores</h3>
+                    <p data-es="Panel de control completo, gestión de inventario, procesamiento de pedidos, administración de usuarios y configuración de promociones." data-en="Complete control panel, inventory management, order processing, user administration and promotion configuration.">Panel de control completo, gestión de inventario, procesamiento de pedidos, administración de usuarios y configuración de promociones.</p>
                 </div>
                 <div class="info-card">
-                    <h3>About Us - Identidad</h3>
-                    <p>Información sobre la misión de la empresa, valores corporativos y compromiso con el desarrollo deportivo juvenil.</p>
-                </div>
-                <div class="info-card">
-                    <h3>Contact - Conectividad</h3>
-                    <p>Formulario funcional de contacto, ubicaciones físicas de tiendas en el área de Toronto, y canales de comunicación.</p>
-                </div>
-                <div class="info-card">
-                    <h3>Programa de Becas</h3>
-                    <p>Sistema de solicitud de becas para jóvenes atletas que necesitan apoyo para equipamiento deportivo, demostrando responsabilidad social.</p>
-                </div>
-                <div class="info-card">
-                    <h3>Recursos Educativos</h3>
-                    <p>Carrusel de videos de YouTube cuidadosamente seleccionados sobre beneficios del deporte en niños y jóvenes.</p>
+                    <h3 data-es="Procesamiento de Pagos" data-en="Payment Processing">Procesamiento de Pagos</h3>
+                    <p data-es="Integración con pasarela de pagos segura, múltiples métodos de pago, confirmación automática y generación de comprobantes." data-en="Integration with secure payment gateway, multiple payment methods, automatic confirmation and receipt generation.">Integración con pasarela de pagos segura, múltiples métodos de pago, confirmación automática y generación de comprobantes.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="section">
-            <h2>🎨 Decisiones de Diseño</h2>
-            <ul>
-                <li>Paleta de colores inspirada en deportes canadienses y naturaleza</li>
-                <li>Tipografía clara y legible para facilitar la navegación</li>
-                <li>Espaciado generoso para mejor experiencia de usuario</li>
-                <li>Imágenes de alta calidad que transmiten energía y dinamismo deportivo</li>
-                <li>Barras transparentes sobre imágenes para mejorar legibilidad del texto</li>
-                <li>Efectos hover interactivos para mejorar la experiencia del usuario</li>
-                <li>Footer estructurado con tabla para organización clara de información</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>📚 Contenido y Recursos</h2>
-            <p><strong>Deportes Destacados:</strong> Hockey sobre hielo, béisbol, basketball, fútbol y otros deportes populares en Canadá</p>
-            <p><strong>Ubicaciones:</strong> Tres tiendas principales en Greater Toronto Area (Yorkland Boulevard Toronto, Scarborough, Brampton)</p>
-            <p><strong>Videos Educativos:</strong> 
-                <ul>
-                    <li>"How playing sports benefits your body and your brain"</li>
-                    <li>"Why you should care about youth sports"</li>
-                    <li>"Youth in Sport - Keeping Kids in The Game"</li>
-                </ul>
-            </p>
-            <p><strong>Documentación:</strong> Términos y condiciones actualizados disponibles en formato PDF</p>
-        </div>
-
-        <div class="section">
-            <h2>💡 Enfoque de Responsabilidad Social</h2>
-            <p>
-                Este proyecto se diferencia por su fuerte componente de responsabilidad social corporativa. No es solo una tienda deportiva comercial, sino una plataforma que busca facilitar el acceso al deporte para jóvenes en situación de necesidad a través de su programa de becas. La integración de recursos educativos para padres demuestra un compromiso con la educación y concientización sobre la importancia del deporte en el desarrollo juvenil.
-            </p>
-        </div>
-
-        <div class="section">
-            <h2>📊 Estructura de Archivos</h2>
-            <ul>
-                <li>Organización modular con carpetas separadas para CSS, imágenes y media</li>
-                <li>Navegación clara entre las 4 páginas principales (home, products, about, contact)</li>
-                <li>Recursos multimedia organizados por sección (home, footer, icons)</li>
-                <li>Documentos legales accesibles (términos y condiciones en PDF)</li>
-                <li>Favicon personalizado para identidad de marca</li>
-            </ul>
         </div>
 
         <div class="cta-section">
-            <h2 style="color: #fff; margin-bottom: 1rem;">¿Necesitas un sitio web profesional?</h2>
-            <p style="color: var(--gris-claro); margin-bottom: 2rem;">Puedo crear sitios web responsive y funcionales para tu negocio</p>
-            <a href="../prueba portafolio.html#contacto" class="cta-button">Contáctame</a>
-            <a href="../prueba portafolio.html#proyectos" class="cta-button" style="background: var(--gris); border: 1px solid var(--verde);">Ver más proyectos</a>
+                <h2 style="color: #fff; margin-bottom: 1rem;" data-es="¿Interesado en un proyecto similar?" data-en="Interested in a similar project?">¿Interesado en un proyecto similar?</h2>
+            <p style="color: var(--gris-claro); margin-bottom: 2rem;" data-es="Puedo desarrollar plataformas e-commerce seguras y personalizadas" data-en="I can develop secure and customized e-commerce platforms">Puedo desarrollar plataformas e-commerce seguras y personalizadas</p>
+            <a href="index.html#contacto" class="cta-button" data-es="Contáctame" data-en="Contact Me">Contáctame</a>
+            <a href="index.html#proyectos" class="cta-button" style="background: var(--gris); border: 1px solid var(--verde);" data-es="Ver más proyectos" data-en="See more projects">Ver más proyectos</a>
         </div>
     </div>
+
+    <script>
+        let currentLang = 'es';
+
+        // Language switcher
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            document.querySelectorAll('[data-es][data-en]').forEach(el => {
+                const text = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+        }
+
+        // Create animated background particles
+        function createParticles() {
+            const bg = document.getElementById('animatedBg');
+            const particleCount = 80;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 5 + 2;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 15 + 10;
+                const delay = Math.random() * 10;
+                
+                const colors = [
+                    'rgba(16, 185, 129, 0.4)', 
+                    'rgba(220, 38, 38, 0.4)', 
+                    'rgba(255, 255, 255, 0.3)',
+                    'rgba(16, 185, 129, 0.6)'
+                ];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}%;
+                    top: ${y}%;
+                    background: ${color};
+                    animation: float ${duration}s ease-in-out ${delay}s infinite;
+                    box-shadow: 0 0 ${size * 2}px ${color};
+                `;
+                
+                bg.appendChild(particle);
+            }
+        }
+
+        // Create twinkling stars
+        function createStars() {
+            const bg = document.getElementById('animatedBg');
+            const starCount = 100;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 3 + 2;
+                const delay = Math.random() * 5;
+                
+                star.style.cssText = `
+                    left: ${x}%;
+                    top: ${y}%;
+                    animation-duration: ${duration}s;
+                    animation-delay: ${delay}s;
+                `;
+                
+                bg.appendChild(star);
+            }
+        }
+
+        // Mouse trail effect
+        let mouseX = 0;
+        let mouseY = 0;
+        let trailX = 0;
+        let trailY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateTrail() {
+            const trail = document.getElementById('mouseTrail');
+            
+            // Smooth following effect
+            trailX += (mouseX - trailX) * 0.1;
+            trailY += (mouseY - trailY) * 0.1;
+            
+            trail.style.left = trailX + 'px';
+            trail.style.top = trailY + 'px';
+            
+            requestAnimationFrame(animateTrail);
+        }
+
+        // Parallax effect on scroll
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            const gradient = document.querySelector('.gradient-bg');
+            const waves = document.querySelectorAll('.wave');
+            
+            if (gradient) {
+                gradient.style.transform = `translate(${currentScrollY * 0.1}px, ${currentScrollY * 0.05}px) rotate(${currentScrollY * 0.05}deg)`;
+            }
+            
+            waves.forEach((wave, index) => {
+                wave.style.transform = `translate(-50%, -50%) rotate(${currentScrollY * (0.02 + index * 0.01)}deg) scale(${1.2 + currentScrollY * 0.0001})`;
+            });
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // Create dynamic connection lines between particles
+        function createConnections() {
+            const bg = document.getElementById('animatedBg');
+            const canvas = document.createElement('canvas');
+            canvas.style.position = 'absolute';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.pointerEvents = 'none';
+            canvas.style.opacity = '0.1';
+            
+            bg.insertBefore(canvas, bg.firstChild);
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = 30;
+            
+            class ConnectionParticle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                }
+                
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                }
+                
+                draw() {
+                    ctx.fillStyle = 'rgba(16, 185, 129, 0.5)';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new ConnectionParticle());
+            }
+            
+            function drawConnections() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                // Draw lines between close particles
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 150) {
+                            ctx.strokeStyle = `rgba(16, 185, 129, ${1 - distance / 150})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(drawConnections);
+            }
+            
+            drawConnections();
+            
+            // Resize canvas on window resize
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        // Initialize all effects on load
+        window.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            createStars();
+            createConnections();
+            animateTrail();
+            
+            // Add pulse effect to cards on hover
+            document.querySelectorAll('.info-card, .gallery-item').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 0 30px rgba(16, 185, 129, 0.3)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '';
+                });
+            });
+        });
+
+        // Add interactive ripple effect on click
+        document.addEventListener('click', (e) => {
+            const ripple = document.createElement('div');
+            ripple.style.cssText = `
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(16, 185, 129, 0.6) 0%, transparent 70%);
+                pointer-events: none;
+                left: ${e.clientX - 10}px;
+                top: ${e.clientY - 10}px;
+                z-index: 9999;
+                animation: rippleExpand 0.6s ease-out forwards;
+            `;
+            
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rippleExpand {
+                to {
+                    transform: scale(10);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
