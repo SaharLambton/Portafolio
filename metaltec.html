@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetalTec Colombia - Branding Completo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --negro: #0a0a0a;
+            --verde: #10b981;
+            --rojo: #dc2626;
+            --naranja: #FF5722;
+            --gris: #1f1f1f;
+            --gris-metaltec: #4A5F6D;
+            --gris-claro: #a3a3a3;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--negro);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background - SUPER DINÁMICO */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        /* Gradiente animado de fondo */
+        .gradient-bg {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 87, 34, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(74, 95, 109, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(255, 87, 34, 0.1) 0%, transparent 40%);
+            animation: gradientMove 20s ease-in-out infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(-10%, -10%) rotate(120deg);
+            }
+            66% {
+                transform: translate(-5%, -20%) rotate(240deg);
+            }
+        }
+
+        /* Partículas flotantes */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(1px);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.6;
+            }
+            25% {
+                transform: translateY(-30px) translateX(15px) scale(1.1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-20px) translateX(-15px) scale(0.9);
+                opacity: 0.5;
+            }
+            75% {
+                transform: translateY(-40px) translateX(10px) scale(1.05);
+                opacity: 0.7;
+            }
+        }
+
+        /* Ondas animadas */
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            opacity: 0.03;
+            border-radius: 40%;
+            animation: wave 15s infinite linear;
+        }
+
+        .wave:nth-child(1) {
+            background: radial-gradient(circle, var(--naranja) 0%, transparent 70%);
+            animation-duration: 12s;
+        }
+
+        .wave:nth-child(2) {
+            background: radial-gradient(circle, var(--gris-metaltec) 0%, transparent 70%);
+            animation-duration: 18s;
+            animation-delay: -5s;
+        }
+
+        .wave:nth-child(3) {
+            background: radial-gradient(circle, var(--naranja) 0%, transparent 70%);
+            animation-duration: 20s;
+            animation-delay: -10s;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg) scale(1.2);
+            }
+        }
+
+        /* Efecto de seguimiento del mouse */
+        .mouse-trail {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 87, 34, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            filter: blur(40px);
+        }
+
+        /* Líneas de conexión animadas */
+        .grid-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 87, 34, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 87, 34, 0.03) 1px, transparent 1px);
+            background-size: 100px 100px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(100px, 100px);
+            }
+        }
+
+        /* Estrellas parpadeantes */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 87, 34, 0.8);
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--gris);
+            padding: 0.5rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 87, 34, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--gris-claro);
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--naranja), var(--gris-metaltec));
+            color: #fff;
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--naranja);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--naranja);
+            text-decoration: none;
+            margin: 2rem 0;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            gap: 0.8rem;
+            text-shadow: 0 0 10px rgba(255, 87, 34, 0.5);
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(255, 87, 34, 0.2);
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--naranja), var(--gris-metaltec));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .project-header .subtitle {
+            font-size: 1.3rem;
+            color: var(--gris-claro);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .tech-badge {
+            background: rgba(255, 87, 34, 0.1);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid var(--naranja);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .tech-badge:hover {
+            background: var(--naranja);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            margin: 4rem 0;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: var(--naranja);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--naranja), var(--gris-metaltec));
+        }
+
+        .section p, .section ul {
+            color: var(--gris-claro);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--naranja);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            background: var(--gris);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 87, 34, 0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--naranja);
+            box-shadow: 0 15px 40px rgba(255, 87, 34, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-item .caption {
+            padding: 1rem;
+            text-align: center;
+            color: var(--gris-claro);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--naranja), var(--gris-metaltec));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: var(--gris);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 87, 34, 0.2);
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            border-color: var(--naranja);
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: var(--naranja);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .color-box {
+            flex: 1;
+            min-width: 150px;
+            height: 120px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .color-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 87, 34, 0.3);
+        }
+
+        .color-box span {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 5rem 0;
+            padding: 3rem;
+            background: var(--gris);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 87, 34, 0.2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--naranja), var(--gris-metaltec));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 87, 34, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .lang-switcher {
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .color-palette {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background - SUPER DINÁMICO -->
+    <div class="animated-bg" id="animatedBg">
+        <!-- Gradiente animado -->
+        <div class="gradient-bg"></div>
+        
+        <!-- Ondas -->
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        
+        <!-- Grid animado -->
+        <div class="grid-lines"></div>
+        
+        <!-- Mouse trail -->
+        <div class="mouse-trail" id="mouseTrail"></div>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="changeLanguage('es')">ES</button>
+        <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+    </div>
+
+    <div class="container">
+        <a href="index.html#proyectos" class="back-button" data-es="← Volver al Portafolio" data-en="← Back to Portfolio">← Volver al Portafolio</a>
+
+        <div class="project-header">
+            <h1>MetalTec Colombia - Branding Completo</h1>
+            <p class="subtitle" data-es="Proyecto integral de creación de marca desde cero: diseño de identidad visual, desarrollo web y estrategia en redes sociales para empresa del sector metalúrgico" data-en="Comprehensive project of brand creation from scratch: visual identity design, web development and social media strategy for a metallurgical sector company">Proyecto integral de creación de marca desde cero: diseño de identidad visual, desarrollo web y estrategia en redes sociales para empresa del sector metalúrgico</p>
+            <div class="tech-stack">
+                <span class="tech-badge">Brand Design</span>
+                <span class="tech-badge">Logo Design</span>
+                <span class="tech-badge">WordPress</span>
+                <span class="tech-badge">Adobe Illustrator</span>
+                <span class="tech-badge">Adobe Photoshop</span>
+                <span class="tech-badge">Graphic Design</span>
+                <span class="tech-badge">Social Media</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="📋 Resumen del Proyecto" data-en="📋 Project Summary">📋 Resumen del Proyecto</h2>
+            <p data-es="Proyecto integral de branding desarrollado para MetalTec Colombia, empresa especializada en diseño, fabricación y mantenimiento de maquinaria para trituración. El proyecto abarcó la creación completa de identidad de marca desde cero, incluyendo diseño de logo e isotipo, desarrollo de material gráfico impreso (flyers y brochure), construcción de sitio web corporativo en WordPress, y gestión de presencia en redes sociales. Este proyecto demuestra la capacidad de liderar y ejecutar proyectos de branding integral, desde la conceptualización hasta la implementación en múltiples plataformas." data-en="Comprehensive branding project developed for MetalTec Colombia, a company specialized in design, manufacturing and maintenance of crushing machinery. The project covered the complete creation of brand identity from scratch, including logo and isotype design, development of printed graphic material (flyers and brochure), corporate website construction in WordPress, and social media presence management. This project demonstrates the ability to lead and execute comprehensive branding projects, from conceptualization to implementation across multiple platforms.">
+                Proyecto integral de branding desarrollado para MetalTec Colombia, empresa especializada en diseño, fabricación y mantenimiento de maquinaria para trituración. El proyecto abarcó la creación completa de identidad de marca desde cero, incluyendo diseño de logo e isotipo, desarrollo de material gráfico impreso (flyers y brochure), construcción de sitio web corporativo en WordPress, y gestión de presencia en redes sociales. Este proyecto demuestra la capacidad de liderar y ejecutar proyectos de branding integral, desde la conceptualización hasta la implementación en múltiples plataformas.
+            </p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3 data-es="🎯 Alcance" data-en="🎯 Scope">🎯 Alcance</h3>
+                <p data-es="Diseño de identidad de marca completa, desarrollo web, material gráfico impreso y presencia en redes sociales." data-en="Complete brand identity design, web development, printed graphic material and social media presence.">Diseño de identidad de marca completa, desarrollo web, material gráfico impreso y presencia en redes sociales.</p>
+            </div>
+            <div class="info-card">
+                <h3 data-es="⏱️ Duración" data-en="⏱️ Duration">⏱️ Duración</h3>
+                <p data-es="3-4 meses de desarrollo completo, desde conceptualización hasta implementación final." data-en="3-4 months of complete development, from conceptualization to final implementation.">3-4 meses de desarrollo completo, desde conceptualización hasta implementación final.</p>
+            </div>
+            <div class="info-card">
+                <h3 data-es="💥 Rol" data-en="💥 Role">💥 Rol</h3>
+                <p data-es="Líder de Proyecto - Diseñadora de Marca, Diseñadora Web y Directora Creativa del proyecto completo." data-en="Project Leader - Brand Designer, Web Designer and Creative Director of the complete project.">Líder de Proyecto - Diseñadora de Marca, Diseñadora Web y Directora Creativa del proyecto completo.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="🎨 Diseño de Identidad Visual" data-en="🎨 Visual Identity Design">🎨 Diseño de Identidad Visual</h2>
+            
+            <h3 style="color: var(--naranja); margin: 2rem 0 1rem;" data-es="Concepto del Logo e Isotipo" data-en="Logo and Isotype Concept">Concepto del Logo e Isotipo</h3>
+            <p data-es="El isotipo de MetalTec fue diseñado para representar la esencia de la industria metalúrgica y la especialización de la empresa. La letra 'M' estilizada hace alusión directa a las vigas y estructuras metálicas, elementos fundamentales en el sector. El diseño utiliza una perspectiva isométrica que comunica tridimensionalidad, solidez y precisión técnica - valores esenciales para una empresa del sector industrial." data-en="The MetalTec isotype was designed to represent the essence of the metallurgical industry and the company's specialization. The stylized 'M' directly alludes to beams and metal structures, fundamental elements in the sector. The design uses an isometric perspective that communicates three-dimensionality, solidity and technical precision - essential values for a company in the industrial sector.">
+                El isotipo de MetalTec fue diseñado para representar la esencia de la industria metalúrgica y la especialización de la empresa. La letra "M" estilizada hace alusión directa a las vigas y estructuras metálicas, elementos fundamentales en el sector. El diseño utiliza una perspectiva isométrica que comunica tridimensionalidad, solidez y precisión técnica - valores esenciales para una empresa del sector industrial.
+            </p>
+
+            <h3 style="color: var(--naranja); margin: 2rem 0 1rem;" data-es="Paleta de Colores Corporativa" data-en="Corporate Color Palette">Paleta de Colores Corporativa</h3>
+            <div class="color-palette">
+                <div class="color-box" style="background-color: #FF5722; color: #fff;">
+                    <div style="font-size: 1.2rem;">NARANJA</div>
+                    <span>#FF5722</span>
+                    <span data-es="Energía e Innovación" data-en="Energy & Innovation">Energía e Innovación</span>
+                </div>
+                <div class="color-box" style="background-color: #4A5F6D; color: #fff;">
+                    <div style="font-size: 1.2rem;">GRIS</div>
+                    <span>#4A5F6D</span>
+                    <span data-es="Solidez y Profesionalismo" data-en="Solidity & Professionalism">Solidez y Profesionalismo</span>
+                </div>
+            </div>
+            <p data-es="La paleta cromática fue estratégicamente seleccionada: el naranja vibrante (#FF5722) transmite energía, innovación y dinamismo, mientras que el gris (#4A5F6D) aporta solidez, profesionalismo y confiabilidad. Esta combinación refleja el equilibrio entre innovación tecnológica y experiencia industrial." data-en="The color palette was strategically selected: vibrant orange (#FF5722) conveys energy, innovation and dynamism, while gray (#4A5F6D) brings solidity, professionalism and reliability. This combination reflects the balance between technological innovation and industrial experience.">
+                La paleta cromática fue estratégicamente seleccionada: el naranja vibrante (#FF5722) transmite energía, innovación y dinamismo, mientras que el gris (#4A5F6D) aporta solidez, profesionalismo y confiabilidad. Esta combinación refleja el equilibrio entre innovación tecnológica y experiencia industrial.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 data-es="🖼️ Material Gráfico Desarrollado" data-en="🖼️ Developed Graphic Material">🖼️ Material Gráfico Desarrollado</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="image-placeholder">🏢</div>
+                    <div class="caption" data-es="Logo Principal - Versión Completa" data-en="Main Logo - Full Version">Logo Principal - Versión Completa</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">⚙️</div>
+                    <div class="caption" data-es="Isotipo - Icono Corporativo" data-en="Isotype - Corporate Icon">Isotipo - Icono Corporativo</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">📄</div>
+                    <div class="caption" data-es="Brochure Corporativo" data-en="Corporate Brochure">Brochure Corporativo</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">📢</div>
+                    <div class="caption" data-es="Flyer Promocional" data-en="Promotional Flyer">Flyer Promocional</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">🌐</div>
+                    <div class="caption" data-es="Sitio Web WordPress" data-en="WordPress Website">Sitio Web WordPress</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">📱</div>
+                    <div class="caption" data-es="Redes Sociales" data-en="Social Media">Redes Sociales</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="✨ Entregables del Proyecto" data-en="✨ Project Deliverables">✨ Entregables del Proyecto</h2>
+            
+            <h3 style="color: var(--naranja); margin: 2rem 0 1rem;" data-es="Identidad Visual" data-en="Visual Identity">Identidad Visual</h3>
+            <ul>
+                <li data-es="Diseño de logo principal con tipografía corporativa METALTEC COLOMBIA" data-en="Main logo design with METALTEC COLOMBIA corporate typography">Diseño de logo principal con tipografía corporativa METALTEC COLOMBIA</li>
+                <li data-es="Creación de isotipo (icono M estilizado) con perspectiva isométrica" data-en="Isotype creation (stylized M icon) with isometric perspective">Creación de isotipo (icono M estilizado) con perspectiva isométrica</li>
+                <li data-es="Paleta de colores corporativa (naranja #FF5722 y gris #4A5F6D)" data-en="Corporate color palette (orange #FF5722 and gray #4A5F6D)">Paleta de colores corporativa (naranja #FF5722 y gris #4A5F6D)</li>
+                <li data-es="Versiones del logo: color, blanco y negro, monocromático" data-en="Logo versions: color, black and white, monochrome">Versiones del logo: color, blanco y negro, monocromático</li>
+                <li data-es="Manual de identidad visual con especificaciones de uso" data-en="Visual identity manual with usage specifications">Manual de identidad visual con especificaciones de uso</li>
+            </ul>
+
+            <h3 style="color: var(--naranja); margin: 2rem 0 1rem;" data-es="Material Impreso" data-en="Printed Material">Material Impreso</h3>
+            <ul>
+                <li data-es="Brochure corporativo plegable con información de servicios" data-en="Folding corporate brochure with service information">Brochure corporativo plegable con información de servicios</li>
+                <li data-es="Diseño de patrón geométrico isométrico para fondos" data-en="Isometric geometric pattern design for backgrounds">Diseño de patrón geométrico isométrico para fondos</li>
+                <li data-es="Flyer promocional con fotografías de maquinaria industrial" data-en="Promotional flyer with industrial machinery photographs">Flyer promocional con fotografías de maquinaria industrial</li>
+                <li data-es="Jerarquía visual clara destacando servicios principales" data-en="Clear visual hierarchy highlighting main services">Jerarquía visual clara destacando servicios principales</li>
+                <li data-es="Aplicación consistente de identidad corporativa en todos los materiales" data-en="Consistent application of corporate identity in all materials">Aplicación consistente de identidad corporativa en todos los materiales</li>
+            </ul>
+
+            <h3 style="color: var(--naranja); margin: 2rem 0 1rem;" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</h3>
+            <ul>
+                <li data-es="Sitio web corporativo desarrollado en WordPress" data-en="Corporate website developed in WordPress">Sitio web corporativo desarrollado en WordPress</li>
+                <li data-es="Diseño responsive adaptable a todos los dispositivos" data-en="Responsive design adaptable to all devices">Diseño responsive adaptable a todos los dispositivos</li>
+                <li data-es="Secciones: Inicio, Servicios, Nosotros, Proyectos, Contacto" data-en="Sections: Home, Services, About Us, Projects, Contact">Secciones: Inicio, Servicios, Nosotros, Proyectos, Contacto</li>
+                <li data-es="Integración de formulario de contacto funcional" data-en="Functional contact form integration">Integración de formulario de contacto funcional</li>
+                <li data-es="Optimización SEO básica para motores de búsqueda" data-en="Basic SEO optimization for search engines">Optimización SEO básica para motores de búsqueda</li>
+            </ul>
+
+            <h3 style="color: var(--naranja); margin: 2rem 0 1rem;" data-es="Redes Sociales" data-en="Social Media">Redes Sociales</h3>
+            <ul>
+                <li data-es="Creación y configuración de perfiles en Facebook e Instagram" data-en="Creation and configuration of Facebook and Instagram profiles">Creación y configuración de perfiles en Facebook e Instagram</li>
+                <li data-es="Diseño de plantillas visuales para publicaciones" data-en="Design of visual templates for posts">Diseño de plantillas visuales para publicaciones</li>
+                <li data-es="Foto de perfil y portada con identidad corporativa" data-en="Profile and cover photo with corporate identity">Foto de perfil y portada con identidad corporativa</li>
+                <li data-es="Estrategia de contenido visual alineada con la marca" data-en="Visual content strategy aligned with the brand">Estrategia de contenido visual alineada con la marca</li>
+                <li data-es="Kit de gráficos para redes sociales en diversos formatos" data-en="Social media graphics kit in various formats">Kit de gráficos para redes sociales en diversos formatos</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 data-es="🏭 Servicios de MetalTec Colombia" data-en="🏭 MetalTec Colombia Services">🏭 Servicios de MetalTec Colombia</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3 data-es="Maquinaria de Trituración" data-en="Crushing Machinery">Maquinaria de Trituración</h3>
+                    <p data-es="Diseño, fabricación y mantenimiento de trituradores, lavadoras, secadoras y bandas transportadoras especializadas." data-en="Design, manufacturing and maintenance of crushers, washers, dryers and specialized conveyor belts.">Diseño, fabricación y mantenimiento de trituradores, lavadoras, secadoras y bandas transportadoras especializadas.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="Maquinaria de Construcción" data-en="Construction Machinery">Maquinaria de Construcción</h3>
+                    <p data-es="Mantenimiento de rodillos y maquinaria para la construcción, reconstrucciones y reparaciones especializadas." data-en="Maintenance of rollers and construction machinery, specialized reconstructions and repairs.">Mantenimiento de rodillos y maquinaria para la construcción, reconstrucciones y reparaciones especializadas.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="Trabajos de Soldadura" data-en="Welding Works">Trabajos de Soldadura</h3>
+                    <p data-es="Soldadura industrial, refuerzos estructurales y trabajos metálicos bajo rigurosos estándares de calidad." data-en="Industrial welding, structural reinforcements and metalwork under rigorous quality standards.">Soldadura industrial, refuerzos estructurales y trabajos metálicos bajo rigurosos estándares de calidad.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="División Servicios Generales" data-en="General Services Division">División Servicios Generales</h3>
+                    <p data-es="Albañilería, carpintería, plomería, ornamentación, cubiertas, estructuras metálicas y lavado de fachadas." data-en="Masonry, carpentry, plumbing, ornamentation, roofing, metal structures and facade washing.">Albañilería, carpintería, plomería, ornamentación, cubiertas, estructuras metálicas y lavado de fachadas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="🛠️ Proceso Creativo y Metodología" data-en="🛠️ Creative Process and Methodology">🛠️ Proceso Creativo y Metodología</h2>
+            
+            <h3 style="color: var(--naranja); margin: 2rem 0 1rem;" data-es="Fase 1: Investigación y Estrategia" data-en="Phase 1: Research and Strategy">Fase 1: Investigación y Estrategia</h3>
+            <p data-es="Análisis profundo del sector metalúrgico en Colombia, investigación de competencia, definición de público objetivo (empresas constructoras, mineras y del sector industrial) y establecimiento de atributos de marca: solidez, innovación, confiabilidad y experiencia técnica." data-en="In-depth analysis of the metallurgical sector in Colombia, competition research, definition of target audience (construction, mining and industrial sector companies) and establishment of brand attributes: solidity, innovation, reliability and technical expertise.">
+                Análisis profundo del sector metalúrgico en Colombia, investigación de competencia, definición de público objetivo (empresas constructoras, mineras y del sector industrial) y establecimiento de atributos de marca: solidez, innovación, confiabilidad y experiencia técnica.
+            </p>
+
+            <h3 style="color: var(--naranja); margin: 2rem 0 1rem;" data-es="Fase 2: Conceptualización Visual" data-en="Phase 2: Visual Conceptualization">Fase 2: Conceptualización Visual</h3>
+            <p data-es="Exploración de conceptos visuales relacionados con la industria metalúrgica, desarrollo de bocetos del isotipo con enfoque en estructuras metálicas y perspectiva isométrica, selección de paleta cromática que equilibra innovación (naranja) con profesionalismo (gris), y definición de tipografía corporativa moderna y legible." data-en="Exploration of visual concepts related to the metallurgical industry, development of isotype sketches focusing on metal structures and isometric perspective, selection of color palette that balances innovation (orange) with professionalism (gray), and definition of modern and readable corporate typography.">
+                Exploración de conceptos visuales relacionados con la industria metalúrgica, desarrollo de bocetos del isotipo con enfoque en estructuras metálicas y perspectiva isométrica, selección de paleta cromática que equilibra innovación (naranja) con profesionalismo (gris), y definición de tipografía corporativa moderna y legible.
+            </p>
+
+            <h3 style="color: var(--naranja); margin: 2rem 0 1rem;" data-es="Fase 3: Diseño y Desarrollo" data-en="Phase 3: Design and Development">Fase 3: Diseño y Desarrollo</h3>
+            <p data-es="Vectorización del logo e isotipo en Adobe Illustrator, desarrollo de manual de identidad visual, diseño de material impreso (brochure y flyers) en Adobe Photoshop/Illustrator, construcción del sitio web en WordPress con diseño personalizado, y creación de contenido visual para redes sociales." data-en="Vectorization of logo and isotype in Adobe Illustrator, development of visual identity manual, design of printed material (brochure and flyers) in Adobe Photoshop/Illustrator, WordPress website construction with custom design, and creation of visual content for social media.">
+                Vectorización del logo e isotipo en Adobe Illustrator, desarrollo de manual de identidad visual, diseño de material impreso (brochure y flyers) en Adobe Photoshop/Illustrator, construcción del sitio web en WordPress con diseño personalizado, y creación de contenido visual para redes sociales.
+            </p>
+
+            <h3 style="color: var(--naranja); margin: 2rem 0 1rem;" data-es="Fase 4: Implementación" data-en="Phase 4: Implementation">Fase 4: Implementación</h3>
+            <p data-es="Producción de material impreso en alta calidad, lanzamiento del sitio web con optimización SEO, configuración de perfiles en redes sociales, entrega de archivos fuente y manual de marca al cliente, y capacitación básica para gestión de contenidos." data-en="Production of high-quality printed material, website launch with SEO optimization, social media profile setup, delivery of source files and brand manual to client, and basic training for content management.">
+                Producción de material impreso en alta calidad, lanzamiento del sitio web con optimización SEO, configuración de perfiles en redes sociales, entrega de archivos fuente y manual de marca al cliente, y capacitación básica para gestión de contenidos.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 data-es="💡 Soluciones de Diseño Implementadas" data-en="💡 Implemented Design Solutions">💡 Soluciones de Diseño Implementadas</h2>
+            <ul>
+                <li data-es="Isotipo con perspectiva isométrica que comunica tridimensionalidad y precisión técnica" data-en="Isotype with isometric perspective that communicates three-dimensionality and technical precision">Isotipo con perspectiva isométrica que comunica tridimensionalidad y precisión técnica</li>
+                <li data-es="Patrón geométrico repetitivo para materiales impresos que refuerza identidad visual" data-en="Repetitive geometric pattern for printed materials that reinforces visual identity">Patrón geométrico repetitivo para materiales impresos que refuerza identidad visual</li>
+                <li data-es="Uso estratégico de fotografía industrial para transmitir experiencia y profesionalismo" data-en="Strategic use of industrial photography to convey experience and professionalism">Uso estratégico de fotografía industrial para transmitir experiencia y profesionalismo</li>
+                <li data-es="Jerarquía tipográfica clara en brochure para facilitar lectura de servicios" data-en="Clear typographic hierarchy in brochure to facilitate reading of services">Jerarquía tipográfica clara en brochure para facilitar lectura de servicios</li>
+                <li data-es="Diseño web responsive que garantiza accesibilidad desde cualquier dispositivo" data-en="Responsive web design that guarantees accessibility from any device">Diseño web responsive que garantiza accesibilidad desde cualquier dispositivo</li>
+                <li data-es="Integración coherente de identidad visual en todas las plataformas" data-en="Coherent integration of visual identity across all platforms">Integración coherente de identidad visual en todas las plataformas</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 data-es="🎯 Elementos Distintivos del Branding" data-en="🎯 Distinctive Branding Elements">🎯 Elementos Distintivos del Branding</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3 data-es="Perspectiva Isométrica" data-en="Isometric Perspective">Perspectiva Isométrica</h3>
+                    <p data-es="El isotipo utiliza una vista isométrica que evoca estructuras arquitectónicas y metálicas, creando profundidad visual y conexión directa con el sector industrial." data-en="The isotype uses an isometric view that evokes architectural and metal structures, creating visual depth and direct connection with the industrial sector.">El isotipo utiliza una vista isométrica que evoca estructuras arquitectónicas y metálicas, creando profundidad visual y conexión directa con el sector industrial.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="Contraste Cromático" data-en="Chromatic Contrast">Contraste Cromático</h3>
+                    <p data-es="La combinación naranja-gris genera alto contraste visual, asegurando legibilidad en diversos soportes y tamaños, desde tarjetas hasta vallas publicitarias." data-en="The orange-gray combination generates high visual contrast, ensuring readability on various media and sizes, from cards to billboards.">La combinación naranja-gris genera alto contraste visual, asegurando legibilidad en diversos soportes y tamaños, desde tarjetas hasta vallas publicitarias.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="Versatilidad de Aplicación" data-en="Application Versatility">Versatilidad de Aplicación</h3>
+                    <p data-es="El diseño funciona tanto en versión completa (logo + isotipo) como independiente, permitiendo adaptación flexible según el espacio disponible." data-en="The design works both in full version (logo + isotype) and independently, allowing flexible adaptation according to available space.">El diseño funciona tanto en versión completa (logo + isotipo) como independiente, permitiendo adaptación flexible según el espacio disponible.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="📊 Herramientas y Tecnologías Utilizadas" data-en="📊 Tools and Technologies Used">📊 Herramientas y Tecnologías Utilizadas</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Adobe Illustrator</h3>
+                    <p data-es="Vectorización de logo, isotipo y elementos gráficos escalables para todo tipo de aplicaciones." data-en="Vectorization of logo, isotype and scalable graphic elements for all types of applications.">Vectorización de logo, isotipo y elementos gráficos escalables para todo tipo de aplicaciones.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Adobe Photoshop</h3>
+                    <p data-es="Diseño de material impreso, retoque fotográfico y composición de piezas gráficas complejas." data-en="Design of printed material, photo retouching and composition of complex graphic pieces.">Diseño de material impreso, retoque fotográfico y composición de piezas gráficas complejas.</p>
+                </div>
+                <div class="info-card">
+                    <h3>WordPress</h3>
+                    <p data-es="Plataforma CMS para desarrollo web corporativo con diseño personalizado y gestión de contenidos." data-en="CMS platform for corporate web development with custom design and content management.">Plataforma CMS para desarrollo web corporativo con diseño personalizado y gestión de contenidos.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="Redes Sociales" data-en="Social Media">Redes Sociales</h3>
+                    <p data-es="Gestión de Facebook e Instagram para presencia digital y comunicación con clientes potenciales." data-en="Facebook and Instagram management for digital presence and communication with potential clients.">Gestión de Facebook e Instagram para presencia digital y comunicación con clientes potenciales.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="🎨 Aplicaciones de la Identidad Visual" data-en="🎨 Visual Identity Applications">🎨 Aplicaciones de la Identidad Visual</h2>
+            <ul>
+                <li data-es="Material corporativo: papelería, tarjetas de presentación, sobres" data-en="Corporate material: stationery, business cards, envelopes">Material corporativo: papelería, tarjetas de presentación, sobres</li>
+                <li data-es="Material promocional: brochures, flyers, catálogos de servicios" data-en="Promotional material: brochures, flyers, service catalogs">Material promocional: brochures, flyers, catálogos de servicios</li>
+                <li data-es="Presencia digital: sitio web, perfiles en redes sociales" data-en="Digital presence: website, social media profiles">Presencia digital: sitio web, perfiles en redes sociales</li>
+                <li data-es="Uniformes y señalización: logos para ropa de trabajo y señalética" data-en="Uniforms and signage: logos for work clothes and signage">Uniformes y señalización: logos para ropa de trabajo y señalética</li>
+                <li data-es="Vehículos corporativos: rotulación de camiones y vehículos de servicio" data-en="Corporate vehicles: truck and service vehicle lettering">Vehículos corporativos: rotulación de camiones y vehículos de servicio</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 data-es="💼 Resultados y Valor Entregado" data-en="💼 Results and Value Delivered">💼 Resultados y Valor Entregado</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3 data-es="Identidad Profesional" data-en="Professional Identity">Identidad Profesional</h3>
+                    <p data-es="MetalTec Colombia obtuvo una imagen corporativa sólida y profesional que transmite confianza en el sector industrial B2B." data-en="MetalTec Colombia obtained a solid and professional corporate image that conveys trust in the B2B industrial sector.">MetalTec Colombia obtuvo una imagen corporativa sólida y profesional que transmite confianza en el sector industrial B2B.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="Presencia Digital" data-en="Digital Presence">Presencia Digital</h3>
+                    <p data-es="Implementación completa de presencia online con sitio web funcional y perfiles activos en redes sociales principales." data-en="Complete implementation of online presence with functional website and active profiles on main social media.">Implementación completa de presencia online con sitio web funcional y perfiles activos en redes sociales principales.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="Material Comercial" data-en="Commercial Material">Material Comercial</h3>
+                    <p data-es="La empresa cuenta con material impreso de alta calidad para presentaciones comerciales y ferias industriales." data-en="The company has high-quality printed material for commercial presentations and industrial fairs.">La empresa cuenta con material impreso de alta calidad para presentaciones comerciales y ferias industriales.</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-es="Diferenciación Competitiva" data-en="Competitive Differentiation">Diferenciación Competitiva</h3>
+                    <p data-es="El branding distintivo posiciona a MetalTec como una empresa moderna e innovadora en un sector tradicionalmente conservador." data-en="Distinctive branding positions MetalTec as a modern and innovative company in a traditionally conservative sector.">El branding distintivo posiciona a MetalTec como una empresa moderna e innovadora en un sector tradicionalmente conservador.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-es="🚀 Aprendizajes y Habilidades Demostradas" data-en="🚀 Learnings and Demonstrated Skills">🚀 Aprendizajes y Habilidades Demostradas</h2>
+            <ul>
+                <li data-es="Liderazgo de proyecto integral desde conceptualización hasta entrega final" data-en="Comprehensive project leadership from conceptualization to final delivery">Liderazgo de proyecto integral desde conceptualización hasta entrega final</li>
+                <li data-es="Capacidad de crear identidades visuales memorables y funcionales para sector B2B" data-en="Ability to create memorable and functional visual identities for B2B sector">Capacidad de crear identidades visuales memorables y funcionales para sector B2B</li>
+                <li data-es="Diseño estratégico alineado con valores corporativos y público objetivo" data-en="Strategic design aligned with corporate values and target audience">Diseño estratégico alineado con valores corporativos y público objetivo</li>
+                <li data-es="Versatilidad técnica: desde diseño gráfico hasta desarrollo web" data-en="Technical versatility: from graphic design to web development">Versatilidad técnica: desde diseño gráfico hasta desarrollo web</li>
+                <li data-es="Gestión de múltiples entregables con coherencia visual y narrativa de marca" data-en="Management of multiple deliverables with visual coherence and brand narrative">Gestión de múltiples entregables con coherencia visual y narrativa de marca</li>
+                <li data-es="Comprensión profunda de necesidades de comunicación en sector industrial" data-en="Deep understanding of communication needs in industrial sector">Comprensión profunda de necesidades de comunicación en sector industrial</li>
+            </ul>
+        </div>
+
+        <div class="cta-section">
+            <h2 style="color: #fff; margin-bottom: 1rem;" data-es="¿Necesitas crear la identidad de tu marca?" data-en="Need to create your brand identity?">¿Necesitas crear la identidad de tu marca?</h2>
+            <p style="color: var(--gris-claro); margin-bottom: 2rem;" data-es="Puedo desarrollar tu branding completo desde cero: logo, web y presencia digital" data-en="I can develop your complete branding from scratch: logo, web and digital presence">Puedo desarrollar tu branding completo desde cero: logo, web y presencia digital</p>
+            <a href="index.html#contacto" class="cta-button" data-es="Contáctame" data-en="Contact Me">Contáctame</a>
+            <a href="index.html#proyectos" class="cta-button" style="background: var(--gris); border: 1px solid var(--naranja);" data-es="Ver más proyectos" data-en="See more projects">Ver más proyectos</a>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'es';
+
+        // Language switcher
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            document.querySelectorAll('[data-es][data-en]').forEach(el => {
+                const text = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+        }
+
+        // Create animated background particles
+        function createParticles() {
+            const bg = document.getElementById('animatedBg');
+            const particleCount = 80;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 5 + 2;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 15 + 10;
+                const delay = Math.random() * 10;
+                
+                const colors = [
+                    'rgba(255, 87, 34, 0.4)', 
+                    'rgba(74, 95, 109, 0.4)', 
+                    'rgba(255, 255, 255, 0.3)',
+                    'rgba(255, 87, 34, 0.6)'
+                ];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}%;
+                    top: ${y}%;
+                    background: ${color};
+                    animation: float ${duration}s ease-in-out ${delay}s infinite;
+                    box-shadow: 0 0 ${size * 2}px ${color};
+                `;
+                
+                bg.appendChild(particle);
+            }
+        }
+
+        // Create twinkling stars
+        function createStars() {
+            const bg = document.getElementById('animatedBg');
+            const starCount = 100;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 3 + 2;
+                const delay = Math.random() * 5;
+                
+                star.style.cssText = `
+                    left: ${x}%;
+                    top: ${y}%;
+                    animation-duration: ${duration}s;
+                    animation-delay: ${delay}s;
+                `;
+                
+                bg.appendChild(star);
+            }
+        }
+
+        // Mouse trail effect
+        let mouseX = 0;
+        let mouseY = 0;
+        let trailX = 0;
+        let trailY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateTrail() {
+            const trail = document.getElementById('mouseTrail');
+            
+            trailX += (mouseX - trailX) * 0.1;
+            trailY += (mouseY - trailY) * 0.1;
+            
+            trail.style.left = trailX + 'px';
+            trail.style.top = trailY + 'px';
+            
+            requestAnimationFrame(animateTrail);
+        }
+
+        // Parallax effect on scroll
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            const gradient = document.querySelector('.gradient-bg');
+            const waves = document.querySelectorAll('.wave');
+            
+            if (gradient) {
+                gradient.style.transform = `translate(${currentScrollY * 0.1}px, ${currentScrollY * 0.05}px) rotate(${currentScrollY * 0.05}deg)`;
+            }
+            
+            waves.forEach((wave, index) => {
+                wave.style.transform = `translate(-50%, -50%) rotate(${currentScrollY * (0.02 + index * 0.01)}deg) scale(${1.2 + currentScrollY * 0.0001})`;
+            });
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // Create dynamic connection lines between particles
+        function createConnections() {
+            const bg = document.getElementById('animatedBg');
+            const canvas = document.createElement('canvas');
+            canvas.style.position = 'absolute';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.pointerEvents = 'none';
+            canvas.style.opacity = '0.1';
+            
+            bg.insertBefore(canvas, bg.firstChild);
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = 30;
+            
+            class ConnectionParticle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                }
+                
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                }
+                
+                draw() {
+                    ctx.fillStyle = 'rgba(255, 87, 34, 0.5)';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new ConnectionParticle());
+            }
+            
+            function drawConnections() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 150) {
+                            ctx.strokeStyle = `rgba(255, 87, 34, ${1 - distance / 150})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(drawConnections);
+            }
+            
+            drawConnections();
+            
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        // Initialize all effects on load
+        window.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            createStars();
+            createConnections();
+            animateTrail();
+            
+            document.querySelectorAll('.info-card, .gallery-item').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 0 30px rgba(255, 87, 34, 0.3)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '';
+                });
+            });
+        });
+
+        // Add interactive ripple effect on click
+        document.addEventListener('click', (e) => {
+            const ripple = document.createElement('div');
+            ripple.style.cssText = `
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(255, 87, 34, 0.6) 0%, transparent 70%);
+                pointer-events: none;
+                left: ${e.clientX - 10}px;
+                top: ${e.clientY - 10}px;
+                z-index: 9999;
+                animation: rippleExpand 0.6s ease-out forwards;
+            `;
+            
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rippleExpand {
+                to {
+                    transform: scale(10);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
