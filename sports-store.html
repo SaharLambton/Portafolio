@@ -24,12 +24,201 @@
             background-color: var(--negro);
             color: #fff;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background - SUPER DINÁMICO */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        /* Gradiente animado de fondo */
+        .gradient-bg {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 40%);
+            animation: gradientMove 20s ease-in-out infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(-10%, -10%) rotate(120deg);
+            }
+            66% {
+                transform: translate(-5%, -20%) rotate(240deg);
+            }
+        }
+
+        /* Partículas flotantes */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(1px);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.6;
+            }
+            25% {
+                transform: translateY(-30px) translateX(15px) scale(1.1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-20px) translateX(-15px) scale(0.9);
+                opacity: 0.5;
+            }
+            75% {
+                transform: translateY(-40px) translateX(10px) scale(1.05);
+                opacity: 0.7;
+            }
+        }
+
+        /* Ondas animadas */
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            opacity: 0.03;
+            border-radius: 40%;
+            animation: wave 15s infinite linear;
+        }
+
+        .wave:nth-child(1) {
+            background: radial-gradient(circle, var(--verde) 0%, transparent 70%);
+            animation-duration: 12s;
+        }
+
+        .wave:nth-child(2) {
+            background: radial-gradient(circle, var(--rojo) 0%, transparent 70%);
+            animation-duration: 18s;
+            animation-delay: -5s;
+        }
+
+        .wave:nth-child(3) {
+            background: radial-gradient(circle, var(--verde) 0%, transparent 70%);
+            animation-duration: 20s;
+            animation-delay: -10s;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg) scale(1.2);
+            }
+        }
+
+        /* Efecto de seguimiento del mouse */
+        .mouse-trail {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            filter: blur(40px);
+        }
+
+        /* Líneas de conexión animadas */
+        .grid-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+            background-size: 100px 100px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(100px, 100px);
+            }
+        }
+
+        /* Estrellas parpadeantes */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(16, 185, 129, 0.8);
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--gris);
+            padding: 0.5rem;
+            border-radius: 30px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--gris-claro);
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            color: #fff;
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--verde);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 5%;
+            position: relative;
+            z-index: 1;
         }
 
         .back-button {
@@ -238,6 +427,11 @@
         }
 
         @media (max-width: 768px) {
+            .lang-switcher {
+                top: 1rem;
+                right: 1rem;
+            }
+
             .project-header h1 {
                 font-size: 2rem;
             }
@@ -249,12 +443,35 @@
     </style>
 </head>
 <body>
+    <!-- Animated Background - SUPER DINÁMICO -->
+    <div class="animated-bg" id="animatedBg">
+        <!-- Gradiente animado -->
+        <div class="gradient-bg"></div>
+        
+        <!-- Ondas -->
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        
+        <!-- Grid animado -->
+        <div class="grid-lines"></div>
+        
+        <!-- Mouse trail -->
+        <div class="mouse-trail" id="mouseTrail"></div>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="changeLanguage('es')">ES</button>
+        <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+    </div>
+
     <div class="container">
-        <a href="../prueba portafolio.html#proyectos" class="back-button">← Volver al Portafolio</a>
+        <a href="index.html#proyectos" class="back-button" data-es="← Volver al Portafolio" data-en="← Back to Portfolio">← Volver al Portafolio</a>
 
         <div class="project-header">
             <h1>Sports Store</h1>
-            <p class="subtitle">Sitio web completo para tienda de artículos deportivos con enfoque en responsabilidad social y educación deportiva</p>
+            <p class="subtitle" data-es="Sitio web completo para tienda de artículos deportivos con enfoque en responsabilidad social y educación deportiva" data-en="Complete website for sports store with focus on social responsibility and sports education">Sitio web completo para tienda de artículos deportivos con enfoque en responsabilidad social y educación deportiva</p>
             <div class="tech-stack">
                 <span class="tech-badge">HTML5</span>
                 <span class="tech-badge">CSS3</span>
@@ -265,163 +482,427 @@
         </div>
 
         <div class="section">
-            <h2>📋 Resumen del Proyecto</h2>
-            <p>
+            <h2 data-es="📋 Resumen del Proyecto" data-en="📋 Project Summary">📋 Resumen del Proyecto</h2>
+            <p data-es="Proyecto académico desarrollado en Lambton College que consiste en un sitio web completo para una tienda de artículos deportivos enfocada en los deportes más populares de Canadá. El proyecto va más allá de un simple e-commerce, incorporando un programa de becas para jóvenes atletas y recursos educativos para padres, demostrando un enfoque de responsabilidad social corporativa." data-en="Academic project developed at Lambton College consisting of a complete website for a sports store focused on the most popular sports in Canada. The project goes beyond a simple e-commerce, incorporating a scholarship program for young athletes and educational resources for parents, demonstrating a corporate social responsibility approach.">
                 Proyecto académico desarrollado en Lambton College que consiste en un sitio web completo para una tienda de artículos deportivos enfocada en los deportes más populares de Canadá. El proyecto va más allá de un simple e-commerce, incorporando un programa de becas para jóvenes atletas y recursos educativos para padres, demostrando un enfoque de responsabilidad social corporativa.
             </p>
         </div>
 
         <div class="info-grid">
             <div class="info-card">
-                <h3>🎯 Objetivo</h3>
-                <p>Crear un sitio web profesional y funcional para una tienda deportiva que combine comercio electrónico con impacto social positivo en la comunidad juvenil.</p>
+                <h3 data-es="🎯 Objetivo" data-en="🎯 Objective">🎯 Objetivo</h3>
+                <p data-es="Crear un sitio web profesional y funcional para una tienda deportiva que combine comercio electrónico con impacto social positivo en la comunidad juvenil." data-en="Create a professional and functional website for a sports store that combines e-commerce with positive social impact on the youth community.">Crear un sitio web profesional y funcional para una tienda deportiva que combine comercio electrónico con impacto social positivo en la comunidad juvenil.</p>
             </div>
             <div class="info-card">
-                <h3>⏱️ Duración</h3>
-                <p>20 días de desarrollo completo, incluyendo diseño de interfaz, estructura de contenido, implementación y optimización responsive.</p>
+                <h3 data-es="⏱️ Duración" data-en="⏱️ Duration">⏱️ Duración</h3>
+                <p data-es="20 días de desarrollo completo, incluyendo diseño de interfaz, estructura de contenido, implementación y optimización responsive." data-en="20 days of complete development, including interface design, content structure, implementation and responsive optimization.">20 días de desarrollo completo, incluyendo diseño de interfaz, estructura de contenido, implementación y optimización responsive.</p>
             </div>
             <div class="info-card">
-                <h3>💥 Rol</h3>
-                <p>Desarrolladora Frontend - Diseño de interfaz, estructura HTML semántica, diseño CSS responsive y arquitectura de información.</p>
+                <h3 data-es="💥 Rol" data-en="💥 Role">💥 Rol</h3>
+                <p data-es="Desarrolladora Frontend - Diseño de interfaz, estructura HTML semántica, diseño CSS responsive y arquitectura de información." data-en="Frontend Developer - Interface design, semantic HTML structure, responsive CSS design and information architecture.">Desarrolladora Frontend - Diseño de interfaz, estructura HTML semántica, diseño CSS responsive y arquitectura de información.</p>
             </div>
         </div>
 
         <div class="section">
-            <h2>✨ Características Principales</h2>
+            <h2 data-es="✨ Características Principales" data-en="✨ Main Features">✨ Características Principales</h2>
             <ul>
-                <li>Página de inicio (Home) con hero section impactante y navegación intuitiva</li>
-                <li>Catálogo dinámico de productos deportivos organizados por categorías</li>
-                <li>Sección "About Us" con información corporativa y valores de la empresa</li>
-                <li>Formulario de contacto funcional con validación de datos</li>
-                <li>Programa de becas para jóvenes atletas con formulario de aplicación</li>
-                <li>Integración de videos educativos de YouTube sobre beneficios del deporte</li>
-                <li>Sección de noticias y actualizaciones (términos y condiciones, nuevas becas)</li>
-                <li>Footer informativo con ubicaciones de tiendas en GTA (Greater Toronto Area)</li>
-                <li>Diseño completamente responsive adaptable a todos los dispositivos</li>
-                <li>Iconos de redes sociales para conexión con la comunidad</li>
+                <li data-es="Página de inicio (Home) con hero section impactante y navegación intuitiva" data-en="Home page with impactful hero section and intuitive navigation">Página de inicio (Home) con hero section impactante y navegación intuitiva</li>
+                <li data-es="Catálogo dinámico de productos deportivos organizados por categorías" data-en="Dynamic catalog of sports products organized by categories">Catálogo dinámico de productos deportivos organizados por categorías</li>
+                <li data-es="Sección 'About Us' con información corporativa y valores de la empresa" data-en="'About Us' section with corporate information and company values">Sección "About Us" con información corporativa y valores de la empresa</li>
+                <li data-es="Formulario de contacto funcional con validación de datos" data-en="Functional contact form with data validation">Formulario de contacto funcional con validación de datos</li>
+                <li data-es="Programa de becas para jóvenes atletas con formulario de aplicación" data-en="Scholarship program for young athletes with application form">Programa de becas para jóvenes atletas con formulario de aplicación</li>
+                <li data-es="Integración de videos educativos de YouTube sobre beneficios del deporte" data-en="Integration of educational YouTube videos about sports benefits">Integración de videos educativos de YouTube sobre beneficios del deporte</li>
+                <li data-es="Sección de noticias y actualizaciones (términos y condiciones, nuevas becas)" data-en="News and updates section (terms and conditions, new scholarships)">Sección de noticias y actualizaciones (términos y condiciones, nuevas becas)</li>
+                <li data-es="Footer informativo con ubicaciones de tiendas en GTA (Greater Toronto Area)" data-en="Informative footer with store locations in GTA (Greater Toronto Area)">Footer informativo con ubicaciones de tiendas en GTA (Greater Toronto Area)</li>
+                <li data-es="Diseño completamente responsive adaptable a todos los dispositivos" data-en="Fully responsive design adaptable to all devices">Diseño completamente responsive adaptable a todos los dispositivos</li>
+                <li data-es="Iconos de redes sociales para conexión con la comunidad" data-en="Social media icons for community connection">Iconos de redes sociales para conexión con la comunidad</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>🖼️ Estructura del Sitio</h2>
+            <h2 data-es="🖼️ Estructura del Sitio" data-en="🖼️ Site Structure">🖼️ Estructura del Sitio</h2>
             <div class="gallery">
                 <div class="gallery-item">
                     <div class="image-placeholder">🏠</div>
-                    <div class="caption">Página Principal (Home)</div>
+                    <div class="caption" data-es="Página Principal (Home)" data-en="Home Page">Página Principal (Home)</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">🏀</div>
-                    <div class="caption">Catálogo de Productos</div>
+                    <div class="caption" data-es="Catálogo de Productos" data-en="Product Catalog">Catálogo de Productos</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">ℹ️</div>
-                    <div class="caption">About Us - Quiénes Somos</div>
+                    <div class="caption" data-es="About Us - Quiénes Somos" data-en="About Us - Who We Are">About Us - Quiénes Somos</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">📞</div>
-                    <div class="caption">Página de Contacto</div>
+                    <div class="caption" data-es="Página de Contacto" data-en="Contact Page">Página de Contacto</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">🎓</div>
-                    <div class="caption">Programa de Becas</div>
+                    <div class="caption" data-es="Programa de Becas" data-en="Scholarship Program">Programa de Becas</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">📹</div>
-                    <div class="caption">Recursos Educativos</div>
+                    <div class="caption" data-es="Recursos Educativos" data-en="Educational Resources">Recursos Educativos</div>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>🛠️ Tecnologías y Técnicas Utilizadas</h2>
-            <p><strong>HTML5 Semántico:</strong> Uso de etiquetas semánticas (header, nav, main, section, article, footer) para mejor accesibilidad y SEO</p>
-            <p><strong>CSS3 Avanzado:</strong> Flexbox y Grid Layout para diseños complejos, animaciones CSS, transiciones suaves y efectos hover</p>
-            <p><strong>Responsive Design:</strong> Media queries y diseño mobile-first para garantizar funcionalidad en todos los dispositivos</p>
-            <p><strong>Integración Multimedia:</strong> Embeds de YouTube con iframes responsivos para contenido educativo</p>
-            <p><strong>Optimización de Recursos:</strong> Gestión eficiente de imágenes y estructura de archivos organizada (CSS, img, media separados)</p>
+            <h2 data-es="🛠️ Tecnologías y Técnicas Utilizadas" data-en="🛠️ Technologies and Techniques Used">🛠️ Tecnologías y Técnicas Utilizadas</h2>
+            <p><strong data-es="HTML5 Semántico:" data-en="Semantic HTML5:">HTML5 Semántico:</strong> <span data-es="Uso de etiquetas semánticas (header, nav, main, section, article, footer) para mejor accesibilidad y SEO" data-en="Use of semantic tags (header, nav, main, section, article, footer) for better accessibility and SEO">Uso de etiquetas semánticas (header, nav, main, section, article, footer) para mejor accesibilidad y SEO</span></p>
+            <p><strong data-es="CSS3 Avanzado:" data-en="Advanced CSS3:">CSS3 Avanzado:</strong> <span data-es="Flexbox y Grid Layout para diseños complejos, animaciones CSS, transiciones suaves y efectos hover" data-en="Flexbox and Grid Layout for complex designs, CSS animations, smooth transitions and hover effects">Flexbox y Grid Layout para diseños complejos, animaciones CSS, transiciones suaves y efectos hover</span></p>
+            <p><strong data-es="Responsive Design:" data-en="Responsive Design:">Responsive Design:</strong> <span data-es="Media queries y diseño mobile-first para garantizar funcionalidad en todos los dispositivos" data-en="Media queries and mobile-first design to ensure functionality on all devices">Media queries y diseño mobile-first para garantizar funcionalidad en todos los dispositivos</span></p>
+            <p><strong data-es="Integración Multimedia:" data-en="Multimedia Integration:">Integración Multimedia:</strong> <span data-es="Embeds de YouTube con iframes responsivos para contenido educativo" data-en="YouTube embeds with responsive iframes for educational content">Embeds de YouTube con iframes responsivos para contenido educativo</span></p>
+            <p><strong data-es="Optimización de Recursos:" data-en="Resource Optimization:">Optimización de Recursos:</strong> <span data-es="Gestión eficiente de imágenes y estructura de archivos organizada (CSS, img, media separados)" data-en="Efficient image management and organized file structure (CSS, img, media separated)">Gestión eficiente de imágenes y estructura de archivos organizada (CSS, img, media separados)</span></p>
         </div>
 
         <div class="section">
-            <h2>🏆 Secciones Destacadas</h2>
+            <h2 data-es="🏆 Secciones Destacadas" data-en="🏆 Featured Sections">🏆 Secciones Destacadas</h2>
             <div class="info-grid">
                 <div class="info-card">
-                    <h3>Home - Bienvenida</h3>
-                    <p>Hero section con imagen impactante, animación de flecha descendente, navegación clara a productos, información corporativa y programa de becas.</p>
+                    <h3 data-es="Home - Bienvenida" data-en="Home - Welcome">Home - Bienvenida</h3>
+                    <p data-es="Hero section con imagen impactante, animación de flecha descendente, navegación clara a productos, información corporativa y programa de becas." data-en="Hero section with impactful image, downward arrow animation, clear navigation to products, corporate information and scholarship program.">Hero section con imagen impactante, animación de flecha descendente, navegación clara a productos, información corporativa y programa de becas.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Products - Catálogo</h3>
-                    <p>Exhibición dinámica de productos deportivos para hockey sobre hielo, béisbol, basketball y otros deportes populares en Canadá.</p>
+                    <h3 data-es="Products - Catálogo" data-en="Products - Catalog">Products - Catálogo</h3>
+                    <p data-es="Exhibición dinámica de productos deportivos para hockey sobre hielo, béisbol, basketball y otros deportes populares en Canadá." data-en="Dynamic display of sports products for ice hockey, baseball, basketball and other popular sports in Canada.">Exhibición dinámica de productos deportivos para hockey sobre hielo, béisbol, basketball y otros deportes populares en Canadá.</p>
                 </div>
                 <div class="info-card">
-                    <h3>About Us - Identidad</h3>
-                    <p>Información sobre la misión de la empresa, valores corporativos y compromiso con el desarrollo deportivo juvenil.</p>
+                    <h3 data-es="About Us - Identidad" data-en="About Us - Identity">About Us - Identidad</h3>
+                    <p data-es="Información sobre la misión de la empresa, valores corporativos y compromiso con el desarrollo deportivo juvenil." data-en="Information about the company's mission, corporate values and commitment to youth sports development.">Información sobre la misión de la empresa, valores corporativos y compromiso con el desarrollo deportivo juvenil.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Contact - Conectividad</h3>
-                    <p>Formulario funcional de contacto, ubicaciones físicas de tiendas en el área de Toronto, y canales de comunicación.</p>
+                    <h3 data-es="Contact - Conectividad" data-en="Contact - Connectivity">Contact - Conectividad</h3>
+                    <p data-es="Formulario funcional de contacto, ubicaciones físicas de tiendas en el área de Toronto, y canales de comunicación." data-en="Functional contact form, physical store locations in the Toronto area, and communication channels.">Formulario funcional de contacto, ubicaciones físicas de tiendas en el área de Toronto, y canales de comunicación.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Programa de Becas</h3>
-                    <p>Sistema de solicitud de becas para jóvenes atletas que necesitan apoyo para equipamiento deportivo, demostrando responsabilidad social.</p>
+                    <h3 data-es="Programa de Becas" data-en="Scholarship Program">Programa de Becas</h3>
+                    <p data-es="Sistema de solicitud de becas para jóvenes atletas que necesitan apoyo para equipamiento deportivo, demostrando responsabilidad social." data-en="Scholarship application system for young athletes who need support for sports equipment, demonstrating social responsibility.">Sistema de solicitud de becas para jóvenes atletas que necesitan apoyo para equipamiento deportivo, demostrando responsabilidad social.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Recursos Educativos</h3>
-                    <p>Carrusel de videos de YouTube cuidadosamente seleccionados sobre beneficios del deporte en niños y jóvenes.</p>
+                    <h3 data-es="Recursos Educativos" data-en="Educational Resources">Recursos Educativos</h3>
+                    <p data-es="Carrusel de videos de YouTube cuidadosamente seleccionados sobre beneficios del deporte en niños y jóvenes." data-en="Carousel of carefully selected YouTube videos about sports benefits for children and youth.">Carrusel de videos de YouTube cuidadosamente seleccionados sobre beneficios del deporte en niños y jóvenes.</p>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>🎨 Decisiones de Diseño</h2>
+            <h2 data-es="🎨 Decisiones de Diseño" data-en="🎨 Design Decisions">🎨 Decisiones de Diseño</h2>
             <ul>
-                <li>Paleta de colores inspirada en deportes canadienses y naturaleza</li>
-                <li>Tipografía clara y legible para facilitar la navegación</li>
-                <li>Espaciado generoso para mejor experiencia de usuario</li>
-                <li>Imágenes de alta calidad que transmiten energía y dinamismo deportivo</li>
-                <li>Barras transparentes sobre imágenes para mejorar legibilidad del texto</li>
-                <li>Efectos hover interactivos para mejorar la experiencia del usuario</li>
-                <li>Footer estructurado con tabla para organización clara de información</li>
+                <li data-es="Paleta de colores inspirada en deportes canadienses y naturaleza" data-en="Color palette inspired by Canadian sports and nature">Paleta de colores inspirada en deportes canadienses y naturaleza</li>
+                <li data-es="Tipografía clara y legible para facilitar la navegación" data-en="Clear and readable typography to facilitate navigation">Tipografía clara y legible para facilitar la navegación</li>
+                <li data-es="Espaciado generoso para mejor experiencia de usuario" data-en="Generous spacing for better user experience">Espaciado generoso para mejor experiencia de usuario</li>
+                <li data-es="Imágenes de alta calidad que transmiten energía y dinamismo deportivo" data-en="High-quality images that convey sports energy and dynamism">Imágenes de alta calidad que transmiten energía y dinamismo deportivo</li>
+                <li data-es="Barras transparentes sobre imágenes para mejorar legibilidad del texto" data-en="Transparent bars over images to improve text readability">Barras transparentes sobre imágenes para mejorar legibilidad del texto</li>
+                <li data-es="Efectos hover interactivos para mejorar la experiencia del usuario" data-en="Interactive hover effects to improve user experience">Efectos hover interactivos para mejorar la experiencia del usuario</li>
+                <li data-es="Footer estructurado con tabla para organización clara de información" data-en="Structured footer with table for clear information organization">Footer estructurado con tabla para organización clara de información</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>📚 Contenido y Recursos</h2>
-            <p><strong>Deportes Destacados:</strong> Hockey sobre hielo, béisbol, basketball, fútbol y otros deportes populares en Canadá</p>
-            <p><strong>Ubicaciones:</strong> Tres tiendas principales en Greater Toronto Area (Yorkland Boulevard Toronto, Scarborough, Brampton)</p>
-            <p><strong>Videos Educativos:</strong> 
-                <ul>
-                    <li>"How playing sports benefits your body and your brain"</li>
-                    <li>"Why you should care about youth sports"</li>
-                    <li>"Youth in Sport - Keeping Kids in The Game"</li>
-                </ul>
-            </p>
-            <p><strong>Documentación:</strong> Términos y condiciones actualizados disponibles en formato PDF</p>
+            <h2 data-es="📚 Contenido y Recursos" data-en="📚 Content and Resources">📚 Contenido y Recursos</h2>
+            <p><strong data-es="Deportes Destacados:" data-en="Featured Sports:">Deportes Destacados:</strong> <span data-es="Hockey sobre hielo, béisbol, basketball, fútbol y otros deportes populares en Canadá" data-en="Ice hockey, baseball, basketball, soccer and other popular sports in Canada">Hockey sobre hielo, béisbol, basketball, fútbol y otros deportes populares en Canadá</span></p>
+            <p><strong data-es="Ubicaciones:" data-en="Locations:">Ubicaciones:</strong> <span data-es="Tres tiendas principales en Greater Toronto Area (Yorkland Boulevard Toronto, Scarborough, Brampton)" data-en="Three main stores in Greater Toronto Area (Yorkland Boulevard Toronto, Scarborough, Brampton)">Tres tiendas principales en Greater Toronto Area (Yorkland Boulevard Toronto, Scarborough, Brampton)</span></p>
+            <p><strong data-es="Videos Educativos:" data-en="Educational Videos:">Videos Educativos:</strong></p>
+            <ul>
+                <li data-es="'How playing sports benefits your body and your brain'" data-en="'How playing sports benefits your body and your brain'">"How playing sports benefits your body and your brain"</li>
+                <li data-es="'Why you should care about youth sports'" data-en="'Why you should care about youth sports'">"Why you should care about youth sports"</li>
+                <li data-es="'Youth in Sport - Keeping Kids in The Game'" data-en="'Youth in Sport - Keeping Kids in The Game'">"Youth in Sport - Keeping Kids in The Game"</li>
+            </ul>
+            <p><strong data-es="Documentación:" data-en="Documentation:">Documentación:</strong> <span data-es="Términos y condiciones actualizados disponibles en formato PDF" data-en="Updated terms and conditions available in PDF format">Términos y condiciones actualizados disponibles en formato PDF</span></p>
         </div>
 
         <div class="section">
-            <h2>💡 Enfoque de Responsabilidad Social</h2>
-            <p>
+            <h2 data-es="💡 Enfoque de Responsabilidad Social" data-en="💡 Social Responsibility Approach">💡 Enfoque de Responsabilidad Social</h2>
+            <p data-es="Este proyecto se diferencia por su fuerte componente de responsabilidad social corporativa. No es solo una tienda deportiva comercial, sino una plataforma que busca facilitar el acceso al deporte para jóvenes en situación de necesidad a través de su programa de becas. La integración de recursos educativos para padres demuestra un compromiso con la educación y concientización sobre la importancia del deporte en el desarrollo juvenil." data-en="This project stands out for its strong corporate social responsibility component. It's not just a commercial sports store, but a platform that seeks to facilitate access to sports for young people in need through its scholarship program. The integration of educational resources for parents demonstrates a commitment to education and awareness about the importance of sports in youth development.">
                 Este proyecto se diferencia por su fuerte componente de responsabilidad social corporativa. No es solo una tienda deportiva comercial, sino una plataforma que busca facilitar el acceso al deporte para jóvenes en situación de necesidad a través de su programa de becas. La integración de recursos educativos para padres demuestra un compromiso con la educación y concientización sobre la importancia del deporte en el desarrollo juvenil.
             </p>
         </div>
 
         <div class="section">
-            <h2>📊 Estructura de Archivos</h2>
+            <h2 data-es="📊 Estructura de Archivos" data-en="📊 File Structure">📊 Estructura de Archivos</h2>
             <ul>
-                <li>Organización modular con carpetas separadas para CSS, imágenes y media</li>
-                <li>Navegación clara entre las 4 páginas principales (home, products, about, contact)</li>
-                <li>Recursos multimedia organizados por sección (home, footer, icons)</li>
-                <li>Documentos legales accesibles (términos y condiciones en PDF)</li>
-                <li>Favicon personalizado para identidad de marca</li>
+                <li data-es="Organización modular con carpetas separadas para CSS, imágenes y media" data-en="Modular organization with separate folders for CSS, images and media">Organización modular con carpetas separadas para CSS, imágenes y media</li>
+                <li data-es="Navegación clara entre las 4 páginas principales (home, products, about, contact)" data-en="Clear navigation between the 4 main pages (home, products, about, contact)">Navegación clara entre las 4 páginas principales (home, products, about, contact)</li>
+                <li data-es="Recursos multimedia organizados por sección (home, footer, icons)" data-en="Multimedia resources organized by section (home, footer, icons)">Recursos multimedia organizados por sección (home, footer, icons)</li>
+                <li data-es="Documentos legales accesibles (términos y condiciones en PDF)" data-en="Accessible legal documents (terms and conditions in PDF)">Documentos legales accesibles (términos y condiciones en PDF)</li>
+                <li data-es="Favicon personalizado para identidad de marca" data-en="Custom favicon for brand identity">Favicon personalizado para identidad de marca</li>
             </ul>
         </div>
 
         <div class="cta-section">
-            <h2 style="color: #fff; margin-bottom: 1rem;">¿Necesitas un sitio web profesional?</h2>
-            <p style="color: var(--gris-claro); margin-bottom: 2rem;">Puedo crear sitios web responsive y funcionales para tu negocio</p>
-            <a href="../prueba portafolio.html#contacto" class="cta-button">Contáctame</a>
-            <a href="../prueba portafolio.html#proyectos" class="cta-button" style="background: var(--gris); border: 1px solid var(--verde);">Ver más proyectos</a>
+            <h2 style="color: #fff; margin-bottom: 1rem;" data-es="¿Necesitas un sitio web profesional?" data-en="Need a professional website?">¿Necesitas un sitio web profesional?</h2>
+            <p style="color: var(--gris-claro); margin-bottom: 2rem;" data-es="Puedo crear sitios web responsive y funcionales para tu negocio" data-en="I can create responsive and functional websites for your business">Puedo crear sitios web responsive y funcionales para tu negocio</p>
+            <a href="index.html#contacto" class="cta-button" data-es="Contáctame" data-en="Contact Me">Contáctame</a>
+            <a href="index.html#proyectos" class="cta-button" style="background: var(--gris); border: 1px solid var(--verde);" data-es="Ver más proyectos" data-en="See more projects">Ver más proyectos</a>
         </div>
     </div>
+
+    <script>
+        let currentLang = 'es';
+
+        // Language switcher
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            document.querySelectorAll('[data-es][data-en]').forEach(el => {
+                const text = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+        }
+
+        // Create animated background particles
+        function createParticles() {
+            const bg = document.getElementById('animatedBg');
+            const particleCount = 80;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 5 + 2;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 15 + 10;
+                const delay = Math.random() * 10;
+                
+                const colors = [
+                    'rgba(16, 185, 129, 0.4)', 
+                    'rgba(220, 38, 38, 0.4)', 
+                    'rgba(255, 255, 255, 0.3)',
+                    'rgba(16, 185, 129, 0.6)'
+                ];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}%;
+                    top: ${y}%;
+                    background: ${color};
+                    animation: float ${duration}s ease-in-out ${delay}s infinite;
+                    box-shadow: 0 0 ${size * 2}px ${color};
+                `;
+                
+                bg.appendChild(particle);
+            }
+        }
+
+        // Create twinkling stars
+        function createStars() {
+            const bg = document.getElementById('animatedBg');
+            const starCount = 100;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 3 + 2;
+                const delay = Math.random() * 5;
+                
+                star.style.cssText = `
+                    left: ${x}%;
+                    top: ${y}%;
+                    animation-duration: ${duration}s;
+                    animation-delay: ${delay}s;
+                `;
+                
+                bg.appendChild(star);
+            }
+        }
+
+        // Mouse trail effect
+        let mouseX = 0;
+        let mouseY = 0;
+        let trailX = 0;
+        let trailY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateTrail() {
+            const trail = document.getElementById('mouseTrail');
+            
+            // Smooth following effect
+            trailX += (mouseX - trailX) * 0.1;
+            trailY += (mouseY - trailY) * 0.1;
+            
+            trail.style.left = trailX + 'px';
+            trail.style.top = trailY + 'px';
+            
+            requestAnimationFrame(animateTrail);
+        }
+
+        // Parallax effect on scroll
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            const gradient = document.querySelector('.gradient-bg');
+            const waves = document.querySelectorAll('.wave');
+            
+            if (gradient) {
+                gradient.style.transform = `translate(${currentScrollY * 0.1}px, ${currentScrollY * 0.05}px) rotate(${currentScrollY * 0.05}deg)`;
+            }
+            
+            waves.forEach((wave, index) => {
+                wave.style.transform = `translate(-50%, -50%) rotate(${currentScrollY * (0.02 + index * 0.01)}deg) scale(${1.2 + currentScrollY * 0.0001})`;
+            });
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // Create dynamic connection lines between particles
+        function createConnections() {
+            const bg = document.getElementById('animatedBg');
+            const canvas = document.createElement('canvas');
+            canvas.style.position = 'absolute';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.pointerEvents = 'none';
+            canvas.style.opacity = '0.1';
+            
+            bg.insertBefore(canvas, bg.firstChild);
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = 30;
+            
+            class ConnectionParticle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                }
+                
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                }
+                
+                draw() {
+                    ctx.fillStyle = 'rgba(16, 185, 129, 0.5)';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new ConnectionParticle());
+            }
+            
+            function drawConnections() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                // Draw lines between close particles
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 150) {
+                            ctx.strokeStyle = `rgba(16, 185, 129, ${1 - distance / 150})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(drawConnections);
+            }
+            
+            drawConnections();
+            
+            // Resize canvas on window resize
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        // Initialize all effects on load
+        window.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            createStars();
+            createConnections();
+            animateTrail();
+            
+            // Add pulse effect to cards on hover
+            document.querySelectorAll('.info-card, .gallery-item').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 0 30px rgba(16, 185, 129, 0.3)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '';
+                });
+            });
+        });
+
+        // Add interactive ripple effect on click
+        document.addEventListener('click', (e) => {
+            const ripple = document.createElement('div');
+            ripple.style.cssText = `
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(16, 185, 129, 0.6) 0%, transparent 70%);
+                pointer-events: none;
+                left: ${e.clientX - 10}px;
+                top: ${e.clientY - 10}px;
+                z-index: 9999;
+                animation: rippleExpand 0.6s ease-out forwards;
+            `;
+            
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rippleExpand {
+                to {
+                    transform: scale(10);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
