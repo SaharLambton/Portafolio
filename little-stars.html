@@ -24,12 +24,201 @@
             background-color: var(--negro);
             color: #fff;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background - SUPER DINÁMICO */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        /* Gradiente animado de fondo */
+        .gradient-bg {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 40%);
+            animation: gradientMove 20s ease-in-out infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(-10%, -10%) rotate(120deg);
+            }
+            66% {
+                transform: translate(-5%, -20%) rotate(240deg);
+            }
+        }
+
+        /* Partículas flotantes */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(1px);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.6;
+            }
+            25% {
+                transform: translateY(-30px) translateX(15px) scale(1.1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-20px) translateX(-15px) scale(0.9);
+                opacity: 0.5;
+            }
+            75% {
+                transform: translateY(-40px) translateX(10px) scale(1.05);
+                opacity: 0.7;
+            }
+        }
+
+        /* Ondas animadas */
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            opacity: 0.03;
+            border-radius: 40%;
+            animation: wave 15s infinite linear;
+        }
+
+        .wave:nth-child(1) {
+            background: radial-gradient(circle, var(--verde) 0%, transparent 70%);
+            animation-duration: 12s;
+        }
+
+        .wave:nth-child(2) {
+            background: radial-gradient(circle, var(--rojo) 0%, transparent 70%);
+            animation-duration: 18s;
+            animation-delay: -5s;
+        }
+
+        .wave:nth-child(3) {
+            background: radial-gradient(circle, var(--verde) 0%, transparent 70%);
+            animation-duration: 20s;
+            animation-delay: -10s;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg) scale(1.2);
+            }
+        }
+
+        /* Efecto de seguimiento del mouse */
+        .mouse-trail {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            filter: blur(40px);
+        }
+
+        /* Líneas de conexión animadas */
+        .grid-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+            background-size: 100px 100px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(100px, 100px);
+            }
+        }
+
+        /* Estrellas parpadeantes */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(16, 185, 129, 0.8);
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--gris);
+            padding: 0.5rem;
+            border-radius: 30px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--gris-claro);
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            color: #fff;
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--verde);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 5%;
+            position: relative;
+            z-index: 1;
         }
 
         .back-button {
@@ -238,6 +427,11 @@
         }
 
         @media (max-width: 768px) {
+            .lang-switcher {
+                top: 1rem;
+                right: 1rem;
+            }
+
             .project-header h1 {
                 font-size: 2rem;
             }
@@ -249,12 +443,35 @@
     </style>
 </head>
 <body>
+    <!-- Animated Background - SUPER DINÁMICO -->
+    <div class="animated-bg" id="animatedBg">
+        <!-- Gradiente animado -->
+        <div class="gradient-bg"></div>
+        
+        <!-- Ondas -->
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        
+        <!-- Grid animado -->
+        <div class="grid-lines"></div>
+        
+        <!-- Mouse trail -->
+        <div class="mouse-trail" id="mouseTrail"></div>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="changeLanguage('es')">ES</button>
+        <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+    </div>
+
     <div class="container">
-        <a href="../prueba portafolio.html#proyectos" class="back-button">← Volver al Portafolio</a>
+        <a href="index.html#proyectos" class="back-button" data-es="← Volver al Portafolio" data-en="← Back to Portfolio">← Volver al Portafolio</a>
 
         <div class="project-header">
             <h1>Little Stars - Tienda de Ropa Infantil</h1>
-            <p class="subtitle">Proyecto de práctica personal para reforzar habilidades de diseño web frontend y maquetación responsive</p>
+            <p class="subtitle" data-es="Proyecto de práctica personal para reforzar habilidades de diseño web frontend y maquetación responsive" data-en="Personal practice project to reinforce frontend web design and responsive layout skills">Proyecto de práctica personal para reforzar habilidades de diseño web frontend y maquetación responsive</p>
             <div class="tech-stack">
                 <span class="tech-badge">HTML5</span>
                 <span class="tech-badge">CSS3</span>
@@ -265,192 +482,457 @@
         </div>
 
         <div class="section">
-            <h2>📋 Resumen del Proyecto</h2>
-            <p>
+            <h2 data-es="📋 Resumen del Proyecto" data-en="📋 Project Summary">📋 Resumen del Proyecto</h2>
+            <p data-es="Proyecto personal de práctica desarrollado para reforzar y perfeccionar habilidades de frontend web. Little Stars es un sitio web moderno para una tienda ficticia de ropa infantil que demuestra el dominio de HTML5 semántico, CSS3 avanzado y principios de diseño responsive. El proyecto simula una experiencia real de e-commerce con énfasis en la estética visual y usabilidad." data-en="Personal practice project developed to reinforce and perfect web frontend skills. Little Stars is a modern website for a fictional children's clothing store that demonstrates mastery of semantic HTML5, advanced CSS3 and responsive design principles. The project simulates a real e-commerce experience with emphasis on visual aesthetics and usability.">
                 Proyecto personal de práctica desarrollado para reforzar y perfeccionar habilidades de frontend web. Little Stars es un sitio web moderno para una tienda ficticia de ropa infantil que demuestra el dominio de HTML5 semántico, CSS3 avanzado y principios de diseño responsive. El proyecto simula una experiencia real de e-commerce con énfasis en la estética visual y usabilidad.
             </p>
         </div>
 
         <div class="info-grid">
             <div class="info-card">
-                <h3>🎯 Objetivo</h3>
-                <p>Practicar y reforzar habilidades de maquetación web, diseño responsive y crear una interfaz atractiva para e-commerce infantil.</p>
+                <h3 data-es="🎯 Objetivo" data-en="🎯 Objective">🎯 Objetivo</h3>
+                <p data-es="Practicar y reforzar habilidades de maquetación web, diseño responsive y crear una interfaz atractiva para e-commerce infantil." data-en="Practice and reinforce web layout skills, responsive design and create an attractive interface for children's e-commerce.">Practicar y reforzar habilidades de maquetación web, diseño responsive y crear una interfaz atractiva para e-commerce infantil.</p>
             </div>
             <div class="info-card">
-                <h3>⏱️ Duración</h3>
-                <p>2 días de desarrollo intensivo, enfocados en diseño visual, estructura HTML y estilos CSS.</p>
+                <h3 data-es="⏱️ Duración" data-en="⏱️ Duration">⏱️ Duración</h3>
+                <p data-es="2 días de desarrollo intensivo, enfocados en diseño visual, estructura HTML y estilos CSS." data-en="2 days of intensive development, focused on visual design, HTML structure and CSS styles.">2 días de desarrollo intensivo, enfocados en diseño visual, estructura HTML y estilos CSS.</p>
             </div>
             <div class="info-card">
-                <h3>💥 Rol</h3>
-                <p>Desarrolladora Frontend - Diseño de interfaz, maquetación HTML/CSS, diseño responsive y arquitectura de componentes.</p>
+                <h3 data-es="💥 Rol" data-en="💥 Role">💥 Rol</h3>
+                <p data-es="Desarrolladora Frontend - Diseño de interfaz, maquetación HTML/CSS, diseño responsive y arquitectura de componentes." data-en="Frontend Developer - Interface design, HTML/CSS layout, responsive design and component architecture.">Desarrolladora Frontend - Diseño de interfaz, maquetación HTML/CSS, diseño responsive y arquitectura de componentes.</p>
             </div>
         </div>
 
         <div class="section">
-            <h2>✨ Características Implementadas</h2>
+            <h2 data-es="✨ Características Implementadas" data-en="✨ Implemented Features">✨ Características Implementadas</h2>
             <ul>
-                <li>Página de inicio (Home) con hero section atractiva y llamada a la acción</li>
-                <li>Sistema de navegación limpio y funcional</li>
-                <li>Sección de categorías populares (Niñas, Niños, Bebés)</li>
-                <li>Página de tienda con grid de productos</li>
-                <li>Sistema de filtros por categoría y talla (interfaz diseñada)</li>
-                <li>Barra de búsqueda de productos</li>
-                <li>Cards de productos con imagen, título, precio y botón de acción</li>
-                <li>Sección "Por qué elegirnos" con íconos Font Awesome</li>
-                <li>Footer informativo con enlaces rápidos y datos de contacto</li>
-                <li>Diseño completamente responsive para todos los dispositivos</li>
+                <li data-es="Página de inicio (Home) con hero section atractiva y llamada a la acción" data-en="Home page with attractive hero section and call to action">Página de inicio (Home) con hero section atractiva y llamada a la acción</li>
+                <li data-es="Sistema de navegación limpio y funcional" data-en="Clean and functional navigation system">Sistema de navegación limpio y funcional</li>
+                <li data-es="Sección de categorías populares (Niñas, Niños, Bebés)" data-en="Popular categories section (Girls, Boys, Babies)">Sección de categorías populares (Niñas, Niños, Bebés)</li>
+                <li data-es="Página de tienda con grid de productos" data-en="Shop page with product grid">Página de tienda con grid de productos</li>
+                <li data-es="Sistema de filtros por categoría y talla (interfaz diseñada)" data-en="Filter system by category and size (designed interface)">Sistema de filtros por categoría y talla (interfaz diseñada)</li>
+                <li data-es="Barra de búsqueda de productos" data-en="Product search bar">Barra de búsqueda de productos</li>
+                <li data-es="Cards de productos con imagen, título, precio y botón de acción" data-en="Product cards with image, title, price and action button">Cards de productos con imagen, título, precio y botón de acción</li>
+                <li data-es="Sección 'Por qué elegirnos' con íconos Font Awesome" data-en="'Why choose us' section with Font Awesome icons">Sección "Por qué elegirnos" con íconos Font Awesome</li>
+                <li data-es="Footer informativo con enlaces rápidos y datos de contacto" data-en="Informative footer with quick links and contact information">Footer informativo con enlaces rápidos y datos de contacto</li>
+                <li data-es="Diseño completamente responsive para todos los dispositivos" data-en="Fully responsive design for all devices">Diseño completamente responsive para todos los dispositivos</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>🖼️ Estructura del Sitio</h2>
+            <h2 data-es="🖼️ Estructura del Sitio" data-en="🖼️ Site Structure">🖼️ Estructura del Sitio</h2>
             <div class="gallery">
                 <div class="gallery-item">
                     <div class="image-placeholder">🏠</div>
-                    <div class="caption">Página Principal - Hero Section</div>
+                    <div class="caption" data-es="Página Principal - Hero Section" data-en="Home Page - Hero Section">Página Principal - Hero Section</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">👶</div>
-                    <div class="caption">Categorías Populares</div>
+                    <div class="caption" data-es="Categorías Populares" data-en="Popular Categories">Categorías Populares</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">🛍️</div>
-                    <div class="caption">Página de Tienda</div>
+                    <div class="caption" data-es="Página de Tienda" data-en="Shop Page">Página de Tienda</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">🔍</div>
-                    <div class="caption">Sistema de Filtros</div>
+                    <div class="caption" data-es="Sistema de Filtros" data-en="Filter System">Sistema de Filtros</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">👕</div>
-                    <div class="caption">Cards de Productos</div>
+                    <div class="caption" data-es="Cards de Productos" data-en="Product Cards">Cards de Productos</div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">⭐</div>
-                    <div class="caption">Sección de Beneficios</div>
+                    <div class="caption" data-es="Sección de Beneficios" data-en="Benefits Section">Sección de Beneficios</div>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>🛠️ Tecnologías y Técnicas</h2>
-            <p><strong>HTML5 Semántico:</strong> Uso correcto de etiquetas semánticas (nav, header, section, footer) para estructura clara y accesible</p>
-            <p><strong>CSS3 Avanzado:</strong> Grid y Flexbox para layouts modernos, transiciones suaves, efectos hover y diseño de componentes reutilizables</p>
-            <p><strong>Font Awesome:</strong> Integración de iconografía profesional para mejorar la experiencia visual</p>
-            <p><strong>Responsive Design:</strong> Técnicas de diseño adaptativo para garantizar funcionalidad en móviles, tablets y desktop</p>
-            <p><strong>Arquitectura CSS:</strong> Organización de estilos en un archivo externo centralizado (styles.css)</p>
+            <h2 data-es="🛠️ Tecnologías y Técnicas" data-en="🛠️ Technologies and Techniques">🛠️ Tecnologías y Técnicas</h2>
+            <p><strong data-es="HTML5 Semántico:" data-en="Semantic HTML5:">HTML5 Semántico:</strong> <span data-es="Uso correcto de etiquetas semánticas (nav, header, section, footer) para estructura clara y accesible" data-en="Correct use of semantic tags (nav, header, section, footer) for clear and accessible structure">Uso correcto de etiquetas semánticas (nav, header, section, footer) para estructura clara y accesible</span></p>
+            <p><strong data-es="CSS3 Avanzado:" data-en="Advanced CSS3:">CSS3 Avanzado:</strong> <span data-es="Grid y Flexbox para layouts modernos, transiciones suaves, efectos hover y diseño de componentes reutilizables" data-en="Grid and Flexbox for modern layouts, smooth transitions, hover effects and reusable component design">Grid y Flexbox para layouts modernos, transiciones suaves, efectos hover y diseño de componentes reutilizables</span></p>
+            <p><strong>Font Awesome:</strong> <span data-es="Integración de iconografía profesional para mejorar la experiencia visual" data-en="Integration of professional iconography to enhance visual experience">Integración de iconografía profesional para mejorar la experiencia visual</span></p>
+            <p><strong data-es="Responsive Design:" data-en="Responsive Design:">Responsive Design:</strong> <span data-es="Técnicas de diseño adaptativo para garantizar funcionalidad en móviles, tablets y desktop" data-en="Adaptive design techniques to ensure functionality on mobile, tablets and desktop">Técnicas de diseño adaptativo para garantizar funcionalidad en móviles, tablets y desktop</span></p>
+            <p><strong data-es="Arquitectura CSS:" data-en="CSS Architecture:">Arquitectura CSS:</strong> <span data-es="Organización de estilos en un archivo externo centralizado (styles.css)" data-en="Style organization in a centralized external file (styles.css)">Organización de estilos en un archivo externo centralizado (styles.css)</span></p>
         </div>
 
         <div class="section">
-            <h2>🎨 Elementos de Diseño</h2>
+            <h2 data-es="🎨 Elementos de Diseño" data-en="🎨 Design Elements">🎨 Elementos de Diseño</h2>
             <div class="info-grid">
                 <div class="info-card">
-                    <h3>Hero Section</h3>
-                    <p>Sección principal impactante con título llamativo, descripción de colección actual y botón CTA prominente para dirigir a la tienda.</p>
+                    <h3 data-es="Hero Section" data-en="Hero Section">Hero Section</h3>
+                    <p data-es="Sección principal impactante con título llamativo, descripción de colección actual y botón CTA prominente para dirigir a la tienda." data-en="Impactful main section with catchy title, current collection description and prominent CTA button to direct to the store.">Sección principal impactante con título llamativo, descripción de colección actual y botón CTA prominente para dirigir a la tienda.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Categorías Visuales</h3>
-                    <p>Grid de tarjetas con imágenes para Niñas, Niños y Bebés, facilitando la navegación por segmento de edad.</p>
+                    <h3 data-es="Categorías Visuales" data-en="Visual Categories">Categorías Visuales</h3>
+                    <p data-es="Grid de tarjetas con imágenes para Niñas, Niños y Bebés, facilitando la navegación por segmento de edad." data-en="Grid of cards with images for Girls, Boys and Babies, facilitating navigation by age segment.">Grid de tarjetas con imágenes para Niñas, Niños y Bebés, facilitando la navegación por segmento de edad.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Sistema de Filtros</h3>
-                    <p>Selectores dropdown para categoría y rango de talla, más campo de búsqueda textual para encontrar productos específicos.</p>
+                    <h3 data-es="Sistema de Filtros" data-en="Filter System">Sistema de Filtros</h3>
+                    <p data-es="Selectores dropdown para categoría y rango de talla, más campo de búsqueda textual para encontrar productos específicos." data-en="Dropdown selectors for category and size range, plus text search field to find specific products.">Selectores dropdown para categoría y rango de talla, más campo de búsqueda textual para encontrar productos específicos.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Product Cards</h3>
-                    <p>Tarjetas de producto elegantes con imagen destacada, nombre del artículo, precio visible y botón de acción "Añadir al carrito".</p>
+                    <h3 data-es="Product Cards" data-en="Product Cards">Product Cards</h3>
+                    <p data-es="Tarjetas de producto elegantes con imagen destacada, nombre del artículo, precio visible y botón de acción 'Añadir al carrito'." data-en="Elegant product cards with featured image, item name, visible price and 'Add to cart' action button.">Tarjetas de producto elegantes con imagen destacada, nombre del artículo, precio visible y botón de acción "Añadir al carrito".</p>
                 </div>
                 <div class="info-card">
-                    <h3>Sección de Valor</h3>
-                    <p>Destacados de beneficios clave: Calidad Premium, Envío Rápido y Devolución Gratuita con íconos ilustrativos.</p>
+                    <h3 data-es="Sección de Valor" data-en="Value Section">Sección de Valor</h3>
+                    <p data-es="Destacados de beneficios clave: Calidad Premium, Envío Rápido y Devolución Gratuita con íconos ilustrativos." data-en="Key benefit highlights: Premium Quality, Fast Shipping and Free Returns with illustrative icons.">Destacados de beneficios clave: Calidad Premium, Envío Rápido y Devolución Gratuita con íconos ilustrativos.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Footer Informativo</h3>
-                    <p>Pie de página estructurado con información de la marca, enlaces rápidos y datos de contacto organizados en columnas.</p>
+                    <h3 data-es="Footer Informativo" data-en="Informative Footer">Footer Informativo</h3>
+                    <p data-es="Pie de página estructurado con información de la marca, enlaces rápidos y datos de contacto organizados en columnas." data-en="Structured footer with brand information, quick links and contact information organized in columns.">Pie de página estructurado con información de la marca, enlaces rápidos y datos de contacto organizados en columnas.</p>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>👗 Categorías de Productos</h2>
+            <h2 data-es="👗 Categorías de Productos" data-en="👗 Product Categories">👗 Categorías de Productos</h2>
             <ul>
-                <li><strong>Niñas:</strong> Vestidos, conjuntos, accesorios diseñados específicamente para niñas</li>
-                <li><strong>Niños:</strong> Ropa deportiva, casual y formal para niños</li>
-                <li><strong>Bebés:</strong> Prendas especiales para bebés de 0-12 meses</li>
-                <li><strong>Rangos de Talla:</strong> 0-3 meses, 3-6 meses, 6-12 meses, 1-2 años</li>
+                <li><strong data-es="Niñas:" data-en="Girls:">Niñas:</strong> <span data-es="Vestidos, conjuntos, accesorios diseñados específicamente para niñas" data-en="Dresses, sets, accessories designed specifically for girls">Vestidos, conjuntos, accesorios diseñados específicamente para niñas</span></li>
+                <li><strong data-es="Niños:" data-en="Boys:">Niños:</strong> <span data-es="Ropa deportiva, casual y formal para niños" data-en="Sports, casual and formal clothing for boys">Ropa deportiva, casual y formal para niños</span></li>
+                <li><strong data-es="Bebés:" data-en="Babies:">Bebés:</strong> <span data-es="Prendas especiales para bebés de 0-12 meses" data-en="Special garments for babies 0-12 months">Prendas especiales para bebés de 0-12 meses</span></li>
+                <li><strong data-es="Rangos de Talla:" data-en="Size Ranges:">Rangos de Talla:</strong> <span data-es="0-3 meses, 3-6 meses, 6-12 meses, 1-2 años" data-en="0-3 months, 3-6 months, 6-12 months, 1-2 years">0-3 meses, 3-6 meses, 6-12 meses, 1-2 años</span></li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>🎯 Propuesta de Valor</h2>
+            <h2 data-es="🎯 Propuesta de Valor" data-en="🎯 Value Proposition">🎯 Propuesta de Valor</h2>
             <div class="info-grid">
                 <div class="info-card">
-                    <h3>Calidad Premium</h3>
-                    <p>Énfasis en materiales suaves y duraderos, apropiados para la piel sensible de los niños.</p>
+                    <h3 data-es="Calidad Premium" data-en="Premium Quality">Calidad Premium</h3>
+                    <p data-es="Énfasis en materiales suaves y duraderos, apropiados para la piel sensible de los niños." data-en="Emphasis on soft and durable materials, appropriate for children's sensitive skin.">Énfasis en materiales suaves y duraderos, apropiados para la piel sensible de los niños.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Envío Rápido</h3>
-                    <p>Promesa de entrega en 24-48 horas para conveniencia de los padres.</p>
+                    <h3 data-es="Envío Rápido" data-en="Fast Shipping">Envío Rápido</h3>
+                    <p data-es="Promesa de entrega en 24-48 horas para conveniencia de los padres." data-en="Delivery promise in 24-48 hours for parents' convenience.">Promesa de entrega en 24-48 horas para conveniencia de los padres.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Devolución Gratuita</h3>
-                    <p>Garantía de 30 días para generar confianza en las compras online.</p>
+                    <h3 data-es="Devolución Gratuita" data-en="Free Returns">Devolución Gratuita</h3>
+                    <p data-es="Garantía de 30 días para generar confianza en las compras online." data-en="30-day guarantee to build trust in online purchases.">Garantía de 30 días para generar confianza en las compras online.</p>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>💡 Aprendizajes y Práctica</h2>
+            <h2 data-es="💡 Aprendizajes y Práctica" data-en="💡 Learnings and Practice">💡 Aprendizajes y Práctica</h2>
             <ul>
-                <li>Refuerzo de habilidades de maquetación con CSS Grid y Flexbox</li>
-                <li>Práctica de diseño de componentes reutilizables (cards, botones, navegación)</li>
-                <li>Implementación de diseño responsive con enfoque mobile-first</li>
-                <li>Uso efectivo de espaciado, tipografía y jerarquía visual</li>
-                <li>Integración de librerías externas (Font Awesome) de forma eficiente</li>
-                <li>Creación de estructura HTML semántica y accesible</li>
-                <li>Diseño de interfaz limpia y moderna para e-commerce</li>
+                <li data-es="Refuerzo de habilidades de maquetación con CSS Grid y Flexbox" data-en="Reinforcement of layout skills with CSS Grid and Flexbox">Refuerzo de habilidades de maquetación con CSS Grid y Flexbox</li>
+                <li data-es="Práctica de diseño de componentes reutilizables (cards, botones, navegación)" data-en="Practice of reusable component design (cards, buttons, navigation)">Práctica de diseño de componentes reutilizables (cards, botones, navegación)</li>
+                <li data-es="Implementación de diseño responsive con enfoque mobile-first" data-en="Implementation of responsive design with mobile-first approach">Implementación de diseño responsive con enfoque mobile-first</li>
+                <li data-es="Uso efectivo de espaciado, tipografía y jerarquía visual" data-en="Effective use of spacing, typography and visual hierarchy">Uso efectivo de espaciado, tipografía y jerarquía visual</li>
+                <li data-es="Integración de librerías externas (Font Awesome) de forma eficiente" data-en="Efficient integration of external libraries (Font Awesome)">Integración de librerías externas (Font Awesome) de forma eficiente</li>
+                <li data-es="Creación de estructura HTML semántica y accesible" data-en="Creation of semantic and accessible HTML structure">Creación de estructura HTML semántica y accesible</li>
+                <li data-es="Diseño de interfaz limpia y moderna para e-commerce" data-en="Design of clean and modern interface for e-commerce">Diseño de interfaz limpia y moderna para e-commerce</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>📊 Estructura de Archivos</h2>
+            <h2 data-es="📊 Estructura de Archivos" data-en="📊 File Structure">📊 Estructura de Archivos</h2>
             <ul>
-                <li><strong>index.html:</strong> Página principal con hero, categorías y sección de valor</li>
-                <li><strong>tienda.html:</strong> Página de catálogo con filtros y productos</li>
-                <li><strong>styles.css:</strong> Hoja de estilos centralizada para todo el sitio</li>
-                <li><strong>img/:</strong> Carpeta de imágenes organizadas (niñas.jpg, niños.jpg, bebés.jpg, productos)</li>
-                <li><strong>Font Awesome CDN:</strong> Iconografía profesional integrada vía CDN</li>
+                <li><strong>index.html:</strong> <span data-es="Página principal con hero, categorías y sección de valor" data-en="Main page with hero, categories and value section">Página principal con hero, categorías y sección de valor</span></li>
+                <li><strong>tienda.html:</strong> <span data-es="Página de catálogo con filtros y productos" data-en="Catalog page with filters and products">Página de catálogo con filtros y productos</span></li>
+                <li><strong>styles.css:</strong> <span data-es="Hoja de estilos centralizada para todo el sitio" data-en="Centralized stylesheet for the entire site">Hoja de estilos centralizada para todo el sitio</span></li>
+                <li><strong>img/:</strong> <span data-es="Carpeta de imágenes organizadas (niñas.jpg, niños.jpg, bebés.jpg, productos)" data-en="Organized images folder (girls.jpg, boys.jpg, babies.jpg, products)">Carpeta de imágenes organizadas (niñas.jpg, niños.jpg, bebés.jpg, productos)</span></li>
+                <li><strong>Font Awesome CDN:</strong> <span data-es="Iconografía profesional integrada vía CDN" data-en="Professional iconography integrated via CDN">Iconografía profesional integrada vía CDN</span></li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>🔮 Características Planificadas (No Implementadas)</h2>
-            <p>
+            <h2 data-es="🔮 Características Planificadas (No Implementadas)" data-en="🔮 Planned Features (Not Implemented)">🔮 Características Planificadas (No Implementadas)</h2>
+            <p data-es="Como proyecto de práctica en fase inicial, el sitio se enfoca en diseño y maquetación. Las siguientes funcionalidades están diseñadas visualmente pero no implementadas funcionalmente:" data-en="As a practice project in initial phase, the site focuses on design and layout. The following functionalities are visually designed but not functionally implemented:">
                 Como proyecto de práctica en fase inicial, el sitio se enfoca en diseño y maquetación. Las siguientes funcionalidades están diseñadas visualmente pero no implementadas funcionalmente:
             </p>
             <ul>
-                <li>Funcionalidad JavaScript para filtros dinámicos</li>
-                <li>Sistema de carrito de compras con almacenamiento local</li>
-                <li>Backend para gestión de productos y pedidos</li>
-                <li>Base de datos para catálogo de productos</li>
-                <li>Páginas adicionales (Colecciones, Contacto, Sobre Nosotros)</li>
-                <li>Sistema de pago integrado</li>
+                <li data-es="Funcionalidad JavaScript para filtros dinámicos" data-en="JavaScript functionality for dynamic filters">Funcionalidad JavaScript para filtros dinámicos</li>
+                <li data-es="Sistema de carrito de compras con almacenamiento local" data-en="Shopping cart system with local storage">Sistema de carrito de compras con almacenamiento local</li>
+                <li data-es="Backend para gestión de productos y pedidos" data-en="Backend for product and order management">Backend para gestión de productos y pedidos</li>
+                <li data-es="Base de datos para catálogo de productos" data-en="Database for product catalog">Base de datos para catálogo de productos</li>
+                <li data-es="Páginas adicionales (Colecciones, Contacto, Sobre Nosotros)" data-en="Additional pages (Collections, Contact, About Us)">Páginas adicionales (Colecciones, Contacto, Sobre Nosotros)</li>
+                <li data-es="Sistema de pago integrado" data-en="Integrated payment system">Sistema de pago integrado</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>🎨 Paleta de Colores y Diseño</h2>
-            <p>
+            <h2 data-es="🎨 Paleta de Colores y Diseño" data-en="🎨 Color Palette and Design">🎨 Paleta de Colores y Diseño</h2>
+            <p data-es="El diseño visual utiliza una paleta suave y amigable apropiada para un público infantil, con colores pasteles y tonos cálidos que transmiten confianza y calidez. La tipografía es clara y legible, con jerarquías bien definidas para facilitar la navegación." data-en="The visual design uses a soft and friendly palette appropriate for a children's audience, with pastel colors and warm tones that convey trust and warmth. The typography is clear and readable, with well-defined hierarchies to facilitate navigation.">
                 El diseño visual utiliza una paleta suave y amigable apropiada para un público infantil, con colores pasteles y tonos cálidos que transmiten confianza y calidez. La tipografía es clara y legible, con jerarquías bien definidas para facilitar la navegación.
             </p>
         </div>
 
         <div class="cta-section">
-            <h2 style="color: #fff; margin-bottom: 1rem;">¿Necesitas un diseño web atractivo?</h2>
-            <p style="color: var(--gris-claro); margin-bottom: 2rem;">Puedo crear interfaces modernas y responsive para tu negocio</p>
-            <a href="../prueba portafolio.html#contacto" class="cta-button">Contáctame</a>
-            <a href="../prueba portafolio.html#proyectos" class="cta-button" style="background: var(--gris); border: 1px solid var(--verde);">Ver más proyectos</a>
+            <h2 style="color: #fff; margin-bottom: 1rem;" data-es="¿Necesitas un diseño web atractivo?" data-en="Need an attractive web design?">¿Necesitas un diseño web atractivo?</h2>
+            <p style="color: var(--gris-claro); margin-bottom: 2rem;" data-es="Puedo crear interfaces modernas y responsive para tu negocio" data-en="I can create modern and responsive interfaces for your business">Puedo crear interfaces modernas y responsive para tu negocio</p>
+            <a href="index.html#contacto" class="cta-button" data-es="Contáctame" data-en="Contact Me">Contáctame</a>
+            <a href="index.html#proyectos" class="cta-button" style="background: var(--gris); border: 1px solid var(--verde);" data-es="Ver más proyectos" data-en="See more projects">Ver más proyectos</a>
         </div>
     </div>
+
+    <script>
+        let currentLang = 'es';
+
+        // Language switcher
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            document.querySelectorAll('[data-es][data-en]').forEach(el => {
+                const text = lang === 'es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+        }
+
+        // Create animated background particles
+        function createParticles() {
+            const bg = document.getElementById('animatedBg');
+            const particleCount = 80;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 5 + 2;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 15 + 10;
+                const delay = Math.random() * 10;
+                
+                const colors = [
+                    'rgba(16, 185, 129, 0.4)', 
+                    'rgba(220, 38, 38, 0.4)', 
+                    'rgba(255, 255, 255, 0.3)',
+                    'rgba(16, 185, 129, 0.6)'
+                ];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}%;
+                    top: ${y}%;
+                    background: ${color};
+                    animation: float ${duration}s ease-in-out ${delay}s infinite;
+                    box-shadow: 0 0 ${size * 2}px ${color};
+                `;
+                
+                bg.appendChild(particle);
+            }
+        }
+
+        // Create twinkling stars
+        function createStars() {
+            const bg = document.getElementById('animatedBg');
+            const starCount = 100;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 3 + 2;
+                const delay = Math.random() * 5;
+                
+                star.style.cssText = `
+                    left: ${x}%;
+                    top: ${y}%;
+                    animation-duration: ${duration}s;
+                    animation-delay: ${delay}s;
+                `;
+                
+                bg.appendChild(star);
+            }
+        }
+
+        // Mouse trail effect
+        let mouseX = 0;
+        let mouseY = 0;
+        let trailX = 0;
+        let trailY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateTrail() {
+            const trail = document.getElementById('mouseTrail');
+            
+            // Smooth following effect
+            trailX += (mouseX - trailX) * 0.1;
+            trailY += (mouseY - trailY) * 0.1;
+            
+            trail.style.left = trailX + 'px';
+            trail.style.top = trailY + 'px';
+            
+            requestAnimationFrame(animateTrail);
+        }
+
+        // Parallax effect on scroll
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            const gradient = document.querySelector('.gradient-bg');
+            const waves = document.querySelectorAll('.wave');
+            
+            if (gradient) {
+                gradient.style.transform = `translate(${currentScrollY * 0.1}px, ${currentScrollY * 0.05}px) rotate(${currentScrollY * 0.05}deg)`;
+            }
+            
+            waves.forEach((wave, index) => {
+                wave.style.transform = `translate(-50%, -50%) rotate(${currentScrollY * (0.02 + index * 0.01)}deg) scale(${1.2 + currentScrollY * 0.0001})`;
+            });
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // Create dynamic connection lines between particles
+        function createConnections() {
+            const bg = document.getElementById('animatedBg');
+            const canvas = document.createElement('canvas');
+            canvas.style.position = 'absolute';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.pointerEvents = 'none';
+            canvas.style.opacity = '0.1';
+            
+            bg.insertBefore(canvas, bg.firstChild);
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = 30;
+            
+            class ConnectionParticle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                }
+                
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                }
+                
+                draw() {
+                    ctx.fillStyle = 'rgba(16, 185, 129, 0.5)';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new ConnectionParticle());
+            }
+            
+            function drawConnections() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                // Draw lines between close particles
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 150) {
+                            ctx.strokeStyle = `rgba(16, 185, 129, ${1 - distance / 150})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(drawConnections);
+            }
+            
+            drawConnections();
+            
+            // Resize canvas on window resize
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        // Initialize all effects on load
+        window.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            createStars();
+            createConnections();
+            animateTrail();
+            
+            // Add pulse effect to cards on hover
+            document.querySelectorAll('.info-card, .gallery-item').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 0 30px rgba(16, 185, 129, 0.3)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '';
+                });
+            });
+        });
+
+        // Add interactive ripple effect on click
+        document.addEventListener('click', (e) => {
+            const ripple = document.createElement('div');
+            ripple.style.cssText = `
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(16, 185, 129, 0.6) 0%, transparent 70%);
+                pointer-events: none;
+                left: ${e.clientX - 10}px;
+                top: ${e.clientY - 10}px;
+                z-index: 9999;
+                animation: rippleExpand 0.6s ease-out forwards;
+            `;
+            
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rippleExpand {
+                to {
+                    transform: scale(10);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
