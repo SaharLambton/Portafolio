@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Little Stars - Sahar Chain</title>
-    <style>
+   <style>
         * {
             margin: 0;
             padding: 0;
@@ -281,6 +281,123 @@
             background: var(--verde);
             color: var(--negro);
             transform: translateY(-2px);
+        }
+
+        /* Video Container Styles */
+        .video-container {
+            position: relative;
+            max-width: 1000px;
+            width: 100%;
+            margin: 3rem auto;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid rgba(16, 185, 129, 0.3);
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.2);
+            transition: all 0.4s ease;
+            background: var(--gris);
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--verde), var(--rojo));
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+        }
+
+        .video-container:hover::before {
+            opacity: 0.3;
+        }
+
+        .video-container:hover {
+            border-color: var(--verde);
+            box-shadow: 0 30px 90px rgba(16, 185, 129, 0.4),
+                        0 0 60px rgba(16, 185, 129, 0.2);
+            transform: translateY(-8px) scale(1.01);
+        }
+
+        .demo-video {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            display: block;
+            background: var(--negro);
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            border: 2px solid var(--verde);
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+
+        .video-container:hover .video-overlay {
+            opacity: 1;
+            top: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .video-container {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .video-container {
+                margin: 2rem auto;
+                border-radius: 15px;
+                max-width: 95%;
+            }
+
+            .demo-video {
+                max-height: 400px;
+            }
+            
+            .video-overlay {
+                font-size: 0.85rem;
+                padding: 0.6rem 1.4rem;
+                top: 1rem;
+            }
+
+            .video-container:hover .video-overlay {
+                top: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-container {
+                margin: 1.5rem auto;
+                border-radius: 12px;
+            }
+
+            .demo-video {
+                max-height: 300px;
+            }
+
+            .video-overlay {
+                font-size: 0.75rem;
+                padding: 0.5rem 1rem;
+            }
         }
 
         .section {
