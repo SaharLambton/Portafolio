@@ -174,6 +174,7 @@
             el.textContent = item.label;
             if (item.href) {
                 el.href = item.href;
+                if (/\.pdf$/i.test(item.href)) el.setAttribute('download', '');
                 if (/^https?:/.test(item.href)) { el.target = '_blank'; el.rel = 'noopener'; }
             } else {
                 el.type = 'button';

@@ -240,6 +240,16 @@ window.AURA_KB = {
             ]
         },
         {
+            id: 'cv',
+            keys: ['cv', 'hoja de vida', 'curriculum', 'curriculo', 'descargar cv', 'resume', 'resumé', 'download cv'],
+            answer: {
+                es: 'Claro 📄 Aquí puedes descargar el CV actualizado de Sahar.',
+                en: 'Sure 📄 You can download Sahar\'s updated CV right here (in Spanish).'
+            },
+            links: [{ label: 'CV (PDF)', href: 'docs/CV_Sahar_Chain_Mayorga.pdf' }],
+            chips: ['experience', 'contact']
+        },
+        {
             id: 'hire',
             keys: ['disponible', 'disponibilidad', 'contratar', 'contratarla', 'contrato', 'vacante', 'freelance disponible', 'cotizar', 'cotizacion', 'precio', 'available', 'hire', 'hiring', 'availability', 'quote', 'rates', 'price'],
             answer: {
