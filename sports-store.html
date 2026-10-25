@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@500;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/aura.css?v=20261025p">
-    <link rel="stylesheet" href="css/site.css?v=20261025p">
-    <link rel="stylesheet" href="css/case.css?v=20261025p">
+    <link rel="stylesheet" href="css/aura.css?v=20261025q">
+    <link rel="stylesheet" href="css/site.css?v=20261025q">
+    <link rel="stylesheet" href="css/case.css?v=20261025q">
 </head>
 <!-- Página generada con tools/cases.py: edita los datos allí y vuelve a ejecutarlo -->
 <body data-page="case" data-project="sports-store" class="case case--sport" style="--brand:#ff3b4e;--brand-rgb:255, 59, 78;--brand2:#4cc9f0;--brand2-rgb:76, 201, 240;--case-bg:#080b12;--case-display:'Bebas Neue', sans-serif;--case-body:'Exo 2', sans-serif;--fx-a:#ff3b4e;--fx-b:#4cc9f0;--bullet:'⚡'">
@@ -22,38 +22,59 @@
     <main class="page case-page">
         <section class="case-hero">
             <div class="motif motif--sport" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-            <div class="case-hero__copy">
+            <div class="case-hero__bar">
                 <a class="case-back" href="proyectos.html?area=web" data-es="← Proyectos de desarrollo web" data-en="← Web development projects">← Proyectos de desarrollo web</a>
+                <span class="case-hero__code"><i aria-hidden="true"></i><span data-es="ARCHIVO 02 / 07" data-en="FILE 02 / 07">ARCHIVO 02 / 07</span></span>
+            </div>
+            <div class="case-hero__copy">
                 <p class="case-kicker" data-es="DESARROLLO WEB · SITIO" data-en="WEB DEVELOPMENT · WEBSITE">DESARROLLO WEB · SITIO</p>
                 <h1 class="case-title">Sports Store</h1>
                 <p class="case-tagline" data-es="Tienda deportiva con propósito: catálogo, becas para jóvenes atletas y recursos educativos." data-en="A sports store with purpose: catalog, scholarships for young athletes and educational resources.">Tienda deportiva con propósito: catálogo, becas para jóvenes atletas y recursos educativos.</p>
-                <ul class="case-tags"><li>HTML5</li><li>CSS3</li><li>Responsive</li><li>YouTube API</li><li>UI/UX</li></ul>
+                <div class="case-hero__actions">
+                    <a class="case-btn case-btn--primary" href="contacto.html?servicio=store" data-es="Quiero algo así" data-en="I want something like this">Quiero algo así</a>
+                    <a class="case-btn" href="#galeria" data-es="Ver galería ↓" data-en="See gallery ↓">Ver galería ↓</a>
+                </div>
             </div>
-            <figure class="case-hero__media"><video src="sport.mp4" poster="img/cases/img-sport.webp" autoplay muted loop playsinline aria-label="Demo de Sports Store"></video></figure>
+            <figure class="case-hero__media"><div class="device device--laptop"><div class="device__screen"><video src="sport.mp4" poster="img/cases/img-sport.webp" autoplay muted loop playsinline aria-label="Demo de Sports Store"></video></div><div class="device__base"></div></div></figure>
         </section>
-        <dl class="case-facts"><div class="case-fact"><dt data-es="Tipo" data-en="Type">Tipo</dt><dd data-es="Proyecto académico · Lambton College" data-en="Academic project · Lambton College">Proyecto académico · Lambton College</dd></div><div class="case-fact"><dt data-es="Duración" data-en="Duration">Duración</dt><dd data-es="20 días" data-en="20 days">20 días</dd></div><div class="case-fact"><dt data-es="Rol" data-en="Role">Rol</dt><dd data-es="Desarrolladora frontend" data-en="Frontend developer">Desarrolladora frontend</dd></div><div class="case-fact"><dt data-es="Stack" data-en="Stack">Stack</dt><dd data-es="HTML5 · CSS3 · YouTube" data-en="HTML5 · CSS3 · YouTube">HTML5 · CSS3 · YouTube</dd></div></dl>
-
-        <section class="case-section case-summary">
-            <p class="case-overline" data-es="// RESUMEN" data-en="// OVERVIEW">// RESUMEN</p>
-            <p class="case-summary__text" data-es="Un sitio completo para una tienda de artículos de los deportes más populares de Canadá. Va más allá del comercio: incluye un programa de becas para jóvenes atletas y videos educativos para padres sobre los beneficios del deporte, con un fuerte enfoque de responsabilidad social." data-en="A complete website for a store selling gear for Canada&#x27;s most popular sports. It goes beyond commerce: it includes a scholarship program for young athletes and educational videos for parents about the benefits of sport, with a strong social responsibility focus.">Un sitio completo para una tienda de artículos de los deportes más populares de Canadá. Va más allá del comercio: incluye un programa de becas para jóvenes atletas y videos educativos para padres sobre los beneficios del deporte, con un fuerte enfoque de responsabilidad social.</p>
+        <section class="telemetry" aria-label="Ficha del proyecto">
+            <dl class="telemetry__grid"><div class="telemetry__item"><dt data-es="Tipo" data-en="Type">Tipo</dt><dd data-es="Proyecto académico · Lambton College" data-en="Academic project · Lambton College">Proyecto académico · Lambton College</dd></div><div class="telemetry__item"><dt data-es="Duración" data-en="Duration">Duración</dt><dd data-es="20 días" data-en="20 days">20 días</dd></div><div class="telemetry__item"><dt data-es="Rol" data-en="Role">Rol</dt><dd data-es="Desarrolladora frontend" data-en="Frontend developer">Desarrolladora frontend</dd></div><div class="telemetry__item"><dt data-es="Stack" data-en="Stack">Stack</dt><dd data-es="HTML5 · CSS3 · YouTube" data-en="HTML5 · CSS3 · YouTube">HTML5 · CSS3 · YouTube</dd></div></dl>
+            <ul class="case-tags"><li>HTML5</li><li>CSS3</li><li>Responsive</li><li>YouTube API</li><li>UI/UX</li></ul>
         </section>
-        <section class="case-section">
-            <p class="case-overline" data-es="// GALERÍA" data-en="// GALLERY">// GALERÍA</p>
-            <h2 class="case-h2" data-es="El proyecto en imágenes" data-en="The project in pictures">El proyecto en imágenes</h2>
-            <ul class="case-gallery case-gallery--1"><li><button type="button" class="case-shot" data-full="img/cases/img-sport.webp"><img src="img/cases/img-sport.webp" alt="Página principal" loading="lazy"><span class="case-shot__cap" data-es="Página principal" data-en="Home page">Página principal</span></button></li></ul>
+        <section class="case-mission">
+            <div class="case-mission__copy reveal">
+                <p class="case-overline" data-es="// 01 · LA MISIÓN" data-en="// 01 · THE MISSION">// 01 · LA MISIÓN</p>
+                <h2 class="case-h2" data-es="La misión" data-en="The mission">La misión</h2>
+                <p class="case-mission__lead" data-es="Un sitio completo para una tienda de artículos de los deportes más populares de Canadá. Va más allá del comercio: incluye un programa de becas para jóvenes atletas y videos educativos para padres sobre los beneficios del deporte, con un fuerte enfoque de responsabilidad social." data-en="A complete website for a store selling gear for Canada&#x27;s most popular sports. It goes beyond commerce: it includes a scholarship program for young athletes and educational videos for parents about the benefits of sport, with a strong social responsibility focus.">Un sitio completo para una tienda de artículos de los deportes más populares de Canadá. Va más allá del comercio: incluye un programa de becas para jóvenes atletas y videos educativos para padres sobre los beneficios del deporte, con un fuerte enfoque de responsabilidad social.</p>
+                
+                
+            </div>
+            
         </section>
-        <section class="case-section">
-            <p class="case-overline" data-es="// DETALLES" data-en="// DETAILS">// DETALLES</p>
-            <h2 class="case-h2" data-es="Qué se construyó" data-en="What was built">Qué se construyó</h2>
-            <div class="case-blocks"><article class="case-block"><h3 class="case-block__title" data-es="Secciones" data-en="Sections">Secciones</h3><ul class="case-list"><li data-es="Inicio con hero impactante y navegación clara" data-en="Home with a bold hero and clear navigation">Inicio con hero impactante y navegación clara</li><li data-es="Catálogo de hockey, béisbol, basketball y más" data-en="Catalog for hockey, baseball, basketball and more">Catálogo de hockey, béisbol, basketball y más</li><li data-es="Nosotros: misión, valores y compromiso juvenil" data-en="About: mission, values and youth commitment">Nosotros: misión, valores y compromiso juvenil</li><li data-es="Contacto con formulario validado y tiendas en el GTA" data-en="Contact with a validated form and stores in the GTA">Contacto con formulario validado y tiendas en el GTA</li></ul></article><article class="case-block"><h3 class="case-block__title" data-es="Impacto social" data-en="Social impact">Impacto social</h3><ul class="case-list"><li data-es="Programa de becas con formulario de solicitud" data-en="Scholarship program with application form">Programa de becas con formulario de solicitud</li><li data-es="Carrusel de videos educativos de YouTube" data-en="Carousel of educational YouTube videos">Carrusel de videos educativos de YouTube</li><li data-es="Noticias, nuevas becas y términos en PDF" data-en="News, new scholarships and terms in PDF">Noticias, nuevas becas y términos en PDF</li></ul></article><article class="case-block"><h3 class="case-block__title" data-es="Técnica" data-en="Technique">Técnica</h3><ul class="case-list"><li data-es="HTML5 semántico para accesibilidad y SEO" data-en="Semantic HTML5 for accessibility and SEO">HTML5 semántico para accesibilidad y SEO</li><li data-es="Flexbox, Grid, animaciones y efectos hover" data-en="Flexbox, Grid, animations and hover effects">Flexbox, Grid, animaciones y efectos hover</li><li data-es="Diseño mobile-first con media queries" data-en="Mobile-first design with media queries">Diseño mobile-first con media queries</li><li data-es="Iframes de YouTube responsivos" data-en="Responsive YouTube iframes">Iframes de YouTube responsivos</li></ul></article></div>
+        <section class="case-section case-build">
+            <p class="case-overline" data-es="// QUÉ SE CONSTRUYÓ" data-en="// WHAT WAS BUILT">// QUÉ SE CONSTRUYÓ</p>
+            
+            <div class="case-panels case-panels--3"><article class="case-panel reveal"><i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i><h3 class="case-row__title" data-es="Secciones" data-en="Sections">Secciones</h3><ul class="case-list"><li data-es="Inicio con hero impactante y navegación clara" data-en="Home with a bold hero and clear navigation">Inicio con hero impactante y navegación clara</li><li data-es="Catálogo de hockey, béisbol, basketball y más" data-en="Catalog for hockey, baseball, basketball and more">Catálogo de hockey, béisbol, basketball y más</li><li data-es="Nosotros: misión, valores y compromiso juvenil" data-en="About: mission, values and youth commitment">Nosotros: misión, valores y compromiso juvenil</li><li data-es="Contacto con formulario validado y tiendas en el GTA" data-en="Contact with a validated form and stores in the GTA">Contacto con formulario validado y tiendas en el GTA</li></ul></article><article class="case-panel reveal"><i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i><h3 class="case-row__title" data-es="Impacto social" data-en="Social impact">Impacto social</h3><ul class="case-list"><li data-es="Programa de becas con formulario de solicitud" data-en="Scholarship program with application form">Programa de becas con formulario de solicitud</li><li data-es="Carrusel de videos educativos de YouTube" data-en="Carousel of educational YouTube videos">Carrusel de videos educativos de YouTube</li><li data-es="Noticias, nuevas becas y términos en PDF" data-en="News, new scholarships and terms in PDF">Noticias, nuevas becas y términos en PDF</li></ul></article><article class="case-panel reveal"><i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i><h3 class="case-row__title" data-es="Técnica" data-en="Technique">Técnica</h3><ul class="case-list"><li data-es="HTML5 semántico para accesibilidad y SEO" data-en="Semantic HTML5 for accessibility and SEO">HTML5 semántico para accesibilidad y SEO</li><li data-es="Flexbox, Grid, animaciones y efectos hover" data-en="Flexbox, Grid, animations and hover effects">Flexbox, Grid, animaciones y efectos hover</li><li data-es="Diseño mobile-first con media queries" data-en="Mobile-first design with media queries">Diseño mobile-first con media queries</li><li data-es="Iframes de YouTube responsivos" data-en="Responsive YouTube iframes">Iframes de YouTube responsivos</li></ul></article></div>
         </section>
-        <section class="case-section case-results">
-            <p class="case-overline" data-es="// RESULTADOS" data-en="// RESULTS">// RESULTADOS</p>
+        <section class="case-section case-gallery" id="galeria">
+            <div class="case-gallery__head">
+                <div>
+                    <p class="case-overline" data-es="// GALERÍA" data-en="// GALLERY">// GALERÍA</p>
+                    <h2 class="case-h2" data-es="El proyecto en imágenes" data-en="The project in pictures">El proyecto en imágenes</h2>
+                </div>
+                
+            </div>
+            <ul class="reel reel--single" tabindex="0" aria-label="Galería"><li class="reel__slide"><button type="button" class="case-shot" data-full="img/cases/img-sport.webp"><img src="img/cases/img-sport.webp" alt="Página principal" loading="lazy"><span class="case-shot__cap" data-es="Página principal" data-en="Home page">Página principal</span></button></li></ul>
+            <p class="case-hint" data-es="Toca una imagen para verla en pantalla completa." data-en="Tap an image to see it full screen.">Toca una imagen para verla en pantalla completa.</p>
+        </section>
+        <section class="case-section case-results reveal">
+            <i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i>
+            <p class="case-results__status"><i aria-hidden="true"></i><span data-es="MISIÓN CUMPLIDA" data-en="MISSION ACCOMPLISHED">MISIÓN CUMPLIDA</span></p>
             <h2 class="case-h2" data-es="Resultados e impacto" data-en="Results and impact">Resultados e impacto</h2>
             <ul class="case-results__list"><li data-es="Sitio de 4 páginas completo y responsive" data-en="Complete, responsive 4-page website">Sitio de 4 páginas completo y responsive</li><li data-es="Comercio y responsabilidad social en una misma marca" data-en="Commerce and social responsibility in a single brand">Comercio y responsabilidad social en una misma marca</li><li data-es="Contenido educativo integrado para las familias" data-en="Educational content built in for families">Contenido educativo integrado para las familias</li></ul>
         </section>
 
-        <section class="case-cta">
+        <section class="case-cta reveal">
             <p class="case-cta__title" data-es="¿Necesitas un sitio web profesional?" data-en="Need a professional website?">¿Necesitas un sitio web profesional?</p>
             <p class="case-cta__lead" data-es="Creo sitios responsive y funcionales para tu negocio." data-en="I build responsive, functional websites for your business.">Creo sitios responsive y funcionales para tu negocio.</p>
             <div class="case-cta__actions">
@@ -62,10 +83,19 @@
             </div>
         </section>
 
-        <nav class="case-nav" aria-label="Más proyectos">
-            <a class="case-nav__link" href="sell-services.html"><span data-es="← Anterior" data-en="← Previous">← Anterior</span><b>Sell Services</b></a>
-            <a class="case-nav__all" href="proyectos.html" data-es="Todos los proyectos" data-en="All projects">Todos los proyectos</a>
-            <a class="case-nav__link case-nav__link--next" href="little-stars.html"><span data-es="Siguiente →" data-en="Next →">Siguiente →</span><b>Little Stars</b></a>
+        <nav class="case-next" aria-label="Más proyectos">
+            <a class="case-next__card" href="little-stars.html" style="--next:#ffb3cf;--next-bg:#0c0e1e">
+                <img src="img/cases/img-little-stars.webp" alt="" loading="lazy">
+                <span class="case-next__body">
+                    <span class="case-next__label" data-es="SIGUIENTE ARCHIVO →" data-en="NEXT FILE →">SIGUIENTE ARCHIVO →</span>
+                    <b class="case-next__name" style="font-family:'Quicksand', sans-serif">Little Stars</b>
+                    <span class="case-next__kicker" data-es="DESARROLLO WEB · DISEÑO" data-en="WEB DEVELOPMENT · DESIGN">DESARROLLO WEB · DISEÑO</span>
+                </span>
+            </a>
+            <div class="case-next__links">
+                <a href="sell-services.html"><span data-es="← Anterior:" data-en="← Previous:">← Anterior:</span> Sell Services</a>
+                <a href="proyectos.html" data-es="Todos los proyectos" data-en="All projects">Todos los proyectos</a>
+            </div>
         </nav>
     </main>
 
@@ -78,10 +108,10 @@
 
     <footer class="site-footer" data-site-footer></footer>
 
-    <script src="js/aura/knowledge.js?v=20261025p"></script>
-    <script src="js/bg.js?v=20261025p"></script>
-    <script src="js/site.js?v=20261025p"></script>
-    <script src="js/aura/assistant.js?v=20261025p"></script>
-    <script src="js/case.js?v=20261025p"></script>
+    <script src="js/aura/knowledge.js?v=20261025q"></script>
+    <script src="js/bg.js?v=20261025q"></script>
+    <script src="js/site.js?v=20261025q"></script>
+    <script src="js/aura/assistant.js?v=20261025q"></script>
+    <script src="js/case.js?v=20261025q"></script>
 </body>
 </html>

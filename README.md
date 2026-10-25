@@ -13,7 +13,7 @@ Portafolio personal de Sahar Gabriela Chain Mayorga: programadora, diseñadora y
 | `contacto.html` | Formulario (Formspree), WhatsApp, correo y redes. El código de Formspree va en `js/contact.js` |
 
 ### Páginas de cada proyecto
-`Zohar.html`, `oden.html`, `metaltec.html`, `unicos.html`, `little-stars.html`, `sports-store.html` y `sell-services.html` se generan con `tools/cases.py`. Cada una tiene los colores, la tipografía y un motivo animado propio de su marca. Para cambiar textos, imágenes o colores, edita los datos en ese archivo y ejecuta:
+`Zohar.html`, `oden.html`, `metaltec.html`, `unicos.html`, `little-stars.html`, `sports-store.html` y `sell-services.html` se generan con `tools/cases.py`. Son una vitrina visual: portada con mockup de laptop (proyectos web) o panel holográfico (diseño), ficha del proyecto, misión, franjas de imagen grande + texto corto, galería deslizable con visor a pantalla completa, sistema visual (paleta y tipografía), resultados y tarjeta del siguiente proyecto. Cada una conserva los colores, la tipografía y un motivo animado propio de su marca, con el lenguaje HUD de AURA. Para cambiar textos, imágenes o colores, edita los datos en ese archivo y ejecuta:
 
 ```
 python3 tools/cases.py
