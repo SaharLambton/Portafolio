@@ -13,7 +13,7 @@ import os
 import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261025t'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261025u'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -235,7 +235,7 @@ PROJECTS = [
         'id': 'zohar', 'file': 'Zohar.html', 'name': 'Zohar', 'pillar': 'design',
         'theme': {'brand': '#d7dce8', 'brand_rgb': '215, 220, 232', 'brand2': '#5b6fd6', 'brand2_rgb': '91, 111, 214',
                   'bg': '#0a0d1b', 'display': "'Cinzel', serif", 'body': "'Montserrat', sans-serif",
-                  'fonts': 'Cinzel:wght@500;700&family=Montserrat:wght@400;500;600', 'motif': 'waves', 'bullet': '◇'},
+                  'fonts': 'Cinzel:wght@500;700&family=Montserrat:wght@400;500;600&family=Bodoni+Moda:wght@400;500', 'motif': 'waves', 'bullet': '◇'},
         'kicker': ('DISEÑO · BRANDING DE LUJO', 'DESIGN · LUXURY BRANDING'),
         'title': ('Zohar', 'Zohar'),
         'tagline': ('Identidad de marca para joyería de lujo: del concepto a la implementación visual completa.',
@@ -259,7 +259,13 @@ PROJECTS = [
                 ('El nombre resplandece en plata con una tipografía estilizada: letras de base cuadrada con curvas que evocan la elegancia y las ondas del mar.',
                  'The name shines in silver with a stylized typeface: square-based letters with curves that evoke elegance and the waves of the sea.')]},
         'gallery': [
+            ('img/cases/zohar-manual-portada.webp', ('Manual de marca · portada', 'Brand manual · cover')),
             ('img/cases/zohar-recurso-11.webp', ('Logo principal', 'Main logo')),
+            ('img/cases/zohar-manual-logo-joya.webp', ('Manual · el logo sobre las joyas', 'Manual · the logo on the jewelry')),
+            ('img/cases/zohar-manual-mision.webp', ('Manual · misión y visión', 'Manual · mission and vision')),
+            ('img/cases/zohar-manual-publico.webp', ('Manual · público objetivo', 'Manual · target audience')),
+            ('img/cases/zohar-manual-color.webp', ('Manual · color', 'Manual · color')),
+            ('img/cases/zohar-manual-tipografia.webp', ('Manual · tipografía', 'Manual · typography')),
             ('img/cases/zohar-logo-oscuro.webp', ('Logo alternativo', 'Alternate logo')),
             ('img/cases/zohar-recurso-5.webp', ('Packaging de lujo', 'Luxury packaging')),
             ('img/cases/zohar-recurso-9.webp', ('Tarjetas de presentación', 'Business cards')),
@@ -268,14 +274,15 @@ PROJECTS = [
             ('img/cases/zohar-recurso-7.webp', ('Señalética de tienda', 'Store signage')),
             ('img/cases/zohar-recurso-8.webp', ('Etiquetas de lujo', 'Luxury tags')),
         ],
-        'palette': [('Azul oscuro', 'Dark blue', '#0A0D1B'), ('Azul', 'Blue', '#171A32'), ('Plata', 'Silver', '#C0C0C0'), ('Gris', 'Gray', '#6D6D6C')],
-        'type': [('Cinzel', "'Cinzel', serif", 'ZOHAR', ('Títulos y logo: elegante y distintiva.', 'Headings and logo: elegant and distinctive.')),
-                 ('Montserrat', "'Montserrat', sans-serif", 'Zohar Jewelry', ('Textos: moderna y legible.', 'Body text: modern and legible.'))],
+        'palette': [('Azul oscuro', 'Dark blue', '#0A0D1B'), ('Azul', 'Blue', '#171A32'), ('Gris oscuro', 'Dark gray', '#3C3C3B'), ('Gris claro', 'Light gray', '#6D6D6C')],
+        'type': [('Cinzel Medium', "'Cinzel', serif", 'ZOHAR', ('Logo y títulos: elegante, de inspiración clásica.', 'Logo and headings: elegant, classically inspired.')),
+                 ('Belda Norm Regular', "'Bodoni Moda', serif", 'Zohar Jewelry', ('Textos y titulares de apoyo: alto contraste, de estilo editorial.', 'Body and supporting headlines: high-contrast, editorial style.'))],
         'blocks': [
             {'title': ('Estrategia de marca', 'Brand strategy'), 'items': [
                 ('Misión: joyería que cuenta historias y conecta emociones', 'Mission: jewelry that tells stories and connects emotions'),
                 ('Visión: ser referente mundial de la joyería de lujo', 'Vision: to become a global benchmark in luxury jewelry'),
-                ('Público: profesionales, amantes de la moda y regaladores conscientes', 'Audience: professionals, fashion lovers and thoughtful gift-givers')]},
+                ('Público: jóvenes profesionales, amantes de la moda, clientes de joyería de lujo, regaladores conscientes y seguidores de tendencias', 'Audience: young professionals, fashion lovers, luxury jewelry clients, thoughtful gift-givers and trend followers'),
+                ('Mensaje: "Conectamos emociones, creamos relaciones. Tu lujo, tu historia."', 'Message: "We connect emotions, we build relationships. Your luxury, your story."')]},
             {'title': ('Estrategia digital', 'Digital strategy'), 'items': [
                 ('Instagram y Facebook con contenido visual premium', 'Instagram and Facebook with premium visual content'),
                 ('Contenido de usuarios con hashtag de marca', 'User content with a brand hashtag'),
@@ -283,7 +290,7 @@ PROJECTS = [
                 ('Publicidad segmentada y KPIs de ventas e interacción', 'Targeted ads and sales and engagement KPIs')]},
             {'title': ('Entregables', 'Deliverables'), 'items': [
                 ('Logo en AI, EPS, SVG y PNG', 'Logo in AI, EPS, SVG and PNG'),
-                ('Manual de marca en PDF', 'Brand manual in PDF'),
+                ('Manual de marca de 15 páginas: logo, color, tipografía, misión, público, redes y mockups', '15-page brand manual: logo, color, typography, mission, audience, social media and mockups'),
                 ('Mockups de packaging, papelería y señalética', 'Packaging, stationery and signage mockups'),
                 ('Plantillas para redes y material promocional', 'Templates for social media and promotional material'),
                 ('Paleta en HEX, RGB, CMYK y Pantone', 'Palette in HEX, RGB, CMYK and Pantone')]},
@@ -469,7 +476,23 @@ PROJECTS = [
                  'The typography pairs "únicos" with "MKT" in a modern dark brown, alongside the "Creative agency" descriptor.')]},
         'gallery': [
             ('img/cases/unicos-logo-unicos.webp', ('Identidad de Únicos', 'Únicos identity')),
+            ('img/cases/unicos-mayorga-1.webp', ('Mayorga iStudio · logo', 'Mayorga iStudio · logo')),
+            ('img/cases/unicos-neofity-1.webp', ('Neofity · manual de marca', 'Neofity · brand manual')),
+            ('img/cases/unicos-unikai-logos.webp', ('Unikai Creativa · logo y versiones', 'Unikai Creativa · logo and versions')),
             ('img/cases/unicos-metaltec.webp', ('MetalTec · identidad corporativa', 'MetalTec · corporate identity')),
+            ('img/cases/unicos-mayorga-2.webp', ('Mayorga iStudio · construcción del logo', 'Mayorga iStudio · logo construction')),
+            ('img/cases/unicos-mayorga-3.webp', ('Mayorga iStudio · elementos y tipografía', 'Mayorga iStudio · elements and typography')),
+            ('img/cases/unicos-mayorga-4.webp', ('Mayorga iStudio · colores y usos', 'Mayorga iStudio · colors and uses')),
+            ('img/cases/unicos-mayorga-5.webp', ('Mayorga iStudio · portada y degradados', 'Mayorga iStudio · cover and gradients')),
+            ('img/cases/unicos-neofity-2.webp', ('Neofity · logos y usos', 'Neofity · logos and uses')),
+            ('img/cases/unicos-neofity-3.webp', ('Neofity · ideas de aplicación', 'Neofity · application ideas')),
+            ('img/cases/unicos-neofity-4.webp', ('Neofity · usos no autorizados', 'Neofity · unauthorized uses')),
+            ('img/cases/unicos-unikai-banner.webp', ('Unikai Creativa · banner', 'Unikai Creativa · banner')),
+            ('img/cases/unicos-unikai-flyers.webp', ('Unikai Creativa · plantillas de folleto', 'Unikai Creativa · brochure templates')),
+            ('img/cases/unicos-unikai-frases.webp', ('Unikai Creativa · publicaciones', 'Unikai Creativa · posts')),
+            ('img/cases/unicos-unikai-ilustracion.webp', ('Unikai Creativa · ilustración', 'Unikai Creativa · illustration')),
+            ('img/cases/unicos-logo-m.webp', ('Logo con planeta y órbita', 'Logo with planet and orbit')),
+            ('img/cases/unicos-farmacia-banner.webp', ('Banner para farmacia', 'Pharmacy banner')),
             ('img/cases/unicos-volantes-unicos.webp', ('Volante promocional · 40% de descuento', 'Promotional flyer · 40% off')),
             ('img/cases/unicos-optica-unicos.webp', ('Óptica Vision Center · volante estilo cómic', 'Vision Center Optical · comic-style flyer')),
         ],
@@ -480,8 +503,12 @@ PROJECTS = [
                 ('Volantes, pendones, catálogos y brochures', 'Flyers, banners, catalogs and brochures'),
                 ('Plantillas para redes, banners y newsletters', 'Social templates, banners and newsletters'),
                 ('Estampados para camisetas, bolsos y merchandising', 'Prints for t-shirts, bags and merchandise'),
-                ('Sitios web, landing pages y tiendas', 'Websites, landing pages and stores'),
                 ('Estrategia de contenido y campañas', 'Content strategy and campaigns')]},
+            {'title': ('Tecnología y procesos', 'Technology and processes'), 'items': [
+                ('Sitios web en WordPress y con código a medida para los clientes', 'WordPress and custom-coded websites for clients'),
+                ('Bases de datos para gestionar clientes y campañas: +30% de organización de los datos', 'Databases to manage clients and campaigns: +30% data organization'),
+                ('Software y herramientas de automatización: +35% de productividad', 'Software and automation tools: +35% productivity'),
+                ('Piezas y campañas publicitarias: +20% de interacción con clientes', 'Graphic pieces and ad campaigns: +20% client interaction')]},
             {'title': ('Casos destacados', 'Featured cases'), 'items': [
                 ('Óptica Vision Center: un superhéroe de cómic para la "súper visión"', 'Vision Center Optical: a comic superhero for "super vision"'),
                 ('Volante morado y dorado con precios antes/después', 'Purple and gold flyer with before/after prices'),
