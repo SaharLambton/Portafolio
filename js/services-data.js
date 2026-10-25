@@ -11,7 +11,9 @@ window.SERVICES = [
         items: [
             { es: 'Sitios en WordPress o a medida', en: 'WordPress or custom sites' },
             { es: 'Tiendas en línea y catálogos', en: 'Online stores and catalogs' },
-            { es: 'Sitios bilingües', en: 'Bilingual websites' },
+            { es: 'Sitios multilingües (ES/EN/FR)', en: 'Multilingual websites (ES/EN/FR)' },
+            { es: 'Chatbots con IA integrados en tu sitio', en: 'AI chatbots built into your site' },
+            { es: 'Automatizaciones de marketing y ventas', en: 'Marketing and sales automations' },
             { es: 'SEO técnico y velocidad', en: 'Technical SEO and speed' },
             { es: 'Integración con WhatsApp Business', en: 'WhatsApp Business integration' }
         ]
@@ -24,8 +26,9 @@ window.SERVICES = [
         items: [
             { es: 'Bases de datos a la medida', en: 'Custom databases' },
             { es: 'Optimización y administración SQL', en: 'SQL optimization and administration' },
-            { es: 'Software y sistemas de gestión', en: 'Software and management systems' },
-            { es: 'APIs RESTful e integraciones', en: 'RESTful APIs and integrations' },
+            { es: 'Desarrollo de software personalizado', en: 'Custom software development' },
+            { es: 'Sistemas de gestión empresarial', en: 'Business management systems' },
+            { es: 'APIs RESTful e integración de sistemas existentes', en: 'RESTful APIs and integration with existing systems' },
             { es: 'Migración y respaldo de datos', en: 'Data migration and backup' }
         ]
     },
@@ -37,7 +40,10 @@ window.SERVICES = [
         items: [
             { es: 'Automatización de tareas repetitivas', en: 'Automation of repetitive tasks' },
             { es: 'Estandarización de procesos', en: 'Process standardization' },
-            { es: 'Integración de herramientas de trabajo', en: 'Integration of work tools' },
+            { es: 'Scripts de automatización personalizados', en: 'Custom automation scripts' },
+            { es: 'Integración de herramientas empresariales', en: 'Business tool integration' },
+            { es: 'Optimización de workflows', en: 'Workflow optimization' },
+            { es: 'Reducción de tiempos operativos', en: 'Shorter operating times' },
             { es: 'Flujos de marketing y ventas', en: 'Marketing and sales workflows' }
         ]
     },
@@ -72,9 +78,11 @@ window.SERVICES = [
         ideal: { es: 'Marcas nuevas o que necesitan renovarse', en: 'New brands or brands that need a refresh' },
         items: [
             { es: 'Identidad visual completa', en: 'Complete visual identity' },
+            { es: 'Diseño gráfico cohesivo para todas las plataformas', en: 'Cohesive graphic design across every platform' },
             { es: 'Diseño de logotipo', en: 'Logo design' },
             { es: 'Paleta, tipografías y manual de marca', en: 'Palette, typography and brand manual' },
-            { es: 'Plantillas para redes sociales', en: 'Social media templates' },
+            { es: 'Plantillas personalizadas con tu marca', en: 'Custom branded templates' },
+            { es: 'Adaptación visual para diferentes canales', en: 'Visual adaptation for different channels' },
             { es: 'Material promocional digital e impreso', en: 'Digital and print promotional material' }
         ]
     },
@@ -85,10 +93,11 @@ window.SERVICES = [
         ideal: { es: 'Marcas que quieren constancia en redes', en: 'Brands that want consistency on social media' },
         items: [
             { es: 'Gestión completa de redes sociales', en: 'Full social media management' },
-            { es: 'Contenido en español e inglés', en: 'Content in Spanish and English' },
+            { es: 'Contenido original multilingüe', en: 'Original multilingual content' },
             { es: 'Diseño para cada publicación', en: 'Design for every post' },
+            { es: 'Estrategias de engagement y crecimiento', en: 'Engagement and growth strategies' },
             { es: 'Respuesta a comentarios y mensajes', en: 'Replies to comments and messages' },
-            { es: 'Reportes mensuales', en: 'Monthly reports' }
+            { es: 'Reportes mensuales detallados', en: 'Detailed monthly reports' }
         ]
     },
     {
@@ -97,10 +106,13 @@ window.SERVICES = [
         short: { es: 'Un diagnóstico claro y un plan concreto para crecer en digital.', en: 'A clear diagnosis and a concrete plan to grow online.' },
         ideal: { es: 'Negocios que no saben por dónde empezar', en: 'Businesses that don\'t know where to start' },
         items: [
+            { es: 'Diagnóstico completo de tu estado actual', en: 'Full diagnosis of your current state' },
             { es: 'Auditoría de presencia digital', en: 'Digital presence audit' },
-            { es: 'Estrategia de marca y crecimiento', en: 'Brand and growth strategy' },
+            { es: 'Estrategias personalizadas de crecimiento', en: 'Tailored growth strategies' },
+            { es: 'Consultoría en transformación digital', en: 'Digital transformation consulting' },
+            { es: 'Optimización de procesos y automatización', en: 'Process optimization and automation' },
             { es: 'SEO y campañas digitales', en: 'SEO and digital campaigns' },
-            { es: 'Analítica web y KPIs', en: 'Web analytics and KPIs' }
+            { es: 'Análisis de métricas y KPIs', en: 'Metrics and KPI analysis' }
         ]
     }
 ];
