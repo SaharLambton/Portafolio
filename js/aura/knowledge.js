@@ -61,7 +61,8 @@ window.AURA_KB = {
             code: { es: 'Programación', en: 'Programming' },
             hire: { es: '¿Está disponible?', en: 'Is she available?' },
             ai: { es: 'Inteligencia artificial', en: 'Artificial intelligence' },
-            pillars: { es: 'Sus pilares', en: 'Her pillars' }
+            pillars: { es: 'Sus pilares', en: 'Her pillars' },
+            marketing: { es: 'Marketing digital', en: 'Digital marketing' }
         }
     },
 
@@ -84,21 +85,40 @@ window.AURA_KB = {
             id: 'pillars',
             keys: ['pilar', 'pilares', 'cimientos', 'ramas', 'areas', 'especialidades', 'enfoque', 'pillars', 'pillar', 'foundations', 'areas of expertise', 'focus'],
             answer: {
-                es: 'El trabajo de Sahar se sostiene en tres pilares: 💻 Programación, 🧠 Inteligencia Artificial y 🎨 Diseño. Juntos le permiten llevar una idea desde la marca y la interfaz hasta el código y la automatización.',
-                en: 'Sahar\'s work stands on three pillars: 💻 Programming, 🧠 Artificial Intelligence and 🎨 Design. Together they let her take an idea from brand and interface all the way to code and automation.'
+                es: 'El trabajo de Sahar se sostiene en cuatro pilares: 💻 Programación, 🧠 Inteligencia Artificial, 🎨 Diseño y 📈 Marketing Digital. Juntos le permiten llevar una idea desde la marca y la interfaz hasta el código, la automatización y su crecimiento en el mercado.',
+                en: 'Sahar\'s work stands on four pillars: 💻 Programming, 🧠 Artificial Intelligence, 🎨 Design and 📈 Digital Marketing. Together they let her take an idea from brand and interface to code, automation and market growth.'
             },
             action: { type: 'scroll', target: '#pilares', label: { es: 'Ver los pilares', en: 'See the pillars' } },
-            chips: ['code', 'ai', 'design']
+            chips: ['code', 'ai', 'design', 'marketing']
         },
         {
             id: 'ai',
             keys: ['ia', 'inteligencia artificial', 'machine learning', 'chatbot', 'chatbots', 'asistente', 'asistentes', 'ai', 'artificial intelligence', 'llm', 'gpt', 'claude'],
             answer: {
-                es: 'En IA, Sahar dicta talleres de IA generativa para equipos de empresas de distintos sectores, automatiza la atención al cliente con chatbots y diseña asistentes conversacionales como yo 🤖.',
-                en: 'In AI, Sahar teaches generative AI workshops for company teams across industries, automates customer service with chatbots and designs conversational assistants like me 🤖.'
+                es: 'En IA, Sahar dicta talleres de IA generativa para equipos de trabajo; el más reciente fue para una firma legal especializada en el sector contable. También automatiza y estandariza procesos, implementa chatbots de atención al cliente y diseña asistentes conversacionales como yo 🤖.',
+                en: 'In AI, Sahar teaches generative AI workshops for teams; the most recent one was for a law firm specialized in the accounting sector. She also automates and standardizes processes, builds customer service chatbots and designs conversational assistants like me 🤖.'
             },
             action: { type: 'scroll', target: '#pilares', label: { es: 'Ver los pilares', en: 'See the pillars' } },
             chips: ['services', 'projects']
+        },
+        {
+            id: 'marketing',
+            keys: ['marketing', 'mercadeo', 'seo', 'posicionamiento', 'campana', 'campanas', 'google analytics', 'analitica', 'community management', 'estrategia digital', 'campaign', 'campaigns', 'analytics', 'digital strategy', 'positioning'],
+            answer: {
+                es: 'En marketing digital, Sahar crea estrategias de marca y posicionamiento SEO, campañas digitales con analítica web (Google Analytics) y gestiona redes sociales y comunidades. Además completó en el SENA los cursos de Marketing Digital y de Propuestas Comerciales en Marketing Digital.',
+                en: 'In digital marketing, Sahar builds brand strategies and SEO positioning, runs digital campaigns with web analytics (Google Analytics) and manages social media and communities. She also completed SENA courses in Digital Marketing and Digital Marketing Commercial Proposals.'
+            },
+            action: { type: 'scroll', target: '#pilares', label: { es: 'Ver los pilares', en: 'See the pillars' } },
+            chips: ['services', 'design']
+        },
+        {
+            id: 'volunteer',
+            keys: ['voluntariado', 'voluntaria', 'casta latina', 'conexiones latinas', 'comunidad latina', 'volunteer', 'volunteering'],
+            answer: {
+                es: 'Sahar fue voluntaria en el evento Conexiones Latinas de Casta Latina, en Canadá (septiembre 2024) 🤝.',
+                en: 'Sahar volunteered at the Conexiones Latinas event by Casta Latina in Canada (September 2024) 🤝.'
+            },
+            chips: ['about', 'experience']
         },
         {
             id: 'whoami',
@@ -142,8 +162,8 @@ window.AURA_KB = {
             id: 'experience',
             keys: ['experiencia', 'trabajo', 'trabajado', 'empleo', 'empresa', 'empresas', 'laboral', 'cargo', 'disenos lasser', 'lasser', 'freelance', 'freelancer', 'experience', 'work', 'job', 'jobs', 'worked', 'career', 'company'],
             answer: {
-                es: 'Su recorrido: 💼 Desarrolladora web, programadora y diseñadora de marca independiente en Colombia y Canadá (2021 – hoy): sitios .NET y PHP, APIs RESTful con Angular, bases de datos a medida, chatbots, branding y talleres de IA generativa. 🚀 Cofundadora de un emprendimiento de servicios digitales en Bogotá (2019 – 2021), donde mejoró la organización de datos en 30%, la productividad en 35% y la interacción con clientes en 20%.',
-                en: 'Her path: 💼 Independent web developer, programmer and brand designer in Colombia and Canada (2021 – present): .NET and PHP sites, RESTful APIs with Angular, custom databases, chatbots, branding and generative AI workshops. 🚀 Co-founder of a digital services venture in Bogotá (2019 – 2021), where she improved data organization by 30%, productivity by 35% and client interaction by 20%.'
+                es: 'Su recorrido: 💼 Desarrolladora web, programadora y diseñadora de marca independiente en Colombia y Canadá (2021 – hoy): sitios .NET y PHP, APIs RESTful con Angular, bases de datos a medida, chatbots, branding y talleres de IA generativa. 🚀 Cofundadora de Únicos, agencia creativa en Bogotá (2019 – 2021), donde mejoró la organización de datos en 30%, la productividad en 35% y la interacción con clientes en 20%.',
+                en: 'Her path: 💼 Independent web developer, programmer and brand designer in Colombia and Canada (2021 – present): .NET and PHP sites, RESTful APIs with Angular, custom databases, chatbots, branding and generative AI workshops. 🚀 Co-founder of Únicos, a creative agency in Bogotá (2019 – 2021), where she improved data organization by 30%, productivity by 35% and client interaction by 20%.'
             },
             action: { type: 'scroll', target: '#experiencia', label: { es: 'Ver experiencia', en: 'See experience' } },
             chips: ['skills', 'projects']
@@ -322,8 +342,8 @@ window.AURA_KB = {
             url: 'unicos.html', area: 'design',
             tech: ['Illustrator', 'Photoshop', 'Branding', 'Marketing'],
             desc: {
-                es: 'Únicos es la agencia creativa de Sahar: diseño gráfico, marketing digital y desarrollo web para clientes como MetalTec y Óptica Vision Center, con material publicitario y estrategia digital.',
-                en: 'Únicos is Sahar\'s own creative agency: graphic design, digital marketing and web development for clients like MetalTec and Vision Center Optical, including advertising material and digital strategy.'
+                es: 'Únicos es la agencia creativa que Sahar cofundó en Bogotá (2019 – 2021). Allí lideró proyectos web y de diseño para clientes como MetalTec y Óptica Vision Center: identidad de marca, sitios en WordPress y a medida, material publicitario y estrategia digital.',
+                en: 'Únicos is the creative agency Sahar co-founded in Bogotá (2019 – 2021). There she led web and design projects for clients like MetalTec and Vision Center Optical: brand identity, WordPress and custom sites, advertising material and digital strategy.'
             }
         },
         {

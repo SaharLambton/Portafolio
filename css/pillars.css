@@ -1,5 +1,5 @@
 /* ==========================================================
-   PILARES · Los cimientos (Programación · IA · Diseño)
+   PILARES · Los cimientos (Programación · IA · Diseño · Marketing)
    ========================================================== */
 .pillars {
     --p-h: clamp(260px, 38vh, 380px);   /* alto del fuste */
@@ -36,6 +36,7 @@
 .pillar--code { --c: #2bf5b0; --c-rgb: 43, 245, 176; --c2: #10b981; }
 .pillar--ai { --c: #a970ff; --c-rgb: 169, 112, 255; --c2: #e048ff; }
 .pillar--design { --c: #ff5bd8; --c-rgb: 255, 91, 216; --c2: #8b5cf6; }
+.pillar--marketing { --c: #3ddcff; --c-rgb: 61, 220, 255; --c2: #2bf5b0; }
 
 /* ---------- Fondo: suelo agrietado ---------- */
 .pillars__bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
@@ -76,7 +77,7 @@
 /* ---------- Paneles holográficos laterales ---------- */
 .pillars__holo {
     position: absolute;
-    top: 28%;
+    top: clamp(64px, 9vh, 110px);
     width: 190px;
     padding: 12px 14px;
     font-family: var(--a-font-mono, monospace);
@@ -137,9 +138,9 @@
 /* ---------- Fila de pilares ---------- */
 .pillars__row {
     position: relative;
-    width: min(1100px, 100%);
+    width: min(1240px, 100%);
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     align-items: end;
 }
 .pillars__row:has(.pillar.is-open) .pillar:not(.is-open) { opacity: 0.35; filter: saturate(0.5); }
@@ -175,6 +176,7 @@
 .pillar--code { --i: 0; }
 .pillar--ai { --i: 1; }
 .pillar--design { --i: 2; }
+.pillar--marketing { --i: 3; }
 .pillars.is-visible .pillar__column,
 .pillars.is-visible .pillar__num,
 .pillars.is-visible .pillar__name { opacity: 1; transform: none; }
@@ -338,8 +340,9 @@
     background: var(--c);
     box-shadow: 0 0 6px var(--c);
 }
-.pillar--design .pillar__panel { left: auto; right: calc(50% + var(--p-w) / 2 + 34px); transform: translateX(14px); }
-.pillar--design .pillar__panel::before { right: auto; left: 100%; }
+/* los dos pilares de la derecha abren su panel hacia la izquierda */
+.pillar:nth-child(n+3) .pillar__panel { left: auto; right: calc(50% + var(--p-w) / 2 + 34px); transform: translateX(14px); }
+.pillar:nth-child(n+3) .pillar__panel::before { right: auto; left: 100%; }
 .pillar.is-open .pillar__panel { opacity: 1; visibility: visible; transform: none; transition: opacity 0.4s 0.25s, transform 0.5s 0.25s, visibility 0s; }
 
 .pillar__panel-title {
@@ -403,14 +406,14 @@
 @keyframes pillars-bob { 50% { transform: translateY(5px); } }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1280px) {
+@media (max-width: 1180px) {
     .pillars__holo { display: none; }
 }
 /* Pantallas medianas: el panel se muestra debajo del pilar */
 @media (max-width: 1024px) {
     .pillars { --p-h: clamp(230px, 34vh, 320px); }
     .pillar__panel,
-    .pillar--design .pillar__panel {
+    .pillar:nth-child(n+3) .pillar__panel {
         position: relative;
         top: auto;
         left: auto;
@@ -422,7 +425,7 @@
         transform: none;
     }
     .pillar__panel::before { display: none; }
-    .pillars__row { align-items: start; gap: 18px; }
+    .pillars__row { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 56px 18px; }
     .pillars__row:has(.pillar.is-open) .pillar:not(.is-open) { opacity: 1; filter: none; }
 }
 @media (max-width: 700px) {
