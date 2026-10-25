@@ -92,6 +92,12 @@ window.AURA_KB = {
             enter: {
                 es: 'Este es el archivo de proyectos. Si te interesa el branding, te recomiendo empezar por Zohar.',
                 en: 'This is the project archive. If you\'re into branding, I recommend starting with Zohar.'
+            },
+            filters: {
+                code: { es: 'Estos son los proyectos de programación: tiendas en línea, sistemas en TypeScript e integración continua.', en: 'These are the programming projects: online stores, TypeScript systems and continuous integration.' },
+                ai: { es: 'En IA, el proyecto principal soy yo 🤖. Pronto habrá más.', en: 'In AI, the main project is me 🤖. More are coming soon.' },
+                design: { es: 'Aquí está el trabajo de branding de Sahar. Zohar y MetalTec son dos de los más completos.', en: 'Here is Sahar\'s branding work. Zohar and MetalTec are two of the most complete ones.' },
+                marketing: { es: 'Estos proyectos incluyen estrategia digital y redes sociales, además del diseño.', en: 'These projects include digital strategy and social media, on top of design.' }
             }
         },
         services: {
@@ -268,8 +274,8 @@ window.AURA_KB = {
             id: 'projects',
             keys: ['proyecto', 'proyectos', 'portafolio', 'portfolio', 'trabajos', 'muestra', 'ejemplos', 'casos', 'projects', 'project', 'work samples', 'case study', 'showcase'],
             answer: {
-                es: 'Sahar tiene 10 proyectos en tres áreas: 🌐 desarrollo web (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos) y 💻 programación (Smart Agriculture, Library Management, Jest CI y más). ¿Cuál área te interesa?',
-                en: 'Sahar has 10 projects across three areas: 🌐 web development (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos) and 💻 programming (Smart Agriculture, Library Management, Jest CI and more). Which area interests you?'
+                es: 'Sahar tiene 11 proyectos: 🌐 desarrollo web (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos), 💻 programación (Smart Agriculture, Library Management, Jest CI) y 🧠 IA (AURA, la asistente que te está hablando). ¿Cuál área te interesa?',
+                en: 'Sahar has 11 projects: 🌐 web development (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos), 💻 programming (Smart Agriculture, Library Management, Jest CI) and 🧠 AI (AURA, the assistant talking to you). Which area interests you?'
             },
             action: { type: 'go', href: 'proyectos.html', label: { es: 'Ir a proyectos', en: 'Go to projects' } },
             chips: ['web', 'design', 'code']
@@ -367,10 +373,17 @@ window.AURA_KB = {
         }
     ],
 
-    /* ---------- Proyectos ---------- */
+    /* ---------- Proyectos ----------
+       pillars: pilares a los que pertenece (code, ai, design, marketing) → filtros de la pestaña Proyectos.
+       card / video: imagen o video de la tarjeta (si no hay, se muestra un gráfico).
+       short: resumen de la tarjeta · desc: lo que responde AURA.
+       Para agregar un proyecto, copia uno de estos bloques y ajústalo.
+       ------------------------------------------------------------ */
     projects: [
         {
             id: 'sell-services', name: 'Sell Services', keys: ['sell services', 'sell service', 'productos graficos', 'graphic products'],
+            pillars: ['code'], card: 'img/thumbs/services-card.webp', video: 'services.mp4',
+            short: { es: 'Plataforma e-commerce para vender servicios y productos gráficos, con autenticación encriptada, carrito y pasarela de pagos.', en: 'E-commerce platform to sell graphic services and products, with encrypted authentication, cart and payment gateway.' },
             url: 'sell-services.html', thumb: 'img/thumbs/services.webp', area: 'web',
             tech: ['PHP', 'MySQL', 'JavaScript', 'jQuery'],
             desc: {
@@ -381,6 +394,8 @@ window.AURA_KB = {
         },
         {
             id: 'sports-store', name: 'Sports Store', keys: ['sports store', 'sport store', 'tienda deportiva', 'deportes', 'deportiva', 'sports'],
+            pillars: ['code'], card: 'img/thumbs/sport-card.webp', video: 'sport.mp4',
+            short: { es: 'Tienda deportiva con catálogo dinámico, programa de becas para jóvenes atletas y recursos con la API de YouTube.', en: 'Sports store with a dynamic catalog, a scholarship program for young athletes and YouTube API resources.' },
             url: 'sports-store.html', area: 'web',
             tech: ['HTML5', 'CSS3', 'Responsive Design', 'YouTube API'],
             desc: {
@@ -390,6 +405,8 @@ window.AURA_KB = {
         },
         {
             id: 'little-stars', name: 'Little Stars', keys: ['little stars', 'ropa infantil', 'ninos', 'kids', 'children'],
+            pillars: ['code', 'design'], card: 'img/thumbs/littlestars-card.webp', video: 'store.mp4',
+            short: { es: 'Tienda de ropa infantil responsive, con catálogo, filtros y categorías por edad.', en: 'Responsive kids\' clothing store with catalog, filters and age categories.' },
             url: 'little-stars.html', area: 'web',
             tech: ['HTML5', 'CSS3', 'Font Awesome', 'Responsive Design'],
             desc: {
@@ -399,6 +416,8 @@ window.AURA_KB = {
         },
         {
             id: 'zohar', name: 'Zohar', keys: ['zohar', 'joyeria', 'lujo', 'jewelry', 'luxury'],
+            pillars: ['design', 'marketing'], card: 'img/thumbs/zohar-card.webp', video: '',
+            short: { es: 'Identidad visual completa para una marca de joyería de lujo: logo, manual, packaging y estrategia digital.', en: 'Complete visual identity for a luxury jewelry brand: logo, brand manual, packaging and digital strategy.' },
             url: 'Zohar.html', thumb: 'img/thumbs/zohar.webp', area: 'design',
             tech: ['Adobe Illustrator', 'Branding', 'Brand Manual'],
             desc: {
@@ -409,6 +428,8 @@ window.AURA_KB = {
         },
         {
             id: 'oden', name: 'ODEN', keys: ['oden', 'inmobiliaria', 'brujula', 'real estate', 'compass'],
+            pillars: ['design'], card: 'img/thumbs/oden-card.webp', video: '',
+            short: { es: 'Identidad corporativa para una inmobiliaria, con un logo de brújula y paleta de grises y dorados.', en: 'Corporate identity for a real estate company, with a compass logo and a gray-and-gold palette.' },
             url: 'oden.html', area: 'design',
             tech: ['Adobe Illustrator', 'Branding', 'Logo Design'],
             desc: {
@@ -418,6 +439,8 @@ window.AURA_KB = {
         },
         {
             id: 'metaltec', name: 'MetalTec Colombia', keys: ['metaltec', 'metal tec', 'metalurgica', 'metallurgical'],
+            pillars: ['design', 'code', 'marketing'], card: 'img/thumbs/metaltec-card.webp', video: '',
+            short: { es: 'Branding desde cero para una metalúrgica: logo, sitio en WordPress, material impreso y redes sociales.', en: 'End-to-end branding for a metallurgical company: logo, WordPress site, print material and social media.' },
             url: 'metaltec.html', thumb: 'img/thumbs/metaltec.webp', area: 'design',
             tech: ['Brand Design', 'WordPress', 'Adobe Illustrator'],
             desc: {
@@ -428,6 +451,8 @@ window.AURA_KB = {
         },
         {
             id: 'unicos', name: 'Únicos', keys: ['unicos', 'agencia', 'agency', 'optica', 'vision center'],
+            pillars: ['design', 'marketing', 'code'], card: 'img/thumbs/unicos-card.webp', video: '',
+            short: { es: 'La agencia creativa que Sahar cofundó en Bogotá: diseño, marketing digital y desarrollo web para clientes.', en: 'The creative agency Sahar co-founded in Bogotá: design, digital marketing and web development for clients.' },
             url: 'unicos.html', area: 'design',
             tech: ['Illustrator', 'Photoshop', 'Branding', 'Marketing'],
             desc: {
@@ -437,6 +462,8 @@ window.AURA_KB = {
         },
         {
             id: 'smart-agriculture', name: 'Smart Agriculture', keys: ['smart agriculture', 'agricultura', 'agro', 'iot', 'sensores', 'riego', 'drones', 'farming', 'sensors', 'irrigation'],
+            pillars: ['code'], card: '', video: '',
+            short: { es: 'Agricultura de precisión: sensores ambientales, riego automático, detección de enfermedades en plantas y drones.', en: 'Precision farming: environmental sensors, automated irrigation, plant disease detection and drones.' },
             url: 'https://github.com/SaharLambton/Smart-Agriculture', external: true, area: 'code',
             tech: ['TypeScript', 'Node.js', 'IoT'],
             desc: {
@@ -447,6 +474,8 @@ window.AURA_KB = {
         },
         {
             id: 'bookstore', name: 'Library Management', keys: ['library management', 'bookstore', 'biblioteca', 'libros', 'library', 'books'],
+            pillars: ['code'], card: '', video: '',
+            short: { es: 'Gestión de biblioteca con libros, clientes, préstamos y devoluciones, cubierta con pruebas unitarias.', en: 'Library management with books, customers, loans and returns, covered by unit tests.' },
             url: 'https://github.com/SaharLambton/Assigment3', external: true, area: 'code',
             tech: ['TypeScript', 'Node.js', 'Jest', 'OOP'],
             desc: {
@@ -456,12 +485,26 @@ window.AURA_KB = {
         },
         {
             id: 'jest-ci', name: 'Jest CI', keys: ['jest ci', 'github actions', 'integracion continua', 'ci/cd', 'continuous integration', 'pipeline'],
+            pillars: ['code'], card: '', video: '',
+            short: { es: 'Integración continua: las pruebas con Jest se ejecutan solas en cada push con GitHub Actions.', en: 'Continuous integration: Jest tests run automatically on every push with GitHub Actions.' },
             url: 'https://github.com/SaharLambton/Assigment4', external: true, area: 'code',
             tech: ['JavaScript', 'Jest', 'GitHub Actions'],
             desc: {
                 es: 'Jest CI implementa integración continua para un proyecto JavaScript: pruebas con Jest que se ejecutan automáticamente en cada push gracias a GitHub Actions.',
                 en: 'Jest CI sets up continuous integration for a JavaScript project: Jest tests run automatically on every push through GitHub Actions.'
             }
+        },
+        {
+            id: 'aura', name: 'AURA', keys: ['aura project', 'proyecto aura', 'asistente del portafolio', 'portfolio assistant'],
+            pillars: ['ai', 'code'], card: '', video: '',
+            short: { es: 'La asistente de este portafolio: chat bilingüe con base de conocimiento, voz y un orbe 3D en WebGL.', en: 'This portfolio\'s assistant: a bilingual chat with a knowledge base, voice and a 3D WebGL orb.' },
+            url: 'index.html', area: 'ai',
+            tech: ['JavaScript', 'Three.js', 'Web Speech API'],
+            desc: {
+                es: 'AURA es la asistente de este portafolio: responde en español e inglés con una base de conocimiento propia, habla con la voz del navegador, entiende preguntas por micrófono y vive en un orbe 3D hecho con WebGL. Está preparada para conectarse a un modelo de IA.',
+                en: 'AURA is this portfolio\'s assistant: she answers in Spanish and English from her own knowledge base, speaks with the browser\'s voice, understands questions through the microphone and lives in a 3D orb built with WebGL. She is ready to connect to an AI model.'
+            },
+            tag: { es: 'IA · Asistente conversacional', en: 'AI · Conversational assistant' }
         }
     ],
 

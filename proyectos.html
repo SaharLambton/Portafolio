@@ -4,313 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyectos · Sahar Chain</title>
-    <meta name="description" content="Proyectos de Sahar Chain en desarrollo web, programación, branding y diseño.">
+    <meta name="description" content="Archivo de proyectos de Sahar Chain: desarrollo web, programación, inteligencia artificial, branding y marketing digital.">
     <meta name="theme-color" content="#020406">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/legacy.css?v=20261025b">
-    <link rel="stylesheet" href="css/aura.css?v=20261025b">
-    <link rel="stylesheet" href="css/site.css?v=20261025b">
+    <link rel="stylesheet" href="css/aura.css?v=20261025c">
+    <link rel="stylesheet" href="css/site.css?v=20261025c">
+    <link rel="stylesheet" href="css/projects.css?v=20261025c">
 </head>
 <body data-page="projects">
     <header class="site-header">
         <div class="aura-topbar" data-site-header></div>
     </header>
 
-    <!-- Contenido temporal del diseño anterior: esta pestaña se rediseña más adelante -->
-    <main class="legacy-page">
-<!-- Projects Section -->
-<section id="proyectos">
-    <h2 data-es="Portafolio de Proyectos" data-en="Project Portfolio">Portafolio de Proyectos</h2>
-    <p style="text-align: center; color: var(--gris-claro); margin-bottom: 3rem;" data-es="Selección de proyectos en Desarrollo Web, Diseño Gráfico y Programación" data-en="Selection of projects in Web Development, Graphic Design and Programming">
-        Selección de proyectos en Desarrollo Web, Diseño Gráfico y Programación
-    </p>
+    <main class="page projects">
+        <header class="projects-head">
+            <p class="projects-overline" data-es="// ARCHIVO · 03" data-en="// ARCHIVE · 03">// ARCHIVO · 03</p>
+            <h1 class="projects-title" data-es="Proyectos" data-en="Projects">Proyectos</h1>
+            <p class="projects-lead" data-es="Una selección de mi trabajo en programación, inteligencia artificial, diseño y marketing digital. Filtra por pilar para ver cada área." data-en="A selection of my work in programming, artificial intelligence, design and digital marketing. Filter by pillar to explore each area.">Una selección de mi trabajo en programación, inteligencia artificial, diseño y marketing digital. Filtra por pilar para ver cada área.</p>
+        </header>
 
-    <!-- Project Filter Buttons -->
-    <div class="project-filters fade-in" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
-        <button class="filter-btn active" onclick="filterProjects('all')" data-es="Todos" data-en="All">Todos</button>
-        <button class="filter-btn" onclick="filterProjects('web')" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</button>
-        <button class="filter-btn" onclick="filterProjects('design')" data-es="Diseño Gráfico" data-en="Graphic Design">Diseño Gráfico</button>
-        <button class="filter-btn" onclick="filterProjects('programming')" data-es="Programación" data-en="Programming">Programación</button>
-    </div>
-
-    <div class="projects-grid fade-in">
-        <!-- WEB DEVELOPMENT PROJECTS -->
-        <div class="project-card" data-category="web">
-    <div class="project-image has-media">
-        <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
-        <video 
-  src="services.mp4"
-  autoplay 
-  muted 
-  loop 
-  playsinline>
-</video>
-
-        <!-- O usa el placeholder si aún no tienes la imagen -->
-        <!-- <div class="image-placeholder">🛒</div> -->
-    </div>
-    <div class="project-info">
-        <h3 data-es="Sell Services and Graphic Products" data-en="Sell Services and Graphic Products">Sell Services and Graphic Products</h3>
-        <p data-es="Plataforma e-commerce completa para venta de servicios y productos gráficos. Incluye sistema de autenticación con encriptación multinivel, carrito de compras, pasarela de pagos y gestión de productos." data-en="Complete e-commerce platform for selling graphic services and products. Includes authentication system with multi-level encryption, shopping cart, payment gateway and product management.">
-            Plataforma e-commerce completa para venta de servicios y productos gráficos. Incluye sistema de autenticación con encriptación multinivel, carrito de compras, pasarela de pagos y gestión de productos.
-        </p>
-        <div class="project-tech">
-            <span class="tech-badge">PHP</span>
-            <span class="tech-badge">MySQL</span>
-            <span class="tech-badge">JavaScript</span>
-            <span class="tech-badge">jQuery</span>
+        <div class="projects-filters" role="group" aria-label="Filtrar por pilar" id="projectFilters">
+            <button type="button" class="pfilter is-active" data-area="all" aria-pressed="true"><span data-es="Todos" data-en="All">Todos</span><b data-count="all"></b></button>
+            <button type="button" class="pfilter pfilter--code" data-area="code" aria-pressed="false"><i aria-hidden="true"></i><span data-es="Programación" data-en="Programming">Programación</span><b data-count="code"></b></button>
+            <button type="button" class="pfilter pfilter--ai" data-area="ai" aria-pressed="false"><i aria-hidden="true"></i><span data-es="IA" data-en="AI">IA</span><b data-count="ai"></b></button>
+            <button type="button" class="pfilter pfilter--design" data-area="design" aria-pressed="false"><i aria-hidden="true"></i><span data-es="Diseño" data-en="Design">Diseño</span><b data-count="design"></b></button>
+            <button type="button" class="pfilter pfilter--marketing" data-area="marketing" aria-pressed="false"><i aria-hidden="true"></i><span data-es="Marketing" data-en="Marketing">Marketing</span><b data-count="marketing"></b></button>
         </div>
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <a href="sell-services.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
-                </div>
+
+        <p class="projects-service" id="projectService" hidden></p>
+
+        <div class="projects-grid" id="projectGrid" aria-live="polite"></div>
+
+        <noscript>
+            <p class="page-notice">Activa JavaScript para ver los proyectos, o visita <a href="https://github.com/SaharLambton">github.com/SaharLambton</a>.</p>
+        </noscript>
+
+        <section class="projects-cta">
+            <p class="projects-cta__title" data-es="¿Quieres algo así para tu marca o negocio?" data-en="Want something like this for your brand or business?">¿Quieres algo así para tu marca o negocio?</p>
+            <div class="projects-cta__actions">
+                <a class="aura-btn aura-btn--primary" href="contacto.html" data-es="Contactar" data-en="Contact">Contactar</a>
+                <a class="aura-btn" href="servicios.html" data-es="Ver servicios" data-en="See services">Ver servicios</a>
             </div>
-        </div>
-
-       <div class="project-card" data-category="web">
-                <div class="project-image has-media">
-                    <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
-                   <video 
-  src="sport.mp4"
-  autoplay 
-  muted 
-  loop 
-  playsinline>
-</video>
-
-                    <!-- O usa el placeholder si aún no tienes la imagen -->
-                    <!-- <div class="image-placeholder">🏀</div> -->
-                </div>
-                <div class="project-info">
-                    <h3 data-es="Sports Store - Tienda Deportiva" data-en="Sports Store">Sports Store - Tienda Deportiva
-                    </h3>
-                    <p data-es="Sitio web completo para tienda de artículos deportivos con catálogo dinámico de productos, programa de becas para jóvenes atletas, formulario de contacto funcional y recursos educativos integrados."
-                        data-en="Complete website for sports store with dynamic product catalog, scholarship program for young athletes, functional contact form and integrated educational resources.">
-                        Sitio web completo para tienda de artículos deportivos con catálogo dinámico de productos,
-                        programa de becas para jóvenes atletas, formulario de contacto funcional y recursos educativos
-                        integrados.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">HTML5</span>
-                        <span class="tech-badge">CSS3</span>
-                        <span class="tech-badge">Responsive Design</span>
-                        <span class="tech-badge">YouTube API</span>
-                    </div>
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <a href="sports-store.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card" data-category="web">
-    <div class="project-image has-media">
-        <!-- AQUÍ AÑADE TU IMAGEN O VIDEO -->
-        <video 
-  src="store.mp4"
-  autoplay 
-  muted 
-  loop 
-  playsinline>
-</video>
-
-        <!-- O usa el placeholder si aún no tienes la imagen -->
-        <!-- <div class="image-placeholder">👶</div> -->
-    </div>
-    <div class="project-info">
-        <h3 data-es="Little Stars - Tienda de Ropa Infantil" data-en="Little Stars - Children's Clothing Store">Little Stars - Tienda de Ropa Infantil</h3>
-        <p data-es="Sitio web de práctica para tienda de ropa infantil con diseño moderno y responsive. Incluye página de inicio con hero section, catálogo de productos con sistema de filtros y categorización por edades." data-en="Practice website for children's clothing store with modern and responsive design. Includes home page with hero section, product catalog with filter system and age categorization.">
-            Sitio web de práctica para tienda de ropa infantil con diseño moderno y responsive. Incluye página de inicio con hero section, catálogo de productos con sistema de filtros y categorización por edades.
-        </p>
-        <div class="project-tech">
-            <span class="tech-badge">HTML5</span>
-            <span class="tech-badge">CSS3</span>
-            <span class="tech-badge">Font Awesome</span>
-            <span class="tech-badge">Responsive Design</span>
-        </div>
-
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <a href="little-stars.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- GRAPHIC DESIGN PROJECTS -->
-        <!-- PROYECTO ZOHAR - ACTUALIZADO -->
-        <div class="project-card" data-category="design">
-            <div class="project-image has-media">
-                <img src="Zohar/Recurso 3.png" alt="Zohar Brand Identity">
-            </div>
-            <div class="project-info">
-                <h3 data-es="Zohar - Identidad de Marca de Lujo" data-en="Zohar - Luxury Brand Identity">Zohar - Identidad de Marca de Lujo</h3>
-                <p data-es="Desarrollo completo de identidad visual para marca de joyería de lujo. Incluye diseño de logo, paleta de colores, tipografía, manual de marca, aplicaciones en packaging, papelería y estrategia digital completa." data-en="Complete visual identity development for luxury jewelry brand. Includes logo design, color palette, typography, brand manual, packaging applications, stationery and complete digital strategy.">
-                    Desarrollo completo de identidad visual para marca de joyería de lujo. Incluye diseño de logo, paleta de colores, tipografía, manual de marca, aplicaciones en packaging, papelería y estrategia digital completa.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-badge">Adobe Illustrator</span>
-                    <span class="tech-badge">Branding</span>
-                    <span class="tech-badge">Manual de Marca</span>
-                    <span class="tech-badge">Luxury Design</span>
-                </div>
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <a href="Zohar.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card" data-category="design">
-    <div class="project-image has-media">
-        <img src="oden/Recurso 13.png" alt="ODEN Brand Identity">
-    </div>
-    <div class="project-info">
-        <h3 data-es="ODEN - Identidad de Marca Inmobiliaria" data-en="ODEN - Real Estate Brand Identity">ODEN - Identidad de Marca Inmobiliaria</h3>
-        <p data-es="Diseño de identidad visual corporativa para empresa inmobiliaria. Logo con símbolo de brújula representando orientación y guía, paleta de colores profesional (grises y dorados), tipografía elegante y múltiples variaciones para aplicaciones digitales." data-en="Corporate visual identity design for real estate company. Logo with compass symbol representing orientation and guidance, professional color palette (grays and golds), elegant typography and multiple variations for digital applications.">
-            Diseño de identidad visual corporativa para empresa inmobiliaria. Logo con símbolo de brújula representando orientación y guía, paleta de colores profesional (grises y dorados), tipografía elegante y múltiples variaciones para aplicaciones digitales.
-        </p>
-        <div class="project-tech">
-            <span class="tech-badge">Adobe Illustrator</span>
-            <span class="tech-badge">Branding</span>
-            <span class="tech-badge">Logo Design</span>
-            <span class="tech-badge">Real Estate</span>
-        </div>
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <a href="oden.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card" data-category="design web">
-    <div class="project-image has-media">
-        <img src="Unicos/Metaltec.jpg" alt="MetalTec Colombia Branding">
-    </div>
-    <div class="project-info">
-        <h3 data-es="MetalTec Colombia - Branding Completo" data-en="MetalTec Colombia - Complete Branding">MetalTec Colombia - Branding Completo</h3>
-        <p data-es="Proyecto integral de branding desde cero para empresa metalúrgica: diseño de logo e isotipo, desarrollo web en WordPress, material impreso (brochure y flyers), manual de identidad visual y gestión de redes sociales." data-en="Comprehensive branding project from scratch for metallurgical company: logo and isotype design, WordPress web development, printed material (brochure and flyers), visual identity manual and social media management.">
-            Proyecto integral de branding desde cero para empresa metalúrgica: diseño de logo e isotipo, desarrollo web en WordPress, material impreso (brochure y flyers), manual de identidad visual y gestión de redes sociales.
-        </p>
-        <div class="project-tech">
-            <span class="tech-badge">Brand Design</span>
-            <span class="tech-badge">WordPress</span>
-            <span class="tech-badge">Adobe Illustrator</span>
-            <span class="tech-badge">Graphic Design</span>
-        </div>
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <a href="metaltec.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card" data-category="design web">
-    <div class="project-image has-media">
-        <img src="Unicos/Logo Unicos.jpg" alt="Únicos Agencia Creativa">
-    </div>
-    <div class="project-info">
-        <h3 data-es="Únicos - Agencia Creativa" data-en="Únicos - Creative Agency">Únicos - Agencia Creativa</h3>
-        <p data-es="Agencia creativa propia especializada en diseño gráfico, marketing digital y desarrollo web. Incluye identidad de marca, proyectos para múltiples clientes (MetalTec, Óptica Vision Center), material publicitario, pendones, estampados personalizados y estrategia digital." data-en="Own creative agency specialized in graphic design, digital marketing and web development. Includes brand identity, projects for multiple clients (MetalTec, Vision Center Optical), advertising material, banners, custom prints and digital strategy.">
-            Agencia creativa propia especializada en diseño gráfico, marketing digital y desarrollo web. Incluye identidad de marca, proyectos para múltiples clientes (MetalTec, Óptica Vision Center), material publicitario, pendones, estampados personalizados y estrategia digital.
-        </p>
-        <div class="project-tech">
-            <span class="tech-badge">Adobe Illustrator</span>
-            <span class="tech-badge">Photoshop</span>
-            <span class="tech-badge">Branding</span>
-            <span class="tech-badge">Marketing Digital</span>
-            <span class="tech-badge">Material Publicitario</span>
-        </div>
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <a href="unicos.html" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver Detalles" data-en="View Details">Ver Detalles</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- PROGRAMMING PROJECTS -->
-        <div class="project-card" data-category="programming">
-            <div class="project-image">🌾</div>
-            <div class="project-info">
-                <h3 data-es="Smart Agriculture" data-en="Smart Agriculture">Smart Agriculture</h3>
-                <p data-es="Sistema de agricultura inteligente y agricultura de precisión. Integra monitoreo de sensores ambientales, control automatizado de riego basado en datos meteorológicos, detección de enfermedades en plantas e integración con drones." data-en="Smart agriculture and precision farming system. Integrates environmental sensor monitoring, automated irrigation control based on weather data, plant disease detection and drone integration.">
-                    Sistema de agricultura inteligente y agricultura de precisión. Integra monitoreo de sensores ambientales, control automatizado de riego basado en datos meteorológicos, detección de enfermedades en plantas e integración con drones.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-badge">TypeScript</span>
-                    <span class="tech-badge">Node.js</span>
-                    <span class="tech-badge">Sensors</span>
-                    <span class="tech-badge">IoT</span>
-                </div>
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <a href="https://github.com/SaharLambton/Smart-Agriculture" target="_blank" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card" data-category="programming">
-            <div class="project-image">📚</div>
-            <div class="project-info">
-                <h3 data-es="Bookstore - Gestión de Biblioteca" data-en="Bookstore - Library Management">Bookstore - Gestión de Biblioteca</h3>
-                <p data-es="Sistema de gestión de biblioteca desarrollado con TypeScript y Jest. Permite gestionar libros y clientes, realizar préstamos y devoluciones con validación de disponibilidad. Incluye pruebas unitarias completas." data-en="Library management system developed with TypeScript and Jest. Allows management of books and customers, borrowing and returns with availability validation. Includes comprehensive unit testing.">
-                    Sistema de gestión de biblioteca desarrollado con TypeScript y Jest. Permite gestionar libros y clientes, realizar préstamos y devoluciones con validación de disponibilidad. Incluye pruebas unitarias completas.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-badge">TypeScript</span>
-                    <span class="tech-badge">Jest</span>
-                    <span class="tech-badge">OOP</span>
-                    <span class="tech-badge">Unit Testing</span>
-                </div>
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <a href="https://github.com/SaharLambton/Assigment3" target="_blank" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card" data-category="programming">
-            <div class="project-image">⚙️</div>
-            <div class="project-info">
-                <h3 data-es="Jest CI con GitHub Actions" data-en="Jest CI with GitHub Actions">Jest CI con GitHub Actions</h3>
-                <p data-es="Implementación de Integración Continua (CI) para proyecto JavaScript usando Jest para testing y GitHub Actions para workflows automatizados. Configuración completa de pipeline que ejecuta pruebas automáticamente en cada push." data-en="Continuous Integration (CI) implementation for JavaScript project using Jest for testing and GitHub Actions for automated workflows. Complete pipeline setup that automatically runs tests on every push.">
-                    Implementación de Integración Continua (CI) para proyecto JavaScript usando Jest para testing y GitHub Actions para workflows automatizados. Configuración completa de pipeline que ejecuta pruebas automáticamente en cada push.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-badge">JavaScript</span>
-                    <span class="tech-badge">Jest</span>
-                    <span class="tech-badge">GitHub Actions</span>
-                    <span class="tech-badge">CI/CD</span>
-                </div>
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <a href="https://github.com/SaharLambton/Assigment4" target="_blank" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card" data-category="programming">
-            <div class="project-image">💻</div>
-            <div class="project-info">
-                <h3 data-es="Assignment 1 - TypeScript" data-en="Assignment 1 - TypeScript">Assignment 1 - TypeScript</h3>
-                <p data-es="Proyecto académico desarrollado en TypeScript enfocado en fundamentos de programación orientada a objetos, manejo de tipos y estructuras de datos. Implementa conceptos avanzados de TypeScript y buenas prácticas de desarrollo." data-en="Academic project developed in TypeScript focused on object-oriented programming fundamentals, type handling and data structures. Implements advanced TypeScript concepts and development best practices.">
-                    Proyecto académico desarrollado en TypeScript enfocado en fundamentos de programación orientada a objetos, manejo de tipos y estructuras de datos. Implementa conceptos avanzados de TypeScript y buenas prácticas de desarrollo.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-badge">TypeScript</span>
-                    <span class="tech-badge">Node.js</span>
-                    <span class="tech-badge">OOP</span>
-                    <span class="tech-badge">Best Practices</span>
-                </div>
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <a href="https://github.com/SaharLambton/Assigment1" target="_blank" class="cta-button" style="display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" data-es="Ver en GitHub" data-en="View on GitHub">Ver en GitHub</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Contact Section -->
-
+        </section>
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
 
-    <script src="js/aura/knowledge.js?v=20261025b"></script>
-    <script src="js/site.js?v=20261025b"></script>
-    <script src="js/aura/assistant.js?v=20261025b"></script>
-    <script src="js/legacy.js?v=20261025b"></script>
-    <script src="js/projects-filter.js?v=20261025b"></script>
+    <script src="js/aura/knowledge.js?v=20261025c"></script>
+    <script src="js/site.js?v=20261025c"></script>
+    <script src="js/projects.js?v=20261025c"></script>
+    <script src="js/aura/assistant.js?v=20261025c"></script>
 </body>
 </html>
