@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios · Sahar Chain</title>
-    <meta name="description" content="Desarrollo web, automatización con IA, chatbots, talleres de IA generativa, branding y marketing digital para emprendedores y empresas en Colombia y Canadá. Pide tu cotización sin costo.">
+    <meta name="description" content="Diseña tu misión: responde 3 preguntas y recibe un plan con los servicios ideales para tu negocio. Desarrollo web, automatización con IA, talleres, branding y marketing digital.">
     <meta name="theme-color" content="#020406">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/aura.css?v=20261025g">
-    <link rel="stylesheet" href="css/site.css?v=20261025g">
-    <link rel="stylesheet" href="css/services.css?v=20261025g">
+    <link rel="stylesheet" href="css/aura.css?v=20261025h">
+    <link rel="stylesheet" href="css/site.css?v=20261025h">
+    <link rel="stylesheet" href="css/services.css?v=20261025h">
 </head>
 <body data-page="services">
     <header class="site-header">
@@ -19,267 +19,116 @@
     </header>
 
     <main class="page services">
-        <!-- ===================== PROPUESTA DE VALOR ===================== -->
-        <section class="svc-hero">
-            <div class="svc-hero__copy">
-                <p class="services-overline" data-es="// SERVICIOS · 04" data-en="// SERVICES · 04">// SERVICIOS · 04</p>
-                <h1 class="svc-hero__title"><span data-es="Tu idea, convertida en" data-en="Your idea, turned into">Tu idea, convertida en</span> <em data-es="resultados digitales" data-en="digital results">resultados digitales</em></h1>
-                <p class="svc-hero__lead" data-es="Sitios web, automatizaciones con IA, marcas y estrategias digitales para emprendedores y empresas en Colombia y Canadá. Todo en un solo lugar, del código a la marca." data-en="Websites, AI automations, brands and digital strategies for entrepreneurs and companies in Colombia and Canada. All in one place, from code to brand.">Sitios web, automatizaciones con IA, marcas y estrategias digitales para emprendedores y empresas en Colombia y Canadá. Todo en un solo lugar, del código a la marca.</p>
-                <div class="svc-hero__actions">
-                    <a class="aura-btn aura-btn--primary svc-hero__main" href="contacto.html" data-es="Pedir cotización gratis" data-en="Get a free quote">Pedir cotización gratis</a>
-                    <a class="aura-btn svc-hero__wa" href="https://wa.me/573204499948" target="_blank" rel="noopener" data-es="Escribir por WhatsApp" data-en="Message on WhatsApp">Escribir por WhatsApp</a>
-                </div>
-                <ul class="svc-trust">
-                    <li data-es="Primera conversación sin costo" data-en="First conversation is free">Primera conversación sin costo</li>
-                    <li data-es="Respuesta en 24–48 h" data-en="Reply within 24–48 h">Respuesta en 24–48 h</li>
-                    <li data-es="Español e inglés" data-en="Spanish and English">Español e inglés</li>
-                </ul>
-            </div>
+        <header class="mission-head">
+            <p class="services-overline" data-es="// SERVICIOS · 04" data-en="// SERVICES · 04">// SERVICIOS · 04</p>
+            <h1 class="mission-title"><span data-es="Diseña tu" data-en="Design your">Diseña tu</span> <em data-es="misión" data-en="mission">misión</em></h1>
+            <p class="mission-lead" data-es="Responde 3 preguntas y AURA te arma un plan con los servicios ideales para tu negocio. Toma menos de un minuto." data-en="Answer 3 questions and AURA builds a plan with the right services for your business. It takes less than a minute.">Responde 3 preguntas y AURA te arma un plan con los servicios ideales para tu negocio. Toma menos de un minuto.</p>
+            <ul class="mission-trust">
+                <li data-es="Primera conversación sin costo" data-en="First conversation is free">Primera conversación sin costo</li>
+                <li data-es="Respuesta en 24–48 h" data-en="Reply within 24–48 h">Respuesta en 24–48 h</li>
+                <li data-es="Español e inglés" data-en="Spanish and English">Español e inglés</li>
+            </ul>
+        </header>
 
-            <aside class="svc-results" aria-label="Resultados">
-                <span class="aura-console__frame" aria-hidden="true"></span>
-                <p class="svc-results__title" data-es="RESULTADOS EN PROYECTOS ANTERIORES" data-en="RESULTS FROM PAST PROJECTS">RESULTADOS EN PROYECTOS ANTERIORES</p>
-                <div class="svc-results__grid">
-                    <div class="stat">
-                        <span class="stat__value"><span class="stat__pre">+</span><span class="stat__num" data-to="35">35</span><span class="stat__suf">%</span></span>
-                        <span class="stat__label" data-es="más productividad con software y automatización" data-en="more productivity with software and automation">más productividad con software y automatización</span>
+        <!-- ===================== CONSOLA DE MISIÓN ===================== -->
+        <section class="console" id="missionConsole" aria-labelledby="consoleTitle">
+            <span class="aura-console__frame" aria-hidden="true"></span>
+            <div class="console__bar">
+                <span class="console__title" id="consoleTitle" data-es="CONSOLA DE MISIÓN" data-en="MISSION CONSOLE">CONSOLA DE MISIÓN</span>
+                <span class="console__step" id="consoleStep"></span>
+            </div>
+            <ol class="console__progress" aria-hidden="true">
+                <li data-step="1"><span data-es="Objetivo" data-en="Goal">Objetivo</span></li>
+                <li data-step="2"><span data-es="Etapa" data-en="Stage">Etapa</span></li>
+                <li data-step="3"><span data-es="Tiempo" data-en="Timing">Tiempo</span></li>
+                <li data-step="4"><span data-es="Tu plan" data-en="Your plan">Tu plan</span></li>
+            </ol>
+
+            <div class="console__body">
+                <div class="console__main" id="consoleMain" aria-live="polite"></div>
+
+                <aside class="console__aura" aria-label="AURA">
+                    <div class="console__aura-head">
+                        <span class="mini-orb" aria-hidden="true"><i class="mini-orb__ring"></i><i class="mini-orb__ring mini-orb__ring--b"></i><i class="mini-orb__core"></i></span>
+                        <span><b>AURA</b><small data-es="Asistente de misión" data-en="Mission assistant">Asistente de misión</small></span>
                     </div>
-                    <div class="stat">
-                        <span class="stat__value"><span class="stat__pre">+</span><span class="stat__num" data-to="30">30</span><span class="stat__suf">%</span></span>
-                        <span class="stat__label" data-es="mejor organización de datos con bases de datos a medida" data-en="better data organization with custom databases">mejor organización de datos con bases de datos a medida</span>
+                    <p class="console__aura-text" id="consoleAura"></p>
+                    <div class="console__log">
+                        <p class="console__log-title" data-es="PLAN EN CONSTRUCCIÓN" data-en="PLAN IN PROGRESS">PLAN EN CONSTRUCCIÓN</p>
+                        <ul id="consoleLog"></ul>
                     </div>
-                    <div class="stat">
-                        <span class="stat__value"><span class="stat__pre">+</span><span class="stat__num" data-to="20">20</span><span class="stat__suf">%</span></span>
-                        <span class="stat__label" data-es="más interacción con clientes gracias al branding" data-en="more client interaction thanks to branding">más interacción con clientes gracias al branding</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat__value"><span class="stat__pre"></span><span class="stat__num" data-to="2019">2019</span><span class="stat__suf"></span></span>
-                        <span class="stat__label" data-es="el año en que empecé a crear soluciones digitales" data-en="the year I started building digital solutions">el año en que empecé a crear soluciones digitales</span>
-                    </div>
-                </div>
-                <div class="svc-results__chart" aria-hidden="true"><i style="--h:32%"></i><i style="--h:45%"></i><i style="--h:41%"></i><i style="--h:58%"></i><i style="--h:66%"></i><i style="--h:62%"></i><i style="--h:80%"></i><i style="--h:94%"></i></div>
-            </aside>
+                </aside>
+            </div>
         </section>
 
-        <div class="svc-marquee" aria-hidden="true"><div class="svc-marquee__track"><span>WordPress</span><span>.NET</span><span>Angular</span><span>TypeScript</span><span>PHP</span><span>MySQL</span><span>SQL Server</span><span>Node.js</span><span>Illustrator</span><span>Canva</span><span>Google Analytics</span><span>SEO</span><span>Chatbots</span><span>IA generativa</span><span>GitHub Actions</span><span>Scrum</span><span>WordPress</span><span>.NET</span><span>Angular</span><span>TypeScript</span><span>PHP</span><span>MySQL</span><span>SQL Server</span><span>Node.js</span><span>Illustrator</span><span>Canva</span><span>Google Analytics</span><span>SEO</span><span>Chatbots</span><span>IA generativa</span><span>GitHub Actions</span><span>Scrum</span></div></div>
+        <!-- ===================== RESULTADOS ===================== -->
+        <section class="proof" aria-label="Resultados">
+            <p class="proof__title" data-es="RESULTADOS EN PROYECTOS ANTERIORES" data-en="RESULTS FROM PAST PROJECTS">RESULTADOS EN PROYECTOS ANTERIORES</p>
+            <div class="proof__grid">
+                <div class="stat"><span class="stat__value">+<span class="stat__num" data-to="35">35</span>%</span><span class="stat__label" data-es="más productividad con software y automatización" data-en="more productivity with software and automation">más productividad con software y automatización</span></div>
+                <div class="stat"><span class="stat__value">+<span class="stat__num" data-to="30">30</span>%</span><span class="stat__label" data-es="mejor organización de datos con bases de datos a medida" data-en="better data organization with custom databases">mejor organización de datos con bases de datos a medida</span></div>
+                <div class="stat"><span class="stat__value">+<span class="stat__num" data-to="20">20</span>%</span><span class="stat__label" data-es="más interacción con clientes gracias al branding" data-en="more client interaction thanks to branding">más interacción con clientes gracias al branding</span></div>
+                <div class="stat"><span class="stat__value"><span class="stat__num" data-to="2019">2019</span></span><span class="stat__label" data-es="el año en que empecé a crear soluciones digitales" data-en="the year I started building digital solutions">el año en que empecé a crear soluciones digitales</span></div>
+            </div>
+        </section>
 
-        <!-- ===================== ¿QUÉ NECESITAS LOGRAR? ===================== -->
-        <section class="goals" id="servicios-lista" aria-labelledby="goalsTitle">
-            <header class="goals__head">
-                <p class="services-overline" data-es="// ELIGE TU OBJETIVO" data-en="// CHOOSE YOUR GOAL">// ELIGE TU OBJETIVO</p>
-                <h2 class="goals__title" id="goalsTitle" data-es="¿Qué necesitas lograr?" data-en="What do you need to achieve?">¿Qué necesitas lograr?</h2>
+        <!-- ===================== CATÁLOGO ===================== -->
+        <section class="catalog" id="catalogo" aria-labelledby="catalogTitle">
+            <header class="section-head">
+                <p class="services-overline" data-es="// CATÁLOGO" data-en="// CATALOG">// CATÁLOGO</p>
+                <h2 class="section-title" id="catalogTitle" data-es="Todos los servicios" data-en="All services">Todos los servicios</h2>
+                <p class="section-lead" data-es="¿Prefieres explorar por tu cuenta? Aquí están organizados por pilar." data-en="Prefer to explore on your own? Here they are, organized by pillar.">¿Prefieres explorar por tu cuenta? Aquí están organizados por pilar.</p>
             </header>
-            <!-- anclas de los pilares (#code, #ai, #design, #marketing) -->
-            <span id="code" class="svc-anchor"></span><span id="ai" class="svc-anchor"></span><span id="design" class="svc-anchor"></span><span id="marketing" class="svc-anchor"></span>
-            <div class="goals__tabs" role="tablist" aria-label="Pilares">
-                <button type="button" class="goal goal--code" role="tab" id="tab-code" aria-controls="panel-code" aria-selected="true" data-goal="code">
-                    <span class="goal__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></span>
-                    <span class="goal__num">PILAR · I</span>
-                    <span class="goal__title" data-es="Un sitio web o sistema que trabaje por ti" data-en="A website or system that works for you">Un sitio web o sistema que trabaje por ti</span>
-                    <span class="goal__sub" data-es="Webs, tiendas y software a medida." data-en="Websites, stores and custom software.">Webs, tiendas y software a medida.</span>
-                    <span class="goal__pillar" data-es="Programación" data-en="Programming">Programación</span>
-                </button>
-                <button type="button" class="goal goal--ai" role="tab" id="tab-ai" aria-controls="panel-ai" aria-selected="false" data-goal="ai">
-                    <span class="goal__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="3" r="1"/><circle cx="12" cy="21" r="1"/><circle cx="3" cy="12" r="1"/><circle cx="21" cy="12" r="1"/></svg></span>
-                    <span class="goal__num">PILAR · II</span>
-                    <span class="goal__title" data-es="Ahorrar horas con IA y automatización" data-en="Save hours with AI and automation">Ahorrar horas con IA y automatización</span>
-                    <span class="goal__sub" data-es="Procesos automáticos, chatbots y talleres." data-en="Automated processes, chatbots and workshops.">Procesos automáticos, chatbots y talleres.</span>
-                    <span class="goal__pillar" data-es="IA y automatización" data-en="AI and automation">IA y automatización</span>
-                </button>
-                <button type="button" class="goal goal--design" role="tab" id="tab-design" aria-controls="panel-design" aria-selected="false" data-goal="design">
-                    <span class="goal__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.6-.8 1.6-1.6 0-.9-.7-1.3-.7-2.1 0-.8.6-1.4 1.4-1.4H16a5 5 0 0 0 5-5c0-4.4-4-7.9-9-7.9z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="14.5" cy="7" r="1"/></svg></span>
-                    <span class="goal__num">PILAR · III</span>
-                    <span class="goal__title" data-es="Una marca que se vea profesional" data-en="A brand that looks professional">Una marca que se vea profesional</span>
-                    <span class="goal__sub" data-es="Logo, identidad visual y material gráfico." data-en="Logo, visual identity and graphic materials.">Logo, identidad visual y material gráfico.</span>
-                    <span class="goal__pillar" data-es="Diseño" data-en="Design">Diseño</span>
-                </button>
-                <button type="button" class="goal goal--marketing" role="tab" id="tab-marketing" aria-controls="panel-marketing" aria-selected="false" data-goal="marketing">
-                    <span class="goal__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a2 2 0 0 0 2 2h1l4 4V5L6 9H5a2 2 0 0 0-2 2z"/><path d="M14 9a3 3 0 0 1 0 6"/><path d="M17 6a7 7 0 0 1 0 12"/></svg></span>
-                    <span class="goal__num">PILAR · IV</span>
-                    <span class="goal__title" data-es="Más clientes desde lo digital" data-en="More customers from digital">Más clientes desde lo digital</span>
-                    <span class="goal__sub" data-es="Redes, contenido, SEO y estrategia." data-en="Social media, content, SEO and strategy.">Redes, contenido, SEO y estrategia.</span>
-                    <span class="goal__pillar" data-es="Marketing digital" data-en="Digital marketing">Marketing digital</span>
-                </button>
-            </div>
-            
-            <div class="goal-panel goal-panel--code" role="tabpanel" id="panel-code" aria-labelledby="tab-code">
-                <div class="goal-panel__grid goal-panel__grid--2">
-                    <article class="offer" id="web">
-                        <span class="offer__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v14H3z"/><path d="M3 9h18"/><path d="M7 7h.01M10 7h.01"/><path d="m9 13-2 2 2 2M15 13l2 2-2 2"/></svg></span>
-                        <h3 class="offer__title" data-es="Desarrollo web" data-en="Web development">Desarrollo web</h3>
-                        <p class="offer__lead" data-es="Tu negocio abierto las 24 horas: sitios rápidos, responsivos y fáciles de administrar." data-en="Your business open 24/7: fast, responsive sites that are easy to manage.">Tu negocio abierto las 24 horas: sitios rápidos, responsivos y fáciles de administrar.</p>
-                        <p class="offer__ideal"><b data-es="Ideal para:" data-en="Ideal for:">Ideal para:</b> <span data-es="Emprendimientos, comercios y profesionales" data-en="Startups, shops and professionals">Emprendimientos, comercios y profesionales</span></p>
-                        <ul class="offer__list"><li data-es="Sitios en WordPress o a medida" data-en="WordPress or custom sites">Sitios en WordPress o a medida</li><li data-es="Tiendas en línea y catálogos" data-en="Online stores and catalogs">Tiendas en línea y catálogos</li><li data-es="Sitios bilingües" data-en="Bilingual websites">Sitios bilingües</li><li data-es="SEO técnico y velocidad" data-en="Technical SEO and speed">SEO técnico y velocidad</li><li data-es="Integración con WhatsApp Business" data-en="WhatsApp Business integration">Integración con WhatsApp Business</li></ul>
-                        <a class="offer__cta" href="contacto.html?servicio=web" data-es="Cotizar este servicio →" data-en="Quote this service →">Cotizar este servicio →</a>
-                    </article>
-                    <article class="offer" id="software">
-                        <span class="offer__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span>
-                        <h3 class="offer__title" data-es="Bases de datos y software" data-en="Databases and software">Bases de datos y software</h3>
-                        <p class="offer__lead" data-es="Tu información ordenada y tus procesos en un solo sistema." data-en="Your information organized and your processes in a single system.">Tu información ordenada y tus procesos en un solo sistema.</p>
-                        <p class="offer__ideal"><b data-es="Ideal para:" data-en="Ideal for:">Ideal para:</b> <span data-es="Empresas que manejan muchos datos o procesos" data-en="Companies handling lots of data or processes">Empresas que manejan muchos datos o procesos</span></p>
-                        <ul class="offer__list"><li data-es="Bases de datos a la medida" data-en="Custom databases">Bases de datos a la medida</li><li data-es="Optimización y administración SQL" data-en="SQL optimization and administration">Optimización y administración SQL</li><li data-es="Software y sistemas de gestión" data-en="Software and management systems">Software y sistemas de gestión</li><li data-es="APIs RESTful e integraciones" data-en="RESTful APIs and integrations">APIs RESTful e integraciones</li><li data-es="Migración y respaldo de datos" data-en="Data migration and backup">Migración y respaldo de datos</li></ul>
-                        <a class="offer__cta" href="contacto.html?servicio=software" data-es="Cotizar este servicio →" data-en="Quote this service →">Cotizar este servicio →</a>
-                    </article>
-                </div>
-                <a class="goal-panel__projects" href="proyectos.html?area=code" data-es="Ver proyectos de programación →" data-en="See programming projects →">Ver proyectos de programación →</a>
-            </div>
-            <div class="goal-panel goal-panel--ai" role="tabpanel" id="panel-ai" aria-labelledby="tab-ai" hidden>
-                <div class="goal-panel__grid goal-panel__grid--3">
-                    <article class="offer" id="automation">
-                        <span class="offer__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg></span>
-                        <h3 class="offer__title" data-es="Automatización de procesos" data-en="Process automation">Automatización de procesos</h3>
-                        <p class="offer__lead" data-es="Deja que las tareas repetitivas se hagan solas." data-en="Let repetitive tasks run on their own.">Deja que las tareas repetitivas se hagan solas.</p>
-                        <p class="offer__ideal"><b data-es="Ideal para:" data-en="Ideal for:">Ideal para:</b> <span data-es="Equipos con tareas manuales que consumen horas" data-en="Teams with manual tasks that eat up hours">Equipos con tareas manuales que consumen horas</span></p>
-                        <ul class="offer__list"><li data-es="Automatización de tareas repetitivas" data-en="Automation of repetitive tasks">Automatización de tareas repetitivas</li><li data-es="Estandarización de procesos" data-en="Process standardization">Estandarización de procesos</li><li data-es="Integración de herramientas de trabajo" data-en="Integration of work tools">Integración de herramientas de trabajo</li><li data-es="Flujos de marketing y ventas" data-en="Marketing and sales workflows">Flujos de marketing y ventas</li></ul>
-                        <a class="offer__cta" href="contacto.html?servicio=automation" data-es="Cotizar este servicio →" data-en="Quote this service →">Cotizar este servicio →</a>
-                    </article>
-                    <article class="offer" id="chatbots">
-                        <span class="offer__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/></svg></span>
-                        <h3 class="offer__title" data-es="Chatbots y asistentes con IA" data-en="AI chatbots and assistants">Chatbots y asistentes con IA</h3>
-                        <p class="offer__lead" data-es="Atiende a tus clientes al instante, a cualquier hora." data-en="Serve your customers instantly, at any hour.">Atiende a tus clientes al instante, a cualquier hora.</p>
-                        <p class="offer__ideal"><b data-es="Ideal para:" data-en="Ideal for:">Ideal para:</b> <span data-es="Negocios que reciben muchas preguntas repetidas" data-en="Businesses that get many repeated questions">Negocios que reciben muchas preguntas repetidas</span></p>
-                        <ul class="offer__list"><li data-es="Chatbots de atención al cliente" data-en="Customer service chatbots">Chatbots de atención al cliente</li><li data-es="Asistentes conversacionales como AURA" data-en="Conversational assistants like AURA">Asistentes conversacionales como AURA</li><li data-es="Respuestas automáticas en WhatsApp y redes" data-en="Automated replies on WhatsApp and social media">Respuestas automáticas en WhatsApp y redes</li><li data-es="Preguntas frecuentes interactivas" data-en="Interactive FAQs">Preguntas frecuentes interactivas</li></ul>
-                        <a class="offer__cta" href="contacto.html?servicio=chatbots" data-es="Cotizar este servicio →" data-en="Quote this service →">Cotizar este servicio →</a>
-                    </article>
-                    <article class="offer" id="workshops">
-                        <span class="offer__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l9-4 9 4-9 4z"/><path d="M7 10v5c0 1.5 2.2 3 5 3s5-1.5 5-3v-5"/><path d="M21 8v6"/></svg></span>
-                        <h3 class="offer__title" data-es="Talleres y cursos de IA generativa" data-en="Generative AI workshops and courses">Talleres y cursos de IA generativa</h3>
-                        <p class="offer__lead" data-es="Tu equipo aprende a usar la IA en su trabajo diario, desde el primer día." data-en="Your team learns to use AI in daily work, from day one.">Tu equipo aprende a usar la IA en su trabajo diario, desde el primer día.</p>
-                        <p class="offer__ideal"><b data-es="Ideal para:" data-en="Ideal for:">Ideal para:</b> <span data-es="Empresas que quieren adoptar la IA con su equipo" data-en="Companies that want to adopt AI with their team">Empresas que quieren adoptar la IA con su equipo</span></p>
-                        <ul class="offer__list"><li data-es="Talleres prácticos para equipos" data-en="Hands-on team workshops">Talleres prácticos para equipos</li><li data-es="Cursos de herramientas de IA generativa" data-en="Generative AI tool courses">Cursos de herramientas de IA generativa</li><li data-es="Contenido adaptado a tu sector" data-en="Content tailored to your industry">Contenido adaptado a tu sector</li><li data-es="Uso responsable de la IA" data-en="Responsible AI use">Uso responsable de la IA</li></ul>
-                        <a class="offer__cta" href="contacto.html?servicio=workshops" data-es="Cotizar este servicio →" data-en="Quote this service →">Cotizar este servicio →</a>
-                    </article>
-                </div>
-                <a class="goal-panel__projects" href="proyectos.html?area=ai" data-es="Ver proyectos de IA →" data-en="See AI projects →">Ver proyectos de IA →</a>
-            </div>
-            <div class="goal-panel goal-panel--design" role="tabpanel" id="panel-design" aria-labelledby="tab-design" hidden>
-                <div class="goal-panel__grid goal-panel__grid--1">
-                    <article class="offer" id="branding">
-                        <span class="offer__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.6L20 9.5l-4 4 1 5.5-5-2.7-5 2.7 1-5.5-4-4 5.4-.9z"/></svg></span>
-                        <h3 class="offer__title" data-es="Diseño y branding" data-en="Design and branding">Diseño y branding</h3>
-                        <p class="offer__lead" data-es="Una identidad que te diferencia y genera confianza desde el primer vistazo." data-en="An identity that sets you apart and builds trust at first glance.">Una identidad que te diferencia y genera confianza desde el primer vistazo.</p>
-                        <p class="offer__ideal"><b data-es="Ideal para:" data-en="Ideal for:">Ideal para:</b> <span data-es="Marcas nuevas o que necesitan renovarse" data-en="New brands or brands that need a refresh">Marcas nuevas o que necesitan renovarse</span></p>
-                        <ul class="offer__list"><li data-es="Identidad visual completa" data-en="Complete visual identity">Identidad visual completa</li><li data-es="Diseño de logotipo" data-en="Logo design">Diseño de logotipo</li><li data-es="Paleta, tipografías y manual de marca" data-en="Palette, typography and brand manual">Paleta, tipografías y manual de marca</li><li data-es="Plantillas para redes sociales" data-en="Social media templates">Plantillas para redes sociales</li><li data-es="Material promocional digital e impreso" data-en="Digital and print promotional material">Material promocional digital e impreso</li><li data-es="Adaptación visual para cada canal" data-en="Visual adaptation for every channel">Adaptación visual para cada canal</li></ul>
-                        <a class="offer__cta" href="contacto.html?servicio=branding" data-es="Cotizar este servicio →" data-en="Quote this service →">Cotizar este servicio →</a>
-                    </article>
-                </div>
-                <a class="goal-panel__projects" href="proyectos.html?area=design" data-es="Ver proyectos de diseño →" data-en="See design projects →">Ver proyectos de diseño →</a>
-            </div>
-            <div class="goal-panel goal-panel--marketing" role="tabpanel" id="panel-marketing" aria-labelledby="tab-marketing" hidden>
-                <div class="goal-panel__grid goal-panel__grid--2">
-                    <article class="offer" id="community">
-                        <span class="offer__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 19c.8-3 2.8-4.5 5-4.5s4.2 1.5 5 4.5"/><path d="M14 18.5c.5-2 1.7-3 3-3s2.5 1 3 3"/></svg></span>
-                        <h3 class="offer__title" data-es="Community management" data-en="Community management">Community management</h3>
-                        <p class="offer__lead" data-es="Tus redes activas, con contenido y diseño propios, mientras tú te enfocas en tu negocio." data-en="Your social media active with original content and design, while you focus on your business.">Tus redes activas, con contenido y diseño propios, mientras tú te enfocas en tu negocio.</p>
-                        <p class="offer__ideal"><b data-es="Ideal para:" data-en="Ideal for:">Ideal para:</b> <span data-es="Marcas que quieren constancia en redes" data-en="Brands that want consistency on social media">Marcas que quieren constancia en redes</span></p>
-                        <ul class="offer__list"><li data-es="Gestión completa de redes sociales" data-en="Full social media management">Gestión completa de redes sociales</li><li data-es="Contenido en español e inglés" data-en="Content in Spanish and English">Contenido en español e inglés</li><li data-es="Diseño para cada publicación" data-en="Design for every post">Diseño para cada publicación</li><li data-es="Respuesta a comentarios y mensajes" data-en="Replies to comments and messages">Respuesta a comentarios y mensajes</li><li data-es="Reportes mensuales" data-en="Monthly reports">Reportes mensuales</li></ul>
-                        <a class="offer__cta" href="contacto.html?servicio=community" data-es="Cotizar este servicio →" data-en="Quote this service →">Cotizar este servicio →</a>
-                    </article>
-                    <article class="offer" id="consulting">
-                        <span class="offer__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l3-4 3 2 5-6"/><path d="M16 7h3v3"/></svg></span>
-                        <h3 class="offer__title" data-es="Consultoría y estrategia" data-en="Consulting and strategy">Consultoría y estrategia</h3>
-                        <p class="offer__lead" data-es="Un diagnóstico claro y un plan concreto para crecer en digital." data-en="A clear diagnosis and a concrete plan to grow online.">Un diagnóstico claro y un plan concreto para crecer en digital.</p>
-                        <p class="offer__ideal"><b data-es="Ideal para:" data-en="Ideal for:">Ideal para:</b> <span data-es="Negocios que no saben por dónde empezar" data-en="Businesses that don't know where to start">Negocios que no saben por dónde empezar</span></p>
-                        <ul class="offer__list"><li data-es="Auditoría de presencia digital" data-en="Digital presence audit">Auditoría de presencia digital</li><li data-es="Estrategia de marca y crecimiento" data-en="Brand and growth strategy">Estrategia de marca y crecimiento</li><li data-es="SEO y campañas digitales" data-en="SEO and digital campaigns">SEO y campañas digitales</li><li data-es="Analítica web y KPIs" data-en="Web analytics and KPIs">Analítica web y KPIs</li></ul>
-                        <a class="offer__cta" href="contacto.html?servicio=consulting" data-es="Cotizar este servicio →" data-en="Quote this service →">Cotizar este servicio →</a>
-                    </article>
-                </div>
-                <a class="goal-panel__projects" href="proyectos.html?area=marketing" data-es="Ver proyectos de marketing →" data-en="See marketing projects →">Ver proyectos de marketing →</a>
-            </div>
-        </section>
-
-        <!-- ===================== DESTACADO: TALLERES ===================== -->
-        <section class="spotlight">
-            <span class="spotlight__badge" data-es="NUEVO" data-en="NEW">NUEVO</span>
-            <div class="spotlight__copy">
-                <p class="spotlight__title" data-es="Talleres de IA generativa para tu equipo" data-en="Generative AI workshops for your team">Talleres de IA generativa para tu equipo</p>
-                <p class="spotlight__lead" data-es="Sesiones prácticas para que tu equipo use la IA en su trabajo diario: redactar, analizar, organizar y automatizar. Adaptadas a tu sector, como el taller que dicté para una firma legal del sector contable." data-en="Hands-on sessions so your team uses AI in their daily work: writing, analyzing, organizing and automating. Tailored to your industry, like the workshop I gave for a law firm in the accounting sector.">Sesiones prácticas para que tu equipo use la IA en su trabajo diario: redactar, analizar, organizar y automatizar. Adaptadas a tu sector, como el taller que dicté para una firma legal del sector contable.</p>
-            </div>
-            <a class="aura-btn aura-btn--primary" href="contacto.html?servicio=workshops" data-es="Quiero un taller" data-en="I want a workshop">Quiero un taller</a>
+            <div class="catalog__grid" id="catalogGrid"></div>
         </section>
 
         <!-- ===================== CÓMO TRABAJO ===================== -->
         <section class="process" id="proceso" data-aura-say="proceso" aria-labelledby="processTitle">
-            <header class="process__head">
+            <header class="section-head">
                 <p class="services-overline" data-es="// PROTOCOLO" data-en="// PROTOCOL">// PROTOCOLO</p>
-                <h2 class="process__title" id="processTitle" data-es="Cómo trabajo" data-en="How I work">Cómo trabajo</h2>
+                <h2 class="section-title" id="processTitle" data-es="Cómo trabajo" data-en="How I work">Cómo trabajo</h2>
             </header>
             <ol class="steps">
-                <li class="step">
-                    <span class="step__num">01</span>
-                    <h3 class="step__title" data-es="Conversación inicial" data-en="First conversation">Conversación inicial</h3>
-                    <p class="step__text" data-es="Me cuentas tu idea, tus objetivos y tus tiempos. Sin compromiso." data-en="You tell me your idea, goals and timeline. No commitment.">Me cuentas tu idea, tus objetivos y tus tiempos. Sin compromiso.</p>
-                </li>
-                <li class="step">
-                    <span class="step__num">02</span>
-                    <h3 class="step__title" data-es="Propuesta y cotización" data-en="Proposal and quote">Propuesta y cotización</h3>
-                    <p class="step__text" data-es="Te envío el alcance, el plan de trabajo, los tiempos y el precio." data-en="I send you the scope, work plan, timeline and price.">Te envío el alcance, el plan de trabajo, los tiempos y el precio.</p>
-                </li>
-                <li class="step">
-                    <span class="step__num">03</span>
-                    <h3 class="step__title" data-es="Diseño y desarrollo" data-en="Design and development">Diseño y desarrollo</h3>
-                    <p class="step__text" data-es="Trabajo por etapas y te muestro avances para que des tu opinión." data-en="I work in stages and show you progress so you can give feedback.">Trabajo por etapas y te muestro avances para que des tu opinión.</p>
-                </li>
-                <li class="step">
-                    <span class="step__num">04</span>
-                    <h3 class="step__title" data-es="Entrega y lanzamiento" data-en="Delivery and launch">Entrega y lanzamiento</h3>
-                    <p class="step__text" data-es="Probamos todo, lo publicamos y te enseño a usarlo." data-en="We test everything, launch it and I teach you how to use it.">Probamos todo, lo publicamos y te enseño a usarlo.</p>
-                </li>
-                <li class="step">
-                    <span class="step__num">05</span>
-                    <h3 class="step__title" data-es="Acompañamiento" data-en="Ongoing support">Acompañamiento</h3>
-                    <p class="step__text" data-es="Ajustes, soporte y mejoras después de la entrega." data-en="Adjustments, support and improvements after delivery.">Ajustes, soporte y mejoras después de la entrega.</p>
-                </li>
+                <li class="step"><span class="step__num">01</span><h3 class="step__title" data-es="Conversación inicial" data-en="First conversation">Conversación inicial</h3><p class="step__text" data-es="Me cuentas tu idea, tus objetivos y tus tiempos. Sin compromiso." data-en="You tell me your idea, goals and timeline. No commitment.">Me cuentas tu idea, tus objetivos y tus tiempos. Sin compromiso.</p></li>
+                <li class="step"><span class="step__num">02</span><h3 class="step__title" data-es="Propuesta y cotización" data-en="Proposal and quote">Propuesta y cotización</h3><p class="step__text" data-es="Te envío el alcance, el plan de trabajo, los tiempos y el precio." data-en="I send you the scope, work plan, timeline and price.">Te envío el alcance, el plan de trabajo, los tiempos y el precio.</p></li>
+                <li class="step"><span class="step__num">03</span><h3 class="step__title" data-es="Diseño y desarrollo" data-en="Design and development">Diseño y desarrollo</h3><p class="step__text" data-es="Trabajo por etapas y te muestro avances para que des tu opinión." data-en="I work in stages and show you progress so you can give feedback.">Trabajo por etapas y te muestro avances para que des tu opinión.</p></li>
+                <li class="step"><span class="step__num">04</span><h3 class="step__title" data-es="Entrega y lanzamiento" data-en="Delivery and launch">Entrega y lanzamiento</h3><p class="step__text" data-es="Probamos todo, lo publicamos y te enseño a usarlo." data-en="We test everything, launch it and I teach you how to use it.">Probamos todo, lo publicamos y te enseño a usarlo.</p></li>
+                <li class="step"><span class="step__num">05</span><h3 class="step__title" data-es="Acompañamiento" data-en="Ongoing support">Acompañamiento</h3><p class="step__text" data-es="Ajustes, soporte y mejoras después de la entrega." data-en="Adjustments, support and improvements after delivery.">Ajustes, soporte y mejoras después de la entrega.</p></li>
             </ol>
         </section>
 
         <!-- ===================== PREGUNTAS FRECUENTES ===================== -->
         <section class="faq" aria-labelledby="faqTitle">
-            <header class="process__head">
+            <header class="section-head">
                 <p class="services-overline" data-es="// DUDAS FRECUENTES" data-en="// FAQ">// DUDAS FRECUENTES</p>
-                <h2 class="process__title" id="faqTitle" data-es="Preguntas frecuentes" data-en="Frequently asked questions">Preguntas frecuentes</h2>
+                <h2 class="section-title" id="faqTitle" data-es="Preguntas frecuentes" data-en="Frequently asked questions">Preguntas frecuentes</h2>
             </header>
             <div class="faq__list">
-                <details class="faq__item">
-                    <summary><span class="" data-es="¿Cuánto cuesta un proyecto?" data-en="How much does a project cost?">¿Cuánto cuesta un proyecto?</span><i aria-hidden="true"></i></summary>
-                    <p class="faq__answer" data-es="Depende del alcance. Por eso cada proyecto se cotiza a la medida: me cuentas qué necesitas y te envío una propuesta con precio, sin costo ni compromiso." data-en="It depends on the scope. That's why every project is quoted to fit: tell me what you need and I'll send you a priced proposal, free and with no commitment.">Depende del alcance. Por eso cada proyecto se cotiza a la medida: me cuentas qué necesitas y te envío una propuesta con precio, sin costo ni compromiso.</p>
-                </details>
-                <details class="faq__item">
-                    <summary><span class="" data-es="¿Cuánto tiempo toma?" data-en="How long does it take?">¿Cuánto tiempo toma?</span><i aria-hidden="true"></i></summary>
-                    <p class="faq__answer" data-es="Varía según el proyecto. En la propuesta te indico los tiempos de cada etapa para que sepas exactamente cuándo esperar cada entrega." data-en="It varies by project. The proposal includes the timeline for each stage so you know exactly when to expect each delivery.">Varía según el proyecto. En la propuesta te indico los tiempos de cada etapa para que sepas exactamente cuándo esperar cada entrega.</p>
-                </details>
-                <details class="faq__item">
-                    <summary><span class="" data-es="¿Trabajas con clientes fuera de Colombia?" data-en="Do you work with clients outside Colombia?">¿Trabajas con clientes fuera de Colombia?</span><i aria-hidden="true"></i></summary>
-                    <p class="faq__answer" data-es="Sí. Trabajo de forma remota con clientes de Colombia y Canadá, en español y en inglés." data-en="Yes. I work remotely with clients in Colombia and Canada, in Spanish and English.">Sí. Trabajo de forma remota con clientes de Colombia y Canadá, en español y en inglés.</p>
-                </details>
-                <details class="faq__item">
-                    <summary><span class="" data-es="¿Puedo contratar solo una parte?" data-en="Can I hire just one part?">¿Puedo contratar solo una parte?</span><i aria-hidden="true"></i></summary>
-                    <p class="faq__answer" data-es="Claro. Puedes contratar un servicio puntual (por ejemplo, solo el logo o solo la automatización) o un proyecto completo." data-en="Of course. You can hire a single service (for example, just the logo or just the automation) or a complete project.">Claro. Puedes contratar un servicio puntual (por ejemplo, solo el logo o solo la automatización) o un proyecto completo.</p>
-                </details>
-                <details class="faq__item">
-                    <summary><span class="" data-es="¿Qué pasa después de la entrega?" data-en="What happens after delivery?">¿Qué pasa después de la entrega?</span><i aria-hidden="true"></i></summary>
-                    <p class="faq__answer" data-es="Te enseño a usar lo que construimos y seguimos en contacto para ajustes, soporte y mejoras. El acompañamiento se define en la propuesta." data-en="I teach you how to use what we built and we stay in touch for adjustments, support and improvements. Ongoing support is defined in the proposal.">Te enseño a usar lo que construimos y seguimos en contacto para ajustes, soporte y mejoras. El acompañamiento se define en la propuesta.</p>
-                </details>
+                <details class="faq__item"><summary><span data-es="¿Cuánto cuesta un proyecto?" data-en="How much does a project cost?">¿Cuánto cuesta un proyecto?</span><i aria-hidden="true"></i></summary><p class="faq__answer" data-es="Depende del alcance. Por eso cada proyecto se cotiza a la medida: me cuentas qué necesitas y te envío una propuesta con precio, sin costo ni compromiso." data-en="It depends on the scope. That's why every project is quoted to fit: tell me what you need and I'll send you a priced proposal, free and with no commitment.">Depende del alcance. Por eso cada proyecto se cotiza a la medida: me cuentas qué necesitas y te envío una propuesta con precio, sin costo ni compromiso.</p></details>
+                <details class="faq__item"><summary><span data-es="¿Cuánto tiempo toma?" data-en="How long does it take?">¿Cuánto tiempo toma?</span><i aria-hidden="true"></i></summary><p class="faq__answer" data-es="Varía según el proyecto. En la propuesta te indico los tiempos de cada etapa para que sepas exactamente cuándo esperar cada entrega." data-en="It varies by project. The proposal includes the timeline for each stage so you know exactly when to expect each delivery.">Varía según el proyecto. En la propuesta te indico los tiempos de cada etapa para que sepas exactamente cuándo esperar cada entrega.</p></details>
+                <details class="faq__item"><summary><span data-es="¿Trabajas con clientes fuera de Colombia?" data-en="Do you work with clients outside Colombia?">¿Trabajas con clientes fuera de Colombia?</span><i aria-hidden="true"></i></summary><p class="faq__answer" data-es="Sí. Trabajo de forma remota con clientes de Colombia y Canadá, en español y en inglés." data-en="Yes. I work remotely with clients in Colombia and Canada, in Spanish and English.">Sí. Trabajo de forma remota con clientes de Colombia y Canadá, en español y en inglés.</p></details>
+                <details class="faq__item"><summary><span data-es="¿Puedo contratar solo una parte?" data-en="Can I hire just one part?">¿Puedo contratar solo una parte?</span><i aria-hidden="true"></i></summary><p class="faq__answer" data-es="Claro. Puedes contratar un servicio puntual (por ejemplo, solo el logo o solo la automatización) o un proyecto completo." data-en="Of course. You can hire a single service (for example, just the logo or just the automation) or a complete project.">Claro. Puedes contratar un servicio puntual (por ejemplo, solo el logo o solo la automatización) o un proyecto completo.</p></details>
+                <details class="faq__item"><summary><span data-es="¿Qué pasa después de la entrega?" data-en="What happens after delivery?">¿Qué pasa después de la entrega?</span><i aria-hidden="true"></i></summary><p class="faq__answer" data-es="Te enseño a usar lo que construimos y seguimos en contacto para ajustes, soporte y mejoras. El acompañamiento se define en la propuesta." data-en="I teach you how to use what we built and we stay in touch for adjustments, support and improvements. Ongoing support is defined in the proposal.">Te enseño a usar lo que construimos y seguimos en contacto para ajustes, soporte y mejoras. El acompañamiento se define en la propuesta.</p></details>
             </div>
         </section>
 
-        <!-- ===================== CIERRE ===================== -->
         <section class="svc-final">
             <p class="svc-final__title" data-es="¿Listo para empezar?" data-en="Ready to get started?">¿Listo para empezar?</p>
             <p class="svc-final__lead" data-es="La primera conversación es gratis. Cuéntame tu idea y te digo cómo hacerla realidad." data-en="The first conversation is free. Tell me your idea and I'll tell you how to make it happen.">La primera conversación es gratis. Cuéntame tu idea y te digo cómo hacerla realidad.</p>
-            <div class="svc-hero__actions">
-                <a class="aura-btn aura-btn--primary" href="contacto.html" data-es="Pedir cotización gratis" data-en="Get a free quote">Pedir cotización gratis</a>
-                <a class="aura-btn svc-hero__wa" href="https://wa.me/573204499948" target="_blank" rel="noopener" data-es="Escribir por WhatsApp" data-en="Message on WhatsApp">Escribir por WhatsApp</a>
+            <div class="svc-final__actions">
+                <a class="aura-btn aura-btn--primary" href="#missionConsole" data-es="Diseñar mi misión" data-en="Design my mission">Diseñar mi misión</a>
+                <a class="aura-btn svc-wa" href="https://wa.me/573204499948" target="_blank" rel="noopener" data-es="Escribir por WhatsApp" data-en="Message on WhatsApp">Escribir por WhatsApp</a>
             </div>
         </section>
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
 
-    <script src="js/aura/knowledge.js?v=20261025g"></script>
-    <script src="js/bg.js?v=20261025g"></script>
-    <script src="js/site.js?v=20261025g"></script>
-    <script src="js/aura/assistant.js?v=20261025g"></script>
-    <script src="js/services.js?v=20261025g"></script>
+    <script src="js/aura/knowledge.js?v=20261025h"></script>
+    <script src="js/services-data.js?v=20261025h"></script>
+    <script src="js/bg.js?v=20261025h"></script>
+    <script src="js/site.js?v=20261025h"></script>
+    <script src="js/services.js?v=20261025h"></script>
+    <script src="js/aura/assistant.js?v=20261025h"></script>
 </body>
 </html>
