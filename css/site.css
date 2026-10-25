@@ -1,0 +1,256 @@
+/* ==========================================================
+   SITE · Estilos compartidos por todas las pestañas
+   (barra en páginas internas, pie de página, orbe flotante de AURA)
+   Requiere los tokens de color de css/aura.css
+   ========================================================== */
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    margin: 0;
+    background: var(--a-bg);
+    color: var(--a-text);
+    font-family: var(--a-font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+img, video { max-width: 100%; }
+
+/* ---------- Barra superior en páginas internas ---------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    padding: 14px clamp(16px, 3vw, 40px);
+    background: linear-gradient(180deg, rgba(2, 4, 6, 0.94), rgba(2, 4, 6, 0.72));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(43, 245, 176, 0.12);
+    font-family: var(--a-font-body);
+    color: var(--a-text);
+}
+
+/* ---------- Página interna: contenedor base ---------- */
+.page {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    overflow: hidden;
+    overflow: clip;
+    background:
+        radial-gradient(ellipse 70% 40% at 15% 0%, rgba(43, 245, 176, 0.08), transparent 70%),
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(139, 92, 246, 0.12), transparent 70%),
+        var(--a-bg);
+    color: var(--a-text);
+    font-family: var(--a-font-body);
+}
+.page::before {
+    /* retícula de fondo muy sutil */
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        linear-gradient(rgba(43, 245, 176, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 92, 246, 0.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: linear-gradient(to bottom, #000, transparent 90%);
+    -webkit-mask-image: linear-gradient(to bottom, #000, transparent 90%);
+    pointer-events: none;
+}
+
+/* Aviso de pestaña pendiente de rediseño */
+.page-notice {
+    margin: 18px auto 0;
+    width: min(720px, calc(100% - 32px));
+    padding: 10px 14px;
+    border: 1px dashed rgba(43, 245, 176, 0.35);
+    border-radius: 8px;
+    font-family: var(--a-font-mono);
+    font-size: 0.74rem;
+    color: var(--a-muted);
+    text-align: center;
+}
+
+/* ---------- Pie de página ---------- */
+.site-footer {
+    position: relative;
+    padding: 40px clamp(16px, 4vw, 48px) 28px;
+    border-top: 1px solid rgba(43, 245, 176, 0.14);
+    background: linear-gradient(180deg, rgba(4, 10, 12, 0.9), #020406);
+    color: var(--a-muted);
+    font-family: var(--a-font-body);
+}
+.site-footer__inner {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px 32px;
+}
+.site-footer__brand { display: flex; flex-direction: column; gap: 4px; }
+.site-footer__name { font-family: var(--a-font-display); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--a-text); }
+.site-footer__status { display: inline-flex; align-items: center; gap: 8px; font-family: var(--a-font-mono); font-size: 0.72rem; letter-spacing: 0.08em; }
+.site-footer__status i { width: 7px; height: 7px; border-radius: 50%; background: var(--a-emerald); box-shadow: 0 0 8px var(--a-emerald); animation: aura-blink 2s steps(2) infinite; }
+.site-footer__nav, .site-footer__social { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.site-footer a { color: #c4dcd4; text-decoration: none; font-size: 0.92rem; transition: color 0.2s; }
+.site-footer a:hover, .site-footer a:focus-visible { color: var(--a-emerald); outline: none; }
+.site-footer__copy { width: min(1200px, 100%); margin: 24px auto 0; font-size: 0.78rem; color: var(--a-dim); }
+
+/* ---------- Orbe flotante de AURA ---------- */
+.aura-float {
+    position: fixed;
+    right: clamp(14px, 2.5vw, 28px);
+    bottom: clamp(14px, 2.5vw, 28px);
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    font-family: var(--a-font-body);
+    color: var(--a-text);
+    transition: opacity 0.4s, transform 0.4s;
+}
+.aura-float.is-hidden { opacity: 0; transform: translateY(20px) scale(0.9); pointer-events: none; }
+
+.aura-fab {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+}
+.aura-fab:focus-visible { outline: 2px solid var(--a-emerald); outline-offset: 4px; }
+
+/* orbe en CSS (más liviano que WebGL para las páginas internas) */
+.mini-orb {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    display: block;
+    background:
+        radial-gradient(circle at 50% 50%, #f2fffa 0 8%, rgba(43, 245, 176, 0.95) 18%, rgba(16, 140, 110, 0.65) 42%, rgba(139, 92, 246, 0.45) 64%, transparent 72%);
+    box-shadow: 0 0 22px rgba(43, 245, 176, 0.55), 0 0 50px rgba(139, 92, 246, 0.35), inset 0 0 18px rgba(255, 255, 255, 0.25);
+    animation: mini-orb-breathe 3.2s ease-in-out infinite;
+}
+.mini-orb__core {
+    position: absolute;
+    inset: 26%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff, rgba(43, 245, 176, 0.6) 55%, transparent 72%);
+    filter: blur(1px);
+}
+.mini-orb__ring {
+    position: absolute;
+    inset: -7px;
+    border-radius: 50%;
+    border: 1.5px solid transparent;
+    border-top-color: var(--a-emerald);
+    border-bottom-color: rgba(139, 92, 246, 0.9);
+    animation: aura-spin 4s linear infinite;
+}
+.mini-orb__ring--b {
+    inset: -13px;
+    border-width: 1px;
+    border-top-color: transparent;
+    border-left-color: var(--a-magenta);
+    border-right-color: rgba(43, 245, 176, 0.5);
+    animation-duration: 7s;
+    animation-direction: reverse;
+}
+@keyframes mini-orb-breathe { 50% { transform: scale(1.06); filter: brightness(1.2); } }
+.aura-fab:hover .mini-orb { filter: brightness(1.25); }
+[data-aura-state='speaking'] .mini-orb { animation-duration: 0.5s; }
+[data-aura-state='thinking'] .mini-orb { filter: hue-rotate(60deg) brightness(1.1); }
+[data-aura-state='thinking'] .mini-orb__ring { animation-duration: 1s; }
+
+/* globo de comentarios */
+.aura-bubble {
+    position: relative;
+    width: min(320px, calc(100vw - 100px));
+    margin-right: 10px;
+    padding: 12px 34px 12px 14px;
+    background: linear-gradient(160deg, rgba(6, 26, 22, 0.95), rgba(16, 10, 36, 0.94));
+    border: 1px solid var(--a-line);
+    border-radius: 12px 12px 4px 12px;
+    box-shadow: var(--a-glow);
+    backdrop-filter: blur(12px);
+    animation: aura-in 0.35s ease-out;
+}
+.aura-bubble[hidden] { display: none; }
+.aura-bubble__who { display: block; margin-bottom: 4px; font-family: var(--a-font-mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--a-emerald); }
+.aura-bubble__text { margin: 0; font-size: 0.92rem; line-height: 1.5; }
+.aura-bubble__close, .aura-float__close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--a-muted);
+    cursor: pointer;
+}
+.aura-bubble__close svg, .aura-float__close svg { width: 15px; height: 15px; }
+.aura-bubble__close:hover, .aura-float__close:hover { color: var(--a-text); background: rgba(255, 255, 255, 0.06); }
+.aura-float__close { position: static; margin-left: auto; }
+.aura-float .aura-skip + .aura-float__close { margin-left: 6px; }
+
+/* panel de chat */
+.aura-float__panel {
+    width: min(400px, calc(100vw - 28px));
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    background: rgba(2, 6, 8, 0.82);
+    border: 1px solid rgba(43, 245, 176, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6), var(--a-glow);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    animation: aura-in 0.3s ease-out;
+}
+.aura-float__panel[hidden] { display: none; }
+.aura-float__panel .aura-log { height: min(300px, 40vh); }
+.aura-float__panel .aura-chips { justify-content: flex-start; }
+.aura-float__panel .aura-chip { font-size: 0.8rem; padding: 6px 12px; }
+.aura-float__panel .aura-input input { font-size: 0.92rem; }
+.aura-float__panel .aura-send { padding: 9px 12px; }
+
+@media (max-width: 640px) {
+    .aura-fab { width: 56px; height: 56px; }
+    .aura-float__panel { position: fixed; left: 10px; right: 10px; bottom: 84px; width: auto; }
+}
+
+/* aviso para escuchar la voz cuando el navegador aún no lo permite */
+.aura-icon-btn.needs-gesture::before {
+    content: attr(data-hint);
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    white-space: nowrap;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: rgba(6, 26, 22, 0.95);
+    border: 1px solid var(--a-line);
+    color: var(--a-text);
+    font-family: var(--a-font-body);
+    font-size: 0.75rem;
+    box-shadow: var(--a-glow);
+    pointer-events: none;
+    animation: aura-in 0.4s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mini-orb, .mini-orb__ring, .site-footer__status i { animation: none !important; }
+}

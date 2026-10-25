@@ -1,11 +1,16 @@
 /* ==========================================================
-   AURA · Asistente: bienvenida, chat, voz e idioma
+   AURA · Asistente: bienvenida, chat, voz, idioma y comentarios
+   En Inicio el chat vive en el hero; en las demás pestañas vive en
+   el panel del orbe flotante (lo crea js/site.js).
    ========================================================== */
 (function () {
     const KB = window.AURA_KB;
     const NAME = KB.config.name;
     const orb = () => window.AuraOrb || { setState() {}, pulse() {}, poke() {} };
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const page = document.body.dataset.page || 'home';
+    const isHome = page === 'home';
+    const PAGE = (KB.pages && KB.pages[page]) || {};
 
     const $ = (sel) => document.querySelector(sel);
     const els = {
@@ -19,7 +24,14 @@
         skip: $('#auraSkip'),
         featured: $('#auraFeatured'),
         boot: $('#auraBoot'),
-        bootLog: $('#auraBootLog')
+        bootLog: $('#auraBootLog'),
+        bootActions: $('#auraBootActions'),
+        bootGo: $('#auraBootGo'),
+        bootSilent: $('#auraBootSilent'),
+        float: $('#auraFloat'),
+        bubble: $('#auraBubble'),
+        bubbleText: $('#auraBubbleText'),
+        bubbleClose: $('#auraBubbleClose')
     };
 
     /* ---------- Almacenamiento seguro ---------- */
@@ -32,7 +44,8 @@
 
     const state = {
         lang: store.get('aura-lang') === 'en' ? 'en' : 'es',
-        voice: store.get('aura-voice') === 'on',
+        // la voz viene activada por defecto; solo se apaga si la persona la desactiva
+        voice: store.get('aura-voice') !== 'off',
         token: 0,          // invalida mensajes en curso cuando llega uno nuevo
         welcoming: false,
         history: [],
@@ -57,6 +70,7 @@
         repo: { es: 'Ver en GitHub', en: 'View on GitHub' },
         voiceOn: { es: 'Desactivar voz', en: 'Turn voice off' },
         voiceOff: { es: 'Activar voz', en: 'Turn voice on' },
+        tapToHear: { es: '🔊 Toca la pantalla para escuchar a AURA', en: '🔊 Tap the screen to hear AURA' },
         boot: {
             es: ['> Inicializando núcleo {name}...', '> Cargando módulos: proyectos · habilidades · experiencia', '> Calibrando matriz holográfica', '> Enlace neural establecido ✓'],
             en: ['> Initializing {name} core...', '> Loading modules: projects · skills · experience', '> Calibrating holographic matrix', '> Neural link established ✓']
@@ -83,8 +97,31 @@
         return list.find((v) => prefer.some((p) => v.name.toLowerCase().includes(p))) || list[0] || null;
     }
 
+    // Los navegadores bloquean el audio hasta que la persona interactúa con la página.
+    // Mientras tanto guardamos lo último que AURA dijo y lo leemos con el primer gesto.
+    const UA = navigator.userActivation;
+    let activated = UA ? UA.hasBeenActive : true;
+    let pendingSpeech = null;
+    function onFirstGesture() {
+        if (activated) return;
+        activated = true;
+        if (els.voice) els.voice.classList.remove('needs-gesture');
+        const p = pendingSpeech;
+        pendingSpeech = null;
+        if (p && state.voice && Date.now() - p.t < 25000) speak(p.text, p.lang);
+    }
+    ['pointerdown', 'keydown', 'touchend'].forEach((ev) => window.addEventListener(ev, onFirstGesture, { capture: true, passive: true }));
+
     function speak(text, lang = state.lang) {
         if (!synth || !state.voice) return Promise.resolve();
+        if (!activated) {
+            pendingSpeech = { text, lang, t: Date.now() };
+            if (els.voice) {
+                els.voice.dataset.hint = tr(UI.tapToHear);
+                els.voice.classList.add('needs-gesture');
+            }
+            return Promise.resolve();
+        }
         synth.cancel();
         const clean = text.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}]/gu, '').replace(/\s+/g, ' ').trim();
         if (!clean) return Promise.resolve();
@@ -192,14 +229,25 @@
         return { label: p.name, onClick: () => ask(p.name, { projectId: p.id }) };
     }
     function actionChip(action) {
-        return { label: tr(action.label) + ' ↓', primary: true, onClick: () => runAction(action) };
+        return { label: tr(action.label) + ' →', primary: true, onClick: () => runAction(action) };
     }
     const defaultChips = () => KB.chips.default.map(topicChip).filter(Boolean);
 
     /* ---------- Acciones de la interfaz ---------- */
     function runAction(action) {
         if (!action) return;
-        if (action.type === 'scroll') {
+        if (action.type === 'go') {
+            // ir a otra pestaña, o desplazarse si el destino está en esta misma página
+            const url = new URL(action.href, window.location.href);
+            const clean = (path) => path.replace(/index\.html$/, '');
+            if (clean(url.pathname) === clean(window.location.pathname)) {
+                const target = url.hash ? document.querySelector(url.hash) : document.body;
+                if (target) target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start', inline: 'nearest' });
+                if (window.AuraPanel && window.innerWidth < 641) window.AuraPanel.close();
+            } else {
+                window.location.href = url.href;
+            }
+        } else if (action.type === 'scroll') {
             const target = document.querySelector(action.target);
             if (target) target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start', inline: 'nearest' });
         } else if (action.type === 'open') {
@@ -377,15 +425,28 @@
     async function boot() {
         const seen = store.sget('aura-booted') === '1';
         store.sset('aura-booted', '1');
-        if (els.boot && !seen && !reducedMotion) {
+        if (els.boot && !seen) {
             const lines = tr(UI.boot).map((l) => fill(l));
             for (const l of lines) {
                 const p = document.createElement('p');
                 p.textContent = l;
                 els.bootLog.appendChild(p);
-                await sleep(380);
+                await sleep(reducedMotion ? 0 : 380);
             }
-            await sleep(300);
+            // "Iniciar sistema" cuenta como interacción, así el navegador deja hablar a AURA
+            if (els.bootActions) {
+                els.bootActions.hidden = false;
+                els.bootGo.focus({ preventScroll: true });
+                await new Promise((resolve) => {
+                    els.bootGo.addEventListener('click', resolve, { once: true });
+                    els.bootSilent.addEventListener('click', () => {
+                        state.voice = false;
+                        store.set('aura-voice', 'off');
+                        updateVoiceButton();
+                        resolve();
+                    }, { once: true });
+                });
+            }
         }
         if (els.boot) {
             els.boot.classList.add('is-done');
@@ -443,11 +504,94 @@
     window.setSiteLanguage = setLanguage;
     // otras secciones (p. ej. los pilares) pueden hacerle preguntas a AURA
     window.AuraAsk = (q, intentId) => {
+        if (!isHome && window.AuraPanel) {
+            window.AuraPanel.open();
+            ask(q, intentId ? { intentId } : null);
+            return;
+        }
         const hero = document.getElementById('inicio');
         if (hero) hero.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
         setTimeout(() => ask(q, intentId ? { intentId } : null), reducedMotion ? 0 : 650);
     };
     window.changeLanguage = (lang) => setLanguage(lang);
+
+    /* ---------- Comentarios de AURA según la página ---------- */
+    let lastComment = 0;
+    let bubbleTimer = null;
+    const said = (key) => store.sget('aura-said-' + key) === '1';
+
+    function floatVisible() {
+        return els.float && !els.float.classList.contains('is-hidden');
+    }
+
+    async function showBubble(text) {
+        if (!els.bubble) return;
+        clearTimeout(bubbleTimer);
+        els.bubble.hidden = false;
+        els.bubbleText.textContent = '';
+        setStatus('speaking');
+        const voiceDone = speak(text);
+        const chars = Array.from(text);
+        for (let i = 0; i < chars.length && !els.bubble.hidden; i++) {
+            els.bubbleText.textContent += chars[i];
+            if (!reducedMotion) await sleep(16);
+        }
+        els.bubbleText.textContent = text;
+        await voiceDone;
+        setStatus('idle');
+        bubbleTimer = setTimeout(() => { els.bubble.hidden = true; }, Math.max(6000, text.length * 60));
+    }
+
+    // Dice un comentario una sola vez por visita. Si la voz está desactivada, AURA no interrumpe.
+    async function comment(key, obj) {
+        if (!obj || said(key) || !state.voice) return;
+        if (Date.now() - lastComment < 9000) return;
+        if (state.welcoming) return;
+        store.sset('aura-said-' + key, '1');
+        lastComment = Date.now();
+        const text = fill(tr(obj));
+        if (window.AuraPanel && window.AuraPanel.isOpen()) {
+            const token = ++state.token;
+            await say(text, { token });
+            return;
+        }
+        if (isHome && !floatVisible()) {
+            // en el hero el comentario va directo al chat principal
+            const token = ++state.token;
+            await say(text, { token });
+            return;
+        }
+        if (!isHome) {
+            const body = addMessage('ai');
+            body.textContent = text;
+            scrollLog();
+        }
+        showBubble(text);
+    }
+
+    function watchSections() {
+        const sections = (PAGE && PAGE.sections) || {};
+        const nodes = document.querySelectorAll('[data-aura-say]');
+        if (!nodes.length || !('IntersectionObserver' in window)) return;
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+                if (!e.isIntersecting) return;
+                const key = e.target.dataset.auraSay;
+                io.unobserve(e.target);
+                setTimeout(() => comment(page + '-' + key, sections[key]), 900);
+            });
+        }, { threshold: 0.35 });
+        nodes.forEach((n) => io.observe(n));
+    }
+
+    if (els.bubble) {
+        els.bubble.addEventListener('click', (e) => {
+            if (e.target.closest('#auraBubbleClose')) return;
+            els.bubble.hidden = true;
+            document.getElementById('auraFab').click();
+        });
+        els.bubbleClose.addEventListener('click', () => { els.bubble.hidden = true; if (synth) synth.cancel(); });
+    }
 
     /* ---------- Destacados ---------- */
     function renderFeatured() {
@@ -565,5 +709,17 @@
     renderFeatured();
     updateVoiceButton();
     setStatus('idle');
-    boot();
+    if (isHome) {
+        boot().then(watchSections);
+    } else {
+        // pestañas internas: saludo en el chat y comentario de entrada en el globo
+        document.documentElement.classList.add('aura-ready');
+        if (PAGE.intro) {
+            const body = addMessage('ai');
+            body.textContent = fill(tr(PAGE.intro));
+        }
+        renderChips((PAGE.chips || KB.chips.default).map(topicChip).filter(Boolean));
+        setTimeout(() => comment(page + '-enter', PAGE.enter), 1400);
+        watchSections();
+    }
 })();

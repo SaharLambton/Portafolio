@@ -1,5 +1,5 @@
 /* ==========================================================
-   AURA · HUD decorativo, menú móvil y navegación activa
+   AURA · HUD decorativo del hero (reloj y flujo de datos)
    ========================================================== */
 (function () {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -37,30 +37,4 @@
         }
     }
 
-    /* ---------- Menú móvil ---------- */
-    const topbar = document.getElementById('auraTopbar');
-    const menuBtn = document.getElementById('auraMenu');
-    if (menuBtn && topbar) {
-        menuBtn.addEventListener('click', () => {
-            const open = topbar.classList.toggle('is-open');
-            menuBtn.setAttribute('aria-expanded', String(open));
-        });
-        topbar.querySelectorAll('.aura-nav a').forEach((a) => a.addEventListener('click', () => {
-            topbar.classList.remove('is-open');
-            menuBtn.setAttribute('aria-expanded', 'false');
-        }));
-    }
-
-    /* ---------- Enlace activo según la sección visible ---------- */
-    const links = Array.from(document.querySelectorAll('.aura-nav a'));
-    const sections = links.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-    if ('IntersectionObserver' in window && sections.length) {
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach((e) => {
-                if (!e.isIntersecting) return;
-                links.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === '#' + e.target.id));
-            });
-        }, { rootMargin: '-45% 0px -50% 0px' });
-        sections.forEach((s) => io.observe(s));
-    }
 })();

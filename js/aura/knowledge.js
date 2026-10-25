@@ -44,6 +44,80 @@ window.AURA_KB = {
         en: 'I don\'t have that in my records yet 🤖. I can tell you about Sahar\'s projects, technologies, experience, services or how to contact her.'
     },
 
+    /* ---------- Comentarios de AURA en cada pestaña ----------
+       intro: primer mensaje del chat en esa pestaña.
+       enter: comentario al entrar (una vez por visita, en el globo).
+       sections: comentario cuando aparece una sección con data-aura-say="clave".
+       ---------------------------------------------------------------- */
+    pages: {
+        home: {
+            sections: {
+                pilares: {
+                    es: 'Estos son los cuatro pilares de Sahar. Pasa el cursor sobre cada uno y haz clic para ver sus proyectos de esa área.',
+                    en: 'These are Sahar\'s four pillars. Hover over each one and click to see her projects in that area.'
+                },
+                vistazo: {
+                    es: 'Aquí tienes una muestra rápida. Si quieres ver todo, la pestaña Proyectos tiene el archivo completo.',
+                    en: 'Here\'s a quick sample. If you want to see everything, the Projects tab has the full archive.'
+                }
+            }
+        },
+        about: {
+            chips: ['experience', 'skills', 'education', 'cv'],
+            intro: {
+                es: 'Estás en el expediente de Sahar: su perfil, trayectoria y habilidades. Pregúntame lo que quieras sobre ella.',
+                en: 'You\'re in Sahar\'s file: her profile, journey and skills. Ask me anything about her.'
+            },
+            enter: {
+                es: 'Bienvenido al expediente de Sahar. Aquí está quién es, de dónde viene y con qué trabaja.',
+                en: 'Welcome to Sahar\'s file. Here\'s who she is, where she comes from and what she works with.'
+            },
+            sections: {
+                trayectoria: {
+                    es: 'Su trayectoria va desde cofundar Únicos en Bogotá en 2019 hasta trabajar por su cuenta en Colombia y Canadá.',
+                    en: 'Her journey goes from co-founding Únicos in Bogotá in 2019 to working independently in Colombia and Canada.'
+                },
+                habilidades: {
+                    es: 'Las habilidades están agrupadas por sus cuatro pilares. Cada color corresponde a uno.',
+                    en: 'Skills are grouped by her four pillars. Each color matches one of them.'
+                }
+            }
+        },
+        projects: {
+            chips: ['web', 'design', 'code', 'contact'],
+            intro: {
+                es: 'Este es el archivo de proyectos de Sahar. Puedo contarte sobre cualquiera de ellos.',
+                en: 'This is Sahar\'s project archive. I can tell you about any of them.'
+            },
+            enter: {
+                es: 'Este es el archivo de proyectos. Si te interesa el branding, te recomiendo empezar por Zohar.',
+                en: 'This is the project archive. If you\'re into branding, I recommend starting with Zohar.'
+            }
+        },
+        services: {
+            chips: ['services', 'hire', 'contact'],
+            intro: {
+                es: 'Aquí están los servicios de Sahar. Si me cuentas qué necesitas, te digo cuál encaja mejor.',
+                en: 'Here are Sahar\'s services. Tell me what you need and I\'ll point you to the right one.'
+            },
+            enter: {
+                es: 'Estos son los servicios de Sahar. ¿Tienes un proyecto en mente? Pregúntame y te oriento.',
+                en: 'These are Sahar\'s services. Got a project in mind? Ask me and I\'ll guide you.'
+            }
+        },
+        contact: {
+            chips: ['hire', 'cv', 'services'],
+            intro: {
+                es: 'Desde aquí puedes escribirle a Sahar directamente. Te respondo cualquier duda antes de que lo hagas.',
+                en: 'From here you can reach Sahar directly. I can answer any question before you do.'
+            },
+            enter: {
+                es: '¿Listo para hablar con Sahar? Puedes escribirle por correo o LinkedIn.',
+                en: 'Ready to talk to Sahar? You can reach her by email or LinkedIn.'
+            }
+        }
+    },
+
     /* ---------- Sugerencias rápidas ---------- */
     chips: {
         default: ['projects', 'skills', 'experience', 'contact', 'whoami'],
@@ -62,13 +136,15 @@ window.AURA_KB = {
             hire: { es: '¿Está disponible?', en: 'Is she available?' },
             ai: { es: 'Inteligencia artificial', en: 'Artificial intelligence' },
             pillars: { es: 'Sus pilares', en: 'Her pillars' },
-            marketing: { es: 'Marketing digital', en: 'Digital marketing' }
+            marketing: { es: 'Marketing digital', en: 'Digital marketing' },
+            cv: { es: 'Descargar CV', en: 'Download CV' }
         }
     },
 
     /* ---------- Intenciones ----------
        keys: palabras o frases que activan la respuesta (sin tildes, en minúscula).
-       action: qué hace la interfaz (ir a una sección o abrir una página).
+       action: qué hace la interfaz. { type: 'go', href } lleva a otra pestaña
+                 (o se desplaza si el destino está en la misma página).
        ------------------------------------------------------------ */
     intents: [
         {
@@ -88,7 +164,7 @@ window.AURA_KB = {
                 es: 'El trabajo de Sahar se sostiene en cuatro pilares: 💻 Programación, 🧠 Inteligencia Artificial, 🎨 Diseño y 📈 Marketing Digital. Juntos le permiten llevar una idea desde la marca y la interfaz hasta el código, la automatización y su crecimiento en el mercado.',
                 en: 'Sahar\'s work stands on four pillars: 💻 Programming, 🧠 Artificial Intelligence, 🎨 Design and 📈 Digital Marketing. Together they let her take an idea from brand and interface to code, automation and market growth.'
             },
-            action: { type: 'scroll', target: '#pilares', label: { es: 'Ver los pilares', en: 'See the pillars' } },
+            action: { type: 'go', href: 'index.html#pilares', label: { es: 'Ver los pilares', en: 'See the pillars' } },
             chips: ['code', 'ai', 'design', 'marketing']
         },
         {
@@ -98,7 +174,7 @@ window.AURA_KB = {
                 es: 'En IA, Sahar dicta talleres de IA generativa para equipos de trabajo; el más reciente fue para una firma legal especializada en el sector contable. También automatiza y estandariza procesos, implementa chatbots de atención al cliente y diseña asistentes conversacionales como yo 🤖.',
                 en: 'In AI, Sahar teaches generative AI workshops for teams; the most recent one was for a law firm specialized in the accounting sector. She also automates and standardizes processes, builds customer service chatbots and designs conversational assistants like me 🤖.'
             },
-            action: { type: 'scroll', target: '#pilares', label: { es: 'Ver los pilares', en: 'See the pillars' } },
+            action: { type: 'go', href: 'index.html#pilares', label: { es: 'Ver los pilares', en: 'See the pillars' } },
             chips: ['services', 'projects']
         },
         {
@@ -108,7 +184,7 @@ window.AURA_KB = {
                 es: 'En marketing digital, Sahar crea estrategias de marca y posicionamiento SEO, campañas digitales con analítica web (Google Analytics) y gestiona redes sociales y comunidades. Además completó en el SENA los cursos de Marketing Digital y de Propuestas Comerciales en Marketing Digital.',
                 en: 'In digital marketing, Sahar builds brand strategies and SEO positioning, runs digital campaigns with web analytics (Google Analytics) and manages social media and communities. She also completed SENA courses in Digital Marketing and Digital Marketing Commercial Proposals.'
             },
-            action: { type: 'scroll', target: '#pilares', label: { es: 'Ver los pilares', en: 'See the pillars' } },
+            action: { type: 'go', href: 'index.html#pilares', label: { es: 'Ver los pilares', en: 'See the pillars' } },
             chips: ['services', 'design']
         },
         {
@@ -136,7 +212,7 @@ window.AURA_KB = {
                 es: 'Sahar Gabriela Chain Mayorga es programadora y desarrolladora web bilingüe (español–inglés), con experiencia en diseño web, branding, community management y marketing digital. Combina programación (SQL, .NET, Python, PHP, Java, JavaScript) con diseño de marca para ofrecer soluciones completas en desarrollo, posicionamiento de marca y presencia digital.',
                 en: 'Sahar Gabriela Chain Mayorga is a bilingual (Spanish–English) programmer and web developer with experience in web design, branding, community management and digital marketing. She combines programming (SQL, .NET, Python, PHP, Java, JavaScript) with brand design to deliver complete solutions in development, brand positioning and digital presence.'
             },
-            action: { type: 'scroll', target: '#sobre-mi', label: { es: 'Ir a Sobre mí', en: 'Go to About' } },
+            action: { type: 'go', href: 'sobre-mi.html', label: { es: 'Ir a Sobre mí', en: 'Go to About' } },
             chips: ['education', 'experience', 'skills']
         },
         {
@@ -146,7 +222,7 @@ window.AURA_KB = {
                 es: 'Sahar es Computer Programmer de Lambton College, Ontario, Canadá (diciembre 2024). En el SENA completó los cursos de Marketing Digital y Desarrollo de Propuestas Comerciales en Marketing Digital (2026) y Producción de Imágenes Digitales (2018).',
                 en: 'Sahar graduated as a Computer Programmer from Lambton College, Ontario, Canada (December 2024). At SENA she completed Digital Marketing and Commercial Proposals in Digital Marketing (2026), plus Digital Image Production (2018).'
             },
-            action: { type: 'scroll', target: '#sobre-mi', label: { es: 'Ver formación', en: 'See education' } },
+            action: { type: 'go', href: 'sobre-mi.html#trayectoria', label: { es: 'Ver formación', en: 'See education' } },
             chips: ['experience', 'skills']
         },
         {
@@ -165,7 +241,7 @@ window.AURA_KB = {
                 es: 'Su recorrido: 💼 Desarrolladora web, programadora y diseñadora de marca independiente en Colombia y Canadá (2021 – hoy): sitios .NET y PHP, APIs RESTful con Angular, bases de datos a medida, chatbots, branding y talleres de IA generativa. 🚀 Cofundadora de Únicos, agencia creativa en Bogotá (2019 – 2021), donde mejoró la organización de datos en 30%, la productividad en 35% y la interacción con clientes en 20%.',
                 en: 'Her path: 💼 Independent web developer, programmer and brand designer in Colombia and Canada (2021 – present): .NET and PHP sites, RESTful APIs with Angular, custom databases, chatbots, branding and generative AI workshops. 🚀 Co-founder of Únicos, a creative agency in Bogotá (2019 – 2021), where she improved data organization by 30%, productivity by 35% and client interaction by 20%.'
             },
-            action: { type: 'scroll', target: '#experiencia', label: { es: 'Ver experiencia', en: 'See experience' } },
+            action: { type: 'go', href: 'sobre-mi.html#trayectoria', label: { es: 'Ver experiencia', en: 'See experience' } },
             chips: ['skills', 'projects']
         },
         {
@@ -175,7 +251,7 @@ window.AURA_KB = {
                 es: 'Su stack: ⚙️ Lenguajes: .NET, C#, PHP, Python, Java, SQL, TypeScript y JavaScript. 🧩 Frameworks: .NET Core, ASP.NET, Node.js, Angular, Bootstrap y WordPress. 🗄️ Bases de datos: SQL Server, MySQL y Oracle. ✅ Calidad: Jest, Git, GitHub Actions y bases de DevOps y Cloud. 🎨 Diseño: Illustrator y Canva. 📈 Marketing: SEO, Google Analytics y chatbots.',
                 en: 'Her stack: ⚙️ Languages: .NET, C#, PHP, Python, Java, SQL, TypeScript and JavaScript. 🧩 Frameworks: .NET Core, ASP.NET, Node.js, Angular, Bootstrap and WordPress. 🗄️ Databases: SQL Server, MySQL and Oracle. ✅ Quality: Jest, Git, GitHub Actions plus DevOps and Cloud fundamentals. 🎨 Design: Illustrator and Canva. 📈 Marketing: SEO, Google Analytics and chatbots.'
             },
-            action: { type: 'scroll', target: '#habilidades', label: { es: 'Ver habilidades', en: 'See skills' } },
+            action: { type: 'go', href: 'sobre-mi.html#habilidades', label: { es: 'Ver habilidades', en: 'See skills' } },
             chips: ['projects', 'code']
         },
         {
@@ -185,7 +261,7 @@ window.AURA_KB = {
                 es: 'Sahar ofrece: 🌐 desarrollo web (WordPress y a medida), 🤖 chatbots con IA y automatizaciones, 📱 community management y marketing, 🎨 branding e identidad visual, 💾 bases de datos y software a medida, y 📊 consultoría en transformación digital.',
                 en: 'Sahar offers: 🌐 web development (WordPress and custom), 🤖 AI chatbots and automations, 📱 community management and marketing, 🎨 branding and visual identity, 💾 databases and custom software, and 📊 digital transformation consulting.'
             },
-            action: { type: 'scroll', target: '#servicios', label: { es: 'Ver servicios', en: 'See services' } },
+            action: { type: 'go', href: 'servicios.html', label: { es: 'Ver servicios', en: 'See services' } },
             chips: ['contact', 'projects']
         },
         {
@@ -195,7 +271,7 @@ window.AURA_KB = {
                 es: 'Sahar tiene 10 proyectos en tres áreas: 🌐 desarrollo web (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos) y 💻 programación (Smart Agriculture, Library Management, Jest CI y más). ¿Cuál área te interesa?',
                 en: 'Sahar has 10 projects across three areas: 🌐 web development (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos) and 💻 programming (Smart Agriculture, Library Management, Jest CI and more). Which area interests you?'
             },
-            action: { type: 'scroll', target: '#proyectos', label: { es: 'Ir a proyectos', en: 'Go to projects' } },
+            action: { type: 'go', href: 'proyectos.html', label: { es: 'Ir a proyectos', en: 'Go to projects' } },
             chips: ['web', 'design', 'code']
         },
         {
@@ -205,7 +281,8 @@ window.AURA_KB = {
                 es: 'En desarrollo web destacan: 🛒 Sell Services, un e-commerce con autenticación encriptada, carrito y pasarela de pagos (PHP + MySQL); 🏀 Sports Store, tienda deportiva con catálogo dinámico; y 👶 Little Stars, tienda infantil con filtros por edad.',
                 en: 'Web development highlights: 🛒 Sell Services, an e-commerce with encrypted auth, cart and payment gateway (PHP + MySQL); 🏀 Sports Store, a sports shop with a dynamic catalog; and 👶 Little Stars, a kids\' clothing store with age filters.'
             },
-            projects: ['sell-services', 'sports-store', 'little-stars']
+            projects: ['sell-services', 'sports-store', 'little-stars'],
+            action: { type: 'go', href: 'proyectos.html?area=code', label: { es: 'Ver proyectos web', en: 'See web projects' } }
         },
         {
             id: 'design',
@@ -214,7 +291,8 @@ window.AURA_KB = {
                 es: 'En branding y diseño: 💎 Zohar, identidad de lujo para joyería; 🧭 ODEN, marca inmobiliaria con símbolo de brújula; 🔩 MetalTec, branding completo con web en WordPress; y ✨ Únicos, su propia agencia creativa.',
                 en: 'Branding & design: 💎 Zohar, a luxury jewelry identity; 🧭 ODEN, a real estate brand with a compass symbol; 🔩 MetalTec, full branding plus a WordPress site; and ✨ Únicos, her own creative agency.'
             },
-            projects: ['zohar', 'oden', 'metaltec', 'unicos']
+            projects: ['zohar', 'oden', 'metaltec', 'unicos'],
+            action: { type: 'go', href: 'proyectos.html?area=design', label: { es: 'Ver proyectos de diseño', en: 'See design projects' } }
         },
         {
             id: 'code',
@@ -223,7 +301,8 @@ window.AURA_KB = {
                 es: 'En programación: 🌱 Smart Agriculture, agricultura de precisión con sensores IoT y riego automatizado; 📚 Library Management, gestión de biblioteca en TypeScript y Node.js con pruebas en Jest; y ✅ Jest CI, pruebas automáticas en cada push con GitHub Actions. Son proyectos académicos de Lambton College publicados en GitHub.',
                 en: 'Programming: 🌱 Smart Agriculture, precision farming with IoT sensors and automated irrigation; 📚 Library Management, a TypeScript and Node.js library system tested with Jest; and ✅ Jest CI, automated tests on every push with GitHub Actions. They are Lambton College academic projects published on GitHub.'
             },
-            projects: ['smart-agriculture', 'bookstore', 'jest-ci']
+            projects: ['smart-agriculture', 'bookstore', 'jest-ci'],
+            action: { type: 'go', href: 'proyectos.html?area=code', label: { es: 'Ver proyectos de programación', en: 'See programming projects' } }
         },
         {
             id: 'contact',
@@ -232,7 +311,7 @@ window.AURA_KB = {
                 es: 'Puedes escribirle a 📧 sahargabriela9@gmail.com, buscarla en 💼 LinkedIn (Sahar Gabriela Chain Mayorga) o ver su código en 💻 github.com/SaharLambton.',
                 en: 'You can email her at 📧 sahargabriela9@gmail.com, find her on 💼 LinkedIn (Sahar Gabriela Chain Mayorga) or check her code at 💻 github.com/SaharLambton.'
             },
-            action: { type: 'scroll', target: '#contacto', label: { es: 'Ir a contacto', en: 'Go to contact' } },
+            action: { type: 'go', href: 'contacto.html', label: { es: 'Ir a contacto', en: 'Go to contact' } },
             links: [
                 { label: 'Email', href: 'mailto:sahargabriela9@gmail.com' },
                 { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sahar-gabriela-chain-mayorga-b76433289' },
@@ -256,7 +335,7 @@ window.AURA_KB = {
                 es: 'Sahar está abierta a nuevos proyectos y oportunidades, tanto freelance como en empresa. Lo mejor es escribirle contándole tu idea: 📧 sahargabriela9@gmail.com.',
                 en: 'Sahar is open to new projects and opportunities, freelance or in-house. The best way is to email her about your idea: 📧 sahargabriela9@gmail.com.'
             },
-            action: { type: 'scroll', target: '#contacto', label: { es: 'Ir a contacto', en: 'Go to contact' } },
+            action: { type: 'go', href: 'contacto.html', label: { es: 'Ir a contacto', en: 'Go to contact' } },
             links: [{ label: 'Email', href: 'mailto:sahargabriela9@gmail.com' }]
         },
         {
