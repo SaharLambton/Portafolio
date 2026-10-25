@@ -124,8 +124,8 @@ window.AURA_KB = {
                 en: 'From here you can reach Sahar directly. I can answer any question before you do.'
             },
             enter: {
-                es: '¿Listo para hablar con Sahar? Puedes escribirle por correo o LinkedIn.',
-                en: 'Ready to talk to Sahar? You can reach her by email or LinkedIn.'
+                es: '¿Listo para hablar con Sahar? Escríbele por WhatsApp o déjale tu mensaje en el formulario: responde en 24–48 horas.',
+                en: 'Ready to talk to Sahar? Message her on WhatsApp or leave your message in the form: she replies within 24–48 hours.'
             }
         }
     },
@@ -319,13 +319,14 @@ window.AURA_KB = {
         },
         {
             id: 'contact',
-            keys: ['contacto', 'contactar', 'contactarla', 'correo', 'email', 'mail', 'telefono', 'whatsapp', 'linkedin', 'escribirle', 'llamar', 'redes', 'contact', 'reach', 'phone', 'call', 'get in touch'],
+            keys: ['contacto', 'contactar', 'contactarla', 'correo', 'email', 'mail', 'telefono', 'whatsapp', 'escribirle', 'formulario', 'form', 'linkedin', 'escribirle', 'llamar', 'redes', 'contact', 'reach', 'phone', 'call', 'get in touch'],
             answer: {
-                es: 'Puedes escribirle a 📧 sahargabriela9@gmail.com, buscarla en 💼 LinkedIn (Sahar Gabriela Chain Mayorga) o ver su código en 💻 github.com/SaharLambton.',
-                en: 'You can email her at 📧 sahargabriela9@gmail.com, find her on 💼 LinkedIn (Sahar Gabriela Chain Mayorga) or check her code at 💻 github.com/SaharLambton.'
+                es: 'Puedes escribirle a Sahar por 💬 WhatsApp, por 📧 sahargabriela9@gmail.com o desde el formulario de la pestaña Contacto. Está disponible para proyectos freelance y responde en 24–48 horas.',
+                en: 'You can reach Sahar on 💬 WhatsApp, at 📧 sahargabriela9@gmail.com or through the form on the Contact tab. She\'s available for freelance projects and replies within 24–48 hours.'
             },
             action: { type: 'go', href: 'contacto.html', label: { es: 'Ir a contacto', en: 'Go to contact' } },
             links: [
+                { label: 'WhatsApp', href: 'https://wa.me/573204499948' },
                 { label: 'Email', href: 'mailto:sahargabriela9@gmail.com' },
                 { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sahar-gabriela-chain-mayorga-b76433289' },
                 { label: 'GitHub', href: 'https://github.com/SaharLambton' }
