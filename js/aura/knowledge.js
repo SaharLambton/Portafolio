@@ -94,7 +94,8 @@ window.AURA_KB = {
                 en: 'This is the project archive. If you\'re into branding, I recommend starting with Zohar.'
             },
             filters: {
-                code: { es: 'Estos son los proyectos de programación: tiendas en línea, sistemas en TypeScript e integración continua.', en: 'These are the programming projects: online stores, TypeScript systems and continuous integration.' },
+                web: { es: 'Estos son los desarrollos web: tiendas en línea, sitios corporativos y páginas responsive.', en: 'These are the web builds: online stores, corporate sites and responsive pages.' },
+                code: { es: 'Estos son los proyectos de programación: sistemas en TypeScript y Node.js, pruebas automatizadas, integración continua y yo, AURA.', en: 'These are the programming projects: TypeScript and Node.js systems, automated tests, continuous integration and me, AURA.' },
                 ai: { es: 'En IA, el proyecto principal soy yo 🤖. Pronto habrá más.', en: 'In AI, the main project is me 🤖. More are coming soon.' },
                 design: { es: 'Aquí está el trabajo de branding de Sahar. Zohar y MetalTec son dos de los más completos.', en: 'Here is Sahar\'s branding work. Zohar and MetalTec are two of the most complete ones.' },
                 marketing: { es: 'Estos proyectos incluyen estrategia digital y redes sociales, además del diseño.', en: 'These projects include digital strategy and social media, on top of design.' }
@@ -295,7 +296,7 @@ window.AURA_KB = {
                 en: 'Web development highlights: 🛒 Sell Services, an e-commerce with encrypted auth, cart and payment gateway (PHP + MySQL); 🏀 Sports Store, a sports shop with a dynamic catalog; and 👶 Little Stars, a kids\' clothing store with age filters.'
             },
             projects: ['sell-services', 'sports-store', 'little-stars'],
-            action: { type: 'go', href: 'proyectos.html?area=code', label: { es: 'Ver proyectos web', en: 'See web projects' } }
+            action: { type: 'go', href: 'proyectos.html?area=web', label: { es: 'Ver proyectos web', en: 'See web projects' } }
         },
         {
             id: 'design',
@@ -393,7 +394,7 @@ window.AURA_KB = {
     ],
 
     /* ---------- Proyectos ----------
-       pillars: pilares a los que pertenece (code, ai, design, marketing) → filtros de la pestaña Proyectos.
+       pillars: áreas a las que pertenece (web, code, ai, design, marketing) → frecuencias de la pestaña Proyectos.
        card / video: imagen o video de la tarjeta (si no hay, se muestra un gráfico).
        short: resumen de la tarjeta · desc: lo que responde AURA.
        brand: color de la marca (tiñe la pantalla de la Bóveda) · kind: tipo de proyecto.
@@ -403,7 +404,7 @@ window.AURA_KB = {
         {
             id: 'sell-services', name: 'Sell Services', keys: ['sell services', 'sell service', 'productos graficos', 'graphic products'],
             brand: '#3ccfcf', kind: { es: 'Proyecto académico · Lambton College', en: 'Academic project · Lambton College' },
-            pillars: ['code'], card: 'img/thumbs/services-card.webp', video: 'services.mp4',
+            pillars: ['web'], card: 'img/thumbs/services-card.webp', video: 'services.mp4',
             short: { es: 'Plataforma e-commerce para vender servicios y productos gráficos, con autenticación encriptada, carrito y pasarela de pagos.', en: 'E-commerce platform to sell graphic services and products, with encrypted authentication, cart and payment gateway.' },
             url: 'sell-services.html', thumb: 'img/thumbs/services.webp', area: 'web',
             tech: ['PHP', 'MySQL', 'JavaScript', 'jQuery'],
@@ -416,7 +417,7 @@ window.AURA_KB = {
         {
             id: 'sports-store', name: 'Sports Store', keys: ['sports store', 'sport store', 'tienda deportiva', 'deportes', 'deportiva', 'sports'],
             brand: '#ff3b4e', kind: { es: 'Proyecto académico · Lambton College', en: 'Academic project · Lambton College' },
-            pillars: ['code'], card: 'img/thumbs/sport-card.webp', video: 'sport.mp4',
+            pillars: ['web'], card: 'img/thumbs/sport-card.webp', video: 'sport.mp4',
             short: { es: 'Tienda deportiva con catálogo dinámico, programa de becas para jóvenes atletas y recursos con la API de YouTube.', en: 'Sports store with a dynamic catalog, a scholarship program for young athletes and YouTube API resources.' },
             url: 'sports-store.html', area: 'web',
             tech: ['HTML5', 'CSS3', 'Responsive Design', 'YouTube API'],
@@ -428,7 +429,7 @@ window.AURA_KB = {
         {
             id: 'little-stars', name: 'Little Stars', keys: ['little stars', 'ropa infantil', 'ninos', 'kids', 'children'],
             brand: '#ffb3cf', kind: { es: 'Proyecto personal de práctica', en: 'Personal practice project' },
-            pillars: ['code', 'design'], card: 'img/thumbs/littlestars-card.webp', video: 'store.mp4',
+            pillars: ['web', 'design'], card: 'img/thumbs/littlestars-card.webp', video: 'store.mp4',
             short: { es: 'Tienda de ropa infantil responsive, con catálogo, filtros y categorías por edad.', en: 'Responsive kids\' clothing store with catalog, filters and age categories.' },
             url: 'little-stars.html', area: 'web',
             tech: ['HTML5', 'CSS3', 'Font Awesome', 'Responsive Design'],
@@ -465,7 +466,7 @@ window.AURA_KB = {
         {
             id: 'metaltec', name: 'MetalTec Colombia', keys: ['metaltec', 'metal tec', 'metalurgica', 'metallurgical'],
             brand: '#ff5722', kind: { es: 'Cliente · Sector metalúrgico', en: 'Client · Metallurgical sector' },
-            pillars: ['design', 'code', 'marketing'], card: 'img/thumbs/metaltec-card.webp', video: '',
+            pillars: ['design', 'web', 'marketing'], card: 'img/thumbs/metaltec-card.webp', video: '',
             short: { es: 'Branding desde cero para una metalúrgica: logo, sitio en WordPress, material impreso y redes sociales.', en: 'End-to-end branding for a metallurgical company: logo, WordPress site, print material and social media.' },
             url: 'metaltec.html', thumb: 'img/thumbs/metaltec.webp', area: 'design',
             tech: ['Brand Design', 'WordPress', 'Adobe Illustrator'],
@@ -478,7 +479,7 @@ window.AURA_KB = {
         {
             id: 'unicos', name: 'Únicos', keys: ['unicos', 'agencia', 'agency', 'optica', 'vision center'],
             brand: '#e0505d', kind: { es: 'Agencia propia · Cofundadora', en: 'Own agency · Co-founder' },
-            pillars: ['design', 'marketing', 'code'], card: 'img/thumbs/unicos-card.webp', video: '',
+            pillars: ['design', 'marketing', 'web'], card: 'img/thumbs/unicos-card.webp', video: '',
             short: { es: 'La agencia creativa que Sahar cofundó en Bogotá: diseño, marketing digital y desarrollo web para clientes.', en: 'The creative agency Sahar co-founded in Bogotá: design, digital marketing and web development for clients.' },
             url: 'unicos.html', area: 'design',
             tech: ['Illustrator', 'Photoshop', 'Branding', 'Marketing'],

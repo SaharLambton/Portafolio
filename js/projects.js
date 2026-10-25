@@ -2,7 +2,7 @@
    PROYECTOS · Bóveda holográfica
    Carrusel 3D de "archivos" + pantalla con el informe de misión.
    Los datos salen de AURA_KB.projects.
-   URL: proyectos.html?area=code|ai|design|marketing&p=<id del proyecto>
+   URL: proyectos.html?area=web|code|ai|design|marketing&p=<id del proyecto>
    ========================================================== */
 (function () {
     const KB = window.AURA_KB;
@@ -11,6 +11,7 @@
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const PILLARS = {
+        web: { es: 'Desarrollo web', en: 'Web development', c: '#ffb547' },
         code: { es: 'Programación', en: 'Programming', c: '#2bf5b0' },
         ai: { es: 'IA', en: 'AI', c: '#a970ff' },
         design: { es: 'Diseño', en: 'Design', c: '#ff5bd8' },
@@ -24,7 +25,7 @@
         online: { es: 'EN LÍNEA', en: 'ONLINE' },
         file: { es: 'ARCHIVO', en: 'FILE' }
     };
-    const GLYPH = { code: '</>', design: '✦', marketing: '↗' };
+    const GLYPH = { web: '◱', code: '</>', design: '✦', marketing: '↗' };
 
     const lang = () => (document.documentElement.lang === 'en' ? 'en' : 'es');
     const tr = (o) => (o ? o[lang()] || o.es : '');
