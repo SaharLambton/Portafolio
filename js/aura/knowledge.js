@@ -185,8 +185,8 @@ window.AURA_KB = {
             id: 'ai',
             keys: ['ia', 'inteligencia artificial', 'machine learning', 'chatbot', 'chatbots', 'asistente', 'asistentes', 'ai', 'artificial intelligence', 'llm', 'gpt', 'claude'],
             answer: {
-                es: 'En IA, Sahar dicta talleres de IA generativa para equipos de trabajo; el más reciente fue para una firma legal especializada en el sector contable. También automatiza y estandariza procesos, implementa chatbots de atención al cliente y diseña asistentes conversacionales como yo 🤖.',
-                en: 'In AI, Sahar teaches generative AI workshops for teams; the most recent one was for a law firm specialized in the accounting sector. She also automates and standardizes processes, builds customer service chatbots and designs conversational assistants like me 🤖.'
+                es: 'En IA, Sahar dicta talleres de IA generativa para equipos de trabajo; el más reciente fue para el equipo de una firma de outsourcing contable y tributario que empezaba a usar ChatGPT Work. También automatiza y estandariza procesos, implementa chatbots de atención al cliente y diseña asistentes conversacionales como yo 🤖.',
+                en: 'In AI, Sahar teaches generative AI workshops for teams; the most recent one was for the team of an accounting and tax outsourcing firm starting to use ChatGPT Work. She also automates and standardizes processes, builds customer service chatbots and designs conversational assistants like me 🤖.'
             },
             action: { type: 'go', href: 'index.html#pilares', label: { es: 'Ver los pilares', en: 'See the pillars' } },
             chips: ['services', 'projects']
@@ -292,8 +292,8 @@ window.AURA_KB = {
             id: 'web',
             keys: ['web', 'sitio', 'sitios', 'pagina web', 'paginas web', 'ecommerce', 'e-commerce', 'tienda', 'tiendas', 'website', 'websites', 'store', 'online shop'],
             answer: {
-                es: 'En desarrollo web destacan: 🛒 Sell Services, un e-commerce con autenticación encriptada, carrito y pasarela de pagos (PHP + MySQL); 🏀 Sports Store, tienda deportiva con catálogo dinámico; y 👶 Little Stars, tienda infantil con filtros por edad.',
-                en: 'Web development highlights: 🛒 Sell Services, an e-commerce with encrypted auth, cart and payment gateway (PHP + MySQL); 🏀 Sports Store, a sports shop with a dynamic catalog; and 👶 Little Stars, a kids\' clothing store with age filters.'
+                es: 'En desarrollo web destacan: 🛒 Sell Services, una tienda en línea con registro de usuarios, catálogo, carrito y base de datos MySQL (PHP + MySQL); 🏀 Sports Store, tienda deportiva con catálogo dinámico; y 👶 Little Stars, tienda infantil con filtros por edad.',
+                en: 'Web development highlights: 🛒 Sell Services, an online store with user accounts, catalog, cart and a MySQL database (PHP + MySQL); 🏀 Sports Store, a sports shop with a dynamic catalog; and 👶 Little Stars, a kids\' clothing store with age filters.'
             },
             projects: ['sell-services', 'sports-store', 'little-stars'],
             action: { type: 'go', href: 'proyectos.html?area=web', label: { es: 'Ver proyectos web', en: 'See web projects' } }
@@ -337,8 +337,8 @@ window.AURA_KB = {
             id: 'workshops',
             keys: ['taller', 'talleres', 'curso', 'cursos', 'capacitacion', 'capacitaciones', 'formacion en ia', 'ensenar ia', 'workshop', 'workshops', 'course', 'courses', 'training'],
             answer: {
-                es: 'Sahar ofrece talleres y cursos de IA generativa para equipos de empresas: prácticos, adaptados a cada sector y con buenas prácticas de uso responsable. El más reciente fue para el equipo de una firma legal del sector contable. Se cotizan según el tamaño del grupo y los temas.',
-                en: 'Sahar offers generative AI workshops and courses for company teams: hands-on, tailored to each industry and including responsible-use best practices. The most recent one was for the team of a law firm in the accounting sector. They are quoted based on group size and topics.'
+                es: 'Sahar ofrece talleres y cursos de IA generativa para equipos de empresas: prácticos, adaptados a cada sector y con buenas prácticas de uso responsable. El más reciente fue para un equipo contable de 8 personas que empezaba a usar ChatGPT Work. Se cotizan según el tamaño del grupo y los temas.',
+                en: 'Sahar offers generative AI workshops and courses for company teams: hands-on, tailored to each industry and including responsible-use best practices. The most recent one was for an 8-person accounting team starting to use ChatGPT Work. They are quoted based on group size and topics.'
             },
             action: { type: 'go', href: 'servicios.html#workshops', label: { es: 'Ver talleres', en: 'See workshops' } },
             chips: ['hire', 'ai']
@@ -405,12 +405,12 @@ window.AURA_KB = {
             id: 'sell-services', name: 'Sell Services', keys: ['sell services', 'sell service', 'productos graficos', 'graphic products'],
             brand: '#3ccfcf', kind: { es: 'Proyecto académico · Lambton College', en: 'Academic project · Lambton College' },
             pillars: ['web'], card: 'img/thumbs/services-card.webp', video: 'services.mp4',
-            short: { es: 'Plataforma e-commerce para vender servicios y productos gráficos, con autenticación encriptada, carrito y pasarela de pagos.', en: 'E-commerce platform to sell graphic services and products, with encrypted authentication, cart and payment gateway.' },
+            short: { es: 'Tienda en línea de servicios y productos gráficos con registro de usuarios, catálogo filtrable, carrito y base de datos MySQL.', en: 'Online store for graphic services and products with user accounts, filterable catalog, cart and a MySQL database.' },
             url: 'sell-services.html', thumb: 'img/thumbs/services.webp', area: 'web',
             tech: ['PHP', 'MySQL', 'JavaScript', 'jQuery'],
             desc: {
-                es: 'Sell Services es una plataforma e-commerce completa para vender servicios y productos gráficos: autenticación con encriptación multinivel, carrito de compras, pasarela de pagos y gestión de productos. Hecha con PHP, MySQL, JavaScript y jQuery.',
-                en: 'Sell Services is a complete e-commerce platform for graphic services and products: multi-level encrypted authentication, shopping cart, payment gateway and product management. Built with PHP, MySQL, JavaScript and jQuery.'
+                es: 'Sell Services es una tienda en línea para vender servicios y productos gráficos personalizados: registro e inicio de sesión, catálogo filtrable con buscador, carrito y perfil editable, con los usuarios guardados en MySQL. Hecha con PHP, MySQL, JavaScript y jQuery en 2023.',
+                en: 'Sell Services is an online store to sell custom graphic services and products: sign-up and login, filterable catalog with search, cart and editable profile, with users stored in MySQL. Built with PHP, MySQL, JavaScript and jQuery in 2023.'
             },
             tag: { es: 'E-commerce · PHP + MySQL', en: 'E-commerce · PHP + MySQL' }
         },
@@ -537,6 +537,19 @@ window.AURA_KB = {
                 es: 'Jest CI implementa integración continua para un proyecto JavaScript: pruebas con Jest que se ejecutan automáticamente en cada push gracias a GitHub Actions.',
                 en: 'Jest CI sets up continuous integration for a JavaScript project: Jest tests run automatically on every push through GitHub Actions.'
             }
+        },
+        {
+            id: 'ai-workshop', name: 'Taller de IA', keys: ['taller de ia', 'taller contable', 'contadores', 'contable', 'chatgpt work', 'ai workshop', 'accountants'],
+            brand: '#ff7a2f', kind: { es: 'Cliente real · capacitación', en: 'Real client · training' },
+            pillars: ['ai'], card: 'img/thumbs/taller-ia-card.webp', video: '',
+            short: { es: 'Taller práctico de 2 horas para que un equipo contable de 8 personas adopte ChatGPT Work con buenas prácticas y cuidado de los datos.', en: 'A 2-hour hands-on workshop for an 8-person accounting team adopting ChatGPT Work with good practices and data care.' },
+            url: 'taller-ia.html', area: 'ai',
+            tech: ['IA generativa', 'ChatGPT Work', 'Prompting'],
+            desc: {
+                es: 'Sahar diseñó y dictó un taller de IA para una firma de outsourcing contable y tributario que iba a adoptar ChatGPT Work: 8 personas, la mitad sin experiencia con IA. Cubrió IA generativa y alucinaciones, privacidad de datos, GPTs personalizados y Proyectos, modelos y tokens, prompts y metaprompting, con dinámicas prácticas y un Kahoot final.',
+                en: 'Sahar designed and delivered an AI workshop for an accounting and tax outsourcing firm adopting ChatGPT Work: 8 people, half with no AI experience. It covered generative AI and hallucinations, data privacy, custom GPTs and Projects, models and tokens, prompts and metaprompting, with hands-on activities and a final Kahoot.'
+            },
+            tag: { es: 'IA · Capacitación', en: 'AI · Training' }
         },
         {
             id: 'aura', name: 'AURA', keys: ['aura project', 'proyecto aura', 'asistente del portafolio', 'portfolio assistant'],

@@ -388,6 +388,14 @@ body.case { --a-bg: var(--case-bg); background: var(--case-bg); }
 .motif--pipeline::before { content: ''; position: absolute; left: 50%; top: 62%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 14px var(--brand); animation: pipe-run 4s linear infinite; }
 @keyframes pipe-run { from { transform: translateX(-60vw); } to { transform: translateX(60vw); } }
 
+/* Taller de IA: círculos de color de la presentación */
+.motif--bubbles { inset: 0; }
+.motif--bubbles i { position: absolute; display: block; border-radius: 50%; opacity: 0.16; animation: blob-float 10s ease-in-out infinite alternate; }
+.motif--bubbles i:nth-child(1) { width: 320px; height: 320px; right: 2%; top: -6%; background: #3b82f6; }
+.motif--bubbles i:nth-child(2) { width: 220px; height: 220px; right: 22%; bottom: 4%; background: #ec4899; animation-delay: -3s; }
+.motif--bubbles i:nth-child(3) { width: 140px; height: 140px; left: 34%; top: 10%; background: #84cc16; animation-delay: -6s; }
+@keyframes blob-float { to { transform: translate(-20px, 16px) scale(1.06); } }
+
 /* AURA: anillos del orbe */
 .motif--orb { right: 30%; top: 4%; width: min(460px, 46vw); aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(var(--brand-rgb), 0.18); box-shadow: inset 0 0 80px rgba(var(--brand-rgb), 0.08); animation: compass-spin 50s linear infinite; }
 .motif--orb::before, .motif--orb::after { content: ''; position: absolute; border-radius: 50%; border: 1px dashed rgba(var(--brand2-rgb), 0.3); }
