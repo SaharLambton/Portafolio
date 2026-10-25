@@ -12,7 +12,7 @@ import html
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261025p'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261025q'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -480,93 +480,139 @@ MOTIF = {
 }
 
 
-def page(p, prev, nxt):
+def hero_src(p):
+    h = p['hero']
+    return h.get('img') or h.get('poster')
+
+
+HUD = '<i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i>'
+
+
+def zoom(src, cap, idx, cls=''):
+    """Imagen grande que abre el visor en la foto `idx` de la galería."""
+    return (f'<button type="button" class="case-zoom {cls}" data-index="{idx}">'
+            f'<img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-zoom__cap", cap)}'
+            f'<span class="case-zoom__icon" aria-hidden="true">⤢</span></button>')
+
+
+def page(p, prev, nxt, num, total):
     t = p['theme']
     lang_title = f"{p['name']} · Sahar Chain"
     fonts = f"https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@500;700;800&family={t['fonts']}&display=swap"
     style = (f"--brand:{t['brand']};--brand-rgb:{t['brand_rgb']};--brand2:{t['brand2']};--brand2-rgb:{t['brand2_rgb']};"
              f"--case-bg:{t['bg']};--case-display:{t['display']};--case-body:{t['body']};--fx-a:{t['brand']};--fx-b:{t['brand2']};--bullet:'{t['bullet']}'")
     pill_es, pill_en = PILLAR[p['pillar']]
+    code = f'{num:02d} / {total:02d}'
+    gallery = p['gallery']
 
-    # portada
+    # imágenes para la misión y las franjas: las de la galería que no son la portada
+    hs = hero_src(p)
+    pool = [(i, src, cap) for i, (src, cap) in enumerate(gallery) if src != hs]
+
+    # ---------- portada ----------
     h = p['hero']
     if 'video' in h:
-        media = f'<video src="{h["video"]}" poster="{h["poster"]}" autoplay muted loop playsinline aria-label="Demo de {e(p["name"])}"></video>'
+        media = (f'<div class="device device--laptop"><div class="device__screen">'
+                 f'<video src="{h["video"]}" poster="{h["poster"]}" autoplay muted loop playsinline aria-label="Demo de {e(p["name"])}"></video>'
+                 f'</div><div class="device__base"></div></div>')
     else:
-        light = ' class="is-light"' if h.get('light') else ''
-        media = f'<img src="{h["img"]}" alt="{e(h["alt"])}"{light}>'
+        light = ' is-light' if h.get('light') else ''
+        media = (f'<div class="holo{light}">{HUD}<img src="{h["img"]}" alt="{e(h["alt"])}">'
+                 f'<span class="holo__scan" aria-hidden="true"></span>'
+                 f'<span class="holo__label">{e(p["name"].upper())} · {e(code)}</span></div>')
     tags = ''.join(f'<li>{e(x)}</li>' for x in p['tags'])
-    facts = ''.join(f'<div class="case-fact">{bi("dt", "", k)}{bi("dd", "", v)}</div>' for k, v in p['facts'])
+    facts = ''.join(f'<div class="telemetry__item">{bi("dt", "", k)}{bi("dd", "", v)}</div>' for k, v in p['facts'])
 
     out = []
     out.append(f'''
         <section class="case-hero">
             {MOTIF[t['motif']]}
-            <div class="case-hero__copy">
+            <div class="case-hero__bar">
                 <a class="case-back" href="proyectos.html?area={p['pillar']}" data-es="← Proyectos de {e(pill_es.lower())}" data-en="← {e(pill_en)} projects">← Proyectos de {e(pill_es.lower())}</a>
+                <span class="case-hero__code"><i aria-hidden="true"></i><span data-es="ARCHIVO {code}" data-en="FILE {code}">ARCHIVO {code}</span></span>
+            </div>
+            <div class="case-hero__copy">
                 {bi('p', 'case-kicker', p['kicker'])}
                 <h1 class="case-title">{e(p['title'][0])}</h1>
                 {bi('p', 'case-tagline', p['tagline'])}
-                <ul class="case-tags">{tags}</ul>
+                <div class="case-hero__actions">
+                    <a class="case-btn case-btn--primary" href="contacto.html?servicio={p['service']}" data-es="Quiero algo así" data-en="I want something like this">Quiero algo así</a>
+                    <a class="case-btn" href="#galeria" data-es="Ver galería ↓" data-en="See gallery ↓">Ver galería ↓</a>
+                </div>
             </div>
             <figure class="case-hero__media">{media}</figure>
         </section>
-        <dl class="case-facts">{facts}</dl>
-
-        <section class="case-section case-summary">
-            {bi('p', 'case-overline', ('// RESUMEN', '// OVERVIEW'))}
-            {bi('p', 'case-summary__text', p['summary'])}
+        <section class="telemetry" aria-label="Ficha del proyecto">
+            <dl class="telemetry__grid">{facts}</dl>
+            <ul class="case-tags">{tags}</ul>
         </section>''')
 
-    if p.get('concept'):
-        c = p['concept']
-        paras = ''.join(bi('p', 'case-concept__text', x) for x in c['paras'])
-        out.append(f'''
-        <section class="case-section case-concept">
-            {bi('p', 'case-overline', ('// CONCEPTO', '// CONCEPT'))}
-            {bi('h2', 'case-h2', c['title'])}
-            <blockquote class="case-quote">{bi('span', '', c['quote'])}</blockquote>
-            <div class="case-concept__cols">{paras}</div>
-        </section>''')
-
-    items = ''.join(f'<li><button type="button" class="case-shot" data-full="{src}"><img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-shot__cap", cap)}</button></li>' for src, cap in p['gallery'])
+    # ---------- misión: concepto o resumen, con una imagen grande ----------
+    c = p.get('concept')
+    title = c['title'] if c else ('La misión', 'The mission')
+    quote = f'<blockquote class="case-quote">{bi("span", "", c["quote"])}</blockquote>' if c else ''
+    paras = ''.join(bi('p', 'case-mission__text', x) for x in c['paras']) if c else ''
+    mimg = pool.pop(0) if pool else None
+    mfig = f'<figure class="case-mission__media reveal">{zoom(mimg[1], mimg[2], mimg[0])}</figure>' if mimg else ''
     out.append(f'''
-        <section class="case-section">
-            {bi('p', 'case-overline', ('// GALERÍA', '// GALLERY'))}
-            {bi('h2', 'case-h2', ('El proyecto en imágenes', 'The project in pictures'))}
-            <ul class="case-gallery case-gallery--{min(len(p['gallery']), 4)}">{items}</ul>
+        <section class="case-mission{' has-media' if mimg else ''}">
+            <div class="case-mission__copy reveal">
+                {bi('p', 'case-overline', ('// 01 · LA MISIÓN', '// 01 · THE MISSION'))}
+                {bi('h2', 'case-h2', title)}
+                {bi('p', 'case-mission__lead', p['summary'])}
+                {quote}
+                {paras}
+            </div>
+            {mfig}
         </section>''')
 
-    if p.get('palette') or p.get('type'):
-        sw = ''.join(f'<li><button type="button" class="swatch" data-hex="{hx}" style="--sw:{hx}"><span class="swatch__chip"></span><span class="swatch__name" data-es="{e(es)}" data-en="{e(en)}">{e(es)}</span><span class="swatch__hex">{hx}</span></button></li>' for es, en, hx in p.get('palette', []))
-        ty = ''.join(f'<div class="type-card"><p class="type-card__sample" style="font-family:{ff}">{e(sample)}</p><p class="type-card__name">{e(name)}</p>{bi("p", "type-card__desc", d)}</div>' for name, ff, sample, d in p.get('type', []))
-        out.append(f'''
-        <section class="case-section case-brand">
-            {bi('p', 'case-overline', ('// SISTEMA VISUAL', '// VISUAL SYSTEM'))}
-            {bi('h2', 'case-h2', ('Color y tipografía', 'Color and typography'))}
-            {('<ul class="case-palette">' + sw + '</ul>' + bi('p', 'case-hint', ('Toca un color para copiar su código.', 'Tap a color to copy its code.'))) if sw else ''}
-            {('<div class="case-type">' + ty + '</div>') if ty else ''}
-        </section>''')
-
-    blocks = ''.join(f'<article class="case-block">{bi("h3", "case-block__title", b["title"])}<ul class="case-list">{"".join(bi("li", "", x) for x in b["items"])}</ul></article>' for b in p['blocks'])
+    # ---------- franjas: imagen grande + texto corto ----------
+    rows, rest = [], []
+    for i, b in enumerate(p['blocks']):
+        lis = ''.join(bi('li', '', x) for x in b['items'][:5])
+        txt = f'{bi("h3", "case-row__title", b["title"])}<ul class="case-list">{lis}</ul>'
+        if pool:
+            gi, src, cap = pool.pop(0)
+            rows.append(f'<article class="case-row"><div class="case-row__media reveal">{zoom(src, cap, gi)}</div><div class="case-row__copy reveal"><span class="case-row__num">0{len(rows) + 2}</span>{txt}</div></article>')
+        else:
+            rest.append(f'<article class="case-panel reveal">{HUD}{txt}</article>')
+    panels = f'<div class="case-panels case-panels--{len(rest)}">{"".join(rest)}</div>' if rest else ''
     out.append(f'''
-        <section class="case-section">
-            {bi('p', 'case-overline', ('// DETALLES', '// DETAILS'))}
-            {bi('h2', 'case-h2', ('Qué se construyó', 'What was built'))}
-            <div class="case-blocks">{blocks}</div>
+        <section class="case-section case-build">
+            {bi('p', 'case-overline', ('// QUÉ SE CONSTRUYÓ', '// WHAT WAS BUILT'))}
+            {''.join(rows)}
+            {panels}
         </section>''')
 
     if p.get('challenges'):
-        ch = ''.join(f'<article class="case-challenge">{bi("h3", "case-challenge__title", a)}{bi("p", "case-challenge__text", b)}</article>' for a, b in p['challenges'])
+        ch = ''.join(f'<article class="case-panel case-panel--alt reveal">{HUD}{bi("h3", "case-row__title", a)}{bi("p", "case-panel__text", b)}</article>' for a, b in p['challenges'])
         out.append(f'''
         <section class="case-section">
-            {bi('p', 'case-overline', ('// RETOS', '// CHALLENGES'))}
-            {bi('h2', 'case-h2', ('Retos y soluciones', 'Challenges and solutions'))}
-            <div class="case-challenges">{ch}</div>
+            {bi('p', 'case-overline', ('// RETOS Y SOLUCIONES', '// CHALLENGES AND SOLUTIONS'))}
+            <div class="case-panels case-panels--2">{ch}</div>
+        </section>''')
+
+    # ---------- galería deslizable ----------
+    slides = ''.join(f'<li class="reel__slide"><button type="button" class="case-shot" data-full="{src}"><img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-shot__cap", cap)}</button></li>' for src, cap in gallery)
+    many = len(gallery) > 1
+    nav = (f'<div class="reel__nav"><button type="button" class="reel__btn" data-dir="-1" data-es-label="Anterior" data-en-label="Previous" aria-label="Anterior">‹</button>'
+           f'<span class="reel__count"><b>01</b> / {len(gallery):02d}</span>'
+           f'<button type="button" class="reel__btn" data-dir="1" data-es-label="Siguiente" data-en-label="Next" aria-label="Siguiente">›</button></div>') if many else ''
+    out.append(f'''
+        <section class="case-section case-gallery" id="galeria">
+            <div class="case-gallery__head">
+                <div>
+                    {bi('p', 'case-overline', ('// GALERÍA', '// GALLERY'))}
+                    {bi('h2', 'case-h2', ('El proyecto en imágenes', 'The project in pictures'))}
+                </div>
+                {nav}
+            </div>
+            <ul class="reel{' reel--single' if not many else ''}" tabindex="0" aria-label="Galería">{slides}</ul>
+            {bi('p', 'case-hint', ('Toca una imagen para verla en pantalla completa.', 'Tap an image to see it full screen.'))}
         </section>''')
 
     if p.get('process'):
-        st = ''.join(f'<li class="case-step"><span class="case-step__num">0{i + 1}</span>{bi("h3", "case-step__title", a)}{bi("p", "case-step__text", b)}</li>' for i, (a, b) in enumerate(p['process']))
+        st = ''.join(f'<li class="case-step reveal"><span class="case-step__num">0{i + 1}</span>{bi("h3", "case-step__title", a)}{bi("p", "case-step__text", b)}</li>' for i, (a, b) in enumerate(p['process']))
         out.append(f'''
         <section class="case-section">
             {bi('p', 'case-overline', ('// PROCESO', '// PROCESS'))}
@@ -574,15 +620,29 @@ def page(p, prev, nxt):
             <ol class="case-steps">{st}</ol>
         </section>''')
 
+    # ---------- sistema visual ----------
+    if p.get('palette') or p.get('type'):
+        sw = ''.join(f'<li><button type="button" class="swatch" data-hex="{hx}" style="--sw:{hx}"><span class="swatch__name" data-es="{e(es)}" data-en="{e(en)}">{e(es)}</span><span class="swatch__hex">{hx}</span></button></li>' for es, en, hx in p.get('palette', []))
+        ty = ''.join(f'<div class="type-card reveal">{HUD}<p class="type-card__sample" style="font-family:{ff}">{e(sample)}</p><p class="type-card__alpha" style="font-family:{ff}">Aa Bb Cc 0123</p><p class="type-card__name">{e(name)}</p>{bi("p", "type-card__desc", d)}</div>' for name, ff, sample, d in p.get('type', []))
+        out.append(f'''
+        <section class="case-section case-brand">
+            {bi('p', 'case-overline', ('// SISTEMA VISUAL', '// VISUAL SYSTEM'))}
+            {bi('h2', 'case-h2', ('Color y tipografía', 'Color and typography'))}
+            {('<ul class="case-palette reveal">' + sw + '</ul>' + bi('p', 'case-hint', ('Toca un color para copiar su código.', 'Tap a color to copy its code.'))) if sw else ''}
+            {('<div class="case-type">' + ty + '</div>') if ty else ''}
+        </section>''')
+
+    # ---------- resultados, cierre y siguiente proyecto ----------
     res = ''.join(bi('li', '', x) for x in p['results'])
     out.append(f'''
-        <section class="case-section case-results">
-            {bi('p', 'case-overline', ('// RESULTADOS', '// RESULTS'))}
+        <section class="case-section case-results reveal">
+            {HUD}
+            <p class="case-results__status"><i aria-hidden="true"></i><span data-es="MISIÓN CUMPLIDA" data-en="MISSION ACCOMPLISHED">MISIÓN CUMPLIDA</span></p>
             {bi('h2', 'case-h2', ('Resultados e impacto', 'Results and impact'))}
             <ul class="case-results__list">{res}</ul>
         </section>
 
-        <section class="case-cta">
+        <section class="case-cta reveal">
             {bi('p', 'case-cta__title', p['cta'][0])}
             {bi('p', 'case-cta__lead', p['cta'][1])}
             <div class="case-cta__actions">
@@ -591,10 +651,19 @@ def page(p, prev, nxt):
             </div>
         </section>
 
-        <nav class="case-nav" aria-label="Más proyectos">
-            <a class="case-nav__link" href="{prev['file']}"><span data-es="← Anterior" data-en="← Previous">← Anterior</span><b>{e(prev['name'])}</b></a>
-            <a class="case-nav__all" href="proyectos.html" data-es="Todos los proyectos" data-en="All projects">Todos los proyectos</a>
-            <a class="case-nav__link case-nav__link--next" href="{nxt['file']}"><span data-es="Siguiente →" data-en="Next →">Siguiente →</span><b>{e(nxt['name'])}</b></a>
+        <nav class="case-next" aria-label="Más proyectos">
+            <a class="case-next__card" href="{nxt['file']}" style="--next:{nxt['theme']['brand']};--next-bg:{nxt['theme']['bg']}">
+                <img src="{hero_src(nxt)}" alt="" loading="lazy">
+                <span class="case-next__body">
+                    <span class="case-next__label" data-es="SIGUIENTE ARCHIVO →" data-en="NEXT FILE →">SIGUIENTE ARCHIVO →</span>
+                    <b class="case-next__name" style="font-family:{nxt['theme']['display']}">{e(nxt['name'])}</b>
+                    <span class="case-next__kicker" data-es="{e(nxt['kicker'][0])}" data-en="{e(nxt['kicker'][1])}">{e(nxt['kicker'][0])}</span>
+                </span>
+            </a>
+            <div class="case-next__links">
+                <a href="{prev['file']}"><span data-es="← Anterior:" data-en="← Previous:">← Anterior:</span> {e(prev['name'])}</a>
+                <a href="proyectos.html" data-es="Todos los proyectos" data-en="All projects">Todos los proyectos</a>
+            </div>
         </nav>''')
 
     desc = e(p['tagline'][0])
@@ -644,7 +713,7 @@ def page(p, prev, nxt):
 if __name__ == '__main__':
     n = len(PROJECTS)
     for i, p in enumerate(PROJECTS):
-        html_out = page(p, PROJECTS[(i - 1) % n], PROJECTS[(i + 1) % n])
+        html_out = page(p, PROJECTS[(i - 1) % n], PROJECTS[(i + 1) % n], i + 1, n)
         with open(os.path.join(ROOT, p['file']), 'w', encoding='utf-8') as f:
             f.write(html_out)
         print('✓', p['file'])
