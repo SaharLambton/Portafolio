@@ -6,6 +6,8 @@
 (function () {
     const page = document.body.dataset.page || 'home';
     const isHome = page === 'home';
+    // las páginas de cada proyecto marcan la pestaña Proyectos
+    const navPage = page === 'case' ? 'projects' : page;
 
     const NAV = [
         { id: 'home', href: 'index.html', es: 'Inicio', en: 'Home' },
@@ -25,7 +27,7 @@
 
     /* ---------- Barra superior ---------- */
     function headerHTML() {
-        const links = NAV.map((n) => `<a href="${n.href}"${n.id === page ? ' class="is-active" aria-current="page"' : ''} data-es="${n.es}" data-en="${n.en}">${n.es}</a>`).join('');
+        const links = NAV.map((n) => `<a href="${n.href}"${n.id === navPage ? ' class="is-active" aria-current="page"' : ''} data-es="${n.es}" data-en="${n.en}">${n.es}</a>`).join('');
         return `
             <a class="aura-brand" href="index.html" aria-label="Sahar Chain · Inicio">
                 <i class="aura-brand__mark" aria-hidden="true"></i>
