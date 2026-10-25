@@ -197,6 +197,8 @@ img, video { max-width: 100%; }
 .aura-bubble[hidden] { display: none; }
 .aura-bubble__who { display: block; margin-bottom: 4px; font-family: var(--a-font-mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--a-emerald); }
 .aura-bubble__text { margin: 0; font-size: 0.92rem; line-height: 1.5; }
+.aura-bubble__hint { margin: 8px 0 0; font-family: var(--a-font-mono); font-size: 0.68rem; letter-spacing: 0.06em; color: var(--a-emerald); opacity: 0.85; }
+.aura-bubble__hint[hidden] { display: none; }
 .aura-bubble__close, .aura-float__close {
     position: absolute;
     top: 8px;

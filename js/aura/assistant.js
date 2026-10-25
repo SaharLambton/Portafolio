@@ -9,6 +9,8 @@
     const orb = () => window.AuraOrb || { setState() {}, pulse() {}, poke() {} };
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const page = document.body.dataset.page || 'home';
+    // clave de comentarios: en las páginas de proyecto, una por proyecto
+    const pageKey = page === 'case' ? 'case-' + (document.body.dataset.project || '') : page;
     const isHome = page === 'home';
     let PAGE = (KB.pages && KB.pages[page]) || {};
     // en la página de un proyecto, AURA habla de ese proyecto
@@ -45,7 +47,8 @@
         float: $('#auraFloat'),
         bubble: $('#auraBubble'),
         bubbleText: $('#auraBubbleText'),
-        bubbleClose: $('#auraBubbleClose')
+        bubbleClose: $('#auraBubbleClose'),
+        bubbleHint: $('#auraBubbleHint')
     };
 
     /* ---------- Almacenamiento seguro ---------- */
@@ -63,7 +66,8 @@
         token: 0,          // invalida mensajes en curso cuando llega uno nuevo
         welcoming: false,
         history: [],
-        replyLang: null
+        replyLang: null,
+        busy: 0
     };
 
     // replyLang: idioma detectado en la pregunta (si alguien escribe en inglés con el sitio en español)
@@ -120,9 +124,10 @@
         if (activated) return;
         activated = true;
         if (els.voice) els.voice.classList.remove('needs-gesture');
+        if (els.bubbleHint) els.bubbleHint.hidden = true;
         const p = pendingSpeech;
         pendingSpeech = null;
-        if (p && state.voice && Date.now() - p.t < 25000) speak(p.text, p.lang);
+        if (p && state.voice && Date.now() - p.t < 60000) speak(p.text, p.lang);
     }
     ['pointerdown', 'keydown', 'touchend'].forEach((ev) => window.addEventListener(ev, onFirstGesture, { capture: true, passive: true }));
 
@@ -130,6 +135,7 @@
         if (!synth || !state.voice) return Promise.resolve();
         if (!activated) {
             pendingSpeech = { text, lang, t: Date.now() };
+            if (els.bubbleHint && els.bubble && !els.bubble.hidden) els.bubbleHint.hidden = false;
             if (els.voice) {
                 els.voice.dataset.hint = tr(UI.tapToHear);
                 els.voice.classList.add('needs-gesture');
@@ -390,7 +396,13 @@
     }
 
     /* ---------- Preguntar ---------- */
+    // mientras responde una pregunta, los comentarios de la página esperan
     async function ask(raw, hint) {
+        state.busy++;
+        try { await answer(raw, hint); } finally { state.busy--; }
+    }
+
+    async function answer(raw, hint) {
         raw = (raw || '').trim();
         if (!raw) return;
         const token = ++state.token;
@@ -467,6 +479,8 @@
             setTimeout(() => els.boot.remove(), 900);
         }
         document.documentElement.classList.add('aura-ready');
+        // vigila las secciones desde ya: lo que se vea durante la bienvenida queda en cola
+        watchSections();
         await sleep(seen || reducedMotion ? 300 : 1100);
         if (seen) {
             await welcome([tr(KB.returning)]);
@@ -532,7 +546,10 @@
     /* ---------- Comentarios de AURA según la página ---------- */
     let lastComment = 0;
     let bubbleTimer = null;
-    const said = (key) => store.sget('aura-said-' + key) === '1';
+    const COMMENT_GAP = 4500;      // pausa mínima entre comentarios
+    const saidNow = new Set();     // lo que ya dijo en esta carga de la página
+    const queue = [];
+    let pumping = false;
 
     function floatVisible() {
         return els.float && !els.float.classList.contains('is-hidden');
@@ -542,6 +559,7 @@
         if (!els.bubble) return;
         clearTimeout(bubbleTimer);
         els.bubble.hidden = false;
+        if (els.bubbleHint) els.bubbleHint.hidden = true;
         els.bubbleText.textContent = '';
         setStatus('speaking');
         const voiceDone = speak(text);
@@ -556,14 +574,7 @@
         bubbleTimer = setTimeout(() => { els.bubble.hidden = true; }, Math.max(6000, text.length * 60));
     }
 
-    // Dice un comentario una sola vez por visita. Si la voz está desactivada, AURA no interrumpe.
-    async function comment(key, obj) {
-        if (!obj || said(key) || !state.voice) return;
-        if (Date.now() - lastComment < 9000) return;
-        if (state.welcoming) return;
-        store.sset('aura-said-' + key, '1');
-        lastComment = Date.now();
-        const text = fill(tr(obj));
+    async function deliver(text) {
         if (window.AuraPanel && window.AuraPanel.isOpen()) {
             const token = ++state.token;
             await say(text, { token });
@@ -580,11 +591,35 @@
             body.textContent = text;
             scrollLog();
         }
-        showBubble(text);
+        await showBubble(text);
+    }
+
+    // Los comentarios esperan su turno: nunca se pierden por llegar mientras AURA habla.
+    // Si la voz está apagada se muestran solo en texto.
+    function comment(key, obj) {
+        if (!obj || saidNow.has(key) || queue.some((q) => q.key === key)) return;
+        queue.push({ key, obj });
+        // si se acumulan, quedan los más recientes (lo que la persona está viendo ahora)
+        while (queue.length > 2) queue.shift();
+        pump();
+    }
+
+    async function pump() {
+        if (pumping) return;
+        pumping = true;
+        while (queue.length) {
+            const wait = lastComment + COMMENT_GAP - Date.now();
+            if (state.welcoming || state.busy || wait > 0) { await sleep(state.welcoming || state.busy ? 800 : wait); continue; }
+            const { key, obj } = queue.shift();
+            saidNow.add(key);
+            await deliver(fill(tr(obj)));
+            lastComment = Date.now();
+        }
+        pumping = false;
     }
 
     // otras partes de la página (p. ej. los filtros de Proyectos) pueden pedirle un comentario
-    window.AuraComment = (key, obj) => comment(page + '-' + key, obj);
+    window.AuraComment = (key, obj) => comment(pageKey + '-' + key, obj);
 
     function watchSections() {
         const sections = (PAGE && PAGE.sections) || {};
@@ -592,12 +627,14 @@
         if (!nodes.length || !('IntersectionObserver' in window)) return;
         const io = new IntersectionObserver((entries) => {
             entries.forEach((e) => {
-                if (!e.isIntersecting) return;
+                // secciones altas: basta con que ocupen media pantalla
+                const seen = e.intersectionRatio >= 0.35 || e.intersectionRect.height >= window.innerHeight * 0.5;
+                if (!e.isIntersecting || !seen) return;
                 const key = e.target.dataset.auraSay;
                 io.unobserve(e.target);
-                setTimeout(() => comment(page + '-' + key, sections[key]), 900);
+                setTimeout(() => comment(pageKey + '-' + key, sections[key]), 600);
             });
-        }, { threshold: 0.35 });
+        }, { threshold: [0, 0.1, 0.2, 0.35, 0.5] });
         nodes.forEach((n) => io.observe(n));
     }
 
@@ -727,7 +764,7 @@
     updateVoiceButton();
     setStatus('idle');
     if (isHome) {
-        boot().then(watchSections);
+        boot();
     } else {
         // pestañas internas: saludo en el chat y comentario de entrada en el globo
         document.documentElement.classList.add('aura-ready');
@@ -736,7 +773,7 @@
             body.textContent = fill(tr(PAGE.intro));
         }
         renderChips((PAGE.chips || KB.chips.default).map(topicChip).filter(Boolean));
-        if (!window.AURA_SKIP_ENTER) setTimeout(() => comment(page + '-enter', PAGE.enter), 1400);
+        if (!window.AURA_SKIP_ENTER) setTimeout(() => comment(pageKey + '-enter', PAGE.enter), 1200);
         watchSections();
     }
 })();

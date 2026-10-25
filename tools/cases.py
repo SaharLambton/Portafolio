@@ -12,7 +12,7 @@ import html
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261025m'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261025p'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
