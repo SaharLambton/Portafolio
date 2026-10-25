@@ -65,13 +65,15 @@
             return best;
         };
         const update = () => {
-            const i = current();
-            if (count) count.textContent = String(i + 1).padStart(2, '0');
             const end = reel.scrollLeft + reel.clientWidth >= reel.scrollWidth - 4;
+            // al final del recorrido cuenta la última foto aunque no quepa a la izquierda
+            const i = end && reel.scrollLeft > 4 ? slides.length - 1 : current();
+            if (count) count.textContent = String(i + 1).padStart(2, '0');
             btns.forEach((b) => { b.disabled = b.dataset.dir === '-1' ? reel.scrollLeft <= 4 : end; });
         };
         btns.forEach((b) => b.addEventListener('click', () => {
             const i = Math.max(0, Math.min(slides.length - 1, current() + Number(b.dataset.dir)));
+            if (Number(b.dataset.dir) > 0 && i === current()) return;
             reel.scrollTo({ left: slides[i].offsetLeft - (parseFloat(getComputedStyle(reel).paddingLeft) || 0), behavior: 'smooth' });
         }));
         reel.addEventListener('keydown', (e) => {

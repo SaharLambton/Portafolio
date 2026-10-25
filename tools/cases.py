@@ -10,9 +10,10 @@ PROJECTS y ejecuta:
 """
 import html
 import os
+import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261025q'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261025t'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -29,6 +30,49 @@ def bi(tag, cls, t, extra=''):
 # ----------------------------------------------------------------------------
 # Datos de los proyectos
 # ----------------------------------------------------------------------------
+CODE_AGRO = '''class IrrigationController {
+    constructor(
+        private sensor: Sensor,
+        private weatherForecast: WeatherForecast,
+        private irrigationSystem: IrrigationSystem
+    ) {}
+
+    decideIrrigation(sensorData: number): void {
+        if (this.weatherForecast.checkWeatherForecast()) {
+            console.log("Weather conditions are suitable for irrigation.");
+            this.startIrrigation();
+        } else {
+            console.log("Irrigation not needed based on weather forecast.");
+        }
+    }
+}'''
+CODE_BOOK = '''borrowBook(customerId: number, bookId: number): string {
+    const customer = this.findCustomerById(customerId);
+    const book = this.findBookById(bookId);
+
+    if (customer && book && book.available) {
+      customer.borrowBook(bookId);
+      book.toggleAvailability();
+      return `${customer.name} successfully borrowed "${book.title}".`;
+    }
+    return `Borrowing failed.`;
+}'''
+CODE_SPACE = '''export class BookingService {
+    private bookings: Booking[] = [];
+
+    createBooking(customer: Customer, flight: Flight): Booking {
+        if (flight.capacity <= 0) {
+            throw new Error("No seats available on this flight.");
+        }
+        const newBooking = new Booking(
+            this.bookings.length + 1, customer, flight, "pending"
+        );
+        flight.capacity--;
+        this.bookings.push(newBooking);
+        return newBooking;
+    }
+}'''
+
 PROJECTS = [
     {
         'id': 'sell-services', 'file': 'sell-services.html', 'name': 'Sell Services', 'pillar': 'web',
@@ -60,7 +104,7 @@ PROJECTS = [
                 ('Registro y autenticación con encriptación multinivel', 'Sign-up and authentication with multi-level encryption'),
                 ('Catálogo dinámico de productos personalizables', 'Dynamic catalog of customizable products'),
                 ('Carrito de compras que se actualiza en tiempo real', 'Shopping cart that updates in real time'),
-                ('Pasarela de pagos con procesamiento seguro', 'Payment gateway with secure processing'),
+                ('Pasarela de pagos simulada para probar el flujo de compra', 'Simulated payment gateway to test the checkout flow'),
                 ('Panel de administración de productos, pedidos y usuarios', 'Admin panel for products, orders and users'),
                 ('Ofertas con temporizador y popup promocional', 'Offers with countdown timer and promotional popup')]},
             {'title': ('Arquitectura de seguridad', 'Security architecture'), 'items': [
@@ -199,7 +243,7 @@ PROJECTS = [
         'tags': ['Branding', 'Logo', 'Manual de marca', 'Packaging', 'Estrategia digital'],
         'hero': {'img': 'img/cases/zohar-zohar-fondo-oscuro.webp', 'alt': 'Logo de Zohar en plata sobre azul profundo'},
         'facts': [
-            (('Cliente', 'Client'), ('Marca de joyería de lujo', 'Luxury jewelry brand')),
+            (('Cliente', 'Client'), ('Cliente real · joyería de lujo', 'Real client · luxury jewelry')),
             (('Duración', 'Duration'), ('6 semanas', '6 weeks')),
             (('Rol', 'Role'), ('Diseñadora de marca', 'Brand designer')),
             (('Herramientas', 'Tools'), ('Illustrator · Photoshop', 'Illustrator · Photoshop')),
@@ -266,7 +310,7 @@ PROJECTS = [
         'tags': ['Branding', 'Logo', 'Identidad visual', 'Inmobiliaria'],
         'hero': {'img': 'img/cases/oden-recurso-13.webp', 'alt': 'Logo de ODEN con símbolo de brújula'},
         'facts': [
-            (('Cliente', 'Client'), ('Empresa inmobiliaria', 'Real estate company')),
+            (('Cliente', 'Client'), ('Cliente real · inmobiliaria', 'Real client · real estate')),
             (('Duración', 'Duration'), ('1 mes', '1 month')),
             (('Rol', 'Role'), ('Diseñadora de marca', 'Brand designer')),
             (('Herramientas', 'Tools'), ('Adobe Illustrator', 'Adobe Illustrator')),
@@ -341,6 +385,7 @@ PROJECTS = [
         'hero': {'img': 'img/cases/unicos-metaltec.webp', 'alt': 'Logo de MetalTec Colombia', 'light': True},
         'facts': [
             (('Cliente', 'Client'), ('Empresa metalúrgica (B2B)', 'Metallurgical company (B2B)')),
+            (('Época', 'Period'), ('Durante Únicos · 2019 – 2021', 'During Únicos · 2019 – 2021')),
             (('Duración', 'Duration'), ('3 a 4 meses', '3 to 4 months')),
             (('Rol', 'Role'), ('Líder de proyecto y directora creativa', 'Project lead and creative director')),
             (('Herramientas', 'Tools'), ('Illustrator · Photoshop · WordPress', 'Illustrator · Photoshop · WordPress')),
@@ -457,6 +502,284 @@ PROJECTS = [
                 ('Creo diseños únicos que hacen destacar a tu marca.', 'I create unique designs that make your brand stand out.')),
         'service': 'branding',
     },
+    {
+        'id': 'smart-agriculture', 'file': 'smart-agriculture.html', 'name': 'Smart Agriculture', 'pillar': 'code',
+        'theme': {'brand': '#7ed957', 'brand_rgb': '126, 217, 87', 'brand2': '#f2c94c', 'brand2_rgb': '242, 201, 76',
+                  'bg': '#060f08', 'display': "'Space Grotesk', sans-serif", 'body': "'Exo 2', sans-serif",
+                  'fonts': 'Space+Grotesk:wght@500;700', 'motif': 'field', 'bullet': '❖'},
+        'kicker': ('PROGRAMACIÓN · TYPESCRIPT · NPM', 'PROGRAMMING · TYPESCRIPT · NPM'),
+        'title': ('Smart Agriculture', 'Smart Agriculture'),
+        'tagline': ('Un modelo en TypeScript para una granja inteligente: sensores, riego según el clima, drones y detección de enfermedades.',
+                    'A TypeScript model for a smart farm: sensors, weather-based irrigation, drones and disease detection.'),
+        'tags': ['TypeScript', 'Node.js', 'POO', 'npm'],
+        'hero': {'code': {'file': 'smartAgriculture.ts', 'src': CODE_AGRO}, 'card': 'img/thumbs/smart-agriculture-card.webp'},
+        'links': [(('Ver código en GitHub', 'See code on GitHub'), 'https://github.com/SaharLambton/Smart-Agriculture'),
+                  (('Ver paquete en npm', 'See npm package'), 'https://www.npmjs.com/package/@julianlambton/smart-agriculture')],
+        'facts': [
+            (('Tipo', 'Type'), ('Proyecto académico · Lambton College', 'Academic project · Lambton College')),
+            (('Año', 'Year'), ('2024', '2024')),
+            (('Equipo', 'Team'), ('Con Julián Casilimas', 'With Julián Casilimas')),
+            (('Entrega', 'Delivery'), ('Paquete publicado en npm', 'Package published on npm')),
+        ],
+        'summary': ('Un modelo orientado a objetos de una granja inteligente. Cada parte del campo es una clase: un sensor que mide la humedad, un pronóstico del clima, un sistema de riego, drones y un detector de enfermedades. Un controlador combina esos datos para decidir cuándo regar. El proyecto se publicó como paquete en npm, así que cualquiera puede instalarlo.',
+                    'An object-oriented model of a smart farm. Each part of the field is a class: a moisture sensor, a weather forecast, an irrigation system, drones and a disease detector. A controller combines that data to decide when to irrigate. The project was published as an npm package, so anyone can install it.'),
+        'gallery': [],
+        'blocks': [
+            {'title': ('Componentes del sistema', 'System components'), 'items': [
+                ('Sensor: lee el tipo, la ubicación y el valor medido', 'Sensor: reads type, location and measured value'),
+                ('Pronóstico del clima que decide si conviene regar', 'Weather forecast that decides whether to irrigate'),
+                ('Controlador de riego que une sensor, clima y sistema de riego', 'Irrigation controller that joins sensor, weather and irrigation system'),
+                ('Drones que se envían a cada zona del campo', 'Drones sent to each area of the field'),
+                ('Detector de enfermedades en las plantas', 'Plant disease detector')]},
+            {'title': ('Lo que practiqué', 'What I practiced'), 'items': [
+                ('Clases con propiedades públicas y privadas en TypeScript', 'Classes with public and private properties in TypeScript'),
+                ('Inyección de dependencias en el controlador', 'Dependency injection in the controller'),
+                ('Compilación de TypeScript a JavaScript con tsc', 'Compiling TypeScript to JavaScript with tsc'),
+                ('Publicación de un paquete en npm con sus tipos', 'Publishing an npm package with its types')]},
+        ],
+        'process': [
+            (('Modelado', 'Modeling'), ('Qué elementos tiene un campo inteligente.', 'Which elements a smart field has.')),
+            (('Clases', 'Classes'), ('Un componente por clase en TypeScript.', 'One component per TypeScript class.')),
+            (('Lógica de riego', 'Irrigation logic'), ('El controlador decide con sensor y clima.', 'The controller decides from sensor and weather.')),
+            (('Publicación', 'Publishing'), ('Compilado y publicado en npm.', 'Compiled and published on npm.')),
+        ],
+        'terminal': {'over': ('// EJECUCIÓN', '// RUN'), 'title': ('Así responde el sistema', 'How the system responds'), 'shell': 'bash',
+                     'lines': ['$ npm install @julianlambton/smart-agriculture', '$ npm start', '',
+                               'Sensor ID 2: Moisture at Field 5 reads value: 50', 'Checking weather forecast...',
+                               'Weather conditions are suitable for irrigation.', 'Irrigation system started.',
+                               'Drone Model X flying to Field 5', 'Disease Detector Detector Y is scanning for diseases...'],
+                     'note': ('Salida del programa de ejemplo que trae el paquete.', 'Output of the sample program included in the package.')},
+        'results': [
+            ('Paquete publicado en npm, listo para instalar', 'Package published on npm, ready to install'),
+            ('Arquitectura modular: cada componente se cambia sin tocar los demás', 'Modular architecture: each component can change without touching the rest'),
+            ('Trabajo en equipo con control de versiones en GitHub', 'Teamwork with version control on GitHub'),
+        ],
+        'cta': (('¿Necesitas un sistema a la medida?', 'Need a custom system?'),
+                ('Diseño software ordenado y fácil de mantener para tu empresa.', 'I design organized, easy-to-maintain software for your company.')),
+        'service': 'software',
+    },
+    {
+        'id': 'bookstore', 'file': 'library-management.html', 'name': 'Library Management', 'pillar': 'code',
+        'theme': {'brand': '#f0c419', 'brand_rgb': '240, 196, 25', 'brand2': '#c97b4a', 'brand2_rgb': '201, 123, 74',
+                  'bg': '#0f0c07', 'display': "'Libre Baskerville', serif", 'body': "'Exo 2', sans-serif",
+                  'fonts': 'Libre+Baskerville:wght@400;700', 'motif': 'books', 'bullet': '▸'},
+        'kicker': ('PROGRAMACIÓN · TYPESCRIPT · PRUEBAS', 'PROGRAMMING · TYPESCRIPT · TESTING'),
+        'title': ('Library Management', 'Library Management'),
+        'tagline': ('Gestión de una biblioteca en TypeScript: libros, clientes, préstamos y devoluciones, todo probado con Jest.',
+                    'Library management in TypeScript: books, customers, loans and returns, all tested with Jest.'),
+        'tags': ['TypeScript', 'Node.js', 'Jest', 'ts-jest', 'GitHub Actions', 'POO'],
+        'hero': {'code': {'file': 'src/services/Bookstore.ts', 'src': CODE_BOOK}, 'card': 'img/thumbs/library-card.webp'},
+        'links': [(('Ver código en GitHub', 'See code on GitHub'), 'https://github.com/SaharLambton/Assigment3')],
+        'facts': [
+            (('Tipo', 'Type'), ('Proyecto académico · Lambton College', 'Academic project · Lambton College')),
+            (('Año', 'Year'), ('2024', '2024')),
+            (('Rol', 'Role'), ('Desarrolladora', 'Developer')),
+            (('Calidad', 'Quality'), ('Pruebas en Jest + integración continua', 'Jest tests + continuous integration')),
+        ],
+        'summary': ('Una aplicación que simula la gestión de una biblioteca. Permite registrar libros y clientes, prestar un libro solo si está disponible y devolverlo solo si ese cliente lo tiene. Cada operación está cubierta con pruebas unitarias en Jest que se ejecutan solas en GitHub cada vez que se sube un cambio.',
+                    'An app that simulates managing a library. It registers books and customers, lends a book only if it is available and takes it back only if that customer has it. Every operation is covered by Jest unit tests that run automatically on GitHub whenever a change is pushed.'),
+        'gallery': [],
+        'blocks': [
+            {'title': ('Funcionalidades', 'Features'), 'items': [
+                ('Registro de libros y clientes', 'Book and customer registration'),
+                ('Búsqueda por ID', 'Lookup by ID'),
+                ('Préstamo solo si el libro está disponible', 'Loans only when the book is available'),
+                ('Devolución solo si el cliente tiene el libro', 'Returns only if the customer has the book'),
+                ('Mensajes claros de éxito o error', 'Clear success or error messages')]},
+            {'title': ('Arquitectura', 'Architecture'), 'items': [
+                ('Modelos: Book y Customer', 'Models: Book and Customer'),
+                ('Servicio Bookstore con toda la lógica', 'Bookstore service with all the logic'),
+                ('TypeScript compilado a JavaScript en dist/', 'TypeScript compiled to JavaScript in dist/')]},
+            {'title': ('Calidad', 'Quality'), 'items': [
+                ('Pruebas de agregar, prestar y devolver libros', 'Tests for adding, borrowing and returning books'),
+                ('Reporte de cobertura con Jest', 'Coverage report with Jest'),
+                ('GitHub Actions en cada push y pull request a main', 'GitHub Actions on every push and pull request to main'),
+                ('Caché de dependencias y reporte guardado como artefacto', 'Dependency cache and report saved as an artifact')]},
+        ],
+        'terminal': {'over': ('// PRUEBAS', '// TESTS'), 'title': ('Todas las pruebas en verde', 'All tests green'), 'shell': 'npm test',
+                     'lines': ['$ npm test', '', ' PASS  src/tests/addBook.test.ts', ' PASS  src/tests/borrowBook.test.ts', ' PASS  src/tests/returnBook.test.ts',
+                               ' PASS  dist/tests/addBook.test.js', ' PASS  dist/tests/borrowBook.test.js', ' PASS  dist/tests/returnBook.test.js', '',
+                               'Test Suites: 6 passed, 6 total', 'Tests:       6 passed, 6 total'],
+                     'note': ('Resultado guardado en el repositorio (results.txt): se prueba el código TypeScript y el JavaScript compilado.', 'Result saved in the repository (results.txt): both the TypeScript code and the compiled JavaScript are tested.')},
+        'results': [
+            ('Lógica de préstamos sin estados imposibles', 'Loan logic with no impossible states'),
+            ('Pruebas automáticas en cada cambio', 'Automatic tests on every change'),
+            ('Código organizado en modelos y servicios', 'Code organized into models and services'),
+        ],
+        'cta': (('¿Necesitas un sistema confiable para tu negocio?', 'Need a reliable system for your business?'),
+                ('Desarrollo software con pruebas para que funcione siempre.', 'I build tested software so it always works.')),
+        'service': 'software',
+    },
+    {
+        'id': 'space-flight', 'file': 'space-flight-booking.html', 'name': 'Space Flight Booking', 'pillar': 'code',
+        'theme': {'brand': '#8b7bff', 'brand_rgb': '139, 123, 255', 'brand2': '#ff7ac6', 'brand2_rgb': '255, 122, 198',
+                  'bg': '#05040f', 'display': "'Audiowide', sans-serif", 'body': "'Exo 2', sans-serif",
+                  'fonts': 'Audiowide', 'motif': 'orbit', 'bullet': '✦'},
+        'kicker': ('PROGRAMACIÓN · TYPESCRIPT · DEVOPS', 'PROGRAMMING · TYPESCRIPT · DEVOPS'),
+        'title': ('Space Flight Booking', 'Space Flight Booking'),
+        'tagline': ('Reservas de vuelos a Marte con verificación médica, pagos, pruebas automáticas y despliegue con Docker.',
+                    'Flight bookings to Mars with medical checks, payments, automated tests and Docker deployment.'),
+        'tags': ['TypeScript', 'Node.js', 'Jest', 'Docker', 'GitHub Actions'],
+        'hero': {'code': {'file': 'src/services/BookingService.ts', 'src': CODE_SPACE}, 'card': 'img/thumbs/space-flight-card.webp'},
+        'links': [(('Ver código en GitHub', 'See code on GitHub'), 'https://github.com/SaharLambton/Assigment1')],
+        'facts': [
+            (('Tipo', 'Type'), ('Proyecto académico · Lambton College', 'Academic project · Lambton College')),
+            (('Año', 'Year'), ('2024', '2024')),
+            (('Rol', 'Role'), ('Desarrolladora backend', 'Backend developer')),
+            (('Stack', 'Stack'), ('TypeScript · Jest · Docker', 'TypeScript · Jest · Docker')),
+        ],
+        'summary': ('El backend de una agencia que vende vuelos a Marte. Antes de reservar, el sistema verifica que el pasajero sea mayor de edad y tenga certificado médico; si hay cupo, crea la reserva, descuenta el asiento y registra el pago. Además de la lógica, el proyecto prepara todo el ciclo DevOps: pruebas automáticas, un contenedor Docker y un pipeline que construye y publica la imagen.',
+                    'The backend for an agency that sells flights to Mars. Before booking, the system checks that the passenger is an adult with a medical certificate; if there are seats, it creates the booking, takes the seat and records the payment. Beyond the logic, the project sets up the whole DevOps cycle: automated tests, a Docker container and a pipeline that builds and publishes the image.'),
+        'gallery': [],
+        'blocks': [
+            {'title': ('Lógica de negocio', 'Business logic'), 'items': [
+                ('Verificación médica: mayor de 18 y con certificado', 'Medical check: over 18 with a certificate'),
+                ('Reservas con control de cupos', 'Bookings with seat control'),
+                ('Al cancelar, el asiento se libera', 'Cancelling frees the seat'),
+                ('Pagos registrados por reserva', 'Payments recorded per booking'),
+                ('Estados con enums: confirmada, pendiente, cancelada', 'States with enums: confirmed, pending, cancelled')]},
+            {'title': ('Calidad', 'Quality'), 'items': [
+                ('Pruebas en Jest para reservas, pagos y verificación médica', 'Jest tests for bookings, payments and medical checks'),
+                ('Registro de eventos con fecha y hora', 'Event logging with date and time'),
+                ('Entidades y servicios separados', 'Separate entities and services')]},
+            {'title': ('DevOps', 'DevOps'), 'items': [
+                ('Dockerfile que compila TypeScript y arranca la app', 'Dockerfile that compiles TypeScript and starts the app'),
+                ('Pipeline en GitHub Actions sobre la rama develop', 'GitHub Actions pipeline on the develop branch'),
+                ('Instala, prueba y compila en cada push', 'Installs, tests and builds on every push'),
+                ('Publica la imagen en Docker Hub con credenciales en secrets', 'Publishes the image to Docker Hub with credentials in secrets')]},
+        ],
+        'process': [
+            (('Push', 'Push'), ('Un cambio llega a la rama develop.', 'A change lands on the develop branch.')),
+            (('Pruebas', 'Tests'), ('npm ci y Jest.', 'npm ci and Jest.')),
+            (('Build', 'Build'), ('TypeScript compilado.', 'TypeScript compiled.')),
+            (('Docker', 'Docker'), ('Se construye la imagen.', 'The image is built.')),
+            (('Docker Hub', 'Docker Hub'), ('La imagen se publica.', 'The image is published.')),
+        ],
+        'results': [
+            ('Flujo completo de reserva: verificación, cupo y pago', 'Complete booking flow: check, seat and payment'),
+            ('Aplicación lista para correr en cualquier servidor con Docker', 'App ready to run on any server with Docker'),
+            ('Pipeline de integración y despliegue continuo', 'Continuous integration and deployment pipeline'),
+        ],
+        'cta': (('¿Necesitas un sistema de reservas o pagos?', 'Need a booking or payment system?'),
+                ('Desarrollo backends a la medida, listos para producción.', 'I build custom backends, ready for production.')),
+        'service': 'software',
+    },
+    {
+        'id': 'jest-ci', 'file': 'jest-ci.html', 'name': 'Jest CI', 'pillar': 'code',
+        'theme': {'brand': '#ff5d73', 'brand_rgb': '255, 93, 115', 'brand2': '#2f81f7', 'brand2_rgb': '47, 129, 247',
+                  'bg': '#0a0c11', 'display': "'Space Mono', monospace", 'body': "'Exo 2', sans-serif",
+                  'fonts': 'Space+Mono:wght@400;700', 'motif': 'pipeline', 'bullet': '✓'},
+        'kicker': ('PROGRAMACIÓN · DEVOPS · CI', 'PROGRAMMING · DEVOPS · CI'),
+        'title': ('Jest CI', 'Jest CI'),
+        'tagline': ('Integración continua: cada cambio que llega a main ejecuta las pruebas solo, con GitHub Actions.',
+                    'Continuous integration: every change pushed to main runs the tests on its own, with GitHub Actions.'),
+        'tags': ['JavaScript', 'Node.js', 'Jest', 'GitHub Actions', 'YAML'],
+        'hero': {'img': 'img/cases/jestci-actions.webp', 'alt': 'Historial de ejecuciones del workflow Jest CI en GitHub Actions'},
+        'links': [(('Ver código en GitHub', 'See code on GitHub'), 'https://github.com/SaharLambton/Assigment4')],
+        'facts': [
+            (('Tipo', 'Type'), ('Curso DevOps Tools and Practices · Lambton College', 'DevOps Tools and Practices course · Lambton College')),
+            (('Año', 'Year'), ('2024', '2024')),
+            (('Rol', 'Role'), ('Desarrolladora', 'Developer')),
+            (('Herramientas', 'Tools'), ('Jest · GitHub Actions · Node.js 16', 'Jest · GitHub Actions · Node.js 16')),
+        ],
+        'summary': ('Configuré la integración continua de un proyecto JavaScript: cada vez que un cambio llega a la rama main, GitHub Actions prepara un servidor, instala el proyecto y ejecuta las pruebas con Jest. El historial muestra el proceso real: los primeros intentos fallaron, encontré la causa y desde entonces cada cambio se prueba solo.',
+                    'I set up continuous integration for a JavaScript project: whenever a change lands on the main branch, GitHub Actions prepares a server, installs the project and runs the Jest tests. The history shows the real process: the first attempts failed, I found the cause, and since then every change is tested automatically.'),
+        'gallery': [
+            ('img/cases/jestci-actions.webp', ('Ejecuciones del workflow en GitHub Actions', 'Workflow runs in GitHub Actions')),
+            ('img/cases/jestci-terminal.webp', ('Pruebas en la terminal', 'Tests in the terminal')),
+        ],
+        'blocks': [
+            {'title': ('El pipeline', 'The pipeline'), 'items': [
+                ('Se activa con cada push a main', 'Runs on every push to main'),
+                ('Servidor Ubuntu con Node.js 16', 'Ubuntu server with Node.js 16'),
+                ('Instala dependencias y da permisos a Jest', 'Installs dependencies and gives Jest permissions'),
+                ('Ejecuta las pruebas y avisa si todo pasó', 'Runs the tests and reports when everything passes')]},
+            {'title': ('Documentación', 'Documentation'), 'items': [
+                ('README paso a paso para repetir la configuración', 'Step-by-step README to repeat the setup'),
+                ('Capturas del workflow y de la consola', 'Screenshots of the workflow and the console'),
+                ('Ideas de mejora: más pruebas y notificaciones', 'Improvement ideas: more tests and notifications')]},
+        ],
+        'challenges': [
+            (('Las pruebas fallaban en GitHub pero no en mi computador', 'Tests failed on GitHub but not on my computer'),
+             ('El ejecutable de Jest no tenía permisos en el servidor de GitHub Actions. Agregué un paso que se los da (chmod +x) antes de correr las pruebas, y el workflow pasó a verde.',
+              "Jest's executable had no permissions on the GitHub Actions server. I added a step that grants them (chmod +x) before running the tests, and the workflow turned green.")),
+        ],
+        'terminal': {'over': ('// PRUEBAS', '// TESTS'), 'title': ('Las mismas pruebas, en local y en la nube', 'The same tests, locally and in the cloud'), 'shell': 'powershell',
+                     'lines': ['$ npm test', '', '> assigment4@1.0.0 test', '> jest', '', ' PASS  __tests__/example.test.js',
+                               '   ✓ adds 1 + 2 to equal 3 (4 ms)', '   ✓ subtracts 5 - 2 to equal 3 (1 ms)', '',
+                               'Test Suites: 1 passed, 1 total', 'Tests:       2 passed, 2 total']},
+        'results': [
+            ('7 ejecuciones del workflow; desde la corrección, todas en verde', '7 workflow runs; since the fix, all green'),
+            ('Cada cambio se prueba solo, sin pasos manuales', 'Every change is tested on its own, with no manual steps'),
+            ('Base lista para sumar más pruebas y alertas', 'A base ready for more tests and alerts'),
+        ],
+        'cta': (('¿Quieres que tu equipo deje de probar a mano?', 'Want your team to stop testing by hand?'),
+                ('Automatizo pruebas y despliegues para que cada cambio sea seguro.', 'I automate tests and deployments so every change is safe.')),
+        'service': 'automation',
+    },
+    {
+        'id': 'aura', 'file': 'aura.html', 'name': 'AURA', 'pillar': 'ai',
+        'theme': {'brand': '#2bf5b0', 'brand_rgb': '43, 245, 176', 'brand2': '#a970ff', 'brand2_rgb': '169, 112, 255',
+                  'bg': '#020406', 'display': "'Orbitron', sans-serif", 'body': "'Exo 2', sans-serif",
+                  'fonts': 'Orbitron:wght@500;700;800', 'motif': 'orb', 'bullet': '◈'},
+        'kicker': ('IA · ASISTENTE CONVERSACIONAL · WEBGL', 'AI · CONVERSATIONAL ASSISTANT · WEBGL'),
+        'title': ('AURA', 'AURA'),
+        'tagline': ('La asistente de este portafolio: te recibe, te guía por cada página y responde tus preguntas en español e inglés, con voz.',
+                    "This portfolio's assistant: she welcomes you, guides you through every page and answers your questions in Spanish and English, out loud."),
+        'tags': ['JavaScript', 'Three.js', 'WebGL', 'GLSL', 'Web Speech API', 'UX'],
+        'hero': {'img': 'img/cases/aura-home.webp', 'alt': 'Inicio del portafolio con el orbe 3D de AURA'},
+        'links': [(('Hablar con AURA', 'Talk to AURA'), 'index.html')],
+        'facts': [
+            (('Tipo', 'Type'), ('Proyecto propio · este portafolio', 'Own project · this portfolio')),
+            (('Año', 'Year'), ('2026', '2026')),
+            (('Rol', 'Role'), ('Diseño, desarrollo y contenido', 'Design, development and content')),
+            (('Tecnología', 'Technology'), ('JavaScript · Three.js · Web Speech API', 'JavaScript · Three.js · Web Speech API')),
+        ],
+        'summary': ('Quería un portafolio que no solo se leyera, sino que conversara. AURA es una asistente que vive en un orbe 3D: saluda al llegar, explica cada página mientras la recorres y responde preguntas sobre mis proyectos, servicios y experiencia. Funciona entera en el navegador, sin servidor, y está lista para conectarse a un modelo de IA.',
+                    "I wanted a portfolio that doesn't just get read but holds a conversation. AURA is an assistant living in a 3D orb: she greets you, explains each page as you explore it and answers questions about my projects, services and experience. She runs entirely in the browser, with no server, and is ready to connect to an AI model."),
+        'concept': {
+            'title': ('Un portafolio que conversa', 'A portfolio that talks'),
+            'quote': ('Pregúntame lo que necesites.', 'Ask me anything you need.'),
+            'paras': [
+                ('El orbe reacciona a lo que hace AURA: respira cuando espera, gira más rápido cuando piensa, vibra al hablar y se ilumina cuando escucha por el micrófono. Está hecho con shaders propios, partículas y anillos en WebGL.',
+                 'The orb reacts to what AURA is doing: it breathes while waiting, spins faster while thinking, pulses as she speaks and lights up when she listens through the microphone. It is built with custom shaders, particles and rings in WebGL.'),
+                ('En las demás pestañas AURA baja a un orbe flotante que comenta cada sección y abre un chat cuando lo tocas.',
+                 'On the other tabs AURA shrinks into a floating orb that comments on each section and opens a chat when you tap it.')]},
+        'gallery': [
+            ('img/cases/aura-home.webp', ('Inicio: el orbe y la consola de AURA', 'Home: the orb and AURA console')),
+            ('img/cases/aura-chat.webp', ('Respuesta con botones de acción', 'Answer with action buttons')),
+            ('img/cases/aura-pillars.webp', ('Los pilares del inicio', 'The home pillars')),
+            ('img/cases/aura-float.webp', ('AURA flotante en otras pestañas', 'Floating AURA on other tabs')),
+            ('img/cases/aura-console.webp', ('Consola "Diseña tu misión"', '"Design your mission" console')),
+        ],
+        'blocks': [
+            {'title': ('Lo que hace', 'What she does'), 'items': [
+                ('Arranque "Iniciar sistema" que habilita la voz', '"Start system" boot that enables the voice'),
+                ('Responde sobre proyectos, servicios, experiencia y contacto', 'Answers about projects, services, experience and contact'),
+                ('Detecta si le escribes en español o en inglés', 'Detects whether you write in Spanish or English'),
+                ('Habla en voz alta y entiende preguntas por micrófono', 'Speaks out loud and understands questions by microphone'),
+                ('Comenta cada página y lleva a la sección correcta', 'Comments on each page and takes you to the right section')]},
+            {'title': ('Cómo está hecha', 'How she is built'), 'items': [
+                ('Orbe 3D con Three.js y shaders GLSL propios', '3D orb with Three.js and custom GLSL shaders'),
+                ('Motor de intenciones con palabras clave y pesos', 'Intent engine with weighted keywords'),
+                ('Cola de comentarios para no interrumpir', 'Comment queue so she never interrupts'),
+                ('Sin servidor: todo corre en el navegador', 'Serverless: everything runs in the browser'),
+                ('Preparada para conectar un modelo de IA', 'Ready to connect an AI model')]},
+            {'title': ('Pensada para todos', 'Designed for everyone'), 'items': [
+                ('La voz se puede apagar y queda el texto', 'The voice can be turned off and text remains'),
+                ('Respeta la opción de reducir movimiento', 'Respects the reduced-motion setting'),
+                ('Todo el sitio en español e inglés', 'The whole site in Spanish and English'),
+                ('Se puede usar con teclado', 'Can be used with a keyboard')]},
+        ],
+        'results': [
+            ('Un portafolio que guía al visitante en lugar de esperar a que busque', 'A portfolio that guides visitors instead of waiting for them to search'),
+            ('Respuestas al instante, de día o de noche', 'Instant answers, day or night'),
+            ('Una demostración en vivo de lo que puedo construir con IA', 'A live demo of what I can build with AI'),
+        ],
+        'cta': (('¿Quieres un asistente así para tu sitio?', 'Want an assistant like this for your site?'),
+                ('Creo chatbots y asistentes que atienden a tus clientes a cualquier hora.', 'I build chatbots and assistants that serve your customers at any hour.')),
+        'service': 'chatbots',
+    },
 ]
 
 # Pilares: etiqueta y página de proyectos filtrada
@@ -474,15 +797,42 @@ MOTIF = {
     'splash': '<div class="motif motif--splash" aria-hidden="true"><i></i><i></i><i></i></div>',
     'stars': '<div class="motif motif--stars" aria-hidden="true">' + ''.join(f'<i style="--x:{(i * 37) % 100}%;--y:{(i * 53) % 100}%;--d:{(i % 7) * 0.4}s;--s:{6 + (i % 5) * 3}px"></i>' for i in range(28)) + '</div>',
     'sport': '<div class="motif motif--sport" aria-hidden="true"><i></i><i></i><i></i><i></i></div>',
+    'field': '<div class="motif motif--field" aria-hidden="true"></div>',
+    'books': '<div class="motif motif--books" aria-hidden="true"></div>',
+    'orbit': '<div class="motif motif--orbit" aria-hidden="true"></div>',
+    'pipeline': '<div class="motif motif--pipeline" aria-hidden="true"></div>',
+    'orb': '<div class="motif motif--orb" aria-hidden="true"></div>',
     'secure': '<div class="motif motif--secure" aria-hidden="true"><svg viewBox="0 0 120 140"><path d="M60 6 L110 26 V66 C110 100 88 122 60 134 C32 122 10 100 10 66 V26 Z"/><rect x="38" y="62" width="44" height="34" rx="5"/><path d="M46 62 V50 a14 14 0 0 1 28 0 V62"/><circle cx="60" cy="78" r="4"/></svg>'
               + ''.join(f'<span style="--i:{i}">{h}</span>' for i, h in enumerate(['$2y$10$Qe7…', 'SELECT ? FROM', 'csrf_token', 'password_hash()', 'HTTPS ✓', 'session_regenerate_id()']))
               + '</div>',
 }
 
 
+TOKEN = re.compile(r"(?P<c>//[^\n]*)|(?P<s>'[^'\n]*'|\"[^\"\n]*\"|`[^`\n]*`)|(?P<k>\b(?:class|constructor|public|private|return|if|else|const|let|new|this|throw|void|export|import|from|function|extends|async|await|describe|it|test|expect)\b)|(?P<n>\b\d+\b)|(?P<t>\b[A-Z][A-Za-z]+\b)|(?P<f>\b[a-z][A-Za-z]*(?=\())")
+
+
+def highlight(src):
+    """Resaltado sencillo para mostrar código real en la portada."""
+    out, pos = [], 0
+    for m in TOKEN.finditer(src):
+        out.append(e(src[pos:m.start()]))
+        out.append(f'<span class="tk-{m.lastgroup}">{e(m.group())}</span>')
+        pos = m.end()
+    out.append(e(src[pos:]))
+    return ''.join(out)
+
+
+def term_line(line):
+    t = e(line)
+    t = re.sub(r'^(\$ .*)$', r'<span class="tm-cmd">\1</span>', t)
+    t = t.replace('PASS', '<span class="tm-pass">PASS</span>').replace('✓', '<span class="tm-ok">✓</span>')
+    t = re.sub(r'(\d+ passed)', r'<span class="tm-ok">\1</span>', t)
+    return t
+
+
 def hero_src(p):
     h = p['hero']
-    return h.get('img') or h.get('poster')
+    return h.get('img') or h.get('poster') or h.get('card')
 
 
 HUD = '<i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i>'
@@ -498,7 +848,9 @@ def zoom(src, cap, idx, cls=''):
 def page(p, prev, nxt, num, total):
     t = p['theme']
     lang_title = f"{p['name']} · Sahar Chain"
-    fonts = f"https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@500;700;800&family={t['fonts']}&display=swap"
+    # también la tipografía del siguiente proyecto, para su tarjeta al final
+    extra = f"&family={nxt['theme']['fonts']}" if nxt['theme']['fonts'] != t['fonts'] else ''
+    fonts = f"https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@500;700;800&family={t['fonts']}{extra}&display=swap"
     style = (f"--brand:{t['brand']};--brand-rgb:{t['brand_rgb']};--brand2:{t['brand2']};--brand2-rgb:{t['brand2_rgb']};"
              f"--case-bg:{t['bg']};--case-display:{t['display']};--case-body:{t['body']};--fx-a:{t['brand']};--fx-b:{t['brand2']};--bullet:'{t['bullet']}'")
     pill_es, pill_en = PILLAR[p['pillar']]
@@ -511,7 +863,13 @@ def page(p, prev, nxt, num, total):
 
     # ---------- portada ----------
     h = p['hero']
-    if 'video' in h:
+    if 'code' in h:
+        cd = h['code']
+        nums = ''.join(f'<span>{i + 1}</span>' for i in range(cd['src'].count('\n') + 1))
+        media = (f'<div class="codewin">{HUD}<div class="codewin__bar"><i></i><i></i><i></i><span>{e(cd["file"])}</span></div>'
+                 f'<pre class="codewin__body"><code class="codewin__nums" aria-hidden="true">{nums}</code><code>{highlight(cd["src"])}</code></pre>'
+                 f'<span class="holo__scan" aria-hidden="true"></span></div>')
+    elif 'video' in h:
         media = (f'<div class="device device--laptop"><div class="device__screen">'
                  f'<video src="{h["video"]}" poster="{h["poster"]}" autoplay muted loop playsinline aria-label="Demo de {e(p["name"])}"></video>'
                  f'</div><div class="device__base"></div></div>')
@@ -523,6 +881,10 @@ def page(p, prev, nxt, num, total):
     tags = ''.join(f'<li>{e(x)}</li>' for x in p['tags'])
     facts = ''.join(f'<div class="telemetry__item">{bi("dt", "", k)}{bi("dd", "", v)}</div>' for k, v in p['facts'])
 
+    links = ''.join(f'<a class="case-btn" href="{u}"{"" if u.endswith(".html") else " target=\"_blank\" rel=\"noopener\""} data-es="{e(l[0])}" data-en="{e(l[1])}">{e(l[0])}</a>' for l, u in p.get('links', []))
+    if gallery:
+        links += '<a class="case-btn" href="#galeria" data-es="Ver galería ↓" data-en="See gallery ↓">Ver galería ↓</a>'
+
     out = []
     out.append(f'''
         <section class="case-hero">
@@ -533,11 +895,11 @@ def page(p, prev, nxt, num, total):
             </div>
             <div class="case-hero__copy">
                 {bi('p', 'case-kicker', p['kicker'])}
-                <h1 class="case-title">{e(p['title'][0])}</h1>
+                <h1 class="case-title{' case-title--long' if len(p['title'][0]) > 14 else ''}">{e(p['title'][0])}</h1>
                 {bi('p', 'case-tagline', p['tagline'])}
                 <div class="case-hero__actions">
                     <a class="case-btn case-btn--primary" href="contacto.html?servicio={p['service']}" data-es="Quiero algo así" data-en="I want something like this">Quiero algo así</a>
-                    <a class="case-btn" href="#galeria" data-es="Ver galería ↓" data-en="See gallery ↓">Ver galería ↓</a>
+                    {links}
                 </div>
             </div>
             <figure class="case-hero__media">{media}</figure>
@@ -592,13 +954,25 @@ def page(p, prev, nxt, num, total):
             <div class="case-panels case-panels--2">{ch}</div>
         </section>''')
 
+    # ---------- terminal con la salida real ----------
+    if p.get('terminal'):
+        tm = p['terminal']
+        body = '\n'.join(term_line(x) for x in tm['lines'])
+        out.append(f'''
+        <section class="case-section case-terminal">
+            {bi('p', 'case-overline', tm['over'])}
+            {bi('h2', 'case-h2', tm['title'])}
+            <div class="term reveal">{HUD}<div class="term__bar"><i></i><i></i><i></i><span>{e(tm['shell'])}</span></div><pre class="term__body">{body}</pre></div>
+            {bi('p', 'case-hint', tm['note']) if tm.get('note') else ''}
+        </section>''')
+
     # ---------- galería deslizable ----------
     slides = ''.join(f'<li class="reel__slide"><button type="button" class="case-shot" data-full="{src}"><img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-shot__cap", cap)}</button></li>' for src, cap in gallery)
     many = len(gallery) > 1
     nav = (f'<div class="reel__nav"><button type="button" class="reel__btn" data-dir="-1" data-es-label="Anterior" data-en-label="Previous" aria-label="Anterior">‹</button>'
            f'<span class="reel__count"><b>01</b> / {len(gallery):02d}</span>'
            f'<button type="button" class="reel__btn" data-dir="1" data-es-label="Siguiente" data-en-label="Next" aria-label="Siguiente">›</button></div>') if many else ''
-    out.append(f'''
+    if gallery: out.append(f'''
         <section class="case-section case-gallery" id="galeria">
             <div class="case-gallery__head">
                 <div>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Flight Booking · Sahar Chain</title>
+    <meta name="description" content="Reservas de vuelos a Marte con verificación médica, pagos, pruebas automáticas y despliegue con Docker.">
+    <meta name="theme-color" content="#05040f">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@500;700;800&family=Audiowide&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/aura.css?v=20261025t">
+    <link rel="stylesheet" href="css/site.css?v=20261025t">
+    <link rel="stylesheet" href="css/case.css?v=20261025t">
+</head>
+<!-- Página generada con tools/cases.py: edita los datos allí y vuelve a ejecutarlo -->
+<body data-page="case" data-project="space-flight" class="case case--orbit" style="--brand:#8b7bff;--brand-rgb:139, 123, 255;--brand2:#ff7ac6;--brand2-rgb:255, 122, 198;--case-bg:#05040f;--case-display:'Audiowide', sans-serif;--case-body:'Exo 2', sans-serif;--fx-a:#8b7bff;--fx-b:#ff7ac6;--bullet:'✦'">
+    <header class="site-header">
+        <div class="aura-topbar" data-site-header></div>
+    </header>
+
+    <main class="page case-page">
+        <section class="case-hero">
+            <div class="motif motif--orbit" aria-hidden="true"></div>
+            <div class="case-hero__bar">
+                <a class="case-back" href="proyectos.html?area=code" data-es="← Proyectos de programación" data-en="← Programming projects">← Proyectos de programación</a>
+                <span class="case-hero__code"><i aria-hidden="true"></i><span data-es="ARCHIVO 10 / 12" data-en="FILE 10 / 12">ARCHIVO 10 / 12</span></span>
+            </div>
+            <div class="case-hero__copy">
+                <p class="case-kicker" data-es="PROGRAMACIÓN · TYPESCRIPT · DEVOPS" data-en="PROGRAMMING · TYPESCRIPT · DEVOPS">PROGRAMACIÓN · TYPESCRIPT · DEVOPS</p>
+                <h1 class="case-title case-title--long">Space Flight Booking</h1>
+                <p class="case-tagline" data-es="Reservas de vuelos a Marte con verificación médica, pagos, pruebas automáticas y despliegue con Docker." data-en="Flight bookings to Mars with medical checks, payments, automated tests and Docker deployment.">Reservas de vuelos a Marte con verificación médica, pagos, pruebas automáticas y despliegue con Docker.</p>
+                <div class="case-hero__actions">
+                    <a class="case-btn case-btn--primary" href="contacto.html?servicio=software" data-es="Quiero algo así" data-en="I want something like this">Quiero algo así</a>
+                    <a class="case-btn" href="https://github.com/SaharLambton/Assigment1" target="_blank" rel="noopener" data-es="Ver código en GitHub" data-en="See code on GitHub">Ver código en GitHub</a>
+                </div>
+            </div>
+            <figure class="case-hero__media"><div class="codewin"><i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i><div class="codewin__bar"><i></i><i></i><i></i><span>src/services/BookingService.ts</span></div><pre class="codewin__body"><code class="codewin__nums" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span></code><code><span class="tk-k">export</span> <span class="tk-k">class</span> <span class="tk-t">BookingService</span> {
+    <span class="tk-k">private</span> bookings: <span class="tk-t">Booking</span>[] = [];
+
+    <span class="tk-f">createBooking</span>(customer: <span class="tk-t">Customer</span>, flight: <span class="tk-t">Flight</span>): <span class="tk-t">Booking</span> {
+        <span class="tk-k">if</span> (flight.capacity &lt;= <span class="tk-n">0</span>) {
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> <span class="tk-t">Error</span>(<span class="tk-s">&quot;No seats available on this flight.&quot;</span>);
+        }
+        <span class="tk-k">const</span> newBooking = <span class="tk-k">new</span> <span class="tk-t">Booking</span>(
+            <span class="tk-k">this</span>.bookings.length + <span class="tk-n">1</span>, customer, flight, <span class="tk-s">&quot;pending&quot;</span>
+        );
+        flight.capacity--;
+        <span class="tk-k">this</span>.bookings.<span class="tk-f">push</span>(newBooking);
+        <span class="tk-k">return</span> newBooking;
+    }
+}</code></pre><span class="holo__scan" aria-hidden="true"></span></div></figure>
+        </section>
+        <section class="telemetry" aria-label="Ficha del proyecto">
+            <dl class="telemetry__grid"><div class="telemetry__item"><dt data-es="Tipo" data-en="Type">Tipo</dt><dd data-es="Proyecto académico · Lambton College" data-en="Academic project · Lambton College">Proyecto académico · Lambton College</dd></div><div class="telemetry__item"><dt data-es="Año" data-en="Year">Año</dt><dd data-es="2024" data-en="2024">2024</dd></div><div class="telemetry__item"><dt data-es="Rol" data-en="Role">Rol</dt><dd data-es="Desarrolladora backend" data-en="Backend developer">Desarrolladora backend</dd></div><div class="telemetry__item"><dt data-es="Stack" data-en="Stack">Stack</dt><dd data-es="TypeScript · Jest · Docker" data-en="TypeScript · Jest · Docker">TypeScript · Jest · Docker</dd></div></dl>
+            <ul class="case-tags"><li>TypeScript</li><li>Node.js</li><li>Jest</li><li>Docker</li><li>GitHub Actions</li></ul>
+        </section>
+        <section class="case-mission">
+            <div class="case-mission__copy reveal">
+                <p class="case-overline" data-es="// 01 · LA MISIÓN" data-en="// 01 · THE MISSION">// 01 · LA MISIÓN</p>
+                <h2 class="case-h2" data-es="La misión" data-en="The mission">La misión</h2>
+                <p class="case-mission__lead" data-es="El backend de una agencia que vende vuelos a Marte. Antes de reservar, el sistema verifica que el pasajero sea mayor de edad y tenga certificado médico; si hay cupo, crea la reserva, descuenta el asiento y registra el pago. Además de la lógica, el proyecto prepara todo el ciclo DevOps: pruebas automáticas, un contenedor Docker y un pipeline que construye y publica la imagen." data-en="The backend for an agency that sells flights to Mars. Before booking, the system checks that the passenger is an adult with a medical certificate; if there are seats, it creates the booking, takes the seat and records the payment. Beyond the logic, the project sets up the whole DevOps cycle: automated tests, a Docker container and a pipeline that builds and publishes the image.">El backend de una agencia que vende vuelos a Marte. Antes de reservar, el sistema verifica que el pasajero sea mayor de edad y tenga certificado médico; si hay cupo, crea la reserva, descuenta el asiento y registra el pago. Además de la lógica, el proyecto prepara todo el ciclo DevOps: pruebas automáticas, un contenedor Docker y un pipeline que construye y publica la imagen.</p>
+                
+                
+            </div>
+            
+        </section>
+        <section class="case-section case-build">
+            <p class="case-overline" data-es="// QUÉ SE CONSTRUYÓ" data-en="// WHAT WAS BUILT">// QUÉ SE CONSTRUYÓ</p>
+            
+            <div class="case-panels case-panels--3"><article class="case-panel reveal"><i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i><h3 class="case-row__title" data-es="Lógica de negocio" data-en="Business logic">Lógica de negocio</h3><ul class="case-list"><li data-es="Verificación médica: mayor de 18 y con certificado" data-en="Medical check: over 18 with a certificate">Verificación médica: mayor de 18 y con certificado</li><li data-es="Reservas con control de cupos" data-en="Bookings with seat control">Reservas con control de cupos</li><li data-es="Al cancelar, el asiento se libera" data-en="Cancelling frees the seat">Al cancelar, el asiento se libera</li><li data-es="Pagos registrados por reserva" data-en="Payments recorded per booking">Pagos registrados por reserva</li><li data-es="Estados con enums: confirmada, pendiente, cancelada" data-en="States with enums: confirmed, pending, cancelled">Estados con enums: confirmada, pendiente, cancelada</li></ul></article><article class="case-panel reveal"><i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i><h3 class="case-row__title" data-es="Calidad" data-en="Quality">Calidad</h3><ul class="case-list"><li data-es="Pruebas en Jest para reservas, pagos y verificación médica" data-en="Jest tests for bookings, payments and medical checks">Pruebas en Jest para reservas, pagos y verificación médica</li><li data-es="Registro de eventos con fecha y hora" data-en="Event logging with date and time">Registro de eventos con fecha y hora</li><li data-es="Entidades y servicios separados" data-en="Separate entities and services">Entidades y servicios separados</li></ul></article><article class="case-panel reveal"><i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i><h3 class="case-row__title" data-es="DevOps" data-en="DevOps">DevOps</h3><ul class="case-list"><li data-es="Dockerfile que compila TypeScript y arranca la app" data-en="Dockerfile that compiles TypeScript and starts the app">Dockerfile que compila TypeScript y arranca la app</li><li data-es="Pipeline en GitHub Actions sobre la rama develop" data-en="GitHub Actions pipeline on the develop branch">Pipeline en GitHub Actions sobre la rama develop</li><li data-es="Instala, prueba y compila en cada push" data-en="Installs, tests and builds on every push">Instala, prueba y compila en cada push</li><li data-es="Publica la imagen en Docker Hub con credenciales en secrets" data-en="Publishes the image to Docker Hub with credentials in secrets">Publica la imagen en Docker Hub con credenciales en secrets</li></ul></article></div>
+        </section>
+        <section class="case-section">
+            <p class="case-overline" data-es="// PROCESO" data-en="// PROCESS">// PROCESO</p>
+            <h2 class="case-h2" data-es="Cómo lo hice" data-en="How I did it">Cómo lo hice</h2>
+            <ol class="case-steps"><li class="case-step reveal"><span class="case-step__num">01</span><h3 class="case-step__title" data-es="Push" data-en="Push">Push</h3><p class="case-step__text" data-es="Un cambio llega a la rama develop." data-en="A change lands on the develop branch.">Un cambio llega a la rama develop.</p></li><li class="case-step reveal"><span class="case-step__num">02</span><h3 class="case-step__title" data-es="Pruebas" data-en="Tests">Pruebas</h3><p class="case-step__text" data-es="npm ci y Jest." data-en="npm ci and Jest.">npm ci y Jest.</p></li><li class="case-step reveal"><span class="case-step__num">03</span><h3 class="case-step__title" data-es="Build" data-en="Build">Build</h3><p class="case-step__text" data-es="TypeScript compilado." data-en="TypeScript compiled.">TypeScript compilado.</p></li><li class="case-step reveal"><span class="case-step__num">04</span><h3 class="case-step__title" data-es="Docker" data-en="Docker">Docker</h3><p class="case-step__text" data-es="Se construye la imagen." data-en="The image is built.">Se construye la imagen.</p></li><li class="case-step reveal"><span class="case-step__num">05</span><h3 class="case-step__title" data-es="Docker Hub" data-en="Docker Hub">Docker Hub</h3><p class="case-step__text" data-es="La imagen se publica." data-en="The image is published.">La imagen se publica.</p></li></ol>
+        </section>
+        <section class="case-section case-results reveal">
+            <i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i>
+            <p class="case-results__status"><i aria-hidden="true"></i><span data-es="MISIÓN CUMPLIDA" data-en="MISSION ACCOMPLISHED">MISIÓN CUMPLIDA</span></p>
+            <h2 class="case-h2" data-es="Resultados e impacto" data-en="Results and impact">Resultados e impacto</h2>
+            <ul class="case-results__list"><li data-es="Flujo completo de reserva: verificación, cupo y pago" data-en="Complete booking flow: check, seat and payment">Flujo completo de reserva: verificación, cupo y pago</li><li data-es="Aplicación lista para correr en cualquier servidor con Docker" data-en="App ready to run on any server with Docker">Aplicación lista para correr en cualquier servidor con Docker</li><li data-es="Pipeline de integración y despliegue continuo" data-en="Continuous integration and deployment pipeline">Pipeline de integración y despliegue continuo</li></ul>
+        </section>
+
+        <section class="case-cta reveal">
+            <p class="case-cta__title" data-es="¿Necesitas un sistema de reservas o pagos?" data-en="Need a booking or payment system?">¿Necesitas un sistema de reservas o pagos?</p>
+            <p class="case-cta__lead" data-es="Desarrollo backends a la medida, listos para producción." data-en="I build custom backends, ready for production.">Desarrollo backends a la medida, listos para producción.</p>
+            <div class="case-cta__actions">
+                <a class="case-btn case-btn--primary" href="contacto.html?servicio=software" data-es="Pedir cotización" data-en="Request a quote">Pedir cotización</a>
+                <a class="case-btn" href="servicios.html#software" data-es="Ver el servicio" data-en="See the service">Ver el servicio</a>
+            </div>
+        </section>
+
+        <nav class="case-next" aria-label="Más proyectos">
+            <a class="case-next__card" href="jest-ci.html" style="--next:#ff5d73;--next-bg:#0a0c11">
+                <img src="img/cases/jestci-actions.webp" alt="" loading="lazy">
+                <span class="case-next__body">
+                    <span class="case-next__label" data-es="SIGUIENTE ARCHIVO →" data-en="NEXT FILE →">SIGUIENTE ARCHIVO →</span>
+                    <b class="case-next__name" style="font-family:'Space Mono', monospace">Jest CI</b>
+                    <span class="case-next__kicker" data-es="PROGRAMACIÓN · DEVOPS · CI" data-en="PROGRAMMING · DEVOPS · CI">PROGRAMACIÓN · DEVOPS · CI</span>
+                </span>
+            </a>
+            <div class="case-next__links">
+                <a href="library-management.html"><span data-es="← Anterior:" data-en="← Previous:">← Anterior:</span> Library Management</a>
+                <a href="proyectos.html" data-es="Todos los proyectos" data-en="All projects">Todos los proyectos</a>
+            </div>
+        </nav>
+    </main>
+
+    <div class="case-lightbox" id="caseLightbox" hidden>
+        <button type="button" class="case-lightbox__close" data-es-label="Cerrar" data-en-label="Close" aria-label="Cerrar">×</button>
+        <button type="button" class="case-lightbox__nav case-lightbox__nav--prev" aria-label="Anterior">‹</button>
+        <figure><img alt=""><figcaption></figcaption></figure>
+        <button type="button" class="case-lightbox__nav case-lightbox__nav--next" aria-label="Siguiente">›</button>
+    </div>
+
+    <footer class="site-footer" data-site-footer></footer>
+
+    <script src="js/aura/knowledge.js?v=20261025t"></script>
+    <script src="js/bg.js?v=20261025t"></script>
+    <script src="js/site.js?v=20261025t"></script>
+    <script src="js/aura/assistant.js?v=20261025t"></script>
+    <script src="js/case.js?v=20261025t"></script>
+</body>
+</html>
