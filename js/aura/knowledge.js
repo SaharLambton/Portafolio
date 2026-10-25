@@ -59,7 +59,9 @@ window.AURA_KB = {
             web: { es: 'Proyectos web', en: 'Web projects' },
             design: { es: 'Branding y diseño', en: 'Branding & design' },
             code: { es: 'Programación', en: 'Programming' },
-            hire: { es: '¿Está disponible?', en: 'Is she available?' }
+            hire: { es: '¿Está disponible?', en: 'Is she available?' },
+            ai: { es: 'Inteligencia artificial', en: 'Artificial intelligence' },
+            pillars: { es: 'Sus pilares', en: 'Her pillars' }
         }
     },
 
@@ -77,6 +79,26 @@ window.AURA_KB = {
                 en: 'Hi there! 😊 Great to have you here. I can show you Sahar\'s projects, technologies, experience or contact details.'
             },
             chips: ['projects', 'skills', 'about']
+        },
+        {
+            id: 'pillars',
+            keys: ['pilar', 'pilares', 'cimientos', 'ramas', 'areas', 'especialidades', 'enfoque', 'pillars', 'pillar', 'foundations', 'areas of expertise', 'focus'],
+            answer: {
+                es: 'El trabajo de Sahar se sostiene en tres pilares: 💻 Programación, 🧠 Inteligencia Artificial y 🎨 Diseño. Juntos le permiten llevar una idea desde la marca y la interfaz hasta el código y la automatización.',
+                en: 'Sahar\'s work stands on three pillars: 💻 Programming, 🧠 Artificial Intelligence and 🎨 Design. Together they let her take an idea from brand and interface all the way to code and automation.'
+            },
+            action: { type: 'scroll', target: '#pilares', label: { es: 'Ver los pilares', en: 'See the pillars' } },
+            chips: ['code', 'ai', 'design']
+        },
+        {
+            id: 'ai',
+            keys: ['ia', 'inteligencia artificial', 'machine learning', 'chatbot', 'chatbots', 'asistente', 'asistentes', 'ai', 'artificial intelligence', 'llm', 'gpt', 'claude'],
+            answer: {
+                es: 'En IA, Sahar se especializó en inteligencia artificial en Lambton College. Ha implementado chatbots con IA que redujeron los tiempos de respuesta en un 40%, automatiza procesos y diseña asistentes conversacionales como yo 🤖.',
+                en: 'In AI, Sahar specialized in artificial intelligence at Lambton College. She has built AI chatbots that cut response times by 40%, automates processes and designs conversational assistants like me 🤖.'
+            },
+            action: { type: 'scroll', target: '#pilares', label: { es: 'Ver los pilares', en: 'See the pillars' } },
+            chips: ['services', 'projects']
         },
         {
             id: 'whoami',
@@ -150,8 +172,8 @@ window.AURA_KB = {
             id: 'projects',
             keys: ['proyecto', 'proyectos', 'portafolio', 'portfolio', 'trabajos', 'muestra', 'ejemplos', 'casos', 'projects', 'project', 'work samples', 'case study', 'showcase'],
             answer: {
-                es: 'Sahar tiene 11 proyectos en tres áreas: 🌐 desarrollo web (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos) y 💻 programación (Smart Agriculture, Bookstore, Jest CI y más). ¿Cuál área te interesa?',
-                en: 'Sahar has 11 projects across three areas: 🌐 web development (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos) and 💻 programming (Smart Agriculture, Bookstore, Jest CI and more). Which area interests you?'
+                es: 'Sahar tiene 10 proyectos en tres áreas: 🌐 desarrollo web (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos) y 💻 programación (Smart Agriculture, Bookstore, Jest CI y más). ¿Cuál área te interesa?',
+                en: 'Sahar has 10 projects across three areas: 🌐 web development (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos) and 💻 programming (Smart Agriculture, Bookstore, Jest CI and more). Which area interests you?'
             },
             action: { type: 'scroll', target: '#proyectos', label: { es: 'Ir a proyectos', en: 'Go to projects' } },
             chips: ['web', 'design', 'code']

@@ -440,6 +440,12 @@
         }
     }
     window.setSiteLanguage = setLanguage;
+    // otras secciones (p. ej. los pilares) pueden hacerle preguntas a AURA
+    window.AuraAsk = (q, intentId) => {
+        const hero = document.getElementById('inicio');
+        if (hero) hero.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+        setTimeout(() => ask(q, intentId ? { intentId } : null), reducedMotion ? 0 : 650);
+    };
     window.changeLanguage = (lang) => setLanguage(lang);
 
     /* ---------- Destacados ---------- */
