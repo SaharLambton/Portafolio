@@ -490,23 +490,23 @@ window.AURA_KB = {
         },
         {
             id: 'smart-agriculture', name: 'Smart Agriculture', keys: ['smart agriculture', 'agricultura', 'agro', 'iot', 'sensores', 'riego', 'drones', 'farming', 'sensors', 'irrigation'],
-            brand: '#7ed957', kind: { es: 'Proyecto académico · GitHub', en: 'Academic project · GitHub' },
-            pillars: ['code'], card: '', video: '',
+            brand: '#7ed957', kind: { es: 'Proyecto académico · Lambton College', en: 'Academic project · Lambton College' },
+            pillars: ['code'], card: 'img/thumbs/smart-agriculture-card.webp', video: '',
             short: { es: 'Agricultura de precisión: sensores ambientales, riego automático, detección de enfermedades en plantas y drones.', en: 'Precision farming: environmental sensors, automated irrigation, plant disease detection and drones.' },
-            url: 'https://github.com/SaharLambton/Smart-Agriculture', external: true, area: 'code',
-            tech: ['TypeScript', 'Node.js', 'IoT'],
+            url: 'smart-agriculture.html', area: 'code',
+            tech: ['TypeScript', 'Node.js', 'POO', 'npm'],
             desc: {
-                es: 'Smart Agriculture es un sistema de agricultura de precisión: monitoreo de sensores ambientales, riego automatizado según datos meteorológicos, detección de enfermedades en plantas e integración con drones. Hecho en TypeScript y Node.js.',
-                en: 'Smart Agriculture is a precision farming system: environmental sensor monitoring, weather-driven automated irrigation, plant disease detection and drone integration. Built with TypeScript and Node.js.'
+                es: 'Smart Agriculture es un modelo en TypeScript de una granja inteligente: sensores ambientales, riego automatizado según el clima, detección de enfermedades en plantas y drones. Lo hizo con Julián Casilimas en Lambton College (2024) y lo publicaron como paquete en npm.',
+                en: 'Smart Agriculture is a TypeScript model of a smart farm: environmental sensors, weather-driven automated irrigation, plant disease detection and drones. She built it with Julián Casilimas at Lambton College (2024) and they published it as an npm package.'
             },
             tag: { es: 'IoT · TypeScript', en: 'IoT · TypeScript' }
         },
         {
             id: 'bookstore', name: 'Library Management', keys: ['library management', 'bookstore', 'biblioteca', 'libros', 'library', 'books'],
-            brand: '#f0c419', kind: { es: 'Proyecto académico · GitHub', en: 'Academic project · GitHub' },
-            pillars: ['code'], card: '', video: '',
+            brand: '#f0c419', kind: { es: 'Proyecto académico · Lambton College', en: 'Academic project · Lambton College' },
+            pillars: ['code'], card: 'img/thumbs/library-card.webp', video: '',
             short: { es: 'Gestión de biblioteca con libros, clientes, préstamos y devoluciones, cubierta con pruebas unitarias.', en: 'Library management with books, customers, loans and returns, covered by unit tests.' },
-            url: 'https://github.com/SaharLambton/Assigment3', external: true, area: 'code',
+            url: 'library-management.html', area: 'code',
             tech: ['TypeScript', 'Node.js', 'Jest', 'OOP'],
             desc: {
                 es: 'Library Management es una aplicación de gestión de biblioteca en TypeScript y Node.js: libros, clientes, préstamos y devoluciones con validación de disponibilidad, todo cubierto con pruebas unitarias en Jest.',
@@ -514,11 +514,24 @@ window.AURA_KB = {
             }
         },
         {
+            id: 'space-flight', name: 'Space Flight Booking', keys: ['space flight', 'vuelos espaciales', 'vuelo espacial', 'marte', 'mars', 'reservas', 'booking', 'docker', 'devops'],
+            brand: '#8b7bff', kind: { es: 'Proyecto académico · Lambton College', en: 'Academic project · Lambton College' },
+            pillars: ['code'], card: 'img/thumbs/space-flight-card.webp', video: '',
+            short: { es: 'Reservas de vuelos a Marte con verificación médica, pagos, pruebas en Jest y despliegue con Docker.', en: 'Flight bookings to Mars with medical checks, payments, Jest tests and Docker deployment.' },
+            url: 'space-flight-booking.html', area: 'code',
+            tech: ['TypeScript', 'Jest', 'Docker', 'GitHub Actions'],
+            desc: {
+                es: 'Space Flight Booking es el backend de una agencia de vuelos a Marte: verifica que el pasajero sea mayor de edad y tenga certificado médico, controla los cupos, registra los pagos y permite cancelar. Incluye pruebas en Jest, un contenedor Docker y un pipeline de GitHub Actions que construye y publica la imagen en Docker Hub.',
+                en: 'Space Flight Booking is the backend for an agency selling flights to Mars: it checks that passengers are adults with a medical certificate, controls seats, records payments and allows cancellations. It includes Jest tests, a Docker container and a GitHub Actions pipeline that builds and publishes the image to Docker Hub.'
+            },
+            tag: { es: 'DevOps · TypeScript', en: 'DevOps · TypeScript' }
+        },
+        {
             id: 'jest-ci', name: 'Jest CI', keys: ['jest ci', 'github actions', 'integracion continua', 'ci/cd', 'continuous integration', 'pipeline'],
-            brand: '#c8486a', kind: { es: 'Proyecto académico · GitHub', en: 'Academic project · GitHub' },
-            pillars: ['code'], card: '', video: '',
+            brand: '#c8486a', kind: { es: 'Proyecto académico · Lambton College', en: 'Academic project · Lambton College' },
+            pillars: ['code'], card: 'img/thumbs/jestci-card.webp', video: '',
             short: { es: 'Integración continua: las pruebas con Jest se ejecutan solas en cada push con GitHub Actions.', en: 'Continuous integration: Jest tests run automatically on every push with GitHub Actions.' },
-            url: 'https://github.com/SaharLambton/Assigment4', external: true, area: 'code',
+            url: 'jest-ci.html', area: 'code',
             tech: ['JavaScript', 'Jest', 'GitHub Actions'],
             desc: {
                 es: 'Jest CI implementa integración continua para un proyecto JavaScript: pruebas con Jest que se ejecutan automáticamente en cada push gracias a GitHub Actions.',
@@ -528,9 +541,9 @@ window.AURA_KB = {
         {
             id: 'aura', name: 'AURA', keys: ['aura project', 'proyecto aura', 'asistente del portafolio', 'portfolio assistant'],
             brand: '#a970ff', kind: { es: 'Este portafolio · En línea', en: 'This portfolio · Online' },
-            pillars: ['ai', 'code'], card: '', video: '',
+            pillars: ['ai', 'code'], card: 'img/thumbs/aura-card.webp', video: '',
             short: { es: 'La asistente de este portafolio: chat bilingüe con base de conocimiento, voz y un orbe 3D en WebGL.', en: 'This portfolio\'s assistant: a bilingual chat with a knowledge base, voice and a 3D WebGL orb.' },
-            url: 'index.html', area: 'ai',
+            url: 'aura.html', area: 'ai',
             tech: ['JavaScript', 'Three.js', 'Web Speech API'],
             desc: {
                 es: 'AURA es la asistente de este portafolio: responde en español e inglés con una base de conocimiento propia, habla con la voz del navegador, entiende preguntas por micrófono y vive en un orbe 3D hecho con WebGL. Está preparada para conectarse a un modelo de IA.',

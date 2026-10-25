@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management · Sahar Chain</title>
+    <meta name="description" content="Gestión de una biblioteca en TypeScript: libros, clientes, préstamos y devoluciones, todo probado con Jest.">
+    <meta name="theme-color" content="#0f0c07">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@500;700;800&family=Libre+Baskerville:wght@400;700&family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/aura.css?v=20261025t">
+    <link rel="stylesheet" href="css/site.css?v=20261025t">
+    <link rel="stylesheet" href="css/case.css?v=20261025t">
+</head>
+<!-- Página generada con tools/cases.py: edita los datos allí y vuelve a ejecutarlo -->
+<body data-page="case" data-project="bookstore" class="case case--books" style="--brand:#f0c419;--brand-rgb:240, 196, 25;--brand2:#c97b4a;--brand2-rgb:201, 123, 74;--case-bg:#0f0c07;--case-display:'Libre Baskerville', serif;--case-body:'Exo 2', sans-serif;--fx-a:#f0c419;--fx-b:#c97b4a;--bullet:'▸'">
+    <header class="site-header">
+        <div class="aura-topbar" data-site-header></div>
+    </header>
+
+    <main class="page case-page">
+        <section class="case-hero">
+            <div class="motif motif--books" aria-hidden="true"></div>
+            <div class="case-hero__bar">
+                <a class="case-back" href="proyectos.html?area=code" data-es="← Proyectos de programación" data-en="← Programming projects">← Proyectos de programación</a>
+                <span class="case-hero__code"><i aria-hidden="true"></i><span data-es="ARCHIVO 09 / 12" data-en="FILE 09 / 12">ARCHIVO 09 / 12</span></span>
+            </div>
+            <div class="case-hero__copy">
+                <p class="case-kicker" data-es="PROGRAMACIÓN · TYPESCRIPT · PRUEBAS" data-en="PROGRAMMING · TYPESCRIPT · TESTING">PROGRAMACIÓN · TYPESCRIPT · PRUEBAS</p>
+                <h1 class="case-title case-title--long">Library Management</h1>
+                <p class="case-tagline" data-es="Gestión de una biblioteca en TypeScript: libros, clientes, préstamos y devoluciones, todo probado con Jest." data-en="Library management in TypeScript: books, customers, loans and returns, all tested with Jest.">Gestión de una biblioteca en TypeScript: libros, clientes, préstamos y devoluciones, todo probado con Jest.</p>
+                <div class="case-hero__actions">
+                    <a class="case-btn case-btn--primary" href="contacto.html?servicio=software" data-es="Quiero algo así" data-en="I want something like this">Quiero algo así</a>
+                    <a class="case-btn" href="https://github.com/SaharLambton/Assigment3" target="_blank" rel="noopener" data-es="Ver código en GitHub" data-en="See code on GitHub">Ver código en GitHub</a>
+                </div>
+            </div>
+            <figure class="case-hero__media"><div class="codewin"><i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i><div class="codewin__bar"><i></i><i></i><i></i><span>src/services/Bookstore.ts</span></div><pre class="codewin__body"><code class="codewin__nums" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span></code><code><span class="tk-f">borrowBook</span>(customerId: number, bookId: number): string {
+    <span class="tk-k">const</span> customer = <span class="tk-k">this</span>.<span class="tk-f">findCustomerById</span>(customerId);
+    <span class="tk-k">const</span> book = <span class="tk-k">this</span>.<span class="tk-f">findBookById</span>(bookId);
+
+    <span class="tk-k">if</span> (customer &amp;&amp; book &amp;&amp; book.available) {
+      customer.<span class="tk-f">borrowBook</span>(bookId);
+      book.<span class="tk-f">toggleAvailability</span>();
+      <span class="tk-k">return</span> <span class="tk-s">`${customer.name} successfully borrowed &quot;${book.title}&quot;.`</span>;
+    }
+    <span class="tk-k">return</span> <span class="tk-s">`Borrowing failed.`</span>;
+}</code></pre><span class="holo__scan" aria-hidden="true"></span></div></figure>
+        </section>
+        <section class="telemetry" aria-label="Ficha del proyecto">
+            <dl class="telemetry__grid"><div class="telemetry__item"><dt data-es="Tipo" data-en="Type">Tipo</dt><dd data-es="Proyecto académico · Lambton College" data-en="Academic project · Lambton College">Proyecto académico · Lambton College</dd></div><div class="telemetry__item"><dt data-es="Año" data-en="Year">Año</dt><dd data-es="2024" data-en="2024">2024</dd></div><div class="telemetry__item"><dt data-es="Rol" data-en="Role">Rol</dt><dd data-es="Desarrolladora" data-en="Developer">Desarrolladora</dd></div><div class="telemetry__item"><dt data-es="Calidad" data-en="Quality">Calidad</dt><dd data-es="Pruebas en Jest + integración continua" data-en="Jest tests + continuous integration">Pruebas en Jest + integración continua</dd></div></dl>
+            <ul class="case-tags"><li>TypeScript</li><li>Node.js</li><li>Jest</li><li>ts-jest</li><li>GitHub Actions</li><li>POO</li></ul>
+        </section>
+        <section class="case-mission">
+            <div class="case-mission__copy reveal">
+                <p class="case-overline" data-es="// 01 · LA MISIÓN" data-en="// 01 · THE MISSION">// 01 · LA MISIÓN</p>
+                <h2 class="case-h2" data-es="La misión" data-en="The mission">La misión</h2>
+                <p class="case-mission__lead" data-es="Una aplicación que simula la gestión de una biblioteca. Permite registrar libros y clientes, prestar un libro solo si está disponible y devolverlo solo si ese cliente lo tiene. Cada operación está cubierta con pruebas unitarias en Jest que se ejecutan solas en GitHub cada vez que se sube un cambio." data-en="An app that simulates managing a library. It registers books and customers, lends a book only if it is available and takes it back only if that customer has it. Every operation is covered by Jest unit tests that run automatically on GitHub whenever a change is pushed.">Una aplicación que simula la gestión de una biblioteca. Permite registrar libros y clientes, prestar un libro solo si está disponible y devolverlo solo si ese cliente lo tiene. Cada operación está cubierta con pruebas unitarias en Jest que se ejecutan solas en GitHub cada vez que se sube un cambio.</p>
+                
+                
+            </div>
+            
+        </section>
+        <section class="case-section case-build">
+            <p class="case-overline" data-es="// QUÉ SE CONSTRUYÓ" data-en="// WHAT WAS BUILT">// QUÉ SE CONSTRUYÓ</p>
+            
+            <div class="case-panels case-panels--3"><article class="case-panel reveal"><i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i><h3 class="case-row__title" data-es="Funcionalidades" data-en="Features">Funcionalidades</h3><ul class="case-list"><li data-es="Registro de libros y clientes" data-en="Book and customer registration">Registro de libros y clientes</li><li data-es="Búsqueda por ID" data-en="Lookup by ID">Búsqueda por ID</li><li data-es="Préstamo solo si el libro está disponible" data-en="Loans only when the book is available">Préstamo solo si el libro está disponible</li><li data-es="Devolución solo si el cliente tiene el libro" data-en="Returns only if the customer has the book">Devolución solo si el cliente tiene el libro</li><li data-es="Mensajes claros de éxito o error" data-en="Clear success or error messages">Mensajes claros de éxito o error</li></ul></article><article class="case-panel reveal"><i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i><h3 class="case-row__title" data-es="Arquitectura" data-en="Architecture">Arquitectura</h3><ul class="case-list"><li data-es="Modelos: Book y Customer" data-en="Models: Book and Customer">Modelos: Book y Customer</li><li data-es="Servicio Bookstore con toda la lógica" data-en="Bookstore service with all the logic">Servicio Bookstore con toda la lógica</li><li data-es="TypeScript compilado a JavaScript en dist/" data-en="TypeScript compiled to JavaScript in dist/">TypeScript compilado a JavaScript en dist/</li></ul></article><article class="case-panel reveal"><i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i><h3 class="case-row__title" data-es="Calidad" data-en="Quality">Calidad</h3><ul class="case-list"><li data-es="Pruebas de agregar, prestar y devolver libros" data-en="Tests for adding, borrowing and returning books">Pruebas de agregar, prestar y devolver libros</li><li data-es="Reporte de cobertura con Jest" data-en="Coverage report with Jest">Reporte de cobertura con Jest</li><li data-es="GitHub Actions en cada push y pull request a main" data-en="GitHub Actions on every push and pull request to main">GitHub Actions en cada push y pull request a main</li><li data-es="Caché de dependencias y reporte guardado como artefacto" data-en="Dependency cache and report saved as an artifact">Caché de dependencias y reporte guardado como artefacto</li></ul></article></div>
+        </section>
+        <section class="case-section case-terminal">
+            <p class="case-overline" data-es="// PRUEBAS" data-en="// TESTS">// PRUEBAS</p>
+            <h2 class="case-h2" data-es="Todas las pruebas en verde" data-en="All tests green">Todas las pruebas en verde</h2>
+            <div class="term reveal"><i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i><div class="term__bar"><i></i><i></i><i></i><span>npm test</span></div><pre class="term__body"><span class="tm-cmd">$ npm test</span>
+
+ <span class="tm-pass">PASS</span>  src/tests/addBook.test.ts
+ <span class="tm-pass">PASS</span>  src/tests/borrowBook.test.ts
+ <span class="tm-pass">PASS</span>  src/tests/returnBook.test.ts
+ <span class="tm-pass">PASS</span>  dist/tests/addBook.test.js
+ <span class="tm-pass">PASS</span>  dist/tests/borrowBook.test.js
+ <span class="tm-pass">PASS</span>  dist/tests/returnBook.test.js
+
+Test Suites: <span class="tm-ok">6 passed</span>, 6 total
+Tests:       <span class="tm-ok">6 passed</span>, 6 total</pre></div>
+            <p class="case-hint" data-es="Resultado guardado en el repositorio (results.txt): se prueba el código TypeScript y el JavaScript compilado." data-en="Result saved in the repository (results.txt): both the TypeScript code and the compiled JavaScript are tested.">Resultado guardado en el repositorio (results.txt): se prueba el código TypeScript y el JavaScript compilado.</p>
+        </section>
+        <section class="case-section case-results reveal">
+            <i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--bl"></i><i class="hud hud--br"></i>
+            <p class="case-results__status"><i aria-hidden="true"></i><span data-es="MISIÓN CUMPLIDA" data-en="MISSION ACCOMPLISHED">MISIÓN CUMPLIDA</span></p>
+            <h2 class="case-h2" data-es="Resultados e impacto" data-en="Results and impact">Resultados e impacto</h2>
+            <ul class="case-results__list"><li data-es="Lógica de préstamos sin estados imposibles" data-en="Loan logic with no impossible states">Lógica de préstamos sin estados imposibles</li><li data-es="Pruebas automáticas en cada cambio" data-en="Automatic tests on every change">Pruebas automáticas en cada cambio</li><li data-es="Código organizado en modelos y servicios" data-en="Code organized into models and services">Código organizado en modelos y servicios</li></ul>
+        </section>
+
+        <section class="case-cta reveal">
+            <p class="case-cta__title" data-es="¿Necesitas un sistema confiable para tu negocio?" data-en="Need a reliable system for your business?">¿Necesitas un sistema confiable para tu negocio?</p>
+            <p class="case-cta__lead" data-es="Desarrollo software con pruebas para que funcione siempre." data-en="I build tested software so it always works.">Desarrollo software con pruebas para que funcione siempre.</p>
+            <div class="case-cta__actions">
+                <a class="case-btn case-btn--primary" href="contacto.html?servicio=software" data-es="Pedir cotización" data-en="Request a quote">Pedir cotización</a>
+                <a class="case-btn" href="servicios.html#software" data-es="Ver el servicio" data-en="See the service">Ver el servicio</a>
+            </div>
+        </section>
+
+        <nav class="case-next" aria-label="Más proyectos">
+            <a class="case-next__card" href="space-flight-booking.html" style="--next:#8b7bff;--next-bg:#05040f">
+                <img src="img/thumbs/space-flight-card.webp" alt="" loading="lazy">
+                <span class="case-next__body">
+                    <span class="case-next__label" data-es="SIGUIENTE ARCHIVO →" data-en="NEXT FILE →">SIGUIENTE ARCHIVO →</span>
+                    <b class="case-next__name" style="font-family:'Audiowide', sans-serif">Space Flight Booking</b>
+                    <span class="case-next__kicker" data-es="PROGRAMACIÓN · TYPESCRIPT · DEVOPS" data-en="PROGRAMMING · TYPESCRIPT · DEVOPS">PROGRAMACIÓN · TYPESCRIPT · DEVOPS</span>
+                </span>
+            </a>
+            <div class="case-next__links">
+                <a href="smart-agriculture.html"><span data-es="← Anterior:" data-en="← Previous:">← Anterior:</span> Smart Agriculture</a>
+                <a href="proyectos.html" data-es="Todos los proyectos" data-en="All projects">Todos los proyectos</a>
+            </div>
+        </nav>
+    </main>
+
+    <div class="case-lightbox" id="caseLightbox" hidden>
+        <button type="button" class="case-lightbox__close" data-es-label="Cerrar" data-en-label="Close" aria-label="Cerrar">×</button>
+        <button type="button" class="case-lightbox__nav case-lightbox__nav--prev" aria-label="Anterior">‹</button>
+        <figure><img alt=""><figcaption></figcaption></figure>
+        <button type="button" class="case-lightbox__nav case-lightbox__nav--next" aria-label="Siguiente">›</button>
+    </div>
+
+    <footer class="site-footer" data-site-footer></footer>
+
+    <script src="js/aura/knowledge.js?v=20261025t"></script>
+    <script src="js/bg.js?v=20261025t"></script>
+    <script src="js/site.js?v=20261025t"></script>
+    <script src="js/aura/assistant.js?v=20261025t"></script>
+    <script src="js/case.js?v=20261025t"></script>
+</body>
+</html>
