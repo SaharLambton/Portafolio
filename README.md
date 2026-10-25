@@ -8,8 +8,8 @@ Portafolio personal de Sahar Gabriela Chain Mayorga: programadora, diseñadora y
 | --- | --- |
 | `index.html` | Inicio: orbe con AURA, los 4 pilares y proyectos destacados |
 | `sobre-mi.html` | Perfil con foto, trayectoria y habilidades |
-| `proyectos.html` | Proyectos (diseño anterior, pendiente de rediseño). Acepta `?area=code|ai|design|marketing` |
-| `servicios.html` | Servicios (diseño anterior, pendiente de rediseño) |
+| `proyectos.html` | Archivo de proyectos con filtros por pilar. Acepta `?area=code|ai|design|marketing`. Las tarjetas salen de `projects` en `js/aura/knowledge.js` |
+| `servicios.html` | Servicios organizados por pilar, "Cómo trabajo" y cotización. Anclas: `#code`, `#ai`, `#design`, `#marketing` |
 | `contacto.html` | Contacto (diseño anterior, pendiente de rediseño) |
 
 La barra de navegación, el pie de página y el orbe flotante de AURA se generan desde `js/site.js`, así que solo hay que editarlos en un lugar. Los comentarios que AURA hace en cada pestaña están en `pages` dentro de `js/aura/knowledge.js`.
@@ -26,7 +26,7 @@ La primera pantalla es un "sistema" de ciencia ficción: un orbe 3D (WebGL) con 
 | `js/aura/hud.js` | Paneles decorativos, reloj, menú móvil. |
 | `css/aura.css` | Estilos del home (paleta esmeralda + violeta + magenta). |
 | `js/site.js` · `css/site.css` | Navegación, pie de página y orbe flotante compartidos por todas las pestañas. |
-| `css/legacy.css` · `js/legacy.js` | Diseño anterior, usado solo mientras se rediseñan Proyectos, Servicios y Contacto. |
+| `css/legacy.css` · `js/legacy.js` | Diseño anterior, usado solo mientras se rediseña Contacto. |
 | `js/vendor/three.min.js` | Three.js r149 incluido localmente (no depende de un CDN). |
 
 ### Cambiar el nombre del asistente
