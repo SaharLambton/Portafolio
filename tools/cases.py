@@ -13,7 +13,7 @@ import os
 import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261025x'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261025y'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -85,9 +85,10 @@ PROJECTS = [
                     'Online store to sell custom graphic services and products, with user accounts, catalog and cart.'),
         'tags': ['PHP', 'MySQL', 'JavaScript', 'jQuery', 'HTML5', 'CSS3', 'XAMPP'],
         'hero': {'video': 'services.mp4', 'poster': 'img/cases/img-services.webp'},
+        'links': [(('Ver código en GitHub', 'See code on GitHub'), 'https://github.com/SaharLambton/sell-services')],
         'facts': [
             (('Tipo', 'Type'), ('Proyecto académico · Lambton College', 'Academic project · Lambton College')),
-            (('Año', 'Year'), ('2023', '2023')),
+            (('Año', 'Year'), ('2023 · actualizado en 2026', '2023 · updated in 2026')),
             (('Rol', 'Role'), ('Desarrolladora full stack', 'Full stack developer')),
             (('Stack', 'Stack'), ('PHP · MySQL · JavaScript · jQuery', 'PHP · MySQL · JavaScript · jQuery')),
         ],
@@ -102,25 +103,28 @@ PROJECTS = [
         'blocks': [
             {'title': ('Funcionalidades', 'Features'), 'items': [
                 ('Registro e inicio de sesión con correo o apodo', 'Sign-up and login with email or nickname'),
-                ('Validación de formularios con jQuery', 'Form validation with jQuery'),
+                ('Oferta emergente con cuenta regresiva en la página de inicio', 'Pop-up offer with a countdown on the home page'),
                 ('Catálogo filtrable con buscador: servicios, productos, camisetas y cuadernos', 'Filterable catalog with search: services, products, shirts and notebooks'),
                 ('Carrito con contador y total en tiempo real', 'Cart with live count and total'),
                 ('Perfil de usuario editable, guardado en la base de datos', 'Editable user profile, saved to the database')]},
             {'title': ('Backend y base de datos', 'Backend and database'), 'items': [
                 ('PHP conectado a MySQL (MariaDB) en XAMPP', 'PHP connected to MySQL (MariaDB) on XAMPP'),
-                ('Tabla de usuarios administrada con phpMyAdmin', 'Users table managed with phpMyAdmin'),
-                ('Sesiones de PHP para recordar al usuario entre páginas', 'PHP sessions to remember the user across pages'),
-                ('Escape de las entradas antes de guardarlas', 'Input escaping before saving')]},
-            {'title': ('Lo que le sumaría hoy', 'What I would add today'), 'items': [
+                ('Tabla de usuarios con correo y apodo únicos', 'Users table with unique email and nickname'),
+                ('Validación en el navegador con jQuery y en el servidor con PHP', 'Validation in the browser with jQuery and on the server with PHP'),
+                ('Tienda y perfil protegidos: solo con sesión iniciada', 'Store and profile protected: logged-in users only')]},
+            {'title': ('Actualización de seguridad (2026)', 'Security update (2026)'), 'items': [
                 ('Contraseñas cifradas con password_hash', 'Passwords hashed with password_hash'),
-                ('Consultas preparadas y tokens CSRF', 'Prepared statements and CSRF tokens'),
-                ('Catálogo y pedidos guardados en la base de datos', 'Catalog and orders stored in the database'),
-                ('Pasarela de pagos real: el checkout quedó como siguiente paso', 'A real payment gateway: checkout was left as the next step')]},
+                ('Sentencias preparadas contra la inyección SQL', 'Prepared statements against SQL injection'),
+                ('Salidas escapadas contra XSS y regeneración de la sesión', 'Escaped output against XSS and session regeneration'),
+                ('Probado de punta a punta: registro, login, carrito, perfil y cierre de sesión', 'Tested end to end: sign-up, login, cart, profile and logout')]},
         ],
         'challenges': [
             (('Que la tienda recuerde quién eres', 'Making the store remember you'),
              ('Usé sesiones de PHP: al iniciar sesión se guardan los datos del usuario, y así su nombre y su perfil lo acompañan de la tienda a la configuración.',
               'I used PHP sessions: on login the user data is stored, so their name and profile follow them from the store to the settings page.')),
+            (('Revisar mi propio código', 'Reviewing my own code'),
+             ('Al publicarlo revisé el proyecto de 2023: las contraseñas estaban en texto plano y las consultas se armaban a mano. Las cambié por password_hash y sentencias preparadas, y probé que un intento de inyección SQL ya no entra.',
+              'When publishing it I reviewed the 2023 project: passwords were stored in plain text and queries were built by hand. I switched to password_hash and prepared statements, and tested that an SQL injection attempt no longer gets in.')),
             (('Editar solo lo que cambia', 'Editing only what changes'),
              ('El formulario de perfil arma la actualización únicamente con los campos que el usuario llenó, para no borrar el resto de sus datos.',
               'The profile form builds the update only from the fields the user filled in, so the rest of their data is not erased.')),
@@ -128,7 +132,8 @@ PROJECTS = [
         'results': [
             ('Flujo completo: registro, login, catálogo, carrito y perfil', 'Complete flow: sign-up, login, catalog, cart and profile'),
             ('Base de datos MySQL conectada con PHP', 'MySQL database connected with PHP'),
-            ('Base lista para sumar pagos y más seguridad', 'A base ready for payments and stronger security'),
+            ('Código publicado en GitHub con instrucciones para XAMPP y un usuario de prueba', 'Code published on GitHub with XAMPP instructions and a demo user'),
+            ('Siguiente paso: catálogo y pedidos en la base de datos y una pasarela de pagos real', 'Next step: catalog and orders in the database and a real payment gateway'),
         ],
         'cta': (('¿Necesitas una tienda en línea?', 'Need an online store?'),
                 ('Desarrollo tiendas a la medida de tu negocio, listas para vender.', 'I build stores tailored to your business, ready to sell.')),

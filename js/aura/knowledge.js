@@ -409,8 +409,8 @@ window.AURA_KB = {
             url: 'sell-services.html', thumb: 'img/thumbs/services.webp', area: 'web',
             tech: ['PHP', 'MySQL', 'JavaScript', 'jQuery'],
             desc: {
-                es: 'Sell Services es una tienda en línea para vender servicios y productos gráficos personalizados: registro e inicio de sesión, catálogo filtrable con buscador, carrito y perfil editable, con los usuarios guardados en MySQL. Hecha con PHP, MySQL, JavaScript y jQuery en 2023.',
-                en: 'Sell Services is an online store to sell custom graphic services and products: sign-up and login, filterable catalog with search, cart and editable profile, with users stored in MySQL. Built with PHP, MySQL, JavaScript and jQuery in 2023.'
+                es: 'Sell Services es una tienda en línea para vender servicios y productos gráficos personalizados: registro e inicio de sesión, catálogo filtrable con buscador, carrito y perfil editable, con los usuarios guardados en MySQL. Hecha con PHP, MySQL, JavaScript y jQuery en 2023 y actualizada en 2026 con contraseñas cifradas y consultas preparadas. Su código está en GitHub: github.com/SaharLambton/sell-services.',
+                en: 'Sell Services is an online store to sell custom graphic services and products: sign-up and login, filterable catalog with search, cart and editable profile, with users stored in MySQL. Built with PHP, MySQL, JavaScript and jQuery in 2023 and updated in 2026 with hashed passwords and prepared statements. Its code is on GitHub: github.com/SaharLambton/sell-services.'
             },
             tag: { es: 'E-commerce · PHP + MySQL', en: 'E-commerce · PHP + MySQL' }
         },
