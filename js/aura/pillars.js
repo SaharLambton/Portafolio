@@ -113,6 +113,9 @@
             nodes.forEach((a, ai) => nodes.forEach((b, bi) => { if (b.l === a.l + 1 && Math.random() < 0.7) edges.push([ai, bi]); }));
             return { nodes, edges, pulses: [] };
         }
+        if (f.type === 'marketing') {
+            return { bubbles: Array.from({ length: 14 }, () => ({ x: Math.random() * f.w, y: Math.random() * f.h, r: 1.5 + Math.random() * 3.5, v: 0.3 + Math.random() * 0.7 })) };
+        }
         return { t: 0 };
     }
 
@@ -205,7 +208,55 @@
         ctx.globalAlpha = 1;
     }
 
-    const draw = { code: drawCode, ai: drawAI, design: drawDesign };
+    function drawMarketing(f, t, open) {
+        const { ctx, w, h, state } = f;
+        ctx.clearRect(0, 0, w, h);
+        const k = open ? 1 : 0.6;
+        // barras que crecen
+        const bars = 6, bw = w / (bars * 1.6), gap = (w - bars * bw) / (bars + 1);
+        for (let i = 0; i < bars; i++) {
+            const grow = 0.25 + 0.55 * (i / (bars - 1)) + 0.08 * Math.sin(t * 1.4 + i);
+            const bh = h * 0.42 * grow;
+            const x = gap + i * (bw + gap), y = h * 0.92 - bh;
+            const g = ctx.createLinearGradient(0, y, 0, h * 0.92);
+            g.addColorStop(0, f.color);
+            g.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.globalAlpha = 0.75 * k;
+            ctx.fillStyle = g;
+            ctx.fillRect(x, y, bw, bh);
+        }
+        // línea de tendencia ascendente
+        ctx.globalAlpha = k;
+        ctx.strokeStyle = f.color2;
+        ctx.lineWidth = 1.6;
+        ctx.shadowColor = f.color2;
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        const pts = 9;
+        for (let i = 0; i < pts; i++) {
+            const x = w * (0.08 + 0.84 * i / (pts - 1));
+            const y = h * (0.62 - 0.42 * (i / (pts - 1))) + Math.sin(t * 2 + i * 1.3) * 6;
+            if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y);
+        }
+        ctx.stroke();
+        // flecha en la punta
+        ctx.fillStyle = f.color2;
+        ctx.beginPath(); ctx.moveTo(w * 0.92, h * 0.17); ctx.lineTo(w * 0.84, h * 0.2); ctx.lineTo(w * 0.9, h * 0.25); ctx.fill();
+        // burbujas de interacción que suben
+        ctx.shadowColor = f.color;
+        state.bubbles.forEach((b) => {
+            b.y -= b.v * (open ? 1.6 : 0.8);
+            if (b.y < -10) { b.y = h + 10; b.x = Math.random() * w; }
+            ctx.globalAlpha = 0.5 * k;
+            ctx.strokeStyle = f.color;
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2); ctx.stroke();
+        });
+        ctx.shadowBlur = 0;
+        ctx.globalAlpha = 1;
+    }
+
+    const draw = { code: drawCode, ai: drawAI, design: drawDesign, marketing: drawMarketing };
     let last = 0;
     function loop(ms) {
         requestAnimationFrame(loop);
