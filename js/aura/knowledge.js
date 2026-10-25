@@ -16,13 +16,13 @@ window.AURA_KB = {
     welcome: {
         es: [
             '¡Hola! 👋 Bienvenido al portafolio digital de Sahar Chain. Soy {name}, su asistente inteligente.',
-            'Sahar es programadora, diseñadora y desarrolladora web, formada en Lambton College (Toronto) y con más de 5 años creando experiencias digitales.',
+            'Sahar es programadora, desarrolladora web y diseñadora de marca, formada en Lambton College (Canadá) y creando experiencias digitales desde 2019.',
             'Aquí puedes explorar sus proyectos de desarrollo web, branding y programación, su stack tecnológico, su experiencia y cómo contactarla.',
             '¿Por dónde quieres empezar? Toca una opción o escríbeme tu pregunta.'
         ],
         en: [
             'Hi! 👋 Welcome to Sahar Chain\'s digital portfolio. I\'m {name}, her intelligent assistant.',
-            'Sahar is a programmer, designer and web developer, trained at Lambton College (Toronto) with 5+ years crafting digital experiences.',
+            'Sahar is a programmer, web developer and brand designer, trained at Lambton College (Canada) and crafting digital experiences since 2019.',
             'Here you can explore her web development, branding and programming projects, her tech stack, her experience and how to reach her.',
             'Where would you like to start? Tap an option or type your question.'
         ]
@@ -94,8 +94,8 @@ window.AURA_KB = {
             id: 'ai',
             keys: ['ia', 'inteligencia artificial', 'machine learning', 'chatbot', 'chatbots', 'asistente', 'asistentes', 'ai', 'artificial intelligence', 'llm', 'gpt', 'claude'],
             answer: {
-                es: 'En IA, Sahar se especializó en inteligencia artificial en Lambton College. Ha implementado chatbots con IA que redujeron los tiempos de respuesta en un 40%, automatiza procesos y diseña asistentes conversacionales como yo 🤖.',
-                en: 'In AI, Sahar specialized in artificial intelligence at Lambton College. She has built AI chatbots that cut response times by 40%, automates processes and designs conversational assistants like me 🤖.'
+                es: 'En IA, Sahar dicta talleres de IA generativa para equipos de empresas de distintos sectores, automatiza la atención al cliente con chatbots y diseña asistentes conversacionales como yo 🤖.',
+                en: 'In AI, Sahar teaches generative AI workshops for company teams across industries, automates customer service with chatbots and designs conversational assistants like me 🤖.'
             },
             action: { type: 'scroll', target: '#pilares', label: { es: 'Ver los pilares', en: 'See the pillars' } },
             chips: ['services', 'projects']
@@ -113,8 +113,8 @@ window.AURA_KB = {
             id: 'about',
             keys: ['quien es', 'quien es sahar', 'sobre sahar', 'sobre ella', 'sobre mi', 'acerca de', 'perfil', 'cuentame de ella', 'presentate', 'about', 'who is', 'her profile', 'tell me about her', 'background', 'trayectoria'],
             answer: {
-                es: 'Sahar Gabriela Chain Mayorga es programadora, diseñadora y desarrolladora web bilingüe. Combina programación (SQL, .NET, Python, PHP, Java, JavaScript) con marketing digital, branding y community management. Tiene más de 5 años como freelance y 4 años liderando proyectos en empresas.',
-                en: 'Sahar Gabriela Chain Mayorga is a bilingual programmer, designer and web developer. She blends programming (SQL, .NET, Python, PHP, Java, JavaScript) with digital marketing, branding and community management. She has 5+ years of freelance work and 4 years leading projects at companies.'
+                es: 'Sahar Gabriela Chain Mayorga es programadora y desarrolladora web bilingüe (español–inglés), con experiencia en diseño web, branding, community management y marketing digital. Combina programación (SQL, .NET, Python, PHP, Java, JavaScript) con diseño de marca para ofrecer soluciones completas en desarrollo, posicionamiento de marca y presencia digital.',
+                en: 'Sahar Gabriela Chain Mayorga is a bilingual (Spanish–English) programmer and web developer with experience in web design, branding, community management and digital marketing. She combines programming (SQL, .NET, Python, PHP, Java, JavaScript) with brand design to deliver complete solutions in development, brand positioning and digital presence.'
             },
             action: { type: 'scroll', target: '#sobre-mi', label: { es: 'Ir a Sobre mí', en: 'Go to About' } },
             chips: ['education', 'experience', 'skills']
@@ -123,8 +123,8 @@ window.AURA_KB = {
             id: 'education',
             keys: ['estudio', 'estudios', 'formacion', 'educacion', 'universidad', 'college', 'lambton', 'sena', 'titulo', 'carrera', 'education', 'degree', 'studied', 'school', 'academic'],
             answer: {
-                es: 'Sahar estudió Computer Programmer en Lambton College, Toronto (2025), con especialización en desarrollo de software, bases de datos e inteligencia artificial. Antes se formó en Producción de Imágenes Digitales en el SENA, Colombia (2018).',
-                en: 'Sahar studied Computer Programmer at Lambton College, Toronto (2025), specializing in software development, databases and artificial intelligence. Before that she trained in Digital Image Production at SENA, Colombia (2018).'
+                es: 'Sahar es Computer Programmer de Lambton College, Ontario, Canadá (diciembre 2024). En el SENA completó los cursos de Marketing Digital y Desarrollo de Propuestas Comerciales en Marketing Digital (2026) y Producción de Imágenes Digitales (2018).',
+                en: 'Sahar graduated as a Computer Programmer from Lambton College, Ontario, Canada (December 2024). At SENA she completed Digital Marketing and Commercial Proposals in Digital Marketing (2026), plus Digital Image Production (2018).'
             },
             action: { type: 'scroll', target: '#sobre-mi', label: { es: 'Ver formación', en: 'See education' } },
             chips: ['experience', 'skills']
@@ -133,8 +133,8 @@ window.AURA_KB = {
             id: 'languages',
             keys: ['idioma', 'idiomas', 'ingles', 'espanol', 'habla', 'bilingue', 'language', 'languages', 'english', 'spanish', 'speak'],
             answer: {
-                es: 'Sahar es bilingüe: español nativo e inglés intermedio-avanzado. Su formación canadiense y su experiencia en Colombia le permiten moverse con facilidad entre ambos mercados.',
-                en: 'Sahar is bilingual: native Spanish and intermediate-advanced English. Her Canadian training and Colombian work experience let her move easily between both markets.'
+                es: 'Sahar habla español nativo e inglés intermedio. Su formación en Canadá y su trabajo en Colombia le permiten moverse entre ambos mercados.',
+                en: 'Sahar speaks native Spanish and intermediate English. Her training in Canada and her work in Colombia let her move between both markets.'
             },
             chips: ['about', 'contact']
         },
@@ -142,8 +142,8 @@ window.AURA_KB = {
             id: 'experience',
             keys: ['experiencia', 'trabajo', 'trabajado', 'empleo', 'empresa', 'empresas', 'laboral', 'cargo', 'disenos lasser', 'lasser', 'freelance', 'freelancer', 'experience', 'work', 'job', 'jobs', 'worked', 'career', 'company'],
             answer: {
-                es: 'Su recorrido: 💼 Freelancer en desarrollo web, programación y community management (2020 – hoy). 🎨 Diseñadora gráfica y especialista en desarrollo digital en Diseños Lasser, Bogotá (2019 – 2023). 📣 Gestora de marca y comunicación independiente (2020 – 2025). Entre sus logros: +40% de eficiencia con bases de datos a medida y +30% de engagement en redes.',
-                en: 'Her path: 💼 Freelance web developer, programmer and community manager (2020 – present). 🎨 Graphic designer & digital development specialist at Diseños Lasser, Bogotá (2019 – 2023). 📣 Independent brand & communications manager (2020 – 2025). Highlights: +40% efficiency with custom databases and +30% social engagement.'
+                es: 'Su recorrido: 💼 Desarrolladora web, programadora y diseñadora de marca independiente en Colombia y Canadá (2021 – hoy): sitios .NET y PHP, APIs RESTful con Angular, bases de datos a medida, chatbots, branding y talleres de IA generativa. 🚀 Cofundadora de un emprendimiento de servicios digitales en Bogotá (2019 – 2021), donde mejoró la organización de datos en 30%, la productividad en 35% y la interacción con clientes en 20%.',
+                en: 'Her path: 💼 Independent web developer, programmer and brand designer in Colombia and Canada (2021 – present): .NET and PHP sites, RESTful APIs with Angular, custom databases, chatbots, branding and generative AI workshops. 🚀 Co-founder of a digital services venture in Bogotá (2019 – 2021), where she improved data organization by 30%, productivity by 35% and client interaction by 20%.'
             },
             action: { type: 'scroll', target: '#experiencia', label: { es: 'Ver experiencia', en: 'See experience' } },
             chips: ['skills', 'projects']
@@ -152,8 +152,8 @@ window.AURA_KB = {
             id: 'skills',
             keys: ['habilidad', 'habilidades', 'tecnologia', 'tecnologias', 'stack', 'lenguaje', 'lenguajes', 'programa en', 'herramientas', 'domina', 'sabe', 'skills', 'skill', 'technologies', 'tech', 'languages programming', 'tools', 'know'],
             answer: {
-                es: 'Su stack: ⚙️ Backend y datos: C#, .NET, VB.NET, Python, PHP, Java, SQL Server y MySQL. 🖥️ Frontend: HTML5, CSS3, JavaScript, TypeScript, jQuery, Angular y Bootstrap. 🧩 Frameworks: .NET Core, ASP.NET, Razor Pages, APIs RESTful y WordPress. 🎨 Diseño: Illustrator, Figma y Canva. 📈 Marketing: SEO, Google Analytics y chatbots.',
-                en: 'Her stack: ⚙️ Backend & data: C#, .NET, VB.NET, Python, PHP, Java, SQL Server and MySQL. 🖥️ Frontend: HTML5, CSS3, JavaScript, TypeScript, jQuery, Angular and Bootstrap. 🧩 Frameworks: .NET Core, ASP.NET, Razor Pages, RESTful APIs and WordPress. 🎨 Design: Illustrator, Figma and Canva. 📈 Marketing: SEO, Google Analytics and chatbots.'
+                es: 'Su stack: ⚙️ Lenguajes: .NET, C#, PHP, Python, Java, SQL, TypeScript y JavaScript. 🧩 Frameworks: .NET Core, ASP.NET, Node.js, Angular, Bootstrap y WordPress. 🗄️ Bases de datos: SQL Server, MySQL y Oracle. ✅ Calidad: Jest, Git, GitHub Actions y bases de DevOps y Cloud. 🎨 Diseño: Illustrator y Canva. 📈 Marketing: SEO, Google Analytics y chatbots.',
+                en: 'Her stack: ⚙️ Languages: .NET, C#, PHP, Python, Java, SQL, TypeScript and JavaScript. 🧩 Frameworks: .NET Core, ASP.NET, Node.js, Angular, Bootstrap and WordPress. 🗄️ Databases: SQL Server, MySQL and Oracle. ✅ Quality: Jest, Git, GitHub Actions plus DevOps and Cloud fundamentals. 🎨 Design: Illustrator and Canva. 📈 Marketing: SEO, Google Analytics and chatbots.'
             },
             action: { type: 'scroll', target: '#habilidades', label: { es: 'Ver habilidades', en: 'See skills' } },
             chips: ['projects', 'code']
@@ -172,8 +172,8 @@ window.AURA_KB = {
             id: 'projects',
             keys: ['proyecto', 'proyectos', 'portafolio', 'portfolio', 'trabajos', 'muestra', 'ejemplos', 'casos', 'projects', 'project', 'work samples', 'case study', 'showcase'],
             answer: {
-                es: 'Sahar tiene 10 proyectos en tres áreas: 🌐 desarrollo web (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos) y 💻 programación (Smart Agriculture, Bookstore, Jest CI y más). ¿Cuál área te interesa?',
-                en: 'Sahar has 10 projects across three areas: 🌐 web development (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos) and 💻 programming (Smart Agriculture, Bookstore, Jest CI and more). Which area interests you?'
+                es: 'Sahar tiene 10 proyectos en tres áreas: 🌐 desarrollo web (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos) y 💻 programación (Smart Agriculture, Library Management, Jest CI y más). ¿Cuál área te interesa?',
+                en: 'Sahar has 10 projects across three areas: 🌐 web development (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos) and 💻 programming (Smart Agriculture, Library Management, Jest CI and more). Which area interests you?'
             },
             action: { type: 'scroll', target: '#proyectos', label: { es: 'Ir a proyectos', en: 'Go to projects' } },
             chips: ['web', 'design', 'code']
@@ -200,8 +200,8 @@ window.AURA_KB = {
             id: 'code',
             keys: ['programacion', 'codigo', 'software', 'github', 'repositorio', 'repositorios', 'typescript', 'testing', 'pruebas', 'programming', 'code', 'repo', 'repos', 'tests'],
             answer: {
-                es: 'En programación: 🌱 Smart Agriculture, agricultura de precisión con sensores IoT y riego automatizado; 📚 Bookstore, gestión de biblioteca en TypeScript con pruebas en Jest; ✅ Jest CI con GitHub Actions; y proyectos académicos de TypeScript y POO.',
-                en: 'Programming: 🌱 Smart Agriculture, precision farming with IoT sensors and automated irrigation; 📚 Bookstore, a TypeScript library system tested with Jest; ✅ Jest CI with GitHub Actions; and academic TypeScript/OOP projects.'
+                es: 'En programación: 🌱 Smart Agriculture, agricultura de precisión con sensores IoT y riego automatizado; 📚 Library Management, gestión de biblioteca en TypeScript y Node.js con pruebas en Jest; y ✅ Jest CI, pruebas automáticas en cada push con GitHub Actions. Son proyectos académicos de Lambton College publicados en GitHub.',
+                en: 'Programming: 🌱 Smart Agriculture, precision farming with IoT sensors and automated irrigation; 📚 Library Management, a TypeScript and Node.js library system tested with Jest; and ✅ Jest CI, automated tests on every push with GitHub Actions. They are Lambton College academic projects published on GitHub.'
             },
             projects: ['smart-agriculture', 'bookstore', 'jest-ci']
         },
@@ -233,8 +233,8 @@ window.AURA_KB = {
             id: 'location',
             keys: ['donde vive', 'ubicacion', 'ciudad', 'pais', 'de donde', 'canada', 'colombia', 'bogota', 'toronto', 'location', 'where', 'based', 'country', 'city'],
             answer: {
-                es: 'Sahar se formó en Toronto, Canadá, y tiene una amplia trayectoria en Bogotá, Colombia. Trabaja de forma remota con clientes de ambos países.',
-                en: 'Sahar trained in Toronto, Canada, and has a long track record in Bogotá, Colombia. She works remotely with clients in both countries.'
+                es: 'Sahar vive en Bogotá, Colombia, y se formó en Ontario, Canadá. Trabaja con clientes de ambos países.',
+                en: 'Sahar is based in Bogotá, Colombia, and trained in Ontario, Canada. She works with clients in both countries.'
             },
             chips: ['contact', 'languages']
         },
@@ -337,12 +337,12 @@ window.AURA_KB = {
             tag: { es: 'IoT · TypeScript', en: 'IoT · TypeScript' }
         },
         {
-            id: 'bookstore', name: 'Bookstore', keys: ['bookstore', 'biblioteca', 'libros', 'library', 'books'],
+            id: 'bookstore', name: 'Library Management', keys: ['library management', 'bookstore', 'biblioteca', 'libros', 'library', 'books'],
             url: 'https://github.com/SaharLambton/Assigment3', external: true, area: 'code',
-            tech: ['TypeScript', 'Jest', 'OOP'],
+            tech: ['TypeScript', 'Node.js', 'Jest', 'OOP'],
             desc: {
-                es: 'Bookstore es un sistema de gestión de biblioteca en TypeScript: libros, clientes, préstamos y devoluciones con validación de disponibilidad, todo cubierto con pruebas unitarias en Jest.',
-                en: 'Bookstore is a TypeScript library management system: books, customers, loans and returns with availability checks, fully covered by Jest unit tests.'
+                es: 'Library Management es una aplicación de gestión de biblioteca en TypeScript y Node.js: libros, clientes, préstamos y devoluciones con validación de disponibilidad, todo cubierto con pruebas unitarias en Jest.',
+                en: 'Library Management is a TypeScript and Node.js library app: books, customers, loans and returns with availability checks, fully covered by Jest unit tests.'
             }
         },
         {
@@ -362,12 +362,12 @@ window.AURA_KB = {
     /* ---------- Tecnologías (para preguntas tipo "¿sabe Python?") ---------- */
     tech: {
         known: {
-            'c#': 'C#', 'csharp': 'C#', '.net': '.NET', 'dotnet': '.NET', 'net core': '.NET Core', 'asp.net': 'ASP.NET', 'vb.net': 'VB.NET',
+            'c#': 'C#', 'csharp': 'C#', '.net': '.NET', 'dotnet': '.NET', 'net core': '.NET Core', 'asp.net': 'ASP.NET',
             'python': 'Python', 'php': 'PHP', 'java': 'Java', 'sql': 'SQL', 'sql server': 'SQL Server', 'mysql': 'MySQL',
             'html': 'HTML5', 'css': 'CSS3', 'javascript': 'JavaScript', 'js': 'JavaScript', 'typescript': 'TypeScript', 'jquery': 'jQuery',
-            'angular': 'Angular', 'bootstrap': 'Bootstrap', 'wordpress': 'WordPress', 'wix': 'Wix', 'razor': 'Razor Pages', 'api': 'APIs RESTful', 'rest': 'APIs RESTful',
-            'node': 'Node.js', 'nodejs': 'Node.js', 'jest': 'Jest', 'git': 'Git', 'figma': 'Figma', 'illustrator': 'Adobe Illustrator', 'photoshop': 'Photoshop',
-            'canva': 'Canva', 'seo': 'SEO', 'google analytics': 'Google Analytics', 'scrum': 'Scrum'
+            'angular': 'Angular', 'bootstrap': 'Bootstrap', 'wordpress': 'WordPress', 'razor': 'Razor Pages', 'api': 'APIs RESTful', 'rest': 'APIs RESTful',
+            'node': 'Node.js', 'nodejs': 'Node.js', 'jest': 'Jest', 'git': 'Git', 'illustrator': 'Adobe Illustrator', 'photoshop': 'Photoshop',
+            'canva': 'Canva', 'oracle': 'Oracle', 'github': 'GitHub', 'github actions': 'GitHub Actions', 'devops': 'DevOps', 'cloud': 'Cloud Computing', 'seo': 'SEO', 'google analytics': 'Google Analytics', 'scrum': 'Scrum'
         },
         // Tecnologías que no están en su stack (para responder con honestidad)
         unknown: ['react', 'vue', 'svelte', 'next', 'nextjs', 'docker', 'kubernetes', 'aws', 'azure', 'kotlin', 'swift', 'flutter', 'rust', 'golang', 'ruby', 'rails', 'laravel', 'django', 'mongodb', 'firebase', 'unity'],
