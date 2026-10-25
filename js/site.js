@@ -90,6 +90,7 @@
             <div class="aura-bubble" id="auraBubble" hidden>
                 <span class="aura-bubble__who">AURA</span>
                 <p class="aura-bubble__text" id="auraBubbleText"></p>
+                <p class="aura-bubble__hint" id="auraBubbleHint" hidden data-es="🔊 Toca la pantalla para escucharla" data-en="🔊 Tap the screen to hear her">🔊 Toca la pantalla para escucharla</p>
                 <button type="button" class="aura-bubble__close" id="auraBubbleClose" data-es-label="Cerrar" data-en-label="Close" aria-label="Cerrar">${ICONS.close}</button>
             </div>
             ${panel}
