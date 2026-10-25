@@ -1,0 +1,159 @@
+/* ==========================================================
+   INICIO · Arranque, enlaces de los pilares y bloque de destacados
+   ========================================================== */
+
+/* ---------- Botones de la pantalla de arranque ---------- */
+.aura-boot__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-top: 28px;
+    animation: aura-in 0.5s ease-out;
+}
+.aura-boot__actions[hidden] { display: none; }
+.aura-boot__go {
+    padding: 14px 30px;
+    border: 1px solid var(--a-emerald);
+    border-radius: 10px;
+    background: rgba(43, 245, 176, 0.1);
+    color: #fff;
+    font-family: var(--a-font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.24em;
+    cursor: pointer;
+    box-shadow: 0 0 24px rgba(43, 245, 176, 0.35), inset 0 0 18px rgba(43, 245, 176, 0.15);
+    animation: boot-pulse 2s ease-in-out infinite;
+    transition: background 0.2s, transform 0.2s;
+}
+.aura-boot__go:hover, .aura-boot__go:focus-visible { background: rgba(43, 245, 176, 0.22); transform: translateY(-1px); outline: none; }
+@keyframes boot-pulse { 50% { box-shadow: 0 0 40px rgba(43, 245, 176, 0.6), inset 0 0 22px rgba(43, 245, 176, 0.25); } }
+.aura-boot__silent {
+    border: 0;
+    background: transparent;
+    color: var(--a-muted);
+    font-family: var(--a-font-body);
+    font-size: 0.85rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
+.aura-boot__silent:hover, .aura-boot__silent:focus-visible { color: var(--a-text); outline: none; }
+
+/* ---------- Enlaces dentro del panel de cada pilar ---------- */
+.pillar__links { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; }
+.pillar__go {
+    display: block;
+    padding: 9px 10px;
+    border-radius: 6px;
+    background: var(--c);
+    color: #031012;
+    font-family: var(--a-font-body);
+    font-weight: 700;
+    font-size: 0.86rem;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 0 16px rgba(var(--c-rgb), 0.45);
+    transition: filter 0.2s, transform 0.2s;
+}
+.pillar__go:hover, .pillar__go:focus-visible { filter: brightness(1.12); transform: translateY(-1px); outline: none; }
+.pillar__services {
+    font-size: 0.8rem;
+    color: rgba(var(--c-rgb), 0.95);
+    text-align: center;
+    text-decoration: none;
+}
+.pillar__services:hover, .pillar__services:focus-visible { text-decoration: underline; outline: none; }
+.pillar__links + .pillar__ask { margin-top: 8px; }
+
+/* ---------- Vistazo: proyectos destacados + invitación ---------- */
+.glance {
+    position: relative;
+    padding: clamp(64px, 10vh, 110px) clamp(16px, 4vw, 48px) clamp(64px, 10vh, 100px);
+    background:
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(43, 245, 176, 0.07), transparent 70%),
+        #020406;
+    color: var(--a-text);
+    font-family: var(--a-font-body);
+}
+.glance__head { text-align: center; margin-bottom: 36px; }
+.glance__overline { margin: 0 0 10px; font-family: var(--a-font-mono); font-size: 0.72rem; letter-spacing: 0.4em; color: var(--a-emerald); }
+.glance__title {
+    margin: 0;
+    font-family: var(--a-font-display);
+    font-weight: 800;
+    font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+.glance__grid {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+.glance-card {
+    --c: #2bf5b0;
+    --c-rgb: 43, 245, 176;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(var(--c-rgb), 0.3);
+    border-radius: 14px;
+    background: linear-gradient(170deg, rgba(8, 22, 22, 0.9), rgba(12, 10, 28, 0.9));
+    color: var(--a-text);
+    text-decoration: none;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.glance-card--design { --c: #ff5bd8; --c-rgb: 255, 91, 216; }
+.glance-card--marketing { --c: #3ddcff; --c-rgb: 61, 220, 255; }
+.glance-card:hover, .glance-card:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--c);
+    box-shadow: 0 0 30px rgba(var(--c-rgb), 0.25);
+    outline: none;
+}
+.glance-card__media { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: #050b0b; }
+.glance-card__media img, .glance-card__media video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s; }
+.glance-card:hover .glance-card__media img, .glance-card:hover .glance-card__media video { transform: scale(1.05); }
+.glance-card__body { display: flex; flex-direction: column; gap: 8px; padding: 18px 18px 20px; }
+.glance-card__tag { font-family: var(--a-font-mono); font-size: 0.68rem; letter-spacing: 0.18em; color: var(--c); }
+.glance-card__title { font-family: var(--a-font-display); font-weight: 700; font-size: 1.15rem; letter-spacing: 0.04em; }
+.glance-card__text { font-size: 0.95rem; line-height: 1.55; color: #c8ddd6; }
+.glance-card__tech { margin-top: 4px; font-size: 0.8rem; color: var(--a-muted); }
+
+.glance__all {
+    display: table;
+    margin: 28px auto 0;
+    color: var(--a-emerald);
+    font-weight: 600;
+    text-decoration: none;
+}
+.glance__all:hover, .glance__all:focus-visible { text-decoration: underline; outline: none; }
+
+.glance-cta {
+    width: min(1180px, 100%);
+    margin: clamp(56px, 8vh, 90px) auto 0;
+    padding: clamp(24px, 4vw, 40px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px 32px;
+    border: 1px solid var(--a-line);
+    border-radius: 16px;
+    background:
+        radial-gradient(ellipse at 0% 50%, rgba(43, 245, 176, 0.14), transparent 60%),
+        radial-gradient(ellipse at 100% 50%, rgba(139, 92, 246, 0.18), transparent 60%),
+        rgba(6, 14, 16, 0.85);
+    box-shadow: var(--a-glow);
+}
+.glance-cta__title { margin: 0; font-family: var(--a-font-display); font-weight: 700; font-size: clamp(1.2rem, 2.4vw, 1.7rem); letter-spacing: 0.03em; }
+.glance-cta__lead { margin: 8px 0 0; color: #c8ddd6; font-size: 1rem; }
+.glance-cta__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+@media (max-width: 900px) {
+    .glance__grid { grid-template-columns: 1fr; max-width: 520px; }
+}

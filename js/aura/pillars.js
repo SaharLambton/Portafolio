@@ -26,14 +26,17 @@
         pillar.addEventListener('focusout', (e) => {
             if (!pillar.contains(e.relatedTarget)) setOpen(pillar, false);
         });
-        // toque en pantallas táctiles
+        // clic en el pilar: lleva a Proyectos filtrado por su área.
+        // En pantallas táctiles el primer toque lo abre y el segundo navega.
+        const goProjects = () => { window.location.href = 'proyectos.html?area=' + pillar.dataset.pillar; };
         pillar.addEventListener('click', (e) => {
-            if (canHover || e.target.closest('.pillar__panel')) return;
-            const open = !pillar.classList.contains('is-open');
-            if (open) openOnly(pillar); else setOpen(pillar, false);
+            if (e.target.closest('.pillar__panel')) return;
+            if (!canHover && !pillar.classList.contains('is-open')) { openOnly(pillar); return; }
+            goProjects();
         });
         pillar.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') { setOpen(pillar, false); pillar.blur(); }
+            if (e.key === 'Enter' && e.target === pillar) goProjects();
         });
     });
 
