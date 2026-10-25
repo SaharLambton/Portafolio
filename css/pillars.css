@@ -6,7 +6,9 @@
     --p-w: clamp(96px, 8.5vw, 128px);   /* ancho del fuste */
     position: relative;
     isolation: isolate;
+    /* clip (no hidden): un contenedor hidden puede desplazarse al enfocar o al pasar el cursor por un pilar */
     overflow: hidden;
+    overflow: clip;
     min-height: 100vh;
     padding: clamp(72px, 10vh, 120px) clamp(16px, 4vw, 48px) 64px;
     display: flex;
@@ -39,7 +41,7 @@
 .pillar--marketing { --c: #3ddcff; --c-rgb: 61, 220, 255; --c2: #2bf5b0; }
 
 /* ---------- Fondo: suelo agrietado ---------- */
-.pillars__bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.pillars__bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; overflow: clip; }
 .pillars__floor {
     position: absolute;
     left: -50%;
