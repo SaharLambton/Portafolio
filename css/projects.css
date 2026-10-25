@@ -67,6 +67,7 @@
 .freq b { min-width: 20px; padding: 1px 6px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); font-size: 0.72rem; text-align: center; }
 .freq:hover, .freq:focus-visible { border-color: rgba(var(--t-rgb), 0.7); outline: none; }
 .freq.is-active { border-color: var(--t); background: rgba(var(--t-rgb), 0.14); box-shadow: 0 0 18px rgba(var(--t-rgb), 0.28); }
+.freq--web { --t: #ffb547; --t-rgb: 255, 181, 71; }
 .freq--code { --t: var(--code); --t-rgb: var(--code-rgb); }
 .freq--ai { --t: var(--ai); --t-rgb: var(--ai-rgb); }
 .freq--design { --t: var(--design); --t-rgb: var(--design-rgb); }

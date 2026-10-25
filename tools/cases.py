@@ -12,7 +12,7 @@ import html
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261025h'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261025j'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -31,11 +31,11 @@ def bi(tag, cls, t, extra=''):
 # ----------------------------------------------------------------------------
 PROJECTS = [
     {
-        'id': 'sell-services', 'file': 'sell-services.html', 'name': 'Sell Services', 'pillar': 'code',
+        'id': 'sell-services', 'file': 'sell-services.html', 'name': 'Sell Services', 'pillar': 'web',
         'theme': {'brand': '#3ccfcf', 'brand_rgb': '60, 207, 207', 'brand2': '#7b61ff', 'brand2_rgb': '123, 97, 255',
                   'bg': '#050c10', 'display': "'Space Grotesk', sans-serif", 'body': "'Exo 2', sans-serif",
                   'fonts': 'Space+Grotesk:wght@500;700', 'motif': 'secure', 'bullet': '🔒'},
-        'kicker': ('PROGRAMACIÓN · E-COMMERCE', 'PROGRAMMING · E-COMMERCE'),
+        'kicker': ('DESARROLLO WEB · E-COMMERCE', 'WEB DEVELOPMENT · E-COMMERCE'),
         'title': ('Sell Services and Graphic Products', 'Sell Services and Graphic Products'),
         'tagline': ('Plataforma e-commerce para vender servicios y productos gráficos, con seguridad multinivel.',
                     'E-commerce platform to sell graphic services and products, with multi-level security.'),
@@ -92,11 +92,11 @@ PROJECTS = [
         'service': 'web',
     },
     {
-        'id': 'sports-store', 'file': 'sports-store.html', 'name': 'Sports Store', 'pillar': 'code',
+        'id': 'sports-store', 'file': 'sports-store.html', 'name': 'Sports Store', 'pillar': 'web',
         'theme': {'brand': '#ff3b4e', 'brand_rgb': '255, 59, 78', 'brand2': '#4cc9f0', 'brand2_rgb': '76, 201, 240',
                   'bg': '#080b12', 'display': "'Bebas Neue', sans-serif", 'body': "'Exo 2', sans-serif",
                   'fonts': 'Bebas+Neue', 'motif': 'sport', 'bullet': '⚡'},
-        'kicker': ('PROGRAMACIÓN · SITIO WEB', 'PROGRAMMING · WEBSITE'),
+        'kicker': ('DESARROLLO WEB · SITIO', 'WEB DEVELOPMENT · WEBSITE'),
         'title': ('Sports Store', 'Sports Store'),
         'tagline': ('Tienda deportiva con propósito: catálogo, becas para jóvenes atletas y recursos educativos.',
                     'A sports store with purpose: catalog, scholarships for young athletes and educational resources.'),
@@ -137,11 +137,11 @@ PROJECTS = [
         'service': 'web',
     },
     {
-        'id': 'little-stars', 'file': 'little-stars.html', 'name': 'Little Stars', 'pillar': 'code',
+        'id': 'little-stars', 'file': 'little-stars.html', 'name': 'Little Stars', 'pillar': 'web',
         'theme': {'brand': '#ffb3cf', 'brand_rgb': '255, 179, 207', 'brand2': '#9ad8f5', 'brand2_rgb': '154, 216, 245',
                   'bg': '#0c0e1e', 'display': "'Quicksand', sans-serif", 'body': "'Quicksand', sans-serif",
                   'fonts': 'Quicksand:wght@500;600;700', 'motif': 'stars', 'bullet': '★'},
-        'kicker': ('PROGRAMACIÓN · DISEÑO WEB', 'PROGRAMMING · WEB DESIGN'),
+        'kicker': ('DESARROLLO WEB · DISEÑO', 'WEB DEVELOPMENT · DESIGN'),
         'title': ('Little Stars', 'Little Stars'),
         'tagline': ('Tienda de ropa infantil con un diseño suave, amigable y totalmente responsive.',
                     "Kids' clothing store with a soft, friendly and fully responsive design."),
@@ -460,7 +460,7 @@ PROJECTS = [
 ]
 
 # Pilares: etiqueta y página de proyectos filtrada
-PILLAR = {'code': ('Programación', 'Programming'), 'design': ('Diseño', 'Design'), 'ai': ('IA', 'AI'), 'marketing': ('Marketing', 'Marketing')}
+PILLAR = {'web': ('Desarrollo web', 'Web development'), 'code': ('Programación', 'Programming'), 'design': ('Diseño', 'Design'), 'ai': ('IA', 'AI'), 'marketing': ('Marketing', 'Marketing')}
 
 # Motivos decorativos de la portada (SVG/CSS, sin imágenes externas)
 MOTIF = {
