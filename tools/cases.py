@@ -13,7 +13,7 @@ import os
 import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261025u'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261025v'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -459,13 +459,13 @@ PROJECTS = [
         'tags': ['Branding', 'Diseño gráfico', 'Marketing digital', 'Desarrollo web', 'Publicidad'],
         'hero': {'img': 'img/cases/unicos-logo-unicos.webp', 'alt': 'Logo de Únicos MKT Agencia Creativa', 'light': True},
         'facts': [
-            (('Tipo', 'Type'), ('Agencia propia (cofundadora)', 'Own agency (co-founder)')),
-            (('Periodo', 'Period'), ('2019 – 2021 · Bogotá', '2019 – 2021 · Bogotá')),
-            (('Rol', 'Role'), ('Cofundadora y diseñadora principal', 'Co-founder and lead designer')),
-            (('Herramientas', 'Tools'), ('Illustrator · Photoshop · InDesign', 'Illustrator · Photoshop · InDesign')),
+            (('Tipo', 'Type'), ('Agencia propia, con un socio', 'Own agency, with a partner')),
+            (('Periodo', 'Period'), ('2019 – 2021', '2019 – 2021')),
+            (('Rol', 'Role'), ('Cofundadora · diseño y desarrollo web', 'Co-founder · design and web development')),
+            (('Herramientas', 'Tools'), ('Illustrator · Photoshop · InDesign · WordPress', 'Illustrator · Photoshop · InDesign · WordPress')),
         ],
-        'summary': ('Únicos MKT fue la agencia creativa que cofundé en Bogotá. Creé su identidad de marca y lideré proyectos para clientes muy distintos: logos, material publicitario, pendones, estampados, diseño digital y sitios web para empresas B2B, B2C y emprendimientos.',
-                    "Únicos MKT was the creative agency I co-founded in Bogotá. I created its brand identity and led projects for very different clients: logos, advertising material, banners, custom prints, digital design and websites for B2B, B2C companies and startups."),
+        'summary': ('Únicos MKT fue la agencia creativa que fundé junto a un socio. Los dos diseñábamos lo que nos pedían los clientes y yo me encargaba más de la parte web, aunque casi todo lo hacíamos en equipo: identidades de marca, material publicitario, pendones, estampados, diseño digital y sitios web para empresas B2B, B2C y emprendimientos de muchos sectores. En 2021 cada uno quiso tomar un camino distinto —yo, hacia Canadá—, así que disolvimos la agencia y cada quien siguió su rumbo.',
+                    "Únicos MKT was the creative agency I founded with a partner. We both designed what clients asked for and I took the lead on the web side, though we did almost everything as a team: brand identities, advertising material, banners, custom prints, digital design and websites for B2B, B2C companies and startups across many industries. In 2021 we each wanted to take a different path—mine led to Canada—so we dissolved the agency and went our separate ways."),
         'concept': {
             'title': ('Rompiendo los moldes', 'Breaking the mold'),
             'quote': ('Creatividad sin límites, soluciones únicas para cada cliente.', 'Limitless creativity, unique solutions for every client.'),
@@ -474,28 +474,34 @@ PROJECTS = [
                  'The logo is a vibrant red splash that symbolizes creativity in its purest form: an explosion of ideas and unconventional thinking.'),
                 ('La tipografía combina "únicos" con "MKT" en un café oscuro moderno, junto al descriptor "Agencia creativa".',
                  'The typography pairs "únicos" with "MKT" in a modern dark brown, alongside the "Creative agency" descriptor.')]},
-        'gallery': [
-            ('img/cases/unicos-logo-unicos.webp', ('Identidad de Únicos', 'Únicos identity')),
-            ('img/cases/unicos-mayorga-1.webp', ('Mayorga iStudio · logo', 'Mayorga iStudio · logo')),
-            ('img/cases/unicos-neofity-1.webp', ('Neofity · manual de marca', 'Neofity · brand manual')),
-            ('img/cases/unicos-unikai-logos.webp', ('Unikai Creativa · logo y versiones', 'Unikai Creativa · logo and versions')),
-            ('img/cases/unicos-metaltec.webp', ('MetalTec · identidad corporativa', 'MetalTec · corporate identity')),
-            ('img/cases/unicos-mayorga-2.webp', ('Mayorga iStudio · construcción del logo', 'Mayorga iStudio · logo construction')),
-            ('img/cases/unicos-mayorga-3.webp', ('Mayorga iStudio · elementos y tipografía', 'Mayorga iStudio · elements and typography')),
-            ('img/cases/unicos-mayorga-4.webp', ('Mayorga iStudio · colores y usos', 'Mayorga iStudio · colors and uses')),
-            ('img/cases/unicos-mayorga-5.webp', ('Mayorga iStudio · portada y degradados', 'Mayorga iStudio · cover and gradients')),
-            ('img/cases/unicos-neofity-2.webp', ('Neofity · logos y usos', 'Neofity · logos and uses')),
-            ('img/cases/unicos-neofity-3.webp', ('Neofity · ideas de aplicación', 'Neofity · application ideas')),
-            ('img/cases/unicos-neofity-4.webp', ('Neofity · usos no autorizados', 'Neofity · unauthorized uses')),
-            ('img/cases/unicos-unikai-banner.webp', ('Unikai Creativa · banner', 'Unikai Creativa · banner')),
-            ('img/cases/unicos-unikai-flyers.webp', ('Unikai Creativa · plantillas de folleto', 'Unikai Creativa · brochure templates')),
-            ('img/cases/unicos-unikai-frases.webp', ('Unikai Creativa · publicaciones', 'Unikai Creativa · posts')),
-            ('img/cases/unicos-unikai-ilustracion.webp', ('Unikai Creativa · ilustración', 'Unikai Creativa · illustration')),
-            ('img/cases/unicos-logo-m.webp', ('Logo con planeta y órbita', 'Logo with planet and orbit')),
-            ('img/cases/unicos-farmacia-banner.webp', ('Banner para farmacia', 'Pharmacy banner')),
-            ('img/cases/unicos-volantes-unicos.webp', ('Volante promocional · 40% de descuento', 'Promotional flyer · 40% off')),
-            ('img/cases/unicos-optica-unicos.webp', ('Óptica Vision Center · volante estilo cómic', 'Vision Center Optical · comic-style flyer')),
-        ],
+        'mission_img': 'img/cases/unicos-optica-unicos.webp',
+        # en Únicos la galería es un archivo de evidencias agrupado por marca
+        'evidence': {
+            'note': ('Buena parte del trabajo de esos años se perdió. Estas son las piezas que se conservan, como evidencia de lo que hicimos.',
+                     'Much of the work from those years was lost. These are the pieces that survive, as evidence of what we made.'),
+            'groups': [
+                (('Mayorga iStudio', 'Mayorga iStudio'), ('Identidad visual: logo, construcción, elementos, tipografía, colores, usos y portada.', 'Visual identity: logo, construction, elements, typography, colors, uses and cover.'),
+                 [('img/cases/unicos-mayorga-1.webp', ('Logo', 'Logo')), ('img/cases/unicos-mayorga-2.webp', ('Construcción del logo', 'Logo construction')),
+                  ('img/cases/unicos-mayorga-3.webp', ('Elementos y tipografía', 'Elements and typography')), ('img/cases/unicos-mayorga-4.webp', ('Colores y usos', 'Colors and uses')),
+                  ('img/cases/unicos-mayorga-5.webp', ('Portada y degradados', 'Cover and gradients'))]),
+                (('Neofity', 'Neofity'), ('Manual de marca: colores, fuentes, recursos, logos, usos e ideas de aplicación.', 'Brand manual: colors, fonts, resources, logos, uses and application ideas.'),
+                 [('img/cases/unicos-neofity-1.webp', ('Colores y fuentes', 'Colors and fonts')), ('img/cases/unicos-neofity-2.webp', ('Logos y usos', 'Logos and uses')),
+                  ('img/cases/unicos-neofity-3.webp', ('Ideas de aplicación', 'Application ideas')), ('img/cases/unicos-neofity-4.webp', ('Usos no autorizados', 'Unauthorized uses'))]),
+                (('Unikai Creativa', 'Unikai Creativa'), ('Logo con sus versiones, banner, plantillas de folleto, publicaciones e ilustración.', 'Logo and its versions, banner, brochure templates, posts and illustration.'),
+                 [('img/cases/unicos-unikai-logos.webp', ('Logo y versiones', 'Logo and versions')), ('img/cases/unicos-unikai-banner.webp', ('Banner', 'Banner')),
+                  ('img/cases/unicos-unikai-flyers.webp', ('Plantillas de folleto', 'Brochure templates')), ('img/cases/unicos-unikai-frases.webp', ('Publicaciones', 'Posts')),
+                  ('img/cases/unicos-unikai-ilustracion.webp', ('Ilustración', 'Illustration'))]),
+                (('MetalTec Colombia', 'MetalTec Colombia'), ('Branding integral: logo, isotipo, brochure y flyers.', 'End-to-end branding: logo, isotype, brochure and flyers.'),
+                 [('img/cases/unicos-metaltec.webp', ('Logo', 'Logo')), ('img/cases/unicos-iso-metaltec.webp', ('Isotipo', 'Isotype')),
+                  ('img/cases/unicos-brochure-metaltec.webp', ('Brochure', 'Brochure')), ('img/cases/unicos-flyer-metaltec.webp', ('Flyer', 'Flyer'))], 'metaltec.html'),
+                (('Publicidad para clientes', 'Advertising for clients'), ('Volantes, banners y piezas promocionales.', 'Flyers, banners and promotional pieces.'),
+                 [('img/cases/unicos-optica-unicos.webp', ('Volante estilo cómic para una óptica', 'Comic-style flyer for an optical store')),
+                  ('img/cases/unicos-volantes-unicos.webp', ('Volante de descuento', 'Discount flyer')),
+                  ('img/cases/unicos-farmacia-banner.webp', ('Banner para farmacia', 'Pharmacy banner'))]),
+                (('Logotipos', 'Logos'), ('Otras marcas creadas en la agencia.', 'Other brands created at the agency.'),
+                 [('img/cases/unicos-logo-m.webp', ('Logo con planeta y órbita', 'Logo with planet and orbit'))]),
+            ]},
+        'gallery': [],
         'palette': [('Rojo suave', 'Soft red', '#D4424F'), ('Café suave', 'Soft brown', '#5A4240'), ('Blanco', 'White', '#FFFFFF')],
         'blocks': [
             {'title': ('Servicios de la agencia', 'Agency services'), 'items': [
@@ -509,21 +515,17 @@ PROJECTS = [
                 ('Bases de datos para gestionar clientes y campañas: +30% de organización de los datos', 'Databases to manage clients and campaigns: +30% data organization'),
                 ('Software y herramientas de automatización: +35% de productividad', 'Software and automation tools: +35% productivity'),
                 ('Piezas y campañas publicitarias: +20% de interacción con clientes', 'Graphic pieces and ad campaigns: +20% client interaction')]},
-            {'title': ('Casos destacados', 'Featured cases'), 'items': [
-                ('Óptica Vision Center: un superhéroe de cómic para la "súper visión"', 'Vision Center Optical: a comic superhero for "super vision"'),
-                ('Volante morado y dorado con precios antes/después', 'Purple and gold flyer with before/after prices'),
-                ('MetalTec: branding integral para el sector industrial', 'MetalTec: complete branding for the industrial sector')]},
-            {'title': ('Clientes atendidos', 'Clients served'), 'items': [
-                ('Empresas B2B: branding e identidad', 'B2B companies: branding and identity'),
-                ('Negocios B2C: publicidad y marketing digital', 'B2C businesses: advertising and digital marketing'),
-                ('Emprendimientos: marcas desde cero', 'Startups: brands from scratch'),
-                ('Empresas establecidas: renovación de imagen', 'Established companies: image refresh')]},
+            {'title': ('Cómo trabajábamos', 'How we worked'), 'items': [
+                ('Dos socios, todo en equipo', 'Two partners, everything as a team'),
+                ('Los dos diseñábamos; yo lideraba la parte web', 'We both designed; I led the web side'),
+                ('Clientes B2B, B2C y emprendimientos de muchos sectores', 'B2B, B2C clients and startups from many industries'),
+                ('Marcas nuevas y renovación de imagen', 'New brands and image refreshes')]},
         ],
         'results': [
             ('Identidad sólida y diferenciada para la agencia', 'A solid, differentiated identity for the agency'),
             ('Portafolio diverso para múltiples sectores', 'A diverse portfolio across multiple sectors'),
             ('+20% de interacción con clientes gracias a las campañas', '+20% client interaction thanks to the campaigns'),
-            ('Experiencia completa gestionando una agencia creativa', 'Complete experience running a creative agency'),
+            ('Experiencia completa creando y gestionando una agencia', 'Complete experience building and running an agency'),
         ],
         'cta': (('¿Necesitas diseño y marketing creativo?', 'Need creative design and marketing?'),
                 ('Creo diseños únicos que hacen destacar a tu marca.', 'I create unique designs that make your brand stand out.')),
@@ -882,7 +884,9 @@ def page(p, prev, nxt, num, total):
              f"--case-bg:{t['bg']};--case-display:{t['display']};--case-body:{t['body']};--fx-a:{t['brand']};--fx-b:{t['brand2']};--bullet:'{t['bullet']}'")
     pill_es, pill_en = PILLAR[p['pillar']]
     code = f'{num:02d} / {total:02d}'
-    gallery = p['gallery']
+    ev = p.get('evidence')
+    # con archivo de evidencias, sus fotos forman la galería del visor
+    gallery = p['gallery'] or ([img for g in ev['groups'] for img in g[2]] if ev else [])
 
     # imágenes para la misión y las franjas: las de la galería que no son la portada
     hs = hero_src(p)
@@ -941,7 +945,12 @@ def page(p, prev, nxt, num, total):
     title = c['title'] if c else ('La misión', 'The mission')
     quote = f'<blockquote class="case-quote">{bi("span", "", c["quote"])}</blockquote>' if c else ''
     paras = ''.join(bi('p', 'case-mission__text', x) for x in c['paras']) if c else ''
-    mimg = pool.pop(0) if pool else None
+    # imagen de la misión: la indicada en los datos o la primera disponible
+    if p.get('mission_img'):
+        mi = next(i for i, (src, _) in enumerate(gallery) if src == p['mission_img'])
+        mimg = (mi, gallery[mi][0], gallery[mi][1])
+    else:
+        mimg = pool.pop(0) if pool else None
     mfig = f'<figure class="case-mission__media reveal">{zoom(mimg[1], mimg[2], mimg[0])}</figure>' if mimg else ''
     out.append(f'''
         <section class="case-mission{' has-media' if mimg else ''}">
@@ -960,7 +969,7 @@ def page(p, prev, nxt, num, total):
     for i, b in enumerate(p['blocks']):
         lis = ''.join(bi('li', '', x) for x in b['items'][:5])
         txt = f'{bi("h3", "case-row__title", b["title"])}<ul class="case-list">{lis}</ul>'
-        if pool:
+        if pool and not ev:
             gi, src, cap = pool.pop(0)
             rows.append(f'<article class="case-row"><div class="case-row__media reveal">{zoom(src, cap, gi)}</div><div class="case-row__copy reveal"><span class="case-row__num">0{len(rows) + 2}</span>{txt}</div></article>')
         else:
@@ -999,7 +1008,25 @@ def page(p, prev, nxt, num, total):
     nav = (f'<div class="reel__nav"><button type="button" class="reel__btn" data-dir="-1" data-es-label="Anterior" data-en-label="Previous" aria-label="Anterior">‹</button>'
            f'<span class="reel__count"><b>01</b> / {len(gallery):02d}</span>'
            f'<button type="button" class="reel__btn" data-dir="1" data-es-label="Siguiente" data-en-label="Next" aria-label="Siguiente">›</button></div>') if many else ''
-    if gallery: out.append(f'''
+    if ev:
+        k, groups = 0, []
+        for g in ev['groups']:
+            title, desc, imgs = g[0], g[1], g[2]
+            items = ''
+            for src, cap in imgs:
+                items += f'<li><button type="button" class="case-shot" data-full="{src}"><img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-shot__cap", cap)}</button></li>'
+                k += 1
+            more = f'<a class="archive__link" href="{g[3]}" data-es="Ver el proyecto completo →" data-en="See the full project →">Ver el proyecto completo →</a>' if len(g) > 3 else ''
+            groups.append(f'<article class="archive__group reveal"><header class="archive__head">{bi("h3", "archive__title", title)}<span class="archive__count">{len(imgs):02d}</span>{bi("p", "archive__desc", desc)}{more}</header><ul class="archive__grid">{items}</ul></article>')
+        out.append(f'''
+        <section class="case-section archive" id="galeria">
+            {bi('p', 'case-overline', ('// ARCHIVO DE TRABAJOS', '// WORK ARCHIVE'))}
+            {bi('h2', 'case-h2', ('Lo que hicimos en esos años', 'What we made in those years'))}
+            {bi('p', 'archive__note', ev['note'])}
+            {''.join(groups)}
+            {bi('p', 'case-hint', ('Toca una imagen para verla en pantalla completa.', 'Tap an image to see it full screen.'))}
+        </section>''')
+    elif gallery: out.append(f'''
         <section class="case-section case-gallery" id="galeria">
             <div class="case-gallery__head">
                 <div>
