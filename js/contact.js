@@ -33,6 +33,14 @@
     const pre = new URLSearchParams(window.location.search).get('servicio');
     if (pre && service.querySelector(`option[value="${CSS.escape(pre)}"]`)) service.value = pre;
 
+    /* ---------- Plan de "Diseña tu misión" (contacto.html?plan=…) ---------- */
+    const planParam = new URLSearchParams(window.location.search).get('plan');
+    const message = document.getElementById('cfMessage');
+    if (planParam && message && !message.value) {
+        const intro = document.documentElement.lang === 'en' ? 'My mission plan:' : 'Mi plan de misión:';
+        message.value = `${intro}\n${planParam}\n\n`;
+    }
+
     /* ---------- WhatsApp con mensaje inicial en el idioma activo ---------- */
     const wa = document.getElementById('whatsappLink');
     function updateWhatsApp() {

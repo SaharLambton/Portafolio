@@ -8,8 +8,8 @@ Portafolio personal de Sahar Gabriela Chain Mayorga: programadora, diseñadora y
 | --- | --- |
 | `index.html` | Inicio: orbe con AURA, los 4 pilares y proyectos destacados |
 | `sobre-mi.html` | Perfil con foto, trayectoria y habilidades |
-| `proyectos.html` | Archivo de proyectos con filtros por pilar. Acepta `?area=code|ai|design|marketing`. Las tarjetas salen de `projects` en `js/aura/knowledge.js` |
-| `servicios.html` | Servicios organizados por pilar, "Cómo trabajo" y cotización. Anclas: `#code`, `#ai`, `#design`, `#marketing` |
+| `proyectos.html` | Bóveda holográfica: informe de misión + carrusel 3D. Acepta `?area=code|ai|design|marketing` y `?p=<id>`. Los datos salen de `projects` en `js/aura/knowledge.js` |
+| `servicios.html` | Consola "Diseña tu misión" (3 pasos → plan con servicios recomendados) y catálogo. Los servicios están en `js/services-data.js` |
 | `contacto.html` | Formulario (Formspree), WhatsApp, correo y redes. El código de Formspree va en `js/contact.js` |
 
 ### Páginas de cada proyecto
