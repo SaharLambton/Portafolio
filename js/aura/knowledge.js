@@ -101,7 +101,7 @@ window.AURA_KB = {
             }
         },
         services: {
-            chips: ['services', 'hire', 'contact'],
+            chips: ['workshops', 'hire', 'contact'],
             intro: {
                 es: 'Aquí están los servicios de Sahar. Si me cuentas qué necesitas, te digo cuál encaja mejor.',
                 en: 'Here are Sahar\'s services. Tell me what you need and I\'ll point you to the right one.'
@@ -109,6 +109,12 @@ window.AURA_KB = {
             enter: {
                 es: 'Estos son los servicios de Sahar. ¿Tienes un proyecto en mente? Pregúntame y te oriento.',
                 en: 'These are Sahar\'s services. Got a project in mind? Ask me and I\'ll guide you.'
+            },
+            sections: {
+                proceso: {
+                    es: 'Así trabaja Sahar: primero escucha tu idea, luego te envía una propuesta con precio, y te acompaña hasta después de la entrega.',
+                    en: 'This is how Sahar works: she listens to your idea first, then sends you a priced proposal, and supports you even after delivery.'
+                }
             }
         },
         contact: {
@@ -143,7 +149,8 @@ window.AURA_KB = {
             ai: { es: 'Inteligencia artificial', en: 'Artificial intelligence' },
             pillars: { es: 'Sus pilares', en: 'Her pillars' },
             marketing: { es: 'Marketing digital', en: 'Digital marketing' },
-            cv: { es: 'Descargar CV', en: 'Download CV' }
+            cv: { es: 'Descargar CV', en: 'Download CV' },
+            workshops: { es: 'Talleres de IA', en: 'AI workshops' }
         }
     },
 
@@ -264,8 +271,8 @@ window.AURA_KB = {
             id: 'services',
             keys: ['servicio', 'servicios', 'ofrece', 'que hace', 'puede hacer', 'contratar para', 'community manager', 'redes sociales', 'chatbot', 'automatizacion', 'consultoria', 'services', 'service', 'offer', 'what does she do', 'social media', 'automation', 'consulting'],
             answer: {
-                es: 'Sahar ofrece: 🌐 desarrollo web (WordPress y a medida), 🤖 chatbots con IA y automatizaciones, 📱 community management y marketing, 🎨 branding e identidad visual, 💾 bases de datos y software a medida, y 📊 consultoría en transformación digital.',
-                en: 'Sahar offers: 🌐 web development (WordPress and custom), 🤖 AI chatbots and automations, 📱 community management and marketing, 🎨 branding and visual identity, 💾 databases and custom software, and 📊 digital transformation consulting.'
+                es: 'Los servicios de Sahar están organizados en sus cuatro pilares: 💻 Programación (desarrollo web, bases de datos y software), 🧠 IA y automatización (automatización de procesos, chatbots y talleres de IA generativa), 🎨 Diseño (branding e identidad visual) y 📈 Marketing digital (community management y consultoría). Cada proyecto se cotiza a la medida.',
+                en: 'Sahar\'s services are organized in her four pillars: 💻 Programming (web development, databases and software), 🧠 AI and automation (process automation, chatbots and generative AI workshops), 🎨 Design (branding and visual identity) and 📈 Digital marketing (community management and consulting). Every project is quoted to fit.'
             },
             action: { type: 'go', href: 'servicios.html', label: { es: 'Ver servicios', en: 'See services' } },
             chips: ['contact', 'projects']
@@ -325,6 +332,16 @@ window.AURA_KB = {
             ]
         },
         {
+            id: 'workshops',
+            keys: ['taller', 'talleres', 'curso', 'cursos', 'capacitacion', 'capacitaciones', 'formacion en ia', 'ensenar ia', 'workshop', 'workshops', 'course', 'courses', 'training'],
+            answer: {
+                es: 'Sahar ofrece talleres y cursos de IA generativa para equipos de empresas: prácticos, adaptados a cada sector y con buenas prácticas de uso responsable. El más reciente fue para el equipo de una firma legal del sector contable. Se cotizan según el tamaño del grupo y los temas.',
+                en: 'Sahar offers generative AI workshops and courses for company teams: hands-on, tailored to each industry and including responsible-use best practices. The most recent one was for the team of a law firm in the accounting sector. They are quoted based on group size and topics.'
+            },
+            action: { type: 'go', href: 'servicios.html#workshops', label: { es: 'Ver talleres', en: 'See workshops' } },
+            chips: ['hire', 'ai']
+        },
+        {
             id: 'cv',
             keys: ['cv', 'hoja de vida', 'curriculum', 'curriculo', 'descargar cv', 'resume', 'resumé', 'download cv'],
             answer: {
@@ -336,10 +353,11 @@ window.AURA_KB = {
         },
         {
             id: 'hire',
-            keys: ['disponible', 'disponibilidad', 'contratar', 'contratarla', 'contrato', 'vacante', 'freelance disponible', 'cotizar', 'cotizacion', 'precio', 'available', 'hire', 'hiring', 'availability', 'quote', 'rates', 'price'],
+            weight: 1.3, // gana a otros temas en preguntas como "¿cuánto cuesta una página web?"
+            keys: ['disponible', 'disponibilidad', 'contratar', 'contratarla', 'contrato', 'vacante', 'freelance disponible', 'cotizar', 'cotizacion', 'precio', 'precios', 'cuesta', 'cuanto cuesta', 'cuanto cobra', 'cobra', 'tarifa', 'tarifas', 'costo', 'costos', 'presupuesto', 'available', 'hire', 'hiring', 'availability', 'quote', 'rates', 'price', 'prices', 'cost', 'how much'],
             answer: {
-                es: 'Sahar está abierta a nuevos proyectos y oportunidades, tanto freelance como en empresa. Lo mejor es escribirle contándole tu idea: 📧 sahargabriela9@gmail.com.',
-                en: 'Sahar is open to new projects and opportunities, freelance or in-house. The best way is to email her about your idea: 📧 sahargabriela9@gmail.com.'
+                es: 'Sahar está abierta a nuevos proyectos, freelance o en empresa. No maneja precios fijos: cada proyecto se cotiza según lo que necesitas. Cuéntale tu idea y te envía una propuesta con alcance, tiempos y precio.',
+                en: 'Sahar is open to new projects, freelance or in-house. There are no fixed prices: every project is quoted based on what you need. Tell her your idea and she\'ll send you a proposal with scope, timeline and price.'
             },
             action: { type: 'go', href: 'contacto.html', label: { es: 'Ir a contacto', en: 'Go to contact' } },
             links: [{ label: 'Email', href: 'mailto:sahargabriela9@gmail.com' }]
