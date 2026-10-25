@@ -12,6 +12,15 @@ Portafolio personal de Sahar Gabriela Chain Mayorga: programadora, diseñadora y
 | `servicios.html` | Servicios organizados por pilar, "Cómo trabajo" y cotización. Anclas: `#code`, `#ai`, `#design`, `#marketing` |
 | `contacto.html` | Formulario (Formspree), WhatsApp, correo y redes. El código de Formspree va en `js/contact.js` |
 
+### Páginas de cada proyecto
+`Zohar.html`, `oden.html`, `metaltec.html`, `unicos.html`, `little-stars.html`, `sports-store.html` y `sell-services.html` se generan con `tools/cases.py`. Cada una tiene los colores, la tipografía y un motivo animado propio de su marca. Para cambiar textos, imágenes o colores, edita los datos en ese archivo y ejecuta:
+
+```
+python3 tools/cases.py
+```
+
+Las imágenes optimizadas están en `img/cases/`.
+
 La barra de navegación, el pie de página y el orbe flotante de AURA se generan desde `js/site.js`, así que solo hay que editarlos en un lugar. Los comentarios que AURA hace en cada pestaña están en `pages` dentro de `js/aura/knowledge.js`.
 
 ## Home holográfico con AURA
@@ -26,6 +35,8 @@ La primera pantalla es un "sistema" de ciencia ficción: un orbe 3D (WebGL) con 
 | `js/aura/hud.js` | Paneles decorativos, reloj, menú móvil. |
 | `css/aura.css` | Estilos del home (paleta esmeralda + violeta + magenta). |
 | `js/site.js` · `css/site.css` | Navegación, pie de página y orbe flotante compartidos por todas las pestañas. |
+| `js/bg.js` | Fondo de partículas animado de las pestañas internas (usa `--fx-a` y `--fx-b` del `<body>`). |
+| `css/case.css` · `js/case.js` | Plantilla de las páginas de proyecto: visor de imágenes y paleta para copiar colores. |
 | `js/vendor/three.min.js` | Three.js r149 incluido localmente (no depende de un CDN). |
 
 ### Cambiar el nombre del asistente

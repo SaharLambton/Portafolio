@@ -10,7 +10,21 @@
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const page = document.body.dataset.page || 'home';
     const isHome = page === 'home';
-    const PAGE = (KB.pages && KB.pages[page]) || {};
+    let PAGE = (KB.pages && KB.pages[page]) || {};
+    // en la página de un proyecto, AURA habla de ese proyecto
+    if (page === 'case') {
+        const proj = KB.projects.find((x) => x.id === document.body.dataset.project);
+        if (proj) {
+            PAGE = {
+                chips: ['projects', 'services', 'contact'],
+                intro: proj.desc,
+                enter: {
+                    es: `Estás viendo ${proj.name}. Si quieres, te cuento más o te muestro un proyecto parecido.`,
+                    en: `You're looking at ${proj.name}. I can tell you more or show you a similar project.`
+                }
+            };
+        }
+    }
 
     const $ = (sel) => document.querySelector(sel);
     const els = {
