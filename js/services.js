@@ -20,16 +20,16 @@
 
     /* ---------- Preguntas ---------- */
     const GOALS = [
-        { id: 'sell', icon: 'sell', label: { es: 'Vender o mostrar mi negocio en línea', en: 'Sell or showcase my business online' }, services: ['web'] },
-        { id: 'system', icon: 'system', label: { es: 'Organizar mi información y procesos', en: 'Organize my information and processes' }, services: ['software', 'automation'] },
+        { id: 'sell', icon: 'sell', label: { es: 'Vender o mostrar mi negocio en línea', en: 'Sell or showcase my business online' }, services: ['web', 'store'] },
+        { id: 'system', icon: 'system', label: { es: 'Organizar mi información y procesos', en: 'Organize my information and processes' }, services: ['databases', 'software'] },
         { id: 'automate', icon: 'automation', label: { es: 'Ahorrar tiempo con IA y automatización', en: 'Save time with AI and automation' }, services: ['automation', 'chatbots'] },
         { id: 'learn', icon: 'learn', label: { es: 'Que mi equipo aprenda a usar IA', en: 'Get my team to use AI' }, services: ['workshops'] },
-        { id: 'brand', icon: 'branding', label: { es: 'Tener una marca profesional', en: 'Have a professional brand' }, services: ['branding'] },
+        { id: 'brand', icon: 'branding', label: { es: 'Tener una marca profesional', en: 'Have a professional brand' }, services: ['branding', 'graphic'] },
         { id: 'grow', icon: 'grow', label: { es: 'Conseguir más clientes en digital', en: 'Get more customers online' }, services: ['community', 'consulting'] }
     ];
     const STAGES = [
         { id: 'idea', icon: 'idea', label: { es: 'Tengo una idea o estoy empezando', en: 'I have an idea or I\'m just starting' }, extra: ['branding', 'web'] },
-        { id: 'improve', icon: 'store', label: { es: 'Ya tengo negocio y quiero mejorar su imagen', en: 'I have a business and want to improve its image' }, extra: ['branding', 'web'] },
+        { id: 'improve', icon: 'store', label: { es: 'Ya tengo negocio y quiero mejorar su imagen', en: 'I have a business and want to improve its image' }, extra: ['graphic', 'web', 'branding'] },
         { id: 'scale', icon: 'rocket', label: { es: 'Ya vendo y quiero crecer', en: 'I already sell and want to grow' }, extra: ['consulting', 'automation'] },
         { id: 'company', icon: 'building', label: { es: 'Soy una empresa con equipo', en: 'I\'m a company with a team' }, extra: ['workshops', 'automation'] }
     ];
@@ -218,11 +218,13 @@
 
     /* ---------- Plan ---------- */
     function plan() {
+        // primero un servicio de cada objetivo, luego el resto, hasta 4
         const rec = [];
-        state.goals.forEach((g) => GOALS.find((x) => x.id === g).services.forEach((s) => { if (!rec.includes(s)) rec.push(s); }));
+        const lists = state.goals.map((g) => GOALS.find((x) => x.id === g).services);
+        for (let i = 0; i < 4; i++) lists.forEach((l) => { if (l[i] && !rec.includes(l[i])) rec.push(l[i]); });
         const stage = STAGES.find((x) => x.id === state.stage);
         // sugerencia adicional: primero según la etapa, si no, una opción general
-        const pool = (stage ? stage.extra : []).concat(['consulting', 'automation', 'community', 'workshops', 'branding', 'web']);
+        const pool = (stage ? stage.extra : []).concat(['consulting', 'automation', 'community', 'graphic', 'workshops', 'branding', 'web']);
         const extra = pool.find((s) => !rec.includes(s)) || null;
         return { rec: rec.slice(0, 4), extra };
     }
@@ -322,50 +324,46 @@
         main.classList.add('is-entering');
     }
 
-    /* ---------- Catálogo: una franja por pilar con sus servicios abiertos ---------- */
-    const PINTRO = {
-        code: { es: 'Sitios web, tiendas y software hechos a la medida de tu negocio.', en: 'Websites, stores and software tailored to your business.' },
-        ai: { es: 'Inteligencia artificial para ahorrar tiempo y atender mejor a tus clientes.', en: 'Artificial intelligence to save time and serve your customers better.' },
-        design: { es: 'Una identidad visual coherente que haga reconocible tu marca.', en: 'A consistent visual identity that makes your brand recognizable.' },
-        marketing: { es: 'Estrategia y contenido para que tu marca crezca en digital.', en: 'Strategy and content to grow your brand online.' }
+    /* ---------- Catálogo: una franja por necesidad con sus servicios abiertos ---------- */
+    const NEEDS = window.SERVICE_NEEDS || [];
+    const L = {
+        get: { es: 'Recibes', en: 'You get' },
+        ideal: { es: 'Ideal para:', en: 'Ideal for:' },
+        cta: { es: 'Cotizar este servicio →', en: 'Quote this service →' },
+        need: { es: 'NECESIDAD', en: 'NEED' },
+        one: { es: 'servicio', en: 'service' },
+        many: { es: 'servicios', en: 'services' }
     };
-    const PICON = {
-        code: '<path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/>',
-        ai: '<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="3" r="1"/><circle cx="12" cy="21" r="1"/><circle cx="3" cy="12" r="1"/><circle cx="21" cy="12" r="1"/>',
-        design: '<path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.6-.8 1.6-1.6 0-.9-.7-1.3-.7-2.1 0-.8.6-1.4 1.4-1.4H16a5 5 0 0 0 5-5c0-4.4-4-7.9-9-7.9z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="14.5" cy="7" r="1"/>',
-        marketing: '<path d="M3 11v2a2 2 0 0 0 2 2h1l4 4V5L6 9H5a2 2 0 0 0-2 2z"/><path d="M14 9a3 3 0 0 1 0 6"/><path d="M17 6a7 7 0 0 1 0 12"/>'
-    };
-    const NUM = { code: 'I', ai: 'II', design: 'III', marketing: 'IV' };
 
     function renderCatalog() {
         const grid = document.getElementById('catalogGrid');
         if (!grid) return;
         grid.innerHTML = '';
-        ['code', 'ai', 'design', 'marketing'].forEach((pid) => {
-            const list = S.filter((s) => s.pillar === pid);
+        NEEDS.forEach((n, i) => {
+            const list = S.filter((s) => s.need === n.id);
             const band = document.createElement('section');
             band.className = 'band';
-            band.id = pid;
-            band.style.setProperty('--t', PCOLOR[pid]);
+            band.id = 'need-' + n.id;
+            band.style.setProperty('--t', PCOLOR[n.pillar]);
 
-            // cabecera del pilar
+            // cabecera: la necesidad y el pilar al que pertenece
             const head = document.createElement('header');
             head.className = 'band__head';
-            head.innerHTML = `<span class="band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${PICON[pid]}</svg></span><span class="band__num"></span><h3 class="band__title"></h3><p class="band__intro"></p><span class="band__count"></span>`;
-            head.querySelector('.band__num').textContent = (lang() === 'en' ? 'PILLAR · ' : 'PILAR · ') + NUM[pid];
-            head.querySelector('.band__title').textContent = tr(PNAME[pid]);
-            head.querySelector('.band__intro').textContent = tr(PINTRO[pid]);
-            head.querySelector('.band__count').textContent = list.length + (lang() === 'en' ? (list.length === 1 ? ' service' : ' services') : (list.length === 1 ? ' servicio' : ' servicios'));
+            head.innerHTML = `<span class="band__icon">${svg(n.icon)}</span><span class="band__num"></span><h3 class="band__title"></h3><p class="band__intro"></p><span class="band__pillar"></span><span class="band__count"></span>`;
+            head.querySelector('.band__num').textContent = tr(L.need) + ' · ' + String(i + 1).padStart(2, '0');
+            head.querySelector('.band__title').textContent = tr(n.title);
+            head.querySelector('.band__intro').textContent = tr(n.intro);
+            head.querySelector('.band__pillar').textContent = tr(PNAME[n.pillar]);
+            head.querySelector('.band__count').textContent = list.length + ' ' + tr(list.length === 1 ? L.one : L.many);
             band.appendChild(head);
 
-            // servicios del pilar, todos abiertos
             const cards = document.createElement('div');
-            cards.className = 'band__cards band__cards--' + list.length;
+            cards.className = 'band__cards';
             list.forEach((s) => {
                 const c = document.createElement('article');
                 c.className = 'svc';
                 c.id = s.id;
-                c.innerHTML = `<div class="svc__top"><span class="svc__icon">${svg(s.icon)}</span><h4 class="svc__title"></h4></div><p class="svc__text"></p><p class="svc__ideal"><b></b> <span></span></p><ul class="svc__list"></ul><a class="svc__cta"></a>`;
+                c.innerHTML = `<div class="svc__top"><span class="svc__icon">${svg(s.icon)}</span><h4 class="svc__title"></h4></div><p class="svc__text"></p><p class="svc__get"></p><ul class="svc__list"></ul><p class="svc__ideal"><b></b> <span></span></p><a class="svc__cta"></a>`;
                 const title = c.querySelector('.svc__title');
                 title.textContent = tr(s.title);
                 if (s.badge) {
@@ -375,13 +373,14 @@
                     title.appendChild(bd);
                 }
                 c.querySelector('.svc__text').textContent = tr(s.short);
-                c.querySelector('.svc__ideal b').textContent = lang() === 'en' ? 'Ideal for:' : 'Ideal para:';
-                c.querySelector('.svc__ideal span').textContent = tr(s.ideal);
+                c.querySelector('.svc__get').textContent = tr(L.get);
                 const ul = c.querySelector('.svc__list');
                 s.items.forEach((it) => { const li = document.createElement('li'); li.textContent = tr(it); ul.appendChild(li); });
+                c.querySelector('.svc__ideal b').textContent = tr(L.ideal);
+                c.querySelector('.svc__ideal span').textContent = tr(s.ideal);
                 const cta = c.querySelector('.svc__cta');
                 cta.href = 'contacto.html?servicio=' + s.id;
-                cta.textContent = lang() === 'en' ? 'Quote this service →' : 'Cotizar este servicio →';
+                cta.textContent = tr(L.cta);
                 cards.appendChild(c);
             });
             band.appendChild(cards);
@@ -389,11 +388,14 @@
         });
     }
 
+    // los enlaces por pilar (#code, #ai…) bajan a la primera necesidad de ese pilar
+    const PILLAR_NEED = { code: 'presence', ai: 'ai', design: 'brand', marketing: 'grow' };
+
     // #workshops, #web… resalta ese servicio en el catálogo; #code, #ai… baja a su franja
     function fromHash() {
         const id = decodeURIComponent(window.location.hash.slice(1));
         if (!id || id === 'missionConsole') return;
-        const el = document.getElementById(id);
+        const el = document.getElementById(PILLAR_NEED[id] ? 'need-' + PILLAR_NEED[id] : id);
         if (!el) return;
         requestAnimationFrame(() => {
             el.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' });
