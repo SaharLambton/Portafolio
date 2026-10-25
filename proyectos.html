@@ -4,58 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyectos · Sahar Chain</title>
-    <meta name="description" content="Archivo de proyectos de Sahar Chain: desarrollo web, programación, inteligencia artificial, branding y marketing digital.">
+    <meta name="description" content="Bóveda de proyectos de Sahar Chain: desarrollo web, programación, inteligencia artificial, branding y marketing digital.">
     <meta name="theme-color" content="#020406">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/aura.css?v=20261025g">
-    <link rel="stylesheet" href="css/site.css?v=20261025g">
-    <link rel="stylesheet" href="css/projects.css?v=20261025g">
+    <link rel="stylesheet" href="css/aura.css?v=20261025h">
+    <link rel="stylesheet" href="css/site.css?v=20261025h">
+    <link rel="stylesheet" href="css/projects.css?v=20261025h">
 </head>
 <body data-page="projects">
     <header class="site-header">
         <div class="aura-topbar" data-site-header></div>
     </header>
 
-    <main class="page projects">
-        <header class="projects-head">
-            <p class="projects-overline" data-es="// ARCHIVO · 03" data-en="// ARCHIVE · 03">// ARCHIVO · 03</p>
-            <h1 class="projects-title" data-es="Proyectos" data-en="Projects">Proyectos</h1>
-            <p class="projects-lead" data-es="Una selección de mi trabajo en programación, inteligencia artificial, diseño y marketing digital. Filtra por pilar para ver cada área." data-en="A selection of my work in programming, artificial intelligence, design and digital marketing. Filter by pillar to explore each area.">Una selección de mi trabajo en programación, inteligencia artificial, diseño y marketing digital. Filtra por pilar para ver cada área.</p>
+    <main class="page vault">
+        <header class="vault-head">
+            <div>
+                <p class="vault-overline" data-es="// ARCHIVO · 03" data-en="// ARCHIVE · 03">// ARCHIVO · 03</p>
+                <h1 class="vault-title" data-es="Bóveda de proyectos" data-en="Project vault">Bóveda de proyectos</h1>
+                <p class="vault-lead" data-es="Elige un archivo en el carrusel para ver su informe de misión. Sintoniza una frecuencia para ver solo un pilar." data-en="Pick a file in the carousel to see its mission report. Tune a frequency to see a single pillar.">Elige un archivo en el carrusel para ver su informe de misión. Sintoniza una frecuencia para ver solo un pilar.</p>
+            </div>
+            <div class="vault-freq" role="group" aria-label="Frecuencias por pilar" id="vaultFreq">
+                <button type="button" class="freq is-active" data-area="all" aria-pressed="true"><i aria-hidden="true"></i><span data-es="Todas" data-en="All">Todas</span><b data-count="all"></b></button>
+                <button type="button" class="freq freq--code" data-area="code" aria-pressed="false"><i aria-hidden="true"></i><span data-es="Programación" data-en="Programming">Programación</span><b data-count="code"></b></button>
+                <button type="button" class="freq freq--ai" data-area="ai" aria-pressed="false"><i aria-hidden="true"></i><span data-es="IA" data-en="AI">IA</span><b data-count="ai"></b></button>
+                <button type="button" class="freq freq--design" data-area="design" aria-pressed="false"><i aria-hidden="true"></i><span data-es="Diseño" data-en="Design">Diseño</span><b data-count="design"></b></button>
+                <button type="button" class="freq freq--marketing" data-area="marketing" aria-pressed="false"><i aria-hidden="true"></i><span data-es="Marketing" data-en="Marketing">Marketing</span><b data-count="marketing"></b></button>
+            </div>
         </header>
 
-        <div class="projects-filters" role="group" aria-label="Filtrar por pilar" id="projectFilters">
-            <button type="button" class="pfilter is-active" data-area="all" aria-pressed="true"><span data-es="Todos" data-en="All">Todos</span><b data-count="all"></b></button>
-            <button type="button" class="pfilter pfilter--code" data-area="code" aria-pressed="false"><i aria-hidden="true"></i><span data-es="Programación" data-en="Programming">Programación</span><b data-count="code"></b></button>
-            <button type="button" class="pfilter pfilter--ai" data-area="ai" aria-pressed="false"><i aria-hidden="true"></i><span data-es="IA" data-en="AI">IA</span><b data-count="ai"></b></button>
-            <button type="button" class="pfilter pfilter--design" data-area="design" aria-pressed="false"><i aria-hidden="true"></i><span data-es="Diseño" data-en="Design">Diseño</span><b data-count="design"></b></button>
-            <button type="button" class="pfilter pfilter--marketing" data-area="marketing" aria-pressed="false"><i aria-hidden="true"></i><span data-es="Marketing" data-en="Marketing">Marketing</span><b data-count="marketing"></b></button>
-        </div>
+        <!-- ===================== INFORME DE MISIÓN ===================== -->
+        <section class="report" id="vaultReport" aria-live="polite" aria-label="Informe del proyecto">
+            <span class="report__corner report__corner--tl" aria-hidden="true"></span>
+            <span class="report__corner report__corner--tr" aria-hidden="true"></span>
+            <span class="report__corner report__corner--bl" aria-hidden="true"></span>
+            <span class="report__corner report__corner--br" aria-hidden="true"></span>
+            <div class="report__bar">
+                <span class="report__code" id="reportCode">ARCHIVO 01 / 11</span>
+                <span class="report__status"><i aria-hidden="true"></i><span id="reportStatus" data-es="COMPLETADO" data-en="COMPLETED">COMPLETADO</span></span>
+            </div>
+            <div class="report__body">
+                <div class="report__screen" id="reportScreen"></div>
+                <div class="report__info">
+                    <p class="report__kind" id="reportKind"></p>
+                    <h2 class="report__title" id="reportTitle"></h2>
+                    <div class="report__pillars" id="reportPillars"></div>
+                    <p class="report__text" id="reportText"></p>
+                    <ul class="report__tech" id="reportTech"></ul>
+                    <div class="report__actions">
+                        <a class="aura-btn aura-btn--primary report__enter" id="reportEnter" href="#"></a>
+                        <button type="button" class="aura-btn report__ask" id="reportAsk" data-es="Preguntar a AURA" data-en="Ask AURA">Preguntar a AURA</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <p class="projects-service" id="projectService" hidden></p>
-
-        <div class="projects-grid" id="projectGrid" aria-live="polite"></div>
+        <!-- ===================== CARRUSEL 3D ===================== -->
+        <section class="carousel" aria-label="Archivos de proyectos">
+            <button type="button" class="carousel__nav carousel__nav--prev" id="vaultPrev" data-es-label="Proyecto anterior" data-en-label="Previous project" aria-label="Proyecto anterior">‹</button>
+            <div class="carousel__stage" id="vaultStage" role="listbox" aria-label="Proyectos" tabindex="0"></div>
+            <button type="button" class="carousel__nav carousel__nav--next" id="vaultNext" data-es-label="Proyecto siguiente" data-en-label="Next project" aria-label="Proyecto siguiente">›</button>
+        </section>
+        <p class="carousel__hint" data-es="Usa las flechas, desliza o toca un archivo" data-en="Use the arrows, swipe or tap a file">Usa las flechas, desliza o toca un archivo</p>
 
         <noscript>
-            <p class="page-notice">Activa JavaScript para ver los proyectos, o visita <a href="https://github.com/SaharLambton">github.com/SaharLambton</a>.</p>
+            <p class="page-notice">Activa JavaScript para abrir la bóveda, o visita <a href="https://github.com/SaharLambton">github.com/SaharLambton</a>.</p>
         </noscript>
 
-        <section class="projects-cta">
-            <p class="projects-cta__title" data-es="¿Quieres algo así para tu marca o negocio?" data-en="Want something like this for your brand or business?">¿Quieres algo así para tu marca o negocio?</p>
-            <div class="projects-cta__actions">
-                <a class="aura-btn aura-btn--primary" href="contacto.html" data-es="Contactar" data-en="Contact">Contactar</a>
-                <a class="aura-btn" href="servicios.html" data-es="Ver servicios" data-en="See services">Ver servicios</a>
+        <section class="vault-cta">
+            <p class="vault-cta__title" data-es="¿Quieres algo así para tu marca o negocio?" data-en="Want something like this for your brand or business?">¿Quieres algo así para tu marca o negocio?</p>
+            <div class="vault-cta__actions">
+                <a class="aura-btn aura-btn--primary" href="servicios.html" data-es="Diseña tu misión" data-en="Design your mission">Diseña tu misión</a>
+                <a class="aura-btn" href="contacto.html" data-es="Contactar" data-en="Contact">Contactar</a>
             </div>
         </section>
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
 
-    <script src="js/aura/knowledge.js?v=20261025g"></script>
-    <script src="js/bg.js?v=20261025g"></script>
-    <script src="js/site.js?v=20261025g"></script>
-    <script src="js/projects.js?v=20261025g"></script>
-    <script src="js/aura/assistant.js?v=20261025g"></script>
+    <script src="js/aura/knowledge.js?v=20261025h"></script>
+    <script src="js/bg.js?v=20261025h"></script>
+    <script src="js/site.js?v=20261025h"></script>
+    <script src="js/projects.js?v=20261025h"></script>
+    <script src="js/aura/assistant.js?v=20261025h"></script>
 </body>
 </html>
