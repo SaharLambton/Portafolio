@@ -569,6 +569,9 @@
         showBubble(text);
     }
 
+    // otras partes de la página (p. ej. los filtros de Proyectos) pueden pedirle un comentario
+    window.AuraComment = (key, obj) => comment(page + '-' + key, obj);
+
     function watchSections() {
         const sections = (PAGE && PAGE.sections) || {};
         const nodes = document.querySelectorAll('[data-aura-say]');
@@ -719,7 +722,7 @@
             body.textContent = fill(tr(PAGE.intro));
         }
         renderChips((PAGE.chips || KB.chips.default).map(topicChip).filter(Boolean));
-        setTimeout(() => comment(page + '-enter', PAGE.enter), 1400);
+        if (!window.AURA_SKIP_ENTER) setTimeout(() => comment(page + '-enter', PAGE.enter), 1400);
         watchSections();
     }
 })();

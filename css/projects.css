@@ -1,0 +1,190 @@
+/* ==========================================================
+   PROYECTOS · Archivo con filtros por pilar
+   ========================================================== */
+.projects {
+    --code: #2bf5b0; --code-rgb: 43, 245, 176;
+    --ai: #a970ff; --ai-rgb: 169, 112, 255;
+    --design: #ff5bd8; --design-rgb: 255, 91, 216;
+    --mkt: #3ddcff; --mkt-rgb: 61, 220, 255;
+    padding: 0 clamp(16px, 4vw, 48px);
+}
+
+/* ---------- Encabezado ---------- */
+.projects-head { width: min(1180px, 100%); margin: 0 auto; padding: clamp(40px, 8vh, 80px) 0 28px; }
+.projects-overline { margin: 0 0 10px; font-family: var(--a-font-mono); font-size: 0.74rem; letter-spacing: 0.34em; color: var(--a-emerald); }
+.projects-title {
+    margin: 0;
+    font-family: var(--a-font-display);
+    font-weight: 800;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.05;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    background: linear-gradient(100deg, #eafff7 10%, var(--code) 45%, #b79cff 75%, var(--design));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.projects-lead { margin: 16px 0 0; max-width: 64ch; font-size: clamp(1rem, 1.3vw, 1.12rem); line-height: 1.6; color: #c8ddd6; }
+
+/* ---------- Filtros ---------- */
+.projects-filters {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 6px 0 8px;
+}
+.pfilter {
+    --t: var(--a-text);
+    --t-rgb: 231, 255, 246;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border: 1px solid rgba(var(--t-rgb), 0.25);
+    border-radius: 999px;
+    background: rgba(6, 18, 18, 0.6);
+    color: var(--a-text);
+    font-family: var(--a-font-body);
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.pfilter i { width: 8px; height: 8px; border-radius: 50%; background: var(--t); box-shadow: 0 0 6px var(--t); }
+.pfilter b { min-width: 22px; padding: 1px 7px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); font-size: 0.75rem; font-weight: 600; text-align: center; }
+.pfilter:hover, .pfilter:focus-visible { border-color: rgba(var(--t-rgb), 0.7); outline: none; }
+.pfilter.is-active { border-color: var(--t); background: rgba(var(--t-rgb), 0.14); box-shadow: 0 0 18px rgba(var(--t-rgb), 0.25); }
+.pfilter--code { --t: var(--code); --t-rgb: var(--code-rgb); }
+.pfilter--ai { --t: var(--ai); --t-rgb: var(--ai-rgb); }
+.pfilter--design { --t: var(--design); --t-rgb: var(--design-rgb); }
+.pfilter--marketing { --t: var(--mkt); --t-rgb: var(--mkt-rgb); }
+
+/* línea hacia Servicios del área filtrada */
+.projects-service {
+    --t: var(--code);
+    width: min(1180px, 100%);
+    margin: 14px auto 0;
+    padding: 12px 16px;
+    border-left: 3px solid var(--t);
+    border-radius: 0 10px 10px 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent);
+    color: #d6ece5;
+    font-size: 0.98rem;
+}
+.projects-service[hidden] { display: none; }
+.projects-service a { color: var(--t); font-weight: 600; text-decoration: none; }
+.projects-service a:hover, .projects-service a:focus-visible { text-decoration: underline; outline: none; }
+.projects-service--ai { --t: var(--ai); }
+.projects-service--design { --t: var(--design); }
+.projects-service--marketing { --t: var(--mkt); }
+
+/* ---------- Tarjetas ---------- */
+.projects-grid {
+    width: min(1180px, 100%);
+    margin: 28px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+.pcard {
+    --t: var(--code);
+    --t-rgb: var(--code-rgb);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(var(--t-rgb), 0.28);
+    border-radius: 14px;
+    background: linear-gradient(170deg, rgba(8, 22, 22, 0.9), rgba(12, 10, 28, 0.9));
+    color: var(--a-text);
+    text-decoration: none;
+    animation: pcard-in 0.5s ease-out both;
+    animation-delay: calc(var(--i) * 50ms);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.pcard[hidden] { display: none; }
+@keyframes pcard-in { from { opacity: 0; transform: translateY(16px); } }
+.pcard--ai { --t: var(--ai); --t-rgb: var(--ai-rgb); }
+.pcard--design { --t: var(--design); --t-rgb: var(--design-rgb); }
+.pcard--marketing { --t: var(--mkt); --t-rgb: var(--mkt-rgb); }
+.pcard:hover, .pcard:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--t);
+    box-shadow: 0 0 30px rgba(var(--t-rgb), 0.22);
+    outline: none;
+}
+
+.pcard__media { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; background: #050b0b; }
+.pcard__media img, .pcard__media video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s; }
+.pcard:hover .pcard__media img, .pcard:hover .pcard__media video { transform: scale(1.05); }
+
+/* gráfico para proyectos sin imagen */
+.pcard__media--art {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background:
+        linear-gradient(rgba(var(--t-rgb), 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--t-rgb), 0.07) 1px, transparent 1px),
+        radial-gradient(circle at 50% 45%, rgba(var(--t-rgb), 0.25), transparent 60%),
+        #040a0c;
+    background-size: 22px 22px, 22px 22px, auto, auto;
+}
+.pcard__glyph {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-width: 64px;
+    min-height: 64px;
+    font-family: var(--a-font-display);
+    font-weight: 800;
+    font-size: 2.4rem;
+    color: var(--t);
+    text-shadow: 0 0 18px rgba(var(--t-rgb), 0.9);
+    transition: transform 0.5s;
+}
+.pcard:hover .pcard__glyph { transform: scale(1.1); }
+.pcard__glyph .mini-orb { position: relative; display: block; width: 60px; height: 60px; }
+.pcard__art-label { font-family: var(--a-font-mono); font-size: 0.72rem; letter-spacing: 0.12em; color: rgba(var(--t-rgb), 0.85); }
+
+.pcard__body { display: flex; flex-direction: column; gap: 8px; padding: 18px 18px 20px; flex: 1; }
+.pcard__pillars { display: flex; flex-wrap: wrap; gap: 6px; }
+.pcard__pillar {
+    --p: var(--code);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--a-font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--p);
+}
+.pcard__pillar::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--p); box-shadow: 0 0 6px var(--p); }
+.pcard__pillar + .pcard__pillar { margin-left: 4px; }
+.pcard__pillar--ai { --p: var(--ai); }
+.pcard__pillar--design { --p: var(--design); }
+.pcard__pillar--marketing { --p: var(--mkt); }
+.pcard__title { font-family: var(--a-font-display); font-weight: 700; font-size: 1.12rem; letter-spacing: 0.04em; }
+.pcard__text { font-size: 0.95rem; line-height: 1.55; color: #c8ddd6; }
+.pcard__tech { font-size: 0.8rem; color: var(--a-muted); }
+.pcard__cta { margin-top: auto; padding-top: 6px; font-weight: 600; font-size: 0.92rem; color: var(--t); }
+
+/* ---------- Cierre ---------- */
+.projects-cta { width: min(1180px, 100%); margin: 0 auto; padding: clamp(56px, 9vh, 90px) 0 clamp(64px, 10vh, 100px); text-align: center; }
+.projects-cta__title { margin: 0; font-family: var(--a-font-display); font-weight: 700; font-size: clamp(1.2rem, 2.6vw, 1.8rem); }
+.projects-cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 22px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) { .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .projects-filters { flex-wrap: nowrap; overflow-x: auto; margin: 0 -16px; padding: 6px 16px 10px; scrollbar-width: none; }
+    .projects-filters::-webkit-scrollbar { display: none; }
+    .pfilter { flex: none; }
+}
+@media (prefers-reduced-motion: reduce) { .pcard { animation: none; } }
