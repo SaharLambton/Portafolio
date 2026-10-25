@@ -322,62 +322,79 @@
         main.classList.add('is-entering');
     }
 
-    /* ---------- Catálogo ---------- */
+    /* ---------- Catálogo: una franja por pilar con sus servicios abiertos ---------- */
+    const PINTRO = {
+        code: { es: 'Sitios web, tiendas y software hechos a la medida de tu negocio.', en: 'Websites, stores and software tailored to your business.' },
+        ai: { es: 'Inteligencia artificial para ahorrar tiempo y atender mejor a tus clientes.', en: 'Artificial intelligence to save time and serve your customers better.' },
+        design: { es: 'Una identidad visual coherente que haga reconocible tu marca.', en: 'A consistent visual identity that makes your brand recognizable.' },
+        marketing: { es: 'Estrategia y contenido para que tu marca crezca en digital.', en: 'Strategy and content to grow your brand online.' }
+    };
+    const PICON = {
+        code: '<path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/>',
+        ai: '<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="3" r="1"/><circle cx="12" cy="21" r="1"/><circle cx="3" cy="12" r="1"/><circle cx="21" cy="12" r="1"/>',
+        design: '<path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.6-.8 1.6-1.6 0-.9-.7-1.3-.7-2.1 0-.8.6-1.4 1.4-1.4H16a5 5 0 0 0 5-5c0-4.4-4-7.9-9-7.9z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="14.5" cy="7" r="1"/>',
+        marketing: '<path d="M3 11v2a2 2 0 0 0 2 2h1l4 4V5L6 9H5a2 2 0 0 0-2 2z"/><path d="M14 9a3 3 0 0 1 0 6"/><path d="M17 6a7 7 0 0 1 0 12"/>'
+    };
+    const NUM = { code: 'I', ai: 'II', design: 'III', marketing: 'IV' };
+
     function renderCatalog() {
         const grid = document.getElementById('catalogGrid');
         if (!grid) return;
         grid.innerHTML = '';
         ['code', 'ai', 'design', 'marketing'].forEach((pid) => {
-            const col = document.createElement('div');
-            col.className = 'cat-col';
-            col.id = pid;
-            col.style.setProperty('--t', PCOLOR[pid]);
-            const h = document.createElement('h3');
-            h.className = 'cat-col__title';
-            h.textContent = tr(PNAME[pid]);
-            col.appendChild(h);
-            S.filter((s) => s.pillar === pid).forEach((s) => {
-                const d = document.createElement('details');
-                d.className = 'cat-item';
-                d.id = s.id;
-                const sum = document.createElement('summary');
-                sum.innerHTML = `<span class="cat-item__icon">${svg(s.icon)}</span><span class="cat-item__title"></span><i aria-hidden="true"></i>`;
-                sum.querySelector('.cat-item__title').textContent = tr(s.title);
+            const list = S.filter((s) => s.pillar === pid);
+            const band = document.createElement('section');
+            band.className = 'band';
+            band.id = pid;
+            band.style.setProperty('--t', PCOLOR[pid]);
+
+            // cabecera del pilar
+            const head = document.createElement('header');
+            head.className = 'band__head';
+            head.innerHTML = `<span class="band__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${PICON[pid]}</svg></span><span class="band__num"></span><h3 class="band__title"></h3><p class="band__intro"></p><span class="band__count"></span>`;
+            head.querySelector('.band__num').textContent = (lang() === 'en' ? 'PILLAR · ' : 'PILAR · ') + NUM[pid];
+            head.querySelector('.band__title').textContent = tr(PNAME[pid]);
+            head.querySelector('.band__intro').textContent = tr(PINTRO[pid]);
+            head.querySelector('.band__count').textContent = list.length + (lang() === 'en' ? (list.length === 1 ? ' service' : ' services') : (list.length === 1 ? ' servicio' : ' servicios'));
+            band.appendChild(head);
+
+            // servicios del pilar, todos abiertos
+            const cards = document.createElement('div');
+            cards.className = 'band__cards band__cards--' + list.length;
+            list.forEach((s) => {
+                const c = document.createElement('article');
+                c.className = 'svc';
+                c.id = s.id;
+                c.innerHTML = `<div class="svc__top"><span class="svc__icon">${svg(s.icon)}</span><h4 class="svc__title"></h4></div><p class="svc__text"></p><p class="svc__ideal"><b></b> <span></span></p><ul class="svc__list"></ul><a class="svc__cta"></a>`;
+                const title = c.querySelector('.svc__title');
+                title.textContent = tr(s.title);
                 if (s.badge) {
                     const bd = document.createElement('span');
-                    bd.className = 'cat-item__badge';
+                    bd.className = 'svc__badge';
                     bd.textContent = tr(s.badge);
-                    sum.querySelector('.cat-item__title').appendChild(bd);
+                    title.appendChild(bd);
                 }
-                const body = document.createElement('div');
-                body.className = 'cat-item__body';
-                const p = document.createElement('p');
-                p.textContent = tr(s.short);
-                const ideal = document.createElement('p');
-                ideal.className = 'cat-item__ideal';
-                ideal.innerHTML = `<b>${lang() === 'en' ? 'Ideal for:' : 'Ideal para:'}</b> `;
-                ideal.appendChild(document.createTextNode(tr(s.ideal)));
-                const ul = document.createElement('ul');
+                c.querySelector('.svc__text').textContent = tr(s.short);
+                c.querySelector('.svc__ideal b').textContent = lang() === 'en' ? 'Ideal for:' : 'Ideal para:';
+                c.querySelector('.svc__ideal span').textContent = tr(s.ideal);
+                const ul = c.querySelector('.svc__list');
                 s.items.forEach((it) => { const li = document.createElement('li'); li.textContent = tr(it); ul.appendChild(li); });
-                const cta = document.createElement('a');
-                cta.className = 'cat-item__cta';
+                const cta = c.querySelector('.svc__cta');
                 cta.href = 'contacto.html?servicio=' + s.id;
                 cta.textContent = lang() === 'en' ? 'Quote this service →' : 'Cotizar este servicio →';
-                body.append(p, ideal, ul, cta);
-                d.append(sum, body);
-                col.appendChild(d);
+                cards.appendChild(c);
             });
-            grid.appendChild(col);
+            band.appendChild(cards);
+            grid.appendChild(band);
         });
     }
 
-    // #workshops, #web… abre ese servicio en el catálogo; #code, #ai… baja a su columna
+    // #workshops, #web… resalta ese servicio en el catálogo; #code, #ai… baja a su franja
     function fromHash() {
         const id = decodeURIComponent(window.location.hash.slice(1));
         if (!id || id === 'missionConsole') return;
         const el = document.getElementById(id);
         if (!el) return;
-        if (el.tagName === 'DETAILS') el.open = true;
         requestAnimationFrame(() => {
             el.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' });
             el.classList.add('is-highlight');
