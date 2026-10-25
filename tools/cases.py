@@ -12,7 +12,7 @@ import html
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261025j'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261025m'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -89,7 +89,7 @@ PROJECTS = [
         ],
         'cta': (('¿Necesitas una tienda en línea segura?', 'Need a secure online store?'),
                 ('Desarrollo plataformas e-commerce a la medida de tu negocio.', 'I build e-commerce platforms tailored to your business.')),
-        'service': 'web',
+        'service': 'store',
     },
     {
         'id': 'sports-store', 'file': 'sports-store.html', 'name': 'Sports Store', 'pillar': 'web',
@@ -134,7 +134,7 @@ PROJECTS = [
         ],
         'cta': (('¿Necesitas un sitio web profesional?', 'Need a professional website?'),
                 ('Creo sitios responsive y funcionales para tu negocio.', 'I build responsive, functional websites for your business.')),
-        'service': 'web',
+        'service': 'store',
     },
     {
         'id': 'little-stars', 'file': 'little-stars.html', 'name': 'Little Stars', 'pillar': 'web',

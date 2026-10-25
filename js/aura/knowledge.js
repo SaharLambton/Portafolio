@@ -270,10 +270,10 @@ window.AURA_KB = {
         },
         {
             id: 'services',
-            keys: ['servicio', 'servicios', 'ofrece', 'que hace', 'puede hacer', 'contratar para', 'community manager', 'redes sociales', 'chatbot', 'automatizacion', 'consultoria', 'services', 'service', 'offer', 'what does she do', 'social media', 'automation', 'consulting'],
+            keys: ['servicio', 'servicios', 'ofrece', 'que hace', 'puede hacer', 'contratar para', 'community manager', 'redes sociales', 'chatbot', 'automatizacion', 'consultoria', 'tienda online', 'ux', 'ui', 'piezas graficas', 'services', 'service', 'offer', 'what does she do', 'social media', 'automation', 'consulting'],
             answer: {
-                es: 'Los servicios de Sahar están organizados en sus cuatro pilares: 💻 Programación (desarrollo web, bases de datos y software), 🧠 IA y automatización (automatización de procesos, chatbots y talleres de IA generativa), 🎨 Diseño (branding e identidad visual) y 📈 Marketing digital (community management y consultoría). Cada proyecto se cotiza a la medida.',
-                en: 'Sahar\'s services are organized in her four pillars: 💻 Programming (web development, databases and software), 🧠 AI and automation (process automation, chatbots and generative AI workshops), 🎨 Design (branding and visual identity) and 📈 Digital marketing (community management and consulting). Every project is quoted to fit.'
+                es: 'Los servicios de Sahar están organizados según lo que necesitas: 🌐 tener presencia en internet (sitio web y tienda online), 🗂️ ordenar tu información (bases de datos y software a medida), 🧠 ahorrar tiempo con IA (automatización, chatbots y talleres de IA), 🎨 verte profesional (identidad de marca, piezas gráficas para redes y diseño UX/UI) y 📈 crecer en redes y en digital (gestión de redes sociales y estrategia digital). Cada proyecto se cotiza a la medida.',
+                en: 'Sahar\'s services are organized by what you need: 🌐 being present online (website and online store), 🗂️ organizing your information (databases and custom software), 🧠 saving time with AI (automation, chatbots and AI workshops), 🎨 looking professional (brand identity, social media graphics and UX/UI design) and 📈 growing on social media and online (social media management and digital strategy). Every project is quoted to fit.'
             },
             action: { type: 'go', href: 'servicios.html', label: { es: 'Ver servicios', en: 'See services' } },
             chips: ['contact', 'projects']
