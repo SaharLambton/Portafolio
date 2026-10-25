@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/aura.css?v=20261025h">
-    <link rel="stylesheet" href="css/site.css?v=20261025h">
-    <link rel="stylesheet" href="css/projects.css?v=20261025h">
+    <link rel="stylesheet" href="css/aura.css?v=20261025i">
+    <link rel="stylesheet" href="css/site.css?v=20261025i">
+    <link rel="stylesheet" href="css/projects.css?v=20261025i">
 </head>
 <body data-page="projects">
     <header class="site-header">
@@ -61,12 +61,27 @@
         </section>
 
         <!-- ===================== CARRUSEL 3D ===================== -->
+        <!-- selector de vista: carrusel 3D o todos los archivos -->
+        <div class="view-bar">
+            <p class="view-bar__label"><span data-es="ARCHIVOS" data-en="FILES">ARCHIVOS</span> · <b id="viewCount"></b></p>
+            <div class="view-toggle" role="group" aria-label="Vista">
+                <button type="button" class="view-toggle__btn is-active" data-view="carousel" aria-pressed="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="5" width="8" height="14" rx="1.5"/><path d="M4 7v10M20 7v10"/></svg>
+                    <span data-es="Carrusel" data-en="Carousel">Carrusel</span>
+                </button>
+                <button type="button" class="view-toggle__btn" data-view="grid" aria-pressed="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
+                    <span data-es="Ver todos" data-en="See all">Ver todos</span>
+                </button>
+            </div>
+        </div>
+
         <section class="carousel" aria-label="Archivos de proyectos">
             <button type="button" class="carousel__nav carousel__nav--prev" id="vaultPrev" data-es-label="Proyecto anterior" data-en-label="Previous project" aria-label="Proyecto anterior">‹</button>
             <div class="carousel__stage" id="vaultStage" role="listbox" aria-label="Proyectos" tabindex="0"></div>
             <button type="button" class="carousel__nav carousel__nav--next" id="vaultNext" data-es-label="Proyecto siguiente" data-en-label="Next project" aria-label="Proyecto siguiente">›</button>
         </section>
-        <p class="carousel__hint" data-es="Usa las flechas, desliza o toca un archivo" data-en="Use the arrows, swipe or tap a file">Usa las flechas, desliza o toca un archivo</p>
+        <p class="carousel__hint" id="viewHint" data-es="Usa las flechas, desliza o toca un archivo" data-en="Use the arrows, swipe or tap a file">Usa las flechas, desliza o toca un archivo</p>
 
         <noscript>
             <p class="page-notice">Activa JavaScript para abrir la bóveda, o visita <a href="https://github.com/SaharLambton">github.com/SaharLambton</a>.</p>
@@ -83,10 +98,10 @@
 
     <footer class="site-footer" data-site-footer></footer>
 
-    <script src="js/aura/knowledge.js?v=20261025h"></script>
-    <script src="js/bg.js?v=20261025h"></script>
-    <script src="js/site.js?v=20261025h"></script>
-    <script src="js/projects.js?v=20261025h"></script>
-    <script src="js/aura/assistant.js?v=20261025h"></script>
+    <script src="js/aura/knowledge.js?v=20261025i"></script>
+    <script src="js/bg.js?v=20261025i"></script>
+    <script src="js/site.js?v=20261025i"></script>
+    <script src="js/projects.js?v=20261025i"></script>
+    <script src="js/aura/assistant.js?v=20261025i"></script>
 </body>
 </html>

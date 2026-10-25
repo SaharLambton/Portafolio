@@ -42,6 +42,9 @@
     let list = all.slice();
     let index = 0;
     let area = 'all';
+    // vista: 'carousel' (3D) o 'grid' (todos los archivos)
+    let view = 'carousel';
+    try { if (localStorage.getItem('vault-view') === 'grid') view = 'grid'; } catch (e) { /* sin almacenamiento */ }
 
     /* ---------- Archivos del carrusel ---------- */
     function artFor(p, big) {
@@ -97,6 +100,11 @@
         b.append(thumb, code, name, bar);
         b.addEventListener('click', () => {
             const at = list.indexOf(p);
+            if (view === 'grid') {
+                go(at);
+                showReport();
+                return;
+            }
             if (at === index) document.getElementById('reportEnter').focus();
             else go(at);
         });
@@ -105,6 +113,21 @@
     });
 
     function layout() {
+        if (view === 'grid') {
+            // cuadrícula: sin transformaciones 3D, solo se marca el activo
+            cartridges.forEach(({ p, el }) => {
+                const at = list.indexOf(p);
+                el.hidden = at === -1;
+                el.style.transform = '';
+                el.style.opacity = '';
+                el.style.zIndex = '';
+                el.style.pointerEvents = '';
+                el.classList.toggle('is-active', at === index);
+                el.setAttribute('aria-selected', String(at === index));
+                el.tabIndex = 0;
+            });
+            return;
+        }
         const small = window.innerWidth < 700;
         const gap = small ? 118 : 170;
         cartridges.forEach(({ p, el }) => {
@@ -207,6 +230,35 @@
         syncUrl();
     }
 
+    // en la cuadrícula, al elegir un archivo se sube a la pantalla del informe
+    function showReport() {
+        const r = R.box.getBoundingClientRect();
+        if (r.top < 70 || r.top > window.innerHeight * 0.4) {
+            R.box.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+        }
+    }
+
+    const viewBtns = Array.from(document.querySelectorAll('.view-toggle__btn'));
+    const carousel = stage.closest('.carousel');
+    const hint = document.getElementById('viewHint');
+    const HINT = {
+        carousel: { es: 'Usa las flechas, desliza o toca un archivo', en: 'Use the arrows, swipe or tap a file' },
+        grid: { es: 'Toca un archivo para verlo arriba en el informe', en: 'Tap a file to see it in the report above' }
+    };
+    function setView(v) {
+        view = v === 'grid' ? 'grid' : 'carousel';
+        try { localStorage.setItem('vault-view', view); } catch (e) { /* sin almacenamiento */ }
+        carousel.classList.toggle('is-grid', view === 'grid');
+        viewBtns.forEach((b) => {
+            const on = b.dataset.view === view;
+            b.classList.toggle('is-active', on);
+            b.setAttribute('aria-pressed', String(on));
+        });
+        if (hint) setBi(hint, HINT[view]);
+        layout();
+    }
+    viewBtns.forEach((b) => b.addEventListener('click', () => setView(b.dataset.view)));
+
     function go(i) {
         if (!list.length) return;
         index = (i + list.length) % list.length;
@@ -230,6 +282,8 @@
             f.classList.toggle('is-active', on);
             f.setAttribute('aria-pressed', String(on));
         });
+        const count = document.getElementById('viewCount');
+        if (count) count.textContent = list.length;
         const keepAt = keep ? list.findIndex((p) => p.id === keep) : list.indexOf(current);
         index = keepAt >= 0 ? keepAt : 0;
         render();
@@ -260,7 +314,7 @@
     let startX = null;
     stage.addEventListener('pointerdown', (e) => { startX = e.clientX; });
     stage.addEventListener('pointerup', (e) => {
-        if (startX === null) return;
+        if (startX === null || view === 'grid') { startX = null; return; }
         const dx = e.clientX - startX;
         startX = null;
         if (Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
@@ -274,5 +328,7 @@
     const initial = params.get('area') || 'all';
     // si se llega desde un pilar, AURA comenta ese filtro en vez del saludo general
     if (initial !== 'all') window.AURA_SKIP_ENTER = true;
+    if (params.get('view')) view = params.get('view');
     tune(initial, { keep: params.get('p') });
+    setView(view);
 })();
