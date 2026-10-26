@@ -292,8 +292,8 @@ window.AURA_KB = {
             id: 'web',
             keys: ['web', 'sitio', 'sitios', 'pagina web', 'paginas web', 'ecommerce', 'e-commerce', 'tienda', 'tiendas', 'website', 'websites', 'store', 'online shop'],
             answer: {
-                es: 'En desarrollo web destacan: 🛒 Sell Services, una tienda en línea con registro de usuarios, catálogo, carrito y base de datos MySQL (PHP + MySQL); 🏀 Sports Store, tienda deportiva con catálogo dinámico; y 👶 Little Stars, concepto de tienda infantil con categorías y búsqueda por talla.',
-                en: 'Web development highlights: 🛒 Sell Services, an online store with user accounts, catalog, cart and a MySQL database (PHP + MySQL); 🏀 Sports Store, a sports shop with a dynamic catalog; and 👶 Little Stars, a kids\' clothing store concept with categories and size search.'
+                es: 'En desarrollo web destacan: 🛒 Sell Services, una tienda en línea con registro de usuarios, catálogo, carrito y base de datos MySQL (PHP + MySQL); 🏀 Sports Store, tienda deportiva con programa de becas y contenido educativo; y 👶 Little Stars, concepto de tienda infantil con categorías y búsqueda por talla.',
+                en: 'Web development highlights: 🛒 Sell Services, an online store with user accounts, catalog, cart and a MySQL database (PHP + MySQL); 🏀 Sports Store, a sports shop with a scholarship program and educational content; and 👶 Little Stars, a kids\' clothing store concept with categories and size search.'
             },
             projects: ['sell-services', 'sports-store', 'little-stars'],
             action: { type: 'go', href: 'proyectos.html?area=web', label: { es: 'Ver proyectos web', en: 'See web projects' } }
@@ -403,7 +403,7 @@ window.AURA_KB = {
     projects: [
         {
             id: 'sell-services', name: 'Sell Services', keys: ['sell services', 'sell service', 'productos graficos', 'graphic products'],
-            brand: '#3ccfcf', kind: { es: 'Proyecto académico · Lambton College', en: 'Academic project · Lambton College' },
+            brand: '#3ccfcf', kind: { es: 'Computer Programmer · Lambton College', en: 'Computer Programmer · Lambton College' },
             pillars: ['web'], card: 'img/thumbs/services-card.webp', video: 'services.mp4',
             short: { es: 'Tienda en línea de servicios y productos gráficos con registro de usuarios, catálogo filtrable, carrito y base de datos MySQL.', en: 'Online store for graphic services and products with user accounts, filterable catalog, cart and a MySQL database.' },
             url: 'sell-services.html', thumb: 'img/thumbs/services.webp', area: 'web',
@@ -416,14 +416,14 @@ window.AURA_KB = {
         },
         {
             id: 'sports-store', name: 'Sports Store', keys: ['sports store', 'sport store', 'tienda deportiva', 'deportes', 'deportiva', 'sports'],
-            brand: '#ff3b4e', kind: { es: 'Proyecto académico · Lambton College', en: 'Academic project · Lambton College' },
+            brand: '#ff3b4e', kind: { es: 'Computer Programmer · Lambton College', en: 'Computer Programmer · Lambton College' },
             pillars: ['web'], card: 'img/thumbs/sport-card.webp', video: 'sport.mp4',
-            short: { es: 'Tienda deportiva con catálogo dinámico, programa de becas para jóvenes atletas y recursos con la API de YouTube.', en: 'Sports store with a dynamic catalog, a scholarship program for young athletes and YouTube API resources.' },
+            short: { es: 'Sitio web de una tienda deportiva con propósito: catálogo, becas para jóvenes atletas y videos educativos para las familias.', en: 'Website for a sports store with a purpose: catalog, scholarships for young athletes and educational videos for families.' },
             url: 'sports-store.html', area: 'web',
             tech: ['HTML5', 'CSS3', 'Responsive Design', 'YouTube API'],
             desc: {
-                es: 'Sports Store es el sitio de una tienda deportiva con catálogo dinámico, programa de becas para jóvenes atletas, formulario de contacto y recursos educativos con la API de YouTube.',
-                en: 'Sports Store is a sports shop website with a dynamic catalog, a scholarship program for young athletes, a contact form and educational resources via the YouTube API.'
+                es: 'Sports Store es el sitio web de una tienda de artículos para los deportes más populares de Canadá que va más allá de la venta: incluye un catálogo por disciplina, un programa de becas para jóvenes atletas con formulario de solicitud, videos educativos para las familias y contacto con sus tiendas en el área de Toronto. Lo desarrolló en el programa Computer Programmer de Lambton College.',
+                en: 'Sports Store is the website for a store selling gear for Canada\'s most popular sports that goes beyond sales: a catalog by sport, a scholarship program for young athletes with an application form, educational videos for families and contact with its stores in the Toronto area. She built it in the Computer Programmer program at Lambton College.'
             }
         },
         {
@@ -490,7 +490,7 @@ window.AURA_KB = {
         },
         {
             id: 'smart-agriculture', name: 'Smart Agriculture', keys: ['smart agriculture', 'agricultura', 'agro', 'iot', 'sensores', 'riego', 'drones', 'farming', 'sensors', 'irrigation'],
-            brand: '#7ed957', kind: { es: 'Proyecto académico · Lambton College', en: 'Academic project · Lambton College' },
+            brand: '#7ed957', kind: { es: 'Computer Programmer · Lambton College', en: 'Computer Programmer · Lambton College' },
             pillars: ['code'], card: 'img/thumbs/smart-agriculture-card.webp', video: '',
             short: { es: 'Agricultura de precisión: sensores ambientales, riego automático, detección de enfermedades en plantas y drones.', en: 'Precision farming: environmental sensors, automated irrigation, plant disease detection and drones.' },
             url: 'smart-agriculture.html', area: 'code',
@@ -503,7 +503,7 @@ window.AURA_KB = {
         },
         {
             id: 'bookstore', name: 'Library Management', keys: ['library management', 'bookstore', 'biblioteca', 'libros', 'library', 'books'],
-            brand: '#f0c419', kind: { es: 'Proyecto académico · Lambton College', en: 'Academic project · Lambton College' },
+            brand: '#f0c419', kind: { es: 'Computer Programmer · Lambton College', en: 'Computer Programmer · Lambton College' },
             pillars: ['code'], card: 'img/thumbs/library-card.webp', video: '',
             short: { es: 'Gestión de biblioteca con libros, clientes, préstamos y devoluciones, cubierta con pruebas unitarias.', en: 'Library management with books, customers, loans and returns, covered by unit tests.' },
             url: 'library-management.html', area: 'code',
@@ -515,7 +515,7 @@ window.AURA_KB = {
         },
         {
             id: 'space-flight', name: 'Space Flight Booking', keys: ['space flight', 'vuelos espaciales', 'vuelo espacial', 'marte', 'mars', 'reservas', 'booking', 'docker', 'devops'],
-            brand: '#8b7bff', kind: { es: 'Proyecto académico · Lambton College', en: 'Academic project · Lambton College' },
+            brand: '#8b7bff', kind: { es: 'Computer Programmer · Lambton College', en: 'Computer Programmer · Lambton College' },
             pillars: ['code'], card: 'img/thumbs/space-flight-card.webp', video: '',
             short: { es: 'Reservas de vuelos a Marte con verificación médica, pagos, pruebas en Jest y despliegue con Docker.', en: 'Flight bookings to Mars with medical checks, payments, Jest tests and Docker deployment.' },
             url: 'space-flight-booking.html', area: 'code',
@@ -528,7 +528,7 @@ window.AURA_KB = {
         },
         {
             id: 'jest-ci', name: 'Jest CI', keys: ['jest ci', 'github actions', 'integracion continua', 'ci/cd', 'continuous integration', 'pipeline'],
-            brand: '#c8486a', kind: { es: 'Proyecto académico · Lambton College', en: 'Academic project · Lambton College' },
+            brand: '#c8486a', kind: { es: 'Computer Programmer · Lambton College', en: 'Computer Programmer · Lambton College' },
             pillars: ['code'], card: 'img/thumbs/jestci-card.webp', video: '',
             short: { es: 'Integración continua: las pruebas con Jest se ejecutan solas en cada push con GitHub Actions.', en: 'Continuous integration: Jest tests run automatically on every push with GitHub Actions.' },
             url: 'jest-ci.html', area: 'code',
