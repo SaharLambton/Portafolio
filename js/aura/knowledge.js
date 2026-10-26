@@ -15,15 +15,15 @@ window.AURA_KB = {
     /* ---------- Secuencia de bienvenida ---------- */
     welcome: {
         es: [
-            '¡Hola! 👋 Bienvenido al portafolio digital de Sahar Chain. Soy {name}, su asistente inteligente.',
-            'Sahar es programadora, desarrolladora web y diseñadora de marca, formada en Lambton College (Canadá) y creando experiencias digitales desde 2019.',
-            'Aquí puedes explorar sus proyectos de desarrollo web, branding y programación, su stack tecnológico, su experiencia y cómo contactarla.',
+            '¡Hola! 👋 Bienvenido al portafolio de Sahar Chain. Soy {name}, su asistente inteligente.',
+            'Sahar es programadora, desarrolladora web y diseñadora de marca, formada en Lambton College (Canadá). Desde 2019 crea marcas, sitios web, software y soluciones con IA para empresas y emprendedores.',
+            'Aquí puedes explorar 14 proyectos, conocer sus servicios y armar en menos de un minuto un plan para tu negocio.',
             '¿Por dónde quieres empezar? Toca una opción o escríbeme tu pregunta.'
         ],
         en: [
-            'Hi! 👋 Welcome to Sahar Chain\'s digital portfolio. I\'m {name}, her intelligent assistant.',
-            'Sahar is a programmer, web developer and brand designer, trained at Lambton College (Canada) and crafting digital experiences since 2019.',
-            'Here you can explore her web development, branding and programming projects, her tech stack, her experience and how to reach her.',
+            'Hi! 👋 Welcome to Sahar Chain\'s portfolio. I\'m {name}, her intelligent assistant.',
+            'Sahar is a programmer, web developer and brand designer, trained at Lambton College (Canada). Since 2019 she has been creating brands, websites, software and AI solutions for companies and entrepreneurs.',
+            'Here you can explore 14 projects, discover her services and build a plan for your business in less than a minute.',
             'Where would you like to start? Tap an option or type your question.'
         ]
     },
@@ -53,80 +53,80 @@ window.AURA_KB = {
         home: {
             sections: {
                 pilares: {
-                    es: 'Estos son los cuatro pilares de Sahar. Pasa el cursor sobre cada uno y haz clic para ver sus proyectos de esa área.',
-                    en: 'These are Sahar\'s four pillars. Hover over each one and click to see her projects in that area.'
+                    es: 'Estos son los cuatro pilares de Sahar: programación, IA, diseño y marketing. Juntos le permiten llevar un proyecto de la idea al lanzamiento. Abre uno para ver sus proyectos.',
+                    en: 'These are Sahar\'s four pillars: programming, AI, design and marketing. Together they let her take a project from idea to launch. Open one to see her projects.'
                 },
                 vistazo: {
-                    es: 'Aquí tienes una muestra rápida. Si quieres ver todo, la pestaña Proyectos tiene el archivo completo.',
-                    en: 'Here\'s a quick sample. If you want to see everything, the Projects tab has the full archive.'
+                    es: 'Esta es una muestra de su trabajo. En la pestaña Proyectos encontrarás los 14 casos completos.',
+                    en: 'Here\'s a sample of her work. The Projects tab has all 14 case studies.'
                 }
             }
         },
         about: {
             chips: ['experience', 'skills', 'education', 'cv'],
             intro: {
-                es: 'Estás en el expediente de Sahar: su perfil, trayectoria y habilidades. Pregúntame lo que quieras sobre ella.',
-                en: 'You\'re in Sahar\'s file: her profile, journey and skills. Ask me anything about her.'
+                es: 'Estás en el perfil de Sahar: su trayectoria, sus resultados y sus habilidades. Pregúntame lo que quieras sobre ella.',
+                en: 'You\'re on Sahar\'s profile: her journey, results and skills. Ask me anything about her.'
             },
             enter: {
-                es: 'Bienvenido al expediente de Sahar. Aquí está quién es, de dónde viene y con qué trabaja.',
-                en: 'Welcome to Sahar\'s file. Here\'s who she is, where she comes from and what she works with.'
+                es: 'Este es el perfil de Sahar: quién es, qué ha logrado y con qué herramientas trabaja.',
+                en: 'This is Sahar\'s profile: who she is, what she has achieved and the tools she works with.'
             },
             sections: {
                 trayectoria: {
-                    es: 'Su trayectoria va desde cofundar Únicos en Bogotá en 2019 hasta trabajar por su cuenta en Colombia y Canadá.',
-                    en: 'Her journey goes from co-founding Únicos in Bogotá in 2019 to working independently in Colombia and Canada.'
+                    es: 'Su trayectoria va desde cofundar Únicos en 2019, donde sus herramientas aumentaron la productividad en un 35%, hasta trabajar de forma independiente con clientes de Colombia y Canadá.',
+                    en: 'Her journey goes from co-founding Únicos in 2019, where her tools increased productivity by 35%, to working independently with clients in Colombia and Canada.'
                 },
                 habilidades: {
-                    es: 'Las habilidades están agrupadas por sus cuatro pilares. Cada color corresponde a uno.',
-                    en: 'Skills are grouped by her four pillars. Each color matches one of them.'
+                    es: 'Estas son sus herramientas, agrupadas por sus cuatro pilares. Cada color corresponde a uno.',
+                    en: 'These are her tools, grouped by her four pillars. Each color matches one of them.'
                 }
             }
         },
         projects: {
             chips: ['web', 'design', 'code', 'contact'],
             intro: {
-                es: 'Este es el archivo de proyectos de Sahar. Puedo contarte sobre cualquiera de ellos.',
-                en: 'This is Sahar\'s project archive. I can tell you about any of them.'
+                es: 'Este es el archivo de proyectos de Sahar: 14 casos de desarrollo web, programación, IA y diseño. Puedo contarte sobre cualquiera.',
+                en: 'This is Sahar\'s project archive: 14 case studies in web development, programming, AI and design. I can tell you about any of them.'
             },
             enter: {
-                es: 'Este es el archivo de proyectos. Si te interesa el branding, te recomiendo empezar por Zohar.',
-                en: 'This is the project archive. If you\'re into branding, I recommend starting with Zohar.'
+                es: 'Bienvenido al archivo de proyectos. Si buscas branding, empieza por Zohar; si buscas desarrollo, por Sell Services.',
+                en: 'Welcome to the project archive. For branding, start with Zohar; for development, start with Sell Services.'
             },
             filters: {
                 web: { es: 'Estos son los desarrollos web: tiendas en línea, sitios corporativos y páginas responsive.', en: 'These are the web builds: online stores, corporate sites and responsive pages.' },
                 code: { es: 'Estos son los proyectos de programación: sistemas en TypeScript y Node.js, pruebas automatizadas, integración continua y yo, AURA.', en: 'These are the programming projects: TypeScript and Node.js systems, automated tests, continuous integration and me, AURA.' },
-                ai: { es: 'En IA, el proyecto principal soy yo 🤖. Pronto habrá más.', en: 'In AI, the main project is me 🤖. More are coming soon.' },
-                design: { es: 'Aquí está el trabajo de branding de Sahar. Zohar y MetalTec son dos de los más completos.', en: 'Here is Sahar\'s branding work. Zohar and MetalTec are two of the most complete ones.' },
+                ai: { es: 'En IA están el taller de IA generativa para Intel Tax Outsourcing SAS y yo, AURA, la asistente que te habla 🤖.', en: 'In AI you\'ll find the generative AI workshop for Intel Tax Outsourcing SAS and me, AURA, the assistant talking to you 🤖.' },
+                design: { es: 'Aquí está el trabajo de branding de Sahar: Zohar, ODEN, Armonía, MetalTec y Únicos. Zohar y Armonía son dos de los más completos.', en: 'Here is Sahar\'s branding work: Zohar, ODEN, Armonía, MetalTec and Únicos. Zohar and Armonía are two of the most complete.' },
                 marketing: { es: 'Estos proyectos incluyen estrategia digital y redes sociales, además del diseño.', en: 'These projects include digital strategy and social media, on top of design.' }
             }
         },
         services: {
             chips: ['workshops', 'hire', 'contact'],
             intro: {
-                es: 'Aquí están los servicios de Sahar. Si me cuentas qué necesitas, te digo cuál encaja mejor.',
-                en: 'Here are Sahar\'s services. Tell me what you need and I\'ll point you to the right one.'
+                es: 'Aquí están los servicios de Sahar, organizados según lo que necesitas lograr. Cuéntame tu objetivo y te digo cuál encaja mejor.',
+                en: 'Here are Sahar\'s services, organized by what you need to achieve. Tell me your goal and I\'ll point you to the right one.'
             },
             enter: {
-                es: 'Estos son los servicios de Sahar. ¿Tienes un proyecto en mente? Pregúntame y te oriento.',
-                en: 'These are Sahar\'s services. Got a project in mind? Ask me and I\'ll guide you.'
+                es: 'Estos son los servicios de Sahar. Responde las 3 preguntas de la consola y te armo un plan a la medida de tu negocio.',
+                en: 'These are Sahar\'s services. Answer the 3 questions in the console and I\'ll build a plan tailored to your business.'
             },
             sections: {
                 proceso: {
-                    es: 'Así trabaja Sahar: primero escucha tu idea, luego te envía una propuesta con precio, y te acompaña hasta después de la entrega.',
-                    en: 'This is how Sahar works: she listens to your idea first, then sends you a priced proposal, and supports you even after delivery.'
+                    es: 'Así trabaja Sahar: escucha tu idea, te envía una propuesta clara con alcance, tiempos y precio, y te acompaña incluso después de la entrega.',
+                    en: 'This is how Sahar works: she listens to your idea, sends you a clear proposal with scope, timeline and price, and supports you even after delivery.'
                 }
             }
         },
         contact: {
             chips: ['hire', 'cv', 'services'],
             intro: {
-                es: 'Desde aquí puedes escribirle a Sahar directamente. Te respondo cualquier duda antes de que lo hagas.',
-                en: 'From here you can reach Sahar directly. I can answer any question before you do.'
+                es: 'Desde aquí puedes escribirle a Sahar directamente. Si tienes alguna duda antes de hacerlo, pregúntame.',
+                en: 'From here you can reach Sahar directly. If you have any questions first, just ask me.'
             },
             enter: {
-                es: '¿Listo para hablar con Sahar? Escríbele por WhatsApp o déjale tu mensaje en el formulario: responde en 24–48 horas.',
-                en: 'Ready to talk to Sahar? Message her on WhatsApp or leave your message in the form: she replies within 24–48 hours.'
+                es: '¿Listo para empezar? Escríbele a Sahar por WhatsApp o déjale tu mensaje en el formulario: responde en 24 a 48 horas.',
+                en: 'Ready to get started? Message Sahar on WhatsApp or leave your message in the form: she replies within 24 to 48 hours.'
             }
         }
     },
@@ -223,8 +223,8 @@ window.AURA_KB = {
             id: 'about',
             keys: ['quien es', 'quien es sahar', 'sobre sahar', 'sobre ella', 'sobre mi', 'acerca de', 'perfil', 'cuentame de ella', 'presentate', 'about', 'who is', 'her profile', 'tell me about her', 'background', 'trayectoria'],
             answer: {
-                es: 'Sahar Gabriela Chain Mayorga es programadora y desarrolladora web bilingüe (español–inglés), con experiencia en diseño web, branding, community management y marketing digital. Combina programación (SQL, .NET, Python, PHP, Java, JavaScript) con diseño de marca para ofrecer soluciones completas en desarrollo, posicionamiento de marca y presencia digital.',
-                en: 'Sahar Gabriela Chain Mayorga is a bilingual (Spanish–English) programmer and web developer with experience in web design, branding, community management and digital marketing. She combines programming (SQL, .NET, Python, PHP, Java, JavaScript) with brand design to deliver complete solutions in development, brand positioning and digital presence.'
+                es: 'Sahar Gabriela Chain Mayorga es programadora, desarrolladora web y diseñadora de marca, formada como Computer Programmer en Lambton College (Canadá). Su diferencial es reunir en una sola persona el código (SQL, .NET, Python, PHP, Java y JavaScript), el diseño de marca, la IA y el marketing digital, para que cada proyecto mantenga una visión coherente de principio a fin.',
+                en: 'Sahar Gabriela Chain Mayorga is a programmer, web developer and brand designer who trained as a Computer Programmer at Lambton College (Canada). What sets her apart is bringing together code (SQL, .NET, Python, PHP, Java and JavaScript), brand design, AI and digital marketing in one person, so every project keeps a consistent vision from start to finish.'
             },
             action: { type: 'go', href: 'sobre-mi.html', label: { es: 'Ir a Sobre mí', en: 'Go to About' } },
             chips: ['education', 'experience', 'skills']
@@ -282,8 +282,8 @@ window.AURA_KB = {
             id: 'projects',
             keys: ['proyecto', 'proyectos', 'portafolio', 'portfolio', 'trabajos', 'muestra', 'ejemplos', 'casos', 'projects', 'project', 'work samples', 'case study', 'showcase'],
             answer: {
-                es: 'Sahar tiene 11 proyectos: 🌐 desarrollo web (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos), 💻 programación (Smart Agriculture, Library Management, Jest CI) y 🧠 IA (AURA, la asistente que te está hablando). ¿Cuál área te interesa?',
-                en: 'Sahar has 11 projects: 🌐 web development (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, MetalTec, Únicos), 💻 programming (Smart Agriculture, Library Management, Jest CI) and 🧠 AI (AURA, the assistant talking to you). Which area interests you?'
+                es: 'Sahar tiene 14 proyectos: 🌐 desarrollo web (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, Armonía, MetalTec, Únicos), 💻 programación (Smart Agriculture, Library Management, Space Flight Booking, Jest CI) y 🧠 IA (el taller para Intel Tax y AURA, la asistente que te está hablando). ¿Qué área te interesa?',
+                en: 'Sahar has 14 projects: 🌐 web development (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, Armonía, MetalTec, Únicos), 💻 programming (Smart Agriculture, Library Management, Space Flight Booking, Jest CI) and 🧠 AI (the Intel Tax workshop and AURA, the assistant talking to you). Which area interests you?'
             },
             action: { type: 'go', href: 'proyectos.html', label: { es: 'Ir a proyectos', en: 'Go to projects' } },
             chips: ['web', 'design', 'code']
@@ -312,18 +312,18 @@ window.AURA_KB = {
             id: 'code',
             keys: ['programacion', 'codigo', 'software', 'github', 'repositorio', 'repositorios', 'typescript', 'testing', 'pruebas', 'programming', 'code', 'repo', 'repos', 'tests'],
             answer: {
-                es: 'En programación: 🌱 Smart Agriculture, agricultura de precisión con sensores IoT y riego automatizado; 📚 Library Management, gestión de biblioteca en TypeScript y Node.js con pruebas en Jest; y ✅ Jest CI, pruebas automáticas en cada push con GitHub Actions. Son proyectos académicos de Lambton College publicados en GitHub.',
-                en: 'Programming: 🌱 Smart Agriculture, precision farming with IoT sensors and automated irrigation; 📚 Library Management, a TypeScript and Node.js library system tested with Jest; and ✅ Jest CI, automated tests on every push with GitHub Actions. They are Lambton College academic projects published on GitHub.'
+                es: 'En programación: 🌱 Smart Agriculture, agricultura de precisión con sensores IoT y riego automatizado; 📚 Library Management, gestión de biblioteca en TypeScript y Node.js con pruebas en Jest; 🚀 Space Flight Booking, reservas de vuelos a Marte con pruebas en Jest y despliegue con Docker; y ✅ Jest CI, pruebas automáticas en cada push con GitHub Actions. Son proyectos académicos de Lambton College.',
+                en: 'Programming: 🌱 Smart Agriculture, precision farming with IoT sensors and automated irrigation; 📚 Library Management, a TypeScript and Node.js library system tested with Jest; 🚀 Space Flight Booking, Mars flight bookings with Jest tests and Docker deployment; and ✅ Jest CI, automated tests on every push with GitHub Actions. They are Lambton College academic projects.'
             },
-            projects: ['smart-agriculture', 'bookstore', 'jest-ci'],
+            projects: ['smart-agriculture', 'bookstore', 'space-flight', 'jest-ci'],
             action: { type: 'go', href: 'proyectos.html?area=code', label: { es: 'Ver proyectos de programación', en: 'See programming projects' } }
         },
         {
             id: 'contact',
             keys: ['contacto', 'contactar', 'contactarla', 'correo', 'email', 'mail', 'telefono', 'whatsapp', 'escribirle', 'formulario', 'form', 'linkedin', 'escribirle', 'llamar', 'redes', 'contact', 'reach', 'phone', 'call', 'get in touch'],
             answer: {
-                es: 'Puedes escribirle a Sahar por 💬 WhatsApp, por 📧 sahargabriela9@gmail.com o desde el formulario de la pestaña Contacto. Está disponible para proyectos freelance y responde en 24–48 horas.',
-                en: 'You can reach Sahar on 💬 WhatsApp, at 📧 sahargabriela9@gmail.com or through the form on the Contact tab. She\'s available for freelance projects and replies within 24–48 hours.'
+                es: 'Puedes escribirle a Sahar por 💬 WhatsApp, por 📧 sahargabriela9@gmail.com o desde el formulario de la pestaña Contacto. Está disponible para nuevos proyectos y oportunidades laborales, y responde en 24 a 48 horas.',
+                en: 'You can reach Sahar on 💬 WhatsApp, at 📧 sahargabriela9@gmail.com or through the form on the Contact tab. She\'s available for new projects and job opportunities, and replies within 24 to 48 hours.'
             },
             action: { type: 'go', href: 'contacto.html', label: { es: 'Ir a contacto', en: 'Go to contact' } },
             links: [
