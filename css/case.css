@@ -2,7 +2,7 @@
    PROYECTO · Vitrina visual de cada proyecto
    Cada página define en <body style="…">: --brand, --brand2, --case-bg,
    --case-display (tipografía de la marca), --bullet y el motivo (.case--*).
-   La marca pone el color y la tipografía; AURA pone el lenguaje HUD
+   La marca pone el color y la tipografía; ATLAS pone el lenguaje HUD
    (esquinas, etiquetas mono, escaneo y brillo).
    ========================================================== */
 body.case { --a-bg: var(--case-bg); background: var(--case-bg); }
@@ -415,7 +415,7 @@ body.case { --a-bg: var(--case-bg); background: var(--case-bg); }
 .case--leaves .case-title { font-weight: 600; letter-spacing: 0.04em; }
 @keyframes blob-float { to { transform: translate(-20px, 16px) scale(1.06); } }
 
-/* AURA: anillos del orbe */
+/* ATLAS: anillos del orbe */
 .motif--orb { right: 30%; top: 4%; width: min(460px, 46vw); aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(var(--brand-rgb), 0.18); box-shadow: inset 0 0 80px rgba(var(--brand-rgb), 0.08); animation: compass-spin 50s linear infinite; }
 .motif--orb::before, .motif--orb::after { content: ''; position: absolute; border-radius: 50%; border: 1px dashed rgba(var(--brand2-rgb), 0.3); }
 .motif--orb::before { inset: 12%; }

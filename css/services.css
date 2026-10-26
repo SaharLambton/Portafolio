@@ -158,7 +158,7 @@
 .rec__link { margin-top: 4px; color: var(--t); font-size: 0.86rem; font-weight: 600; text-decoration: none; }
 .rec__link:hover { text-decoration: underline; }
 
-/* AURA lateral */
+/* ATLAS lateral */
 .console__aura {
     padding: 16px;
     border: 1px solid rgba(169, 112, 255, 0.3);

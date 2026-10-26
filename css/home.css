@@ -109,6 +109,7 @@
 }
 .glance-card--design { --c: #ff5bd8; --c-rgb: 255, 91, 216; }
 .glance-card--marketing { --c: #3ddcff; --c-rgb: 61, 220, 255; }
+.glance-card--ai { --c: #a970ff; --c-rgb: 169, 112, 255; }
 .glance-card:hover, .glance-card:focus-visible {
     transform: translateY(-4px);
     border-color: var(--c);
@@ -157,3 +158,22 @@
 @media (max-width: 900px) {
     .glance__grid { grid-template-columns: 1fr; max-width: 520px; }
 }
+
+/* ---------- Barra superior fija al bajar (Inicio) ---------- */
+.aura-topbar.is-floating {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    padding: 12px clamp(16px, 3vw, 40px);
+    background: linear-gradient(180deg, rgba(2, 4, 6, 0.94), rgba(2, 4, 6, 0.72));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(43, 245, 176, 0.12);
+    animation: topbar-drop 0.35s ease-out;
+}
+/* el hero crea su propio contexto de capas; sube para que la barra fija no quede debajo de las secciones */
+.aura-hero.has-floating-bar { z-index: 60; }
+@keyframes topbar-drop { from { transform: translateY(-100%); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .aura-topbar.is-floating { animation: none; } }

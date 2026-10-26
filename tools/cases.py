@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Genera las páginas de cada proyecto (Zohar.html, oden.html, ...).
 
-Cada proyecto comparte la estructura del sitio (barra, AURA, fondo de partículas)
+Cada proyecto comparte la estructura del sitio (barra, ATLAS, fondo de partículas)
 pero tiene su propia identidad: colores de marca, tipografía, viñetas y un motivo
 animado en la portada. Para cambiar un texto o una imagen, edita los datos de
 PROJECTS y ejecuta:
@@ -13,7 +13,7 @@ import os
 import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261027b'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261027f'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -1096,38 +1096,38 @@ PROJECTS = [
         'service': 'workshops',
     },
     {
-        'id': 'aura', 'file': 'aura.html', 'name': 'AURA', 'pillar': 'ai',
+        'id': 'aura', 'file': 'atlas.html', 'name': 'ATLAS', 'pillar': 'ai',
         'theme': {'brand': '#2bf5b0', 'brand_rgb': '43, 245, 176', 'brand2': '#a970ff', 'brand2_rgb': '169, 112, 255',
                   'bg': '#020406', 'display': "'Orbitron', sans-serif", 'body': "'Exo 2', sans-serif",
                   'fonts': 'Orbitron:wght@500;700;800', 'motif': 'orb', 'bullet': '◈'},
         'kicker': ('IA · ASISTENTE CONVERSACIONAL · WEBGL', 'AI · CONVERSATIONAL ASSISTANT · WEBGL'),
-        'title': ('AURA', 'AURA'),
+        'title': ('ATLAS', 'ATLAS'),
         'tagline': ('Asistente conversacional con IA que recibe a los visitantes, los guía por el portafolio y responde sus preguntas en español e inglés, con voz.',
                     'An AI conversational assistant that welcomes visitors, guides them through the portfolio and answers their questions in Spanish and English, out loud.'),
         'tags': ['JavaScript', 'Three.js', 'WebGL', 'GLSL', 'Web Speech API', 'UX'],
-        'hero': {'img': 'img/cases/aura-home.webp', 'alt': 'Inicio del portafolio con el orbe 3D de AURA'},
-        'links': [(('Hablar con AURA', 'Talk to AURA'), 'index.html')],
+        'hero': {'img': 'img/cases/aura-home.webp', 'alt': 'Inicio del portafolio con el orbe 3D de ATLAS'},
+        'links': [(('Hablar con ATLAS', 'Talk to ATLAS'), 'index.html')],
         'facts': [
             (('Tipo', 'Type'), ('Proyecto propio · este portafolio', 'Own project · this portfolio')),
             (('Año', 'Year'), ('2026', '2026')),
             (('Rol', 'Role'), ('Concepto, diseño, desarrollo y contenido', 'Concept, design, development and content')),
             (('Tecnología', 'Technology'), ('JavaScript · Three.js · Web Speech API', 'JavaScript · Three.js · Web Speech API')),
         ],
-        'summary': ('Un portafolio tradicional espera a que el visitante encuentre lo que busca; AURA sale a su encuentro. Es una asistente conversacional que vive en un orbe 3D: da la bienvenida, explica cada página mientras se recorre y responde preguntas sobre proyectos, servicios, experiencia y contacto, en español o en inglés y con voz. Funciona por completo en el navegador, sin servidor, y su arquitectura está preparada para conectarse a un modelo de IA.',
-                    "A traditional portfolio waits for visitors to find what they need; AURA comes to meet them. She is a conversational assistant living in a 3D orb: she welcomes visitors, explains each page as they explore it and answers questions about projects, services, experience and contact, in Spanish or English and out loud. She runs entirely in the browser, with no server, and her architecture is ready to connect to an AI model."),
+        'summary': ('Un portafolio tradicional espera a que el visitante encuentre lo que busca; ATLAS sale a su encuentro. Es una asistente conversacional que vive en un orbe 3D: da la bienvenida, explica cada página mientras se recorre y responde preguntas sobre proyectos, servicios, experiencia y contacto, en español o en inglés y con voz. Funciona por completo en el navegador, sin servidor, y su arquitectura está preparada para conectarse a un modelo de IA.',
+                    "A traditional portfolio waits for visitors to find what they need; ATLAS comes to meet them. She is a conversational assistant living in a 3D orb: she welcomes visitors, explains each page as they explore it and answers questions about projects, services, experience and contact, in Spanish or English and out loud. She runs entirely in the browser, with no server, and her architecture is ready to connect to an AI model."),
         'concept': {
             'title': ('Un portafolio que conversa', 'A portfolio that talks'),
             'quote': ('Pregúntame lo que necesites.', 'Ask me anything you need.'),
             'paras': [
-                ('El orbe responde a lo que hace AURA: respira mientras espera, se acelera cuando piensa, vibra al hablar y se ilumina cuando escucha por el micrófono. Está construido con shaders propios, partículas y anillos en WebGL.',
-                 'The orb responds to what AURA is doing: it breathes while waiting, speeds up while thinking, pulses as she speaks and lights up when she listens through the microphone. It is built with custom shaders, particles and rings in WebGL.'),
-                ('En las demás pestañas, AURA se convierte en un orbe flotante que comenta cada sección y abre un chat al tocarlo, para que la ayuda esté siempre a un clic.',
-                 'On the other tabs, AURA becomes a floating orb that comments on each section and opens a chat when tapped, so help is always one click away.')]},
+                ('El orbe responde a lo que hace ATLAS: respira mientras espera, se acelera cuando piensa, vibra al hablar y se ilumina cuando escucha por el micrófono. Está construido con shaders propios, partículas y anillos en WebGL.',
+                 'The orb responds to what ATLAS is doing: it breathes while waiting, speeds up while thinking, pulses as she speaks and lights up when she listens through the microphone. It is built with custom shaders, particles and rings in WebGL.'),
+                ('En las demás pestañas, ATLAS se convierte en un orbe flotante que comenta cada sección y abre un chat al tocarlo, para que la ayuda esté siempre a un clic.',
+                 'On the other tabs, ATLAS becomes a floating orb that comments on each section and opens a chat when tapped, so help is always one click away.')]},
         'gallery': [
-            ('img/cases/aura-home.webp', ('Inicio: el orbe y la consola de AURA', 'Home: the orb and AURA console')),
+            ('img/cases/aura-home.webp', ('Inicio: el orbe y la consola de ATLAS', 'Home: the orb and ATLAS console')),
             ('img/cases/aura-chat.webp', ('Respuesta con botones de acción', 'Answer with action buttons')),
             ('img/cases/aura-pillars.webp', ('Los pilares del inicio', 'The home pillars')),
-            ('img/cases/aura-float.webp', ('AURA flotante en otras pestañas', 'Floating AURA on other tabs')),
+            ('img/cases/aura-float.webp', ('ATLAS flotante en otras pestañas', 'Floating ATLAS on other tabs')),
             ('img/cases/aura-console.webp', ('Consola "Diseña tu misión"', '"Design your mission" console')),
         ],
         'blocks': [

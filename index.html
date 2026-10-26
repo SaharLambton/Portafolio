@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sahar Chain · Programadora, Desarrolladora Web y Diseñadora</title>
-    <meta name="description" content="Sahar Chain, programadora, desarrolladora web y diseñadora de marca. Sitios web, software, inteligencia artificial y branding para hacer crecer tu negocio. Conoce a AURA, la asistente que te guía por sus proyectos.">
+    <meta name="description" content="Sahar Chain, programadora, desarrolladora web y diseñadora de marca. Sitios web, software, inteligencia artificial y branding para hacer crecer tu negocio. Conoce a ATLAS, la asistente que te guía por sus proyectos.">
     <meta name="theme-color" content="#020406">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/aura.css?v=20261027b">
-    <link rel="stylesheet" href="css/pillars.css?v=20261027b">
-    <link rel="stylesheet" href="css/site.css?v=20261027b">
-    <link rel="stylesheet" href="css/home.css?v=20261027b">
+    <link rel="stylesheet" href="css/aura.css?v=20261027f">
+    <link rel="stylesheet" href="css/pillars.css?v=20261027f">
+    <link rel="stylesheet" href="css/site.css?v=20261027f">
+    <link rel="stylesheet" href="css/home.css?v=20261027f">
 </head>
 <body data-page="home">
-    <!-- ===================== AURA · HOME HOLOGRÁFICO ===================== -->
+    <!-- ===================== ATLAS · HOME HOLOGRÁFICO ===================== -->
     <div class="aura-boot" id="auraBoot">
         <div class="aura-boot__inner">
             <div class="aura-boot__ring"></div>
@@ -55,26 +55,31 @@
 
         <!-- Escenario del orbe (el canvas 3D se alinea con este bloque) -->
         <div class="aura-stage" id="auraStage">
-            <p class="aura-stage__label">AURA <b>//</b> <span data-es="Sistema de asistencia" data-en="Assistance system">Sistema de asistencia</span></p>
+            <p class="aura-stage__label">ATLAS <b>//</b> <span data-es="Sistema de asistencia" data-en="Assistance system">Sistema de asistencia</span></p>
         </div>
 
         <!-- HUD decorativo -->
         <aside class="aura-hud aura-hud--right" aria-hidden="true">
             <div class="aura-panel">
                 <div class="aura-panel__title"><span>MÓDULOS</span><span>04</span></div>
-                <div class="aura-panel__row"><span>PROYECTOS</span><b>14</b></div>
-                <div class="aura-panel__row"><span>TECNOLOGÍAS</span><b>25+</b></div>
+                <div class="aura-panel__row"><span>PROYECTOS</span><b id="hudProjects">14</b></div>
+                <div class="aura-panel__row"><span>TECNOLOGÍAS</span><b id="hudTech">30+</b></div>
                 <div class="aura-panel__row"><span>ACTIVA DESDE</span><b>2019</b></div>
                 <div class="aura-panel__row"><span>IDIOMAS</span><b>ES / EN</b></div>
             </div>
+            <!-- % de proyectos por pilar: lo calcula js/aura/hud.js con los proyectos de knowledge.js -->
             <div class="aura-panel">
-                <div class="aura-panel__title"><span>STACK.LOAD</span><span>◈</span></div>
-                <div class="aura-panel__row"><span>FRONTEND</span><b>92</b></div>
-                <div class="aura-meter"><i style="--v:92%"></i></div>
-                <div class="aura-panel__row"><span>BACKEND</span><b>85</b></div>
-                <div class="aura-meter"><i style="--v:85%"></i></div>
-                <div class="aura-panel__row"><span>BRANDING</span><b>95</b></div>
-                <div class="aura-meter"><i style="--v:95%"></i></div>
+                <div class="aura-panel__title"><span>STACK.LOAD</span><span data-es="% PROYECTOS" data-en="% PROJECTS">% PROYECTOS</span></div>
+                <div id="hudStack">
+                    <div class="aura-panel__row"><span>DESARROLLO</span><b>71</b></div>
+                    <div class="aura-meter"><i style="--v:71%"></i></div>
+                    <div class="aura-panel__row"><span>DISEÑO</span><b>43</b></div>
+                    <div class="aura-meter"><i style="--v:43%"></i></div>
+                    <div class="aura-panel__row"><span>MARKETING</span><b>21</b></div>
+                    <div class="aura-meter"><i style="--v:21%"></i></div>
+                    <div class="aura-panel__row"><span>IA</span><b>14</b></div>
+                    <div class="aura-meter"><i style="--v:14%"></i></div>
+                </div>
             </div>
         </aside>
 
@@ -84,7 +89,7 @@
                 <span class="aura-console__frame" aria-hidden="true"></span>
                 <div class="aura-dialog__head">
                     <i class="aura-dot" aria-hidden="true"></i>
-                    <span>AURA</span>
+                    <span>ATLAS</span>
                     <span class="aura-dialog__status" id="auraStatus">EN LÍNEA</span>
                     <button type="button" class="aura-skip" id="auraSkip" hidden data-es="SALTAR ▸▸" data-en="SKIP ▸▸">SALTAR ▸▸</button>
                 </div>
@@ -97,7 +102,7 @@
                 <span class="aura-input__prompt" aria-hidden="true">&gt;_</span>
                 <label for="auraInput" class="sr-only" data-es="Escribe tu pregunta" data-en="Type your question" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Escribe tu pregunta</label>
                 <input id="auraInput" type="text" maxlength="300" data-es-ph="Escribe tu pregunta..." data-en-ph="Type your question..." placeholder="Escribe tu pregunta...">
-                <button type="button" class="aura-icon-btn" id="auraMic" data-es-label="Hablar con AURA" data-en-label="Talk to AURA" aria-label="Hablar con AURA">
+                <button type="button" class="aura-icon-btn" id="auraMic" data-es-label="Hablar con ATLAS" data-en-label="Talk to ATLAS" aria-label="Hablar con ATLAS">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg>
                 </button>
                 <button type="submit" class="aura-send" data-es="ENVIAR" data-en="SEND">ENVIAR</button>
@@ -111,7 +116,7 @@
 
         <a class="aura-scroll" href="#pilares" data-es="EXPLORAR" data-en="EXPLORE">EXPLORAR</a>
     </header>
-    <!-- =================== FIN AURA · HOME HOLOGRÁFICO =================== -->
+    <!-- =================== FIN ATLAS · HOME HOLOGRÁFICO =================== -->
 
     <!-- ===================== PILARES · MIS CIMIENTOS ===================== -->
     <section class="pillars" id="pilares" aria-labelledby="pillarsTitle" data-aura-say="pilares">
@@ -129,21 +134,20 @@
         </div>
 
         <!-- Paneles holográficos decorativos -->
+        <!-- Paneles holográficos: muestran datos reales y cambian con el pilar abierto (js/aura/pillars.js) -->
         <div class="pillars__holo pillars__holo--left" aria-hidden="true">
-            <pre class="pillars__code">class Sahar {
-  stack = [".NET", "SQL",
-           "Angular", "TS"];
-  build(idea) {
-    return design(idea)
-      .then(code)
-      .then(ai.enhance);
-  }
-}</pre>
+            <p class="pillars__holo-title"><span>SAHAR.CORE</span><b id="holoCodeTag">ALL</b></p>
+            <pre class="pillars__code" id="holoCode">const sahar = {
+  proyectos: 14,
+  desde: 2019,
+  pilares: 4,
+};</pre>
         </div>
         <div class="pillars__holo pillars__holo--right" aria-hidden="true">
-            <svg viewBox="0 0 160 70" class="pillars__chart"><polyline points="0,60 20,52 40,56 60,38 80,42 100,24 120,30 140,12 160,16"/><polyline class="b" points="0,66 20,62 40,50 60,54 80,40 100,44 120,34 140,36 160,26"/></svg>
-            <div class="pillars__holo-row"><span>SYNC</span><b>4/4</b></div>
-            <div class="pillars__holo-row"><span>CORE</span><b>ONLINE</b></div>
+            <p class="pillars__holo-title"><span>IMPACTO</span><b id="holoMetricSrc">ÚNICOS</b></p>
+            <svg viewBox="0 0 160 70" class="pillars__chart"><polyline id="holoLineA" points="0,66 160,66"/><polyline class="b" id="holoLineB" points="0,66 160,66"/></svg>
+            <div class="pillars__holo-row"><span id="holoMetricLabel">PRODUCTIVIDAD</span><b id="holoMetricValue">+35%</b></div>
+            <div class="pillars__holo-row pillars__holo-row--note"><span id="holoMetricNote">software y automatización</span></div>
         </div>
 
         <header class="pillars__head">
@@ -182,7 +186,7 @@
                         <a class="pillar__go" href="proyectos.html?area=code" data-es="Ver proyectos →" data-en="See projects →">Ver proyectos →</a>
                         <a class="pillar__services" href="servicios.html#code" data-es="Servicios de programación" data-en="Programming services">Servicios de programación</a>
                     </div>
-                    <button type="button" class="pillar__ask" data-intent="code" data-ask-es="¿Qué sabe hacer Sahar en programación?" data-ask-en="What can Sahar do in programming?" data-es="Preguntar a AURA" data-en="Ask AURA">Preguntar a AURA</button>
+                    <button type="button" class="pillar__ask" data-intent="code" data-ask-es="¿Qué sabe hacer Sahar en programación?" data-ask-en="What can Sahar do in programming?" data-es="Preguntar a ATLAS" data-en="Ask ATLAS">Preguntar a ATLAS</button>
                 </div>
             </article>
 
@@ -208,14 +212,14 @@
                         <li data-es="Talleres de IA generativa para equipos de trabajo" data-en="Generative AI workshops for teams">Talleres de IA generativa para equipos de trabajo</li>
                         <li data-es="Chatbots con IA para atención al cliente" data-en="AI chatbots for customer service">Chatbots con IA para atención al cliente</li>
                         <li data-es="Automatización y estandarización de procesos" data-en="Process automation and standardization">Automatización y estandarización de procesos</li>
-                        <li data-es="Asistentes conversacionales como AURA" data-en="Conversational assistants like AURA">Asistentes conversacionales como AURA</li>
+                        <li data-es="Asistentes conversacionales como ATLAS" data-en="Conversational assistants like ATLAS">Asistentes conversacionales como ATLAS</li>
                         <li data-es="Datos y sensores IoT (Smart Agriculture)" data-en="Data and IoT sensors (Smart Agriculture)">Datos y sensores IoT (Smart Agriculture)</li>
                     </ul>
                     <div class="pillar__links">
                         <a class="pillar__go" href="proyectos.html?area=ai" data-es="Ver proyectos →" data-en="See projects →">Ver proyectos →</a>
                         <a class="pillar__services" href="servicios.html#ai" data-es="Servicios de IA" data-en="AI services">Servicios de IA</a>
                     </div>
-                    <button type="button" class="pillar__ask" data-intent="ai" data-ask-es="¿Qué experiencia tiene Sahar con inteligencia artificial?" data-ask-en="What experience does Sahar have with AI?" data-es="Preguntar a AURA" data-en="Ask AURA">Preguntar a AURA</button>
+                    <button type="button" class="pillar__ask" data-intent="ai" data-ask-es="¿Qué experiencia tiene Sahar con inteligencia artificial?" data-ask-en="What experience does Sahar have with AI?" data-es="Preguntar a ATLAS" data-en="Ask ATLAS">Preguntar a ATLAS</button>
                 </div>
             </article>
 
@@ -248,7 +252,7 @@
                         <a class="pillar__go" href="proyectos.html?area=design" data-es="Ver proyectos →" data-en="See projects →">Ver proyectos →</a>
                         <a class="pillar__services" href="servicios.html#design" data-es="Servicios de diseño" data-en="Design services">Servicios de diseño</a>
                     </div>
-                    <button type="button" class="pillar__ask" data-intent="design" data-ask-es="Muéstrame los proyectos de branding y diseño" data-ask-en="Show me the branding and design projects" data-es="Preguntar a AURA" data-en="Ask AURA">Preguntar a AURA</button>
+                    <button type="button" class="pillar__ask" data-intent="design" data-ask-es="Muéstrame los proyectos de branding y diseño" data-ask-en="Show me the branding and design projects" data-es="Preguntar a ATLAS" data-en="Ask ATLAS">Preguntar a ATLAS</button>
                 </div>
             </article>
             <!-- IV · MARKETING -->
@@ -280,7 +284,7 @@
                         <a class="pillar__go" href="proyectos.html?area=marketing" data-es="Ver proyectos →" data-en="See projects →">Ver proyectos →</a>
                         <a class="pillar__services" href="servicios.html#marketing" data-es="Servicios de marketing" data-en="Marketing services">Servicios de marketing</a>
                     </div>
-                    <button type="button" class="pillar__ask" data-intent="marketing" data-ask-es="¿Qué hace Sahar en marketing digital?" data-ask-en="What does Sahar do in digital marketing?" data-es="Preguntar a AURA" data-en="Ask AURA">Preguntar a AURA</button>
+                    <button type="button" class="pillar__ask" data-intent="marketing" data-ask-es="¿Qué hace Sahar en marketing digital?" data-ask-en="What does Sahar do in digital marketing?" data-es="Preguntar a ATLAS" data-en="Ask ATLAS">Preguntar a ATLAS</button>
                 </div>
             </article>
         </div>
@@ -299,6 +303,15 @@
             <h2 class="glance__title" id="glanceTitle" data-es="Proyectos destacados" data-en="Featured projects">Proyectos destacados</h2>
         </header>
         <div class="glance__grid">
+            <a class="glance-card glance-card--ai" href="taller-ia.html">
+                <span class="glance-card__media"><img src="img/thumbs/taller-ia-card.webp" alt="" loading="lazy"></span>
+                <span class="glance-card__body">
+                    <span class="glance-card__tag" data-es="IA · FORMACIÓN EMPRESARIAL" data-en="AI · CORPORATE TRAINING">IA · FORMACIÓN EMPRESARIAL</span>
+                    <span class="glance-card__title" data-es="Taller de IA · Intel Tax" data-en="AI Workshop · Intel Tax">Taller de IA · Intel Tax</span>
+                    <span class="glance-card__text" data-es="Taller de IA generativa para que un equipo contable y tributario adoptara ChatGPT Work en su día a día." data-en="A generative AI workshop that helped an accounting and tax team adopt ChatGPT Work in their daily work.">Taller de IA generativa para que un equipo contable y tributario adoptara ChatGPT Work en su día a día.</span>
+                    <span class="glance-card__tech">IA generativa · ChatGPT Work</span>
+                </span>
+            </a>
             <a class="glance-card glance-card--code" href="sell-services.html">
                 <span class="glance-card__media"><video src="services.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></span>
                 <span class="glance-card__body">
@@ -308,22 +321,13 @@
                     <span class="glance-card__tech">PHP · MySQL · JavaScript</span>
                 </span>
             </a>
-            <a class="glance-card glance-card--design" href="Zohar.html">
-                <span class="glance-card__media"><img src="img/cases/zohar-recurso-3.webp" alt="" loading="lazy"></span>
+            <a class="glance-card glance-card--ai" href="atlas.html">
+                <span class="glance-card__media"><img src="img/thumbs/aura-card.webp" alt="" loading="lazy"></span>
                 <span class="glance-card__body">
-                    <span class="glance-card__tag" data-es="DISEÑO · BRANDING" data-en="DESIGN · BRANDING">DISEÑO · BRANDING</span>
-                    <span class="glance-card__title">Zohar</span>
-                    <span class="glance-card__text" data-es="Estrategia e identidad integral para una firma de joyería de lujo, del concepto al manual de marca." data-en="End-to-end strategy and identity for a luxury jewelry house, from concept to brand manual.">Estrategia e identidad integral para una firma de joyería de lujo, del concepto al manual de marca.</span>
-                    <span class="glance-card__tech">Illustrator · Branding</span>
-                </span>
-            </a>
-            <a class="glance-card glance-card--marketing" href="metaltec.html">
-                <span class="glance-card__media"><img src="img/thumbs/metaltec-card.webp" alt="" loading="lazy"></span>
-                <span class="glance-card__body">
-                    <span class="glance-card__tag" data-es="DISEÑO · WEB · REDES" data-en="DESIGN · WEB · SOCIAL">DISEÑO · WEB · REDES</span>
-                    <span class="glance-card__title">MetalTec Colombia</span>
-                    <span class="glance-card__text" data-es="Marca desde cero, sitio web en WordPress y redes sociales para una empresa metalúrgica." data-en="A brand built from scratch, a WordPress website and social media for a metalworking company.">Marca desde cero, sitio web en WordPress y redes sociales para una empresa metalúrgica.</span>
-                    <span class="glance-card__tech">WordPress · Illustrator</span>
+                    <span class="glance-card__tag" data-es="IA · ASISTENTE CONVERSACIONAL" data-en="AI · CONVERSATIONAL ASSISTANT">IA · ASISTENTE CONVERSACIONAL</span>
+                    <span class="glance-card__title">ATLAS</span>
+                    <span class="glance-card__text" data-es="La asistente de este portafolio: responde en español e inglés, habla, escucha y vive en un orbe 3D." data-en="This portfolio's assistant: she answers in Spanish and English, speaks, listens and lives in a 3D orb.">La asistente de este portafolio: responde en español e inglés, habla, escucha y vive en un orbe 3D.</span>
+                    <span class="glance-card__tech">JavaScript · Three.js · Web Speech API</span>
                 </span>
             </a>
         </div>
@@ -343,13 +347,13 @@
 
     <footer class="site-footer" data-site-footer></footer>
 
-    <!-- AURA -->
+    <!-- ATLAS -->
     <script src="js/vendor/three.min.js"></script>
-    <script src="js/aura/knowledge.js?v=20261027b"></script>
-    <script src="js/site.js?v=20261027b"></script>
-    <script src="js/aura/orb.js?v=20261027b"></script>
-    <script src="js/aura/hud.js?v=20261027b"></script>
-    <script src="js/aura/assistant.js?v=20261027b"></script>
-    <script src="js/aura/pillars.js?v=20261027b"></script>
+    <script src="js/aura/knowledge.js?v=20261027f"></script>
+    <script src="js/site.js?v=20261027f"></script>
+    <script src="js/aura/orb.js?v=20261027f"></script>
+    <script src="js/aura/hud.js?v=20261027f"></script>
+    <script src="js/aura/assistant.js?v=20261027f"></script>
+    <script src="js/aura/pillars.js?v=20261027f"></script>
 </body>
 </html>

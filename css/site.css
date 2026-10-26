@@ -1,6 +1,6 @@
 /* ==========================================================
    SITE · Estilos compartidos por todas las pestañas
-   (barra en páginas internas, pie de página, orbe flotante de AURA)
+   (barra en páginas internas, pie de página, orbe flotante de ATLAS)
    Requiere los tokens de color de css/aura.css
    ========================================================== */
 
@@ -111,7 +111,7 @@ img, video { max-width: 100%; }
 .site-footer a:hover, .site-footer a:focus-visible { color: var(--a-emerald); outline: none; }
 .site-footer__copy { width: min(1200px, 100%); margin: 24px auto 0; font-size: 0.78rem; color: var(--a-dim); }
 
-/* ---------- Orbe flotante de AURA ---------- */
+/* ---------- Orbe flotante de ATLAS ---------- */
 .aura-float {
     position: fixed;
     right: clamp(14px, 2.5vw, 28px);

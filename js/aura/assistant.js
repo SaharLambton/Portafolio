@@ -1,5 +1,5 @@
 /* ==========================================================
-   AURA · Asistente: bienvenida, chat, voz, idioma y comentarios
+   ATLAS · Asistente: bienvenida, chat, voz, idioma y comentarios
    En Inicio el chat vive en el hero; en las demás pestañas vive en
    el panel del orbe flotante (lo crea js/site.js).
    ========================================================== */
@@ -13,7 +13,7 @@
     const pageKey = page === 'case' ? 'case-' + (document.body.dataset.project || '') : page;
     const isHome = page === 'home';
     let PAGE = (KB.pages && KB.pages[page]) || {};
-    // en la página de un proyecto, AURA habla de ese proyecto
+    // en la página de un proyecto, ATLAS habla de ese proyecto
     if (page === 'case') {
         const proj = KB.projects.find((x) => x.id === document.body.dataset.project);
         if (proj) {
@@ -88,7 +88,7 @@
         repo: { es: 'Ver en GitHub', en: 'View on GitHub' },
         voiceOn: { es: 'Desactivar voz', en: 'Turn voice off' },
         voiceOff: { es: 'Activar voz', en: 'Turn voice on' },
-        tapToHear: { es: '🔊 Toca la pantalla para escuchar a AURA', en: '🔊 Tap the screen to hear AURA' },
+        tapToHear: { es: '🔊 Toca la pantalla para escuchar a ATLAS', en: '🔊 Tap the screen to hear ATLAS' },
         boot: {
             es: ['> Inicializando núcleo {name}...', '> Cargando módulos: proyectos · habilidades · experiencia', '> Calibrando matriz holográfica', '> Enlace neural establecido ✓'],
             en: ['> Initializing {name} core...', '> Loading modules: projects · skills · experience', '> Calibrating holographic matrix', '> Neural link established ✓']
@@ -116,7 +116,7 @@
     }
 
     // Los navegadores bloquean el audio hasta que la persona interactúa con la página.
-    // Mientras tanto guardamos lo último que AURA dijo y lo leemos con el primer gesto.
+    // Mientras tanto guardamos lo último que ATLAS dijo y lo leemos con el primer gesto.
     const UA = navigator.userActivation;
     let activated = UA ? UA.hasBeenActive : true;
     let pendingSpeech = null;
@@ -143,7 +143,9 @@
             return Promise.resolve();
         }
         synth.cancel();
-        const clean = text.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}]/gu, '').replace(/\s+/g, ' ').trim();
+        const clean = text.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}]/gu, '').replace(/\s+/g, ' ')
+            // en mayúsculas, algunas voces deletrean el nombre: se lee como palabra
+            .replace(/\bATLAS\b/g, 'Atlas').trim();
         if (!clean) return Promise.resolve();
         return new Promise((resolve) => {
             const u = new SpeechSynthesisUtterance(clean);
@@ -459,7 +461,7 @@
                 els.bootLog.appendChild(p);
                 await sleep(reducedMotion ? 0 : 380);
             }
-            // "Iniciar sistema" cuenta como interacción, así el navegador deja hablar a AURA
+            // "Iniciar sistema" cuenta como interacción, así el navegador deja hablar a ATLAS
             if (els.bootActions) {
                 els.bootActions.hidden = false;
                 els.bootGo.focus({ preventScroll: true });
@@ -530,7 +532,7 @@
         }
     }
     window.setSiteLanguage = setLanguage;
-    // otras secciones (p. ej. los pilares) pueden hacerle preguntas a AURA
+    // otras secciones (p. ej. los pilares) pueden hacerle preguntas a ATLAS
     window.AuraAsk = (q, intentId) => {
         if (!isHome && window.AuraPanel) {
             window.AuraPanel.open();
@@ -543,7 +545,7 @@
     };
     window.changeLanguage = (lang) => setLanguage(lang);
 
-    /* ---------- Comentarios de AURA según la página ---------- */
+    /* ---------- Comentarios de ATLAS según la página ---------- */
     let lastComment = 0;
     let bubbleTimer = null;
     const COMMENT_GAP = 4500;      // pausa mínima entre comentarios
@@ -594,7 +596,7 @@
         await showBubble(text);
     }
 
-    // Los comentarios esperan su turno: nunca se pierden por llegar mientras AURA habla.
+    // Los comentarios esperan su turno: nunca se pierden por llegar mientras ATLAS habla.
     // Si la voz está apagada se muestran solo en texto.
     function comment(key, obj) {
         if (!obj || saidNow.has(key) || queue.some((q) => q.key === key)) return;
