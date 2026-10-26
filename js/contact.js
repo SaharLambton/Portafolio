@@ -67,6 +67,7 @@
             setStatus(email.value.trim() && !email.checkValidity() ? t('email') : t('required'), 'error');
             const first = form.querySelector('.is-invalid input, .is-invalid select, .is-invalid textarea');
             if (first) first.focus();
+            if (window.SFX) window.SFX.play('error');
         }
         return ok;
     }
@@ -100,6 +101,7 @@
             ].join('\n');
             window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(data.get('_subject'))}&body=${encodeURIComponent(body)}`;
             setStatus(t('mailto'), 'ok');
+            if (window.SFX) window.SFX.play('success');
             return;
         }
 
@@ -114,9 +116,11 @@
             if (!res.ok) throw new Error('HTTP ' + res.status);
             form.reset();
             setStatus(t('sent'), 'ok');
+            if (window.SFX) window.SFX.play('success');
             if (window.AuraComment) window.AuraComment('sent', { es: '¡Listo! Tu mensaje ya va en camino hacia Sahar 🚀', en: 'Done! Your message is on its way to Sahar 🚀' });
         } catch (err) {
             setStatus(t('error'), 'error');
+            if (window.SFX) window.SFX.play('error');
         } finally {
             submit.disabled = false;
         }

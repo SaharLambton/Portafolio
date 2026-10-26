@@ -255,6 +255,7 @@
     }
 
     function result() {
+        if (window.SFX) window.SFX.play('success');
         const p = plan();
         main.innerHTML = '';
         const wrap = document.createElement('div');

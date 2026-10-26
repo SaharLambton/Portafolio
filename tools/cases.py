@@ -13,7 +13,7 @@ import os
 import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261027f'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261027g'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -1508,6 +1508,7 @@ def page(p, prev, nxt, num, total):
 
     <script src="js/aura/knowledge.js?v={V}"></script>
     <script src="js/bg.js?v={V}"></script>
+    <script src="js/sfx.js?v={V}"></script>
     <script src="js/site.js?v={V}"></script>
     <script src="js/aura/assistant.js?v={V}"></script>
     <script src="js/case.js?v={V}"></script>
