@@ -465,14 +465,14 @@ window.AURA_KB = {
         },
         {
             id: 'armonia', name: 'Aromáticas Armonía', keys: ['armonia', 'aromaticas', 'aromatica', 'infusion', 'infusiones', 'packaging', 'empaque', 'etiqueta', 'herbal tea', 'tea', 'label'],
-            brand: '#7fa86e', kind: { es: 'Cliente · Aromáticas e infusiones', en: 'Client · Herbal teas' },
+            brand: '#7fa86e', kind: { es: 'Cliente · Aromáticas · 2026', en: 'Client · Herbal teas · 2026' },
             pillars: ['design'], card: 'img/thumbs/armonia-card.webp', video: '',
             short: { es: 'Marca y empaque para aromáticas naturales: logo con una A que florece, etiquetas y mockups a medida con IA.', en: 'Branding and packaging for natural herbal teas: a logo with a blooming A, labels and custom AI mockups.' },
             url: 'armonia.html', area: 'design',
             tech: ['Branding', 'Packaging', 'Mockups con IA'],
             desc: {
-                es: 'Armonía es la identidad de marca de una línea de aromáticas e infusiones naturales: un logotipo cuya A florece como una planta, una paleta de verde bosque y crema, un patrón de hojas, la etiqueta ilustrada de Pasión Tropical y mockups a medida generados con IA para ver la marca en cajas, frascos, papelería y una tienda antes de producirla.',
-                en: 'Armonía is the brand identity for a line of natural herbal teas and infusions: a logo whose A blooms like a plant, a forest green and cream palette, a leaf pattern, the illustrated Pasión Tropical label and custom AI-generated mockups to see the brand on boxes, jars, stationery and a storefront before production.'
+                es: 'Armonía es una marca de aromáticas premium, natural y accesible, creada a comienzos de 2026 a partir de un solo dato: el nombre. Sahar diseñó el logotipo, cuya A florece como una planta, la paleta de verde bosque y crema, el patrón de hojas, las piezas imprimibles del primer lanzamiento, Pasión Tropical (etiquetas, sello de caja y etiquetas de bolsita), y mockups a medida generados con IA. La marca está pensada tanto para reuniones de empresa como para el consumidor del día a día, y hoy el cliente la usa en sus productos.',
+                en: 'Armonía is a premium, natural and affordable herbal tea brand, created in early 2026 from a single starting point: the name. Sahar designed the logo, whose A blooms like a plant, the forest green and cream palette, the leaf pattern, the printable pieces for the first launch, Pasión Tropical (labels, box seal and tea bag tags), and custom AI-generated mockups. The brand is designed for business meetings as well as everyday consumers, and the client uses it on its products today.'
             },
             tag: { es: 'Branding y packaging', en: 'Branding & packaging' }
         },
