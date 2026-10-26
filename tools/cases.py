@@ -13,7 +13,7 @@ import os
 import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261026e'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261027a'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -1381,7 +1381,7 @@ def page(p, prev, nxt, num, total):
     # ---------- galería deslizable ----------
     slides = ''.join(f'<li class="reel__slide"><button type="button" class="case-shot" data-full="{src}"><img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-shot__cap", cap)}</button></li>' for src, cap in gallery[:shown])
     # las ocultas siguen en el visor para poder ampliarlas desde arriba
-    hidden_shots = ''.join(f'<button type="button" class="case-shot" data-full="{src}" hidden><img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-shot__cap", cap)}</button>' for src, cap in gallery[shown:])
+    hidden_shots = ''.join(f'<button type="button" class="case-shot" data-full="{src}"><img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-shot__cap", cap)}</button>' for src, cap in gallery[shown:])
     many = shown > 1
     nav = (f'<div class="reel__nav"><button type="button" class="reel__btn" data-dir="-1" data-es-label="Anterior" data-en-label="Previous" aria-label="Anterior">‹</button>'
            f'<span class="reel__count"><b>01</b> / {shown:02d}</span>'
@@ -1413,7 +1413,7 @@ def page(p, prev, nxt, num, total):
                 </div>
                 {nav}
             </div>
-            <ul class="reel{' reel--single' if not many else ''}" tabindex="0" aria-label="Galería">{slides}</ul>{hidden_shots}
+            <ul class="reel{' reel--single' if not many else ''}" tabindex="0" aria-label="Galería">{slides}</ul>{('<div class="case-shots-hidden" hidden>' + hidden_shots + '</div>') if hidden_shots else ''}
             {bi('p', 'case-hint', ('Toca una imagen para verla en pantalla completa.', 'Tap an image to see it full screen.'))}
         </section>''')
 

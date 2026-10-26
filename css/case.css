@@ -455,3 +455,6 @@ body.case { --a-bg: var(--case-bg); background: var(--case-bg); }
     .case-js .reveal { opacity: 1; transform: none; transition: none; }
     .device--laptop { transform: none; }
 }
+
+/* fotos que solo se abren desde la misión o las franjas, fuera del carrusel */
+.case-shots-hidden, .case-shots-hidden[hidden] { display: none !important; }
