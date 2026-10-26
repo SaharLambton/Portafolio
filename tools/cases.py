@@ -526,6 +526,12 @@ PROJECTS = [
         ],
         'gallery': [
             ('img/cases/armonia-identidad.webp', ('Identidad completa: logotipo, versiones, símbolo, color, tipografía, patrón y aplicaciones', 'Complete identity: logo, versions, symbol, color, typography, pattern and applications')),
+            ('img/cases/armonia-logo-crema.webp', ('Logotipo principal', 'Main logo')),
+            ('img/cases/armonia-logo-verde.webp', ('Versión sobre verde', 'Version on green')),
+            ('img/cases/armonia-logo-negro.webp', ('Versión en negativo', 'Negative version')),
+            ('img/cases/armonia-logo-blanco.webp', ('Versión en una tinta', 'One-color version')),
+            ('img/cases/armonia-simbolo.webp', ('Símbolo y colores de marca', 'Symbol and brand colors')),
+            ('img/cases/armonia-patron.webp', ('Patrón de hojas', 'Leaf pattern')),
             ('img/cases/armonia-frente.webp', ('Etiqueta Pasión Tropical: frente', 'Pasión Tropical label: front')),
             ('img/cases/armonia-reverso.webp', ('Etiqueta Pasión Tropical: reverso', 'Pasión Tropical label: back')),
             ('img/cases/armonia-sello.webp', ('Sello de la caja', 'Box seal')),
@@ -540,18 +546,22 @@ PROJECTS = [
             ('img/cases/armonia-taza.webp', ('Mockup: momento de consumo', 'Mockup: the tea moment')),
             ('img/cases/armonia-fachada.webp', ('Mockup: fachada de tienda', 'Mockup: storefront')),
         ],
+        # arriba se usan el logo y sus versiones; la galería empieza en el collage y los imprimibles
+        'gallery_hide': ['img/cases/armonia-logo-crema.webp', 'img/cases/armonia-logo-verde.webp', 'img/cases/armonia-logo-negro.webp',
+                         'img/cases/armonia-logo-blanco.webp', 'img/cases/armonia-simbolo.webp', 'img/cases/armonia-patron.webp'],
+        'mission_img': 'img/cases/armonia-logo-crema.webp',
         'palette': [('Verde bosque', 'Forest green', '#374F37'), ('Crema', 'Cream', '#FFF6E4')],
         'type': [('Citadel of Blackrose', "'Cormorant Garamond', serif", 'Armonía', ('Logotipo: serif de inspiración clásica con remates orgánicos que evocan tallos y hojas.', 'Logotype: classic-inspired serif with organic terminals that evoke stems and leaves.'))],
         'blocks': [
-            {'title': ('Sistema de logotipo', 'Logo system'), 'img': 9, 'items': [
+            {'title': ('Sistema de logotipo', 'Logo system'), 'img': 'img/cases/armonia-simbolo.webp', 'items': [
                 ('Logotipo con símbolo integrado en la A', 'Logo with the symbol built into the A'),
                 ('Versiones sobre crema, verde, negro y blanco', 'Versions on cream, green, black and white'),
                 ('Símbolo independiente para sellos e íconos', 'Standalone symbol for seals and icons')]},
-            {'title': ('Packaging imprimible', 'Printable packaging'), 'img': 1, 'items': [
+            {'title': ('Packaging imprimible', 'Printable packaging'), 'img': 'img/cases/armonia-frente.webp', 'items': [
                 ('Etiqueta frontal y posterior de Pasión Tropical', 'Front and back label for Pasión Tropical'),
                 ('Sello para cerrar la caja', 'Seal to close the box'),
                 ('Etiquetas para las bolsitas de infusión', 'Tags for the tea bags')]},
-            {'title': ('Mockups a medida con IA', 'Custom AI mockups'), 'img': 5, 'items': [
+            {'title': ('Mockups a medida con IA', 'Custom AI mockups'), 'img': 'img/cases/armonia-mesa.webp', 'items': [
                 ('Cajas, bolsas kraft y frascos', 'Boxes, kraft pouches and jars'),
                 ('Papelería, tarjetas y lacre', 'Stationery, cards and wax seal'),
                 ('Fachada de tienda y momento de consumo', 'Storefront and the tea moment')]},
@@ -1228,6 +1238,10 @@ def page(p, prev, nxt, num, total):
     ev = p.get('evidence')
     # con archivo de evidencias, sus fotos forman la galería del visor
     gallery = p['gallery'] or ([img for g in ev['groups'] for img in g[2]] if ev else [])
+    # imágenes que se usan arriba (misión y franjas) pero no salen en la galería: van al final, fuera del carrusel
+    hide = set(p.get('gallery_hide', []))
+    gallery = [g for g in gallery if g[0] not in hide] + [g for g in gallery if g[0] in hide]
+    shown = len(gallery) - len(hide)
 
     # imágenes para la misión y las franjas: las de la galería que no son la portada
     hs = hero_src(p)
@@ -1312,7 +1326,8 @@ def page(p, prev, nxt, num, total):
         txt = f'{bi("h3", "case-row__title", b["title"])}<ul class="case-list">{lis}</ul>'
         if 'img' in b and not ev:
             # el bloque elige su imagen de la galería
-            gi, (src, cap) = b['img'], gallery[b['img']]
+            gi = b['img'] if isinstance(b['img'], int) else next(i for i, (src, _) in enumerate(gallery) if src == b['img'])
+            src, cap = gallery[gi]
             pool = [x for x in pool if x[0] != gi]
             rows.append(f'<article class="case-row"><div class="case-row__media reveal">{zoom(src, cap, gi)}</div><div class="case-row__copy reveal"><span class="case-row__num">0{len(rows) + 2}</span>{txt}</div></article>')
         elif pool and not ev:
@@ -1364,10 +1379,12 @@ def page(p, prev, nxt, num, total):
         </section>''')
 
     # ---------- galería deslizable ----------
-    slides = ''.join(f'<li class="reel__slide"><button type="button" class="case-shot" data-full="{src}"><img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-shot__cap", cap)}</button></li>' for src, cap in gallery)
-    many = len(gallery) > 1
+    slides = ''.join(f'<li class="reel__slide"><button type="button" class="case-shot" data-full="{src}"><img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-shot__cap", cap)}</button></li>' for src, cap in gallery[:shown])
+    # las ocultas siguen en el visor para poder ampliarlas desde arriba
+    hidden_shots = ''.join(f'<button type="button" class="case-shot" data-full="{src}" hidden><img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-shot__cap", cap)}</button>' for src, cap in gallery[shown:])
+    many = shown > 1
     nav = (f'<div class="reel__nav"><button type="button" class="reel__btn" data-dir="-1" data-es-label="Anterior" data-en-label="Previous" aria-label="Anterior">‹</button>'
-           f'<span class="reel__count"><b>01</b> / {len(gallery):02d}</span>'
+           f'<span class="reel__count"><b>01</b> / {shown:02d}</span>'
            f'<button type="button" class="reel__btn" data-dir="1" data-es-label="Siguiente" data-en-label="Next" aria-label="Siguiente">›</button></div>') if many else ''
     if ev:
         k, groups = 0, []
@@ -1396,7 +1413,7 @@ def page(p, prev, nxt, num, total):
                 </div>
                 {nav}
             </div>
-            <ul class="reel{' reel--single' if not many else ''}" tabindex="0" aria-label="Galería">{slides}</ul>
+            <ul class="reel{' reel--single' if not many else ''}" tabindex="0" aria-label="Galería">{slides}</ul>{hidden_shots}
             {bi('p', 'case-hint', ('Toca una imagen para verla en pantalla completa.', 'Tap an image to see it full screen.'))}
         </section>''')
 
