@@ -13,7 +13,7 @@ import os
 import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261025y'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261026a'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -242,26 +242,56 @@ PROJECTS = [
                   'fonts': 'Cinzel:wght@500;700&family=Montserrat:wght@400;500;600', 'motif': 'waves', 'bullet': '◇'},
         'kicker': ('DISEÑO · BRANDING DE LUJO', 'DESIGN · LUXURY BRANDING'),
         'title': ('Zohar', 'Zohar'),
-        'tagline': ('Identidad de marca para joyería de lujo: del concepto a la implementación visual completa.',
-                    'Brand identity for luxury jewelry: from concept to complete visual implementation.'),
-        'tags': ['Branding', 'Logo', 'Manual de marca', 'Packaging', 'Estrategia digital'],
+        'tagline': ('Identidad de marca integral para una firma de joyería de lujo: de la estrategia al sistema visual completo.',
+                    'End-to-end brand identity for a luxury jewelry house: from strategy to a complete visual system.'),
+        'tags': ['Estrategia de marca', 'Identidad visual', 'Guía de marca', 'Packaging', 'Estrategia digital'],
         'hero': {'img': 'img/cases/zohar-zohar-fondo-oscuro.webp', 'alt': 'Logo de Zohar en plata sobre azul profundo'},
         'facts': [
             (('Cliente', 'Client'), ('Cliente real · joyería de lujo', 'Real client · luxury jewelry')),
             (('Duración', 'Duration'), ('6 semanas', '6 weeks')),
-            (('Rol', 'Role'), ('Diseñadora de marca', 'Brand designer')),
+            (('Rol', 'Role'), ('Estratega y diseñadora de marca', 'Brand strategist and designer')),
             (('Herramientas', 'Tools'), ('Illustrator · Photoshop', 'Illustrator · Photoshop')),
         ],
-        'summary': ('Identidad visual completa para Zohar, una marca de joyería que busca trascender lo convencional con piezas exclusivas y personalizadas. El proyecto abarcó desde la filosofía de marca hasta el logo, el manual, las aplicaciones y la estrategia de comunicación.',
-                    'Complete visual identity for Zohar, a jewelry brand that seeks to transcend the conventional with exclusive, personalized pieces. The project covered everything from brand philosophy to logo, manual, applications and communication strategy.'),
+        'summary': ('Zohar es una marca de joyería que busca trascender lo convencional con piezas exclusivas y personalizadas. El encargo consistió en construir su identidad desde la estrategia: definir su filosofía, su misión y su visión, identificar a quién se dirige y cómo debe comunicarse, para luego traducir esas decisiones en un sistema visual coherente. El resultado es una guía de marca que reúne el logotipo y sus versiones, la paleta, la tipografía, las aplicaciones y los lineamientos para el entorno digital.',
+                    'Zohar is a jewelry brand that seeks to go beyond the conventional with exclusive, personalized pieces. The brief was to build its identity from strategy: define its philosophy, mission and vision, identify who it speaks to and how it should communicate, and then translate those decisions into a coherent visual system. The result is a brand guide covering the logo and its versions, palette, typography, applications and guidelines for the digital space.'),
         'concept': {
             'title': ('"Zohar" significa esplendor', '"Zohar" means splendor'),
-            'quote': ('Conectamos emociones, creamos relaciones. Tu lujo, tu historia.', 'We connect emotions, we build relationships. Your luxury, your story.'),
+            'quote': ('Conectamos emociones, creamos relaciones. Tu lujo, tu historia. Descubre la autenticidad en cada joya.', 'We connect emotions, we build relationships. Your luxury, your story. Discover the authenticity in every jewel.'),
             'paras': [
-                ('El logo encapsula el esplendor con un diseño minimalista: sobre un azul profundo, como el océano en calma, aparecen suaves olas que aportan movimiento y fluidez.',
-                 'The logo captures splendor through a minimalist design: on a deep blue, like a calm ocean, soft waves bring movement and fluidity.'),
-                ('El nombre resplandece en plata con una tipografía estilizada: letras de base cuadrada con curvas que evocan la elegancia y las ondas del mar.',
-                 'The name shines in silver with a stylized typeface: square-based letters with curves that evoke elegance and the waves of the sea.')]},
+                ('El logotipo expresa la idea de esplendor a través de un diseño minimalista y elegante. Sobre un azul profundo, que evoca el océano en calma, unas olas suaves aportan movimiento y fluidez.',
+                 'The logo expresses the idea of splendor through a minimalist, elegant design. On a deep blue that evokes a calm ocean, soft waves bring movement and fluidity.'),
+                ('El nombre resplandece en plata, con letras de base cuadrada y curvas sutiles que equilibran la sofisticación geométrica con la naturaleza fluida del agua. La versión oscura, en tonos azules degradados, amplía los usos de la marca sin perder esa conexión con el mar.',
+                 'The name shines in silver, with square-based letters and subtle curves that balance geometric sophistication with the fluid nature of water. The dark version, in graded blues, widens the brand\'s uses without losing that connection with the sea.')]},
+        'sections': [
+            {'kind': 'pair', 'over': ('// PROPÓSITO', '// PURPOSE'), 'title': ('Misión y visión', 'Mission and vision'),
+             'items': [
+                (('Misión', 'Mission'), ('En Zohar, nuestra misión es trascender la joyería convencional para ofrecer experiencias auténticas y exclusivas. Nos dedicamos a la creación de piezas de lujo que no solo adornan, sino que también cuentan historias, conectan emociones y fortalecen relaciones. Con un compromiso inquebrantable con la artesanía excepcional, buscamos ser la elección predilecta de quienes buscan el esplendor en cada detalle.',
+                                         'At Zohar, our mission is to go beyond conventional jewelry to offer authentic, exclusive experiences. We create luxury pieces that do more than adorn: they tell stories, connect emotions and strengthen relationships. With an unwavering commitment to exceptional craftsmanship, we aim to be the first choice for those who seek splendor in every detail.')),
+                (('Visión', 'Vision'), ('Nuestra visión es convertirnos en un referente mundial de la joyería de lujo que va más allá de la estética y brinda una experiencia de vida. Aspiramos a ser reconocidos no solo por la calidad y exclusividad de nuestras piezas, sino también por la conexión genuina que creamos con cada cliente. Imaginamos un mundo donde cada joya Zohar sea un símbolo de autenticidad, elegancia y un recordatorio constante del esplendor que todos llevamos dentro.',
+                                        'Our vision is to become a global benchmark in luxury jewelry that goes beyond aesthetics and offers a life experience. We aspire to be recognized not only for the quality and exclusivity of our pieces, but also for the genuine connection we create with every client. We imagine a world where every Zohar jewel is a symbol of authenticity, elegance and a constant reminder of the splendor we all carry within.')),
+             ]},
+            {'kind': 'cards', 'over': ('// PÚBLICO OBJETIVO', '// TARGET AUDIENCE'), 'title': ('A quién se dirige la marca', 'Who the brand speaks to'),
+             'intro': ('Un público diverso en edad y género que comparte el aprecio por la autenticidad, la exclusividad y la elegancia, y que busca en la joyería algo más que un accesorio: una experiencia con significado.',
+                       'An audience diverse in age and gender that shares an appreciation for authenticity, exclusivity and elegance, and looks for more than an accessory in jewelry: a meaningful experience.'),
+             'items': [
+                (('Jóvenes profesionales en ascenso', 'Young rising professionals'), ('Personas exitosas que se inician en el mundo de las piezas de alto valor y personalizadas, y buscan expresar sus logros de manera única.', 'Successful people entering the world of high-value, personalized pieces, looking to express their achievements in a unique way.')),
+                (('Amantes de la moda y el estilo', 'Fashion and style lovers'), ('Personas con un gusto refinado que buscan joyas capaces de complementar y realzar su estilo personal.', 'People with refined taste looking for jewelry that complements and enhances their personal style.')),
+                (('Clientes experimentados de joyería de lujo', 'Experienced luxury jewelry clients'), ('Quienes ya conocen la experiencia del lujo y eligen marcas que ofrezcan autenticidad y una conexión emocional más allá del producto.', 'Those who already know the luxury experience and choose brands that offer authenticity and an emotional connection beyond the product.')),
+                (('Regaladores conscientes', 'Thoughtful gift-givers'), ('Personas que buscan regalos significativos y personalizados para ocasiones especiales, y valoran la exclusividad y la calidad de cada pieza.', 'People looking for meaningful, personalized gifts for special occasions, who value the exclusivity and quality of each piece.')),
+                (('Seguidores de tendencias', 'Trend followers'), ('Personas atentas a las últimas tendencias en joyería que desean piezas a la vanguardia del estilo.', 'People who follow the latest jewelry trends and want pieces at the forefront of style.')),
+             ]},
+            {'kind': 'cards', 'over': ('// ESTRATEGIA DIGITAL', '// DIGITAL STRATEGY'), 'title': ('Cómo se comunica la marca', 'How the brand communicates'),
+             'intro': ('La estrategia busca generar reconocimiento, compromiso y conversión, y posicionar a Zohar como una marca líder en joyería de lujo a través de una comunidad auténtica.',
+                       'The strategy aims to build awareness, engagement and conversion, positioning Zohar as a leading luxury jewelry brand through an authentic community.'),
+             'items': [
+                (('Presencia online', 'Online presence'), ('Un sitio web elegante y fácil de navegar, con secciones que cuentan la historia de cada joya y destacan la artesanía y la exclusividad.', 'An elegant, easy-to-navigate website with sections that tell the story of each piece and highlight craftsmanship and exclusivity.')),
+                (('Redes sociales', 'Social media'), ('Instagram, Pinterest y Facebook como vitrinas visuales: publicaciones que capturan la esencia de la marca e imágenes de clientes reales compartiendo su experiencia.', 'Instagram, Pinterest and Facebook as visual showcases: posts that capture the brand\'s essence and images of real clients sharing their experience.')),
+                (('Marketing de contenidos', 'Content marketing'), ('Historias sobre el proceso de creación, la artesanía detrás de cada pieza y momentos detrás de cámaras que construyen una conexión emocional con la audiencia.', 'Stories about the creative process, the craftsmanship behind each piece and behind-the-scenes moments that build an emotional connection with the audience.')),
+                (('Publicidad y participación', 'Advertising and engagement'), ('Anuncios segmentados para públicos interesados en joyería, moda y estilo de vida exclusivo, junto con encuestas, desafíos y concursos que impulsan la participación.', 'Targeted ads for audiences interested in jewelry, fashion and exclusive lifestyles, along with polls, challenges and contests that drive engagement.')),
+                (('Empaque y presentación', 'Packaging and presentation'), ('Envolturas que reflejan la calidad y exclusividad de las joyas y convierten la entrega en una experiencia memorable.', 'Packaging that reflects the quality and exclusivity of the jewelry and turns delivery into a memorable experience.')),
+                (('Medición y mejora continua', 'Measurement and continuous improvement'), ('Seguimiento de ventas, interacción en redes, alcance y satisfacción del cliente para ajustar la estrategia según la respuesta del mercado.', 'Tracking sales, social engagement, reach and customer satisfaction to adjust the strategy to the market\'s response.')),
+             ]},
+        ],
         'gallery': [
             ('img/cases/zohar-guia-portada.webp', ('Guía de marca · portada', 'Brand guide · cover')),
             ('img/cases/zohar-recurso-11.webp', ('Logo principal', 'Main logo')),
@@ -283,32 +313,31 @@ PROJECTS = [
         'type': [('Cinzel Medium', "'Cinzel', serif", 'ZOHAR', ('Logo y títulos: elegante, de inspiración clásica.', 'Logo and headings: elegant, classically inspired.')),
                  ('Montserrat Regular', "'Montserrat', sans-serif", 'Zohar Jewelry', ('Tipografía secundaria: moderna y legible para los textos.', 'Secondary typeface: modern and legible for body text.'))],
         'blocks': [
-            {'title': ('Estrategia de marca', 'Brand strategy'), 'items': [
-                ('Misión: joyería que cuenta historias y conecta emociones', 'Mission: jewelry that tells stories and connects emotions'),
-                ('Visión: ser referente mundial de la joyería de lujo', 'Vision: to become a global benchmark in luxury jewelry'),
-                ('Público: jóvenes profesionales, amantes de la moda, clientes de joyería de lujo, regaladores conscientes y seguidores de tendencias', 'Audience: young professionals, fashion lovers, luxury jewelry clients, thoughtful gift-givers and trend followers'),
-                ('Mensaje: "Conectamos emociones, creamos relaciones. Tu lujo, tu historia. Descubre la autenticidad en cada joya."', 'Message: "We connect emotions, we build relationships. Your luxury, your story. Discover the authenticity in every jewel."')]},
-            {'title': ('Estrategia digital', 'Digital strategy'), 'items': [
-                ('Sitio web elegante que cuenta la historia de cada joya', 'An elegant website that tells the story of each piece'),
-                ('Instagram, Pinterest y Facebook con contenido visual premium', 'Instagram, Pinterest and Facebook with premium visual content'),
-                ('Historias del proceso artesanal y contenido de clientes con el hashtag de la marca', 'Stories of the craft and customer content with the brand hashtag'),
-                ('Publicidad segmentada, ofertas, encuestas y concursos', 'Targeted ads, offers, polls and contests'),
-                ('KPIs: ventas, interacción en redes y satisfacción del cliente', 'KPIs: sales, social engagement and customer satisfaction')]},
+            {'title': ('Sistema visual', 'Visual system'), 'items': [
+                ('Logotipo principal en plata sobre azul profundo', 'Main logo in silver on deep blue'),
+                ('Versión alternativa en azul degradado para fondos claros', 'Alternate version in graded blue for light backgrounds'),
+                ('Paleta de cuatro colores inspirada en el océano', 'A four-color palette inspired by the ocean'),
+                ('Cinzel Medium para el logotipo y Montserrat para los textos', 'Cinzel Medium for the logo and Montserrat for body text')]},
+            {'title': ('Aplicaciones de marca', 'Brand applications'), 'items': [
+                ('Estuches y empaques de lujo', 'Luxury cases and packaging'),
+                ('Bolsas de compra y etiquetas', 'Shopping bags and tags'),
+                ('Tarjetas de presentación', 'Business cards'),
+                ('Señalética para el punto de venta', 'Point-of-sale signage')]},
             {'title': ('Entregables', 'Deliverables'), 'items': [
-                ('Logo en AI, EPS, SVG y PNG', 'Logo in AI, EPS, SVG and PNG'),
                 ('Guía de marca: identidad, aplicaciones, color, tipografía, misión, público, estrategia digital y redes', 'Brand guide: identity, applications, color, typography, mission, audience, digital strategy and social media'),
-                ('Mockups de packaging, papelería y señalética', 'Packaging, stationery and signage mockups'),
-                ('Plantillas para redes y material promocional', 'Templates for social media and promotional material'),
-                ('Paleta en HEX, RGB, CMYK y Pantone', 'Palette in HEX, RGB, CMYK and Pantone')]},
+                ('Logotipo en AI, EPS, SVG y PNG', 'Logo in AI, EPS, SVG and PNG'),
+                ('Paleta en HEX, RGB, CMYK y Pantone', 'Palette in HEX, RGB, CMYK and Pantone'),
+                ('Mockups de empaques, papelería y señalética', 'Packaging, stationery and signage mockups'),
+                ('Plantillas para redes sociales y material promocional', 'Social media templates and promotional material')]},
         ],
         'results': [
-            ('Identidad cohesiva que refleja lujo y autenticidad', 'A cohesive identity that reflects luxury and authenticity'),
-            ('Manual de marca profesional para todas las aplicaciones', 'A professional brand manual for every application'),
-            ('Sistema visual flexible para múltiples medios', 'A flexible visual system for multiple media'),
-            ('Diferenciación clara en el mercado de joyería de lujo', 'Clear differentiation in the luxury jewelry market'),
+            ('Una identidad coherente que transmite lujo, elegancia y autenticidad', 'A coherent identity that conveys luxury, elegance and authenticity'),
+            ('Una guía de marca que asegura el uso consistente en cada punto de contacto', 'A brand guide that ensures consistent use at every touchpoint'),
+            ('Un sistema visual flexible para medios impresos y digitales', 'A flexible visual system for print and digital media'),
+            ('Una propuesta diferenciada dentro del mercado de la joyería de lujo', 'A differentiated proposition in the luxury jewelry market'),
         ],
-        'cta': (('¿Necesitas una identidad de marca de lujo?', 'Need a luxury brand identity?'),
-                ('Te ayudo a crear una marca memorable y elegante como Zohar.', 'I can help you create a memorable, elegant brand like Zohar.')),
+        'cta': (('¿Tu marca necesita una identidad a la altura de su producto?', 'Does your brand need an identity that matches its product?'),
+                ('Diseño identidades estratégicas que comunican valor desde el primer contacto y te diferencian de tu competencia.', 'I design strategic identities that communicate value from the first touchpoint and set you apart from your competitors.')),
         'service': 'branding',
     },
     {
@@ -460,31 +489,44 @@ PROJECTS = [
                   'fonts': 'Poppins:wght@600;700;800', 'motif': 'splash', 'bullet': '●'},
         'kicker': ('DISEÑO · MARKETING · WEB', 'DESIGN · MARKETING · WEB'),
         'title': ('Únicos', 'Únicos'),
-        'tagline': ('La agencia creativa que cofundé: marketing, diseño gráfico y desarrollo web que rompe moldes.',
-                    'The creative agency I co-founded: marketing, graphic design and web development that breaks the mold.'),
-        'tags': ['Branding', 'Diseño gráfico', 'Marketing digital', 'Desarrollo web', 'Publicidad'],
+        'tagline': ('Agencia creativa de marketing, diseño y desarrollo web que cofundé para ayudar a empresas y emprendimientos a construir una marca sólida y visible.',
+                    'A marketing, design and web development agency I co-founded to help companies and startups build a strong, visible brand.'),
+        'tags': ['Branding', 'Diseño gráfico', 'Marketing digital', 'Desarrollo web', 'Publicidad', 'Merchandising'],
         'hero': {'img': 'img/cases/unicos-logo-unicos.webp', 'alt': 'Logo de Únicos MKT Agencia Creativa', 'light': True},
         'facts': [
-            (('Tipo', 'Type'), ('Agencia propia, con un socio', 'Own agency, with a partner')),
+            (('Tipo', 'Type'), ('Agencia propia, cofundada con un socio', 'Own agency, co-founded with a partner')),
             (('Periodo', 'Period'), ('2019 – 2021', '2019 – 2021')),
             (('Rol', 'Role'), ('Cofundadora · diseño y desarrollo web', 'Co-founder · design and web development')),
             (('Herramientas', 'Tools'), ('Illustrator · Photoshop · InDesign · WordPress', 'Illustrator · Photoshop · InDesign · WordPress')),
         ],
-        'summary': ('Únicos MKT fue la agencia creativa que fundé junto a un socio. Los dos diseñábamos lo que nos pedían los clientes y yo me encargaba más de la parte web, aunque casi todo lo hacíamos en equipo: identidades de marca, material publicitario, pendones, estampados, diseño digital y sitios web para empresas B2B, B2C y emprendimientos de muchos sectores. En 2021 cada uno quiso tomar un camino distinto —yo, hacia Canadá—, así que disolvimos la agencia y cada quien siguió su rumbo.',
-                    "Únicos MKT was the creative agency I founded with a partner. We both designed what clients asked for and I took the lead on the web side, though we did almost everything as a team: brand identities, advertising material, banners, custom prints, digital design and websites for B2B, B2C companies and startups across many industries. In 2021 we each wanted to take a different path—mine led to Canada—so we dissolved the agency and went our separate ways."),
+        'summary': ('Únicos MKT fue una agencia creativa que fundé junto a un socio entre 2019 y 2021. Nuestra propuesta era ofrecer un servicio integral —estrategia, identidad visual, publicidad, contenido digital y desarrollo web— para que cada cliente proyectara una imagen coherente y profesional en todos sus canales, sin tener que coordinar varios proveedores. Ambos participábamos en la conceptualización y el diseño de cada proyecto; yo lideraba además el área de desarrollo web y las herramientas digitales con las que gestionábamos clientes y campañas. En 2021, cada socio decidió emprender un camino profesional distinto —en mi caso, continuar mi formación en programación en Canadá—, por lo que cerramos la agencia de común acuerdo.',
+                    'Únicos MKT was a creative agency I founded with a partner, active from 2019 to 2021. Our proposition was an all-in-one service—strategy, visual identity, advertising, digital content and web development—so each client could project a coherent, professional image across every channel without coordinating several providers. We both took part in conceptualizing and designing every project; I also led web development and the digital tools we used to manage clients and campaigns. In 2021 each partner chose a different professional path—in my case, continuing my programming education in Canada—so we closed the agency by mutual agreement.'),
         'concept': {
             'title': ('Rompiendo los moldes', 'Breaking the mold'),
             'quote': ('Creatividad sin límites, soluciones únicas para cada cliente.', 'Limitless creativity, unique solutions for every client.'),
             'paras': [
-                ('El logo es una mancha roja vibrante que simboliza la creatividad en su forma más pura: la explosión de ideas y el pensamiento fuera de lo convencional.',
-                 'The logo is a vibrant red splash that symbolizes creativity in its purest form: an explosion of ideas and unconventional thinking.'),
-                ('La tipografía combina "únicos" con "MKT" en un café oscuro moderno, junto al descriptor "Agencia creativa".',
-                 'The typography pairs "únicos" with "MKT" in a modern dark brown, alongside the "Creative agency" descriptor.')]},
+                ('La identidad de la agencia se construyó alrededor de una mancha roja vibrante: un símbolo de la creatividad en su forma más pura, de la explosión de ideas y del pensamiento fuera de lo convencional que queríamos llevar a cada proyecto.',
+                 'The agency\'s identity was built around a vibrant red splash: a symbol of creativity in its purest form, of bursting ideas and of the unconventional thinking we wanted to bring to every project.'),
+                ('La tipografía combina "únicos" con "MKT" en un café oscuro moderno, junto al descriptor "Agencia creativa", para transmitir cercanía y profesionalismo a la vez.',
+                 'The typography pairs "únicos" with "MKT" in a modern dark brown, alongside the "Creative agency" descriptor, to convey approachability and professionalism at the same time.')]},
+        'sections': [
+            {'kind': 'cards', 'over': ('// ÁREAS DE SERVICIO', '// SERVICE AREAS'), 'title': ('Lo que ofrecía la agencia', 'What the agency offered'),
+             'intro': ('Un mismo equipo acompañaba a cada cliente desde la creación de su marca hasta su presencia en medios impresos y digitales, lo que garantizaba coherencia en todos los puntos de contacto.',
+                       'One team supported each client from creating their brand to their presence in print and digital media, ensuring consistency at every touchpoint.'),
+             'items': [
+                (('Identidad corporativa', 'Corporate identity'), ('Creación y renovación de marcas: logotipo y sus versiones, paleta de color, tipografía y manual de marca para asegurar un uso consistente en cualquier aplicación.', 'Creating and refreshing brands: logo and its versions, color palette, typography and a brand manual to ensure consistent use in any application.')),
+                (('Diseño publicitario e impresos', 'Advertising and print design'), ('Volantes, pendones, catálogos, brochures y piezas promocionales pensadas para captar la atención y comunicar ofertas con claridad.', 'Flyers, banners, catalogs, brochures and promotional pieces designed to capture attention and communicate offers clearly.')),
+                (('Marketing digital y contenido', 'Digital marketing and content'), ('Estrategia de contenido, plantillas para redes sociales, banners y newsletters que mantenían la identidad de cada marca en sus canales digitales.', 'Content strategy, social media templates, banners and newsletters that kept each brand\'s identity consistent across its digital channels.')),
+                (('Desarrollo web', 'Web development'), ('Sitios corporativos y landing pages en WordPress y con código a medida, adaptados a celulares y alineados con la identidad visual del cliente.', 'Corporate websites and landing pages in WordPress and custom code, mobile-friendly and aligned with the client\'s visual identity.')),
+                (('Merchandising y estampados', 'Merchandise and custom prints'), ('Diseño de estampados para camisetas, bolsos y artículos promocionales que llevaban la marca más allá de la pantalla.', 'Print designs for t-shirts, bags and promotional items that took the brand beyond the screen.')),
+                (('Tecnología y procesos', 'Technology and processes'), ('Bases de datos para gestionar clientes y campañas, y herramientas de automatización que hicieron más eficiente la operación interna de la agencia.', 'Databases to manage clients and campaigns, and automation tools that made the agency\'s internal operations more efficient.')),
+             ]},
+        ],
         'mission_img': 'img/cases/unicos-optica-unicos.webp',
         # en Únicos la galería es un archivo de evidencias agrupado por marca
         'evidence': {
-            'note': ('Buena parte del trabajo de esos años se perdió. Estas son las piezas que se conservan, como evidencia de lo que hicimos.',
-                     'Much of the work from those years was lost. These are the pieces that survive, as evidence of what we made.'),
+            'note': ('Una parte del archivo de esos años no se conservó. Estas son las piezas recuperadas, que dan cuenta del alcance y la variedad del trabajo realizado.',
+                     'Part of the archive from those years was not preserved. These are the recovered pieces, which show the scope and variety of the work done.'),
             'groups': [
                 (('Mayorga iStudio', 'Mayorga iStudio'), ('Identidad visual: logo, construcción, elementos, tipografía, colores, usos y portada.', 'Visual identity: logo, construction, elements, typography, colors, uses and cover.'),
                  [('img/cases/unicos-mayorga-1.webp', ('Logo', 'Logo')), ('img/cases/unicos-mayorga-2.webp', ('Construcción del logo', 'Logo construction')),
@@ -510,31 +552,28 @@ PROJECTS = [
         'gallery': [],
         'palette': [('Rojo suave', 'Soft red', '#D4424F'), ('Café suave', 'Soft brown', '#5A4240'), ('Blanco', 'White', '#FFFFFF')],
         'blocks': [
-            {'title': ('Servicios de la agencia', 'Agency services'), 'items': [
-                ('Identidad corporativa y manuales de marca', 'Corporate identity and brand manuals'),
-                ('Volantes, pendones, catálogos y brochures', 'Flyers, banners, catalogs and brochures'),
-                ('Plantillas para redes, banners y newsletters', 'Social templates, banners and newsletters'),
-                ('Estampados para camisetas, bolsos y merchandising', 'Prints for t-shirts, bags and merchandise'),
-                ('Estrategia de contenido y campañas', 'Content strategy and campaigns')]},
-            {'title': ('Tecnología y procesos', 'Technology and processes'), 'items': [
-                ('Sitios web en WordPress y con código a medida para los clientes', 'WordPress and custom-coded websites for clients'),
-                ('Bases de datos para gestionar clientes y campañas: +30% de organización de los datos', 'Databases to manage clients and campaigns: +30% data organization'),
-                ('Software y herramientas de automatización: +35% de productividad', 'Software and automation tools: +35% productivity'),
-                ('Piezas y campañas publicitarias: +20% de interacción con clientes', 'Graphic pieces and ad campaigns: +20% client interaction')]},
-            {'title': ('Cómo trabajábamos', 'How we worked'), 'items': [
-                ('Dos socios, todo en equipo', 'Two partners, everything as a team'),
-                ('Los dos diseñábamos; yo lideraba la parte web', 'We both designed; I led the web side'),
-                ('Clientes B2B, B2C y emprendimientos de muchos sectores', 'B2B, B2C clients and startups from many industries'),
-                ('Marcas nuevas y renovación de imagen', 'New brands and image refreshes')]},
+            {'title': ('Resultados medibles', 'Measurable results'), 'items': [
+                ('+30% en la organización de los datos de clientes y campañas', '+30% in the organization of client and campaign data'),
+                ('+35% de productividad con herramientas de automatización', '+35% productivity with automation tools'),
+                ('+20% de interacción con clientes gracias a las campañas', '+20% client interaction thanks to the campaigns')]},
+            {'title': ('Clientes', 'Clients'), 'items': [
+                ('Empresas B2B que necesitaban una identidad corporativa sólida', 'B2B companies that needed a solid corporate identity'),
+                ('Negocios B2C que buscaban atraer y fidelizar clientes', 'B2C businesses looking to attract and retain customers'),
+                ('Emprendimientos que creaban su marca desde cero', 'Startups building their brand from scratch'),
+                ('Empresas establecidas que renovaban su imagen', 'Established companies refreshing their image')]},
+            {'title': ('Forma de trabajo', 'How we worked'), 'items': [
+                ('Un equipo de dos socios con participación directa en cada proyecto', 'A two-partner team directly involved in every project'),
+                ('Diseño compartido y liderazgo propio en el área web', 'Shared design work and my own leadership of the web area'),
+                ('Atención cercana y soluciones a la medida de cada cliente', 'Close attention and tailored solutions for every client')]},
         ],
         'results': [
-            ('Identidad sólida y diferenciada para la agencia', 'A solid, differentiated identity for the agency'),
-            ('Portafolio diverso para múltiples sectores', 'A diverse portfolio across multiple sectors'),
+            ('Una identidad sólida y diferenciada para la propia agencia', 'A solid, differentiated identity for the agency itself'),
+            ('Un portafolio diverso para clientes de múltiples sectores', 'A diverse portfolio for clients across many industries'),
             ('+20% de interacción con clientes gracias a las campañas', '+20% client interaction thanks to the campaigns'),
-            ('Experiencia completa creando y gestionando una agencia', 'Complete experience building and running an agency'),
+            ('Experiencia integral en la creación y gestión de una agencia', 'End-to-end experience founding and running an agency'),
         ],
-        'cta': (('¿Necesitas diseño y marketing creativo?', 'Need creative design and marketing?'),
-                ('Creo diseños únicos que hacen destacar a tu marca.', 'I create unique designs that make your brand stand out.')),
+        'cta': (('¿Buscas un aliado creativo para tu marca?', 'Looking for a creative partner for your brand?'),
+                ('Integro diseño, marketing y tecnología para que tu marca se vea profesional y llegue a más clientes.', 'I combine design, marketing and technology so your brand looks professional and reaches more customers.')),
         'service': 'branding',
     },
     {
@@ -753,84 +792,85 @@ PROJECTS = [
         'service': 'automation',
     },
     {
-        'id': 'ai-workshop', 'file': 'taller-ia.html', 'name': 'Taller de IA', 'pillar': 'ai',
+        'id': 'ai-workshop', 'file': 'taller-ia.html', 'name': 'Taller de IA · Intel Tax', 'pillar': 'ai',
         'theme': {'brand': '#ff7a2f', 'brand_rgb': '255, 122, 47', 'brand2': '#3b82f6', 'brand2_rgb': '59, 130, 246',
                   'bg': '#07101c', 'display': "'DM Serif Display', serif", 'body': "'Exo 2', sans-serif",
                   'fonts': 'DM+Serif+Display', 'motif': 'bubbles', 'bullet': '●'},
         'kicker': ('IA · TALLER PRÁCTICO · CAPACITACIÓN', 'AI · HANDS-ON WORKSHOP · TRAINING'),
         'title': ('IA para el ejercicio contable', 'AI for accounting practice'),
-        'tagline': ('Un taller práctico para que un equipo contable empiece a usar ChatGPT Work con buenas prácticas, criterio profesional y cuidado de los datos.',
-                    'A hands-on workshop so an accounting team can start using ChatGPT Work with good practices, professional judgment and care for data.'),
-        'tags': ['IA generativa', 'ChatGPT Work', 'Prompting', 'Privacidad de datos', 'GPTs personalizados', 'Kahoot'],
-        'hero': {'img': 'img/cases/taller-agenda.webp', 'alt': 'Agenda del taller de IA para el ejercicio contable'},
+        'tagline': ('Capacitación práctica para que el equipo de Intel Tax Outsourcing SAS adoptara ChatGPT Work con criterio profesional, buenas prácticas y protección de la información.',
+                    'Hands-on training so the Intel Tax Outsourcing SAS team could adopt ChatGPT Work with professional judgment, good practices and information protection.'),
+        'tags': ['IA generativa', 'ChatGPT Work', 'Prompting', 'Privacidad de datos', 'GPTs personalizados', 'Capacitación'],
+        'hero': {'img': 'img/cases/taller-portada.webp', 'alt': 'Portada del taller Inteligencia artificial para el ejercicio contable'},
         'facts': [
-            (('Cliente', 'Client'), ('Firma de outsourcing contable y tributario', 'Accounting and tax outsourcing firm')),
-            (('Año', 'Year'), ('2026', '2026')),
+            (('Cliente', 'Client'), ('Intel Tax Outsourcing SAS', 'Intel Tax Outsourcing SAS')),
+            (('Fecha', 'Date'), ('29 de septiembre de 2026', 'September 29, 2026')),
             (('Formato', 'Format'), ('Virtual · 2 horas', 'Online · 2 hours')),
-            (('Asistentes', 'Attendees'), ('8 personas', '8 people')),
+            (('Participantes', 'Participants'), ('8 profesionales contables', '8 accounting professionals')),
         ],
-        'summary': ('La firma iba a adoptar ChatGPT Work como herramienta corporativa y necesitaba que todo el equipo arrancara con el mismo nivel: de las 8 personas, 4 ya usaban IA y 4 nunca la habían incorporado a su trabajo. Después de conversar con ellos diseñé una propuesta a la medida y un taller teórico-práctico, con especial énfasis en proteger la información financiera y tributaria de sus clientes.',
-                    'The firm was adopting ChatGPT Work as a corporate tool and needed the whole team to start at the same level: of its 8 people, 4 already used AI and 4 had never brought it into their work. After talking with them I designed a tailored proposal and a theory-and-practice workshop, with special emphasis on protecting their clients\' financial and tax information.'),
+        'summary': ('Intel Tax Outsourcing SAS, firma de outsourcing contable y tributario, decidió adoptar ChatGPT Work como herramienta corporativa y necesitaba que todo su equipo partiera de la misma base: de sus ocho integrantes, cuatro ya utilizaban IA y cuatro aún no la habían incorporado a su trabajo. A partir de un diagnóstico de sus necesidades diseñé una propuesta a la medida y un taller teórico-práctico centrado en el uso responsable de la herramienta, con especial énfasis en la protección de la información financiera y tributaria de sus clientes.',
+                    'Intel Tax Outsourcing SAS, an accounting and tax outsourcing firm, decided to adopt ChatGPT Work as a corporate tool and needed its whole team to start from the same base: of its eight members, four already used AI and four had not yet brought it into their work. Based on an assessment of their needs, I designed a tailored proposal and a theory-and-practice workshop focused on the responsible use of the tool, with special emphasis on protecting their clients\' financial and tax information.'),
         'concept': {
             'title': ('La IA propone. El contador decide.', 'AI proposes. The accountant decides.'),
             'quote': ('Usa la IA, siempre con criterio de contador.', 'Use AI, always with an accountant\'s judgment.'),
             'paras': [
-                ('Cada bloque combina una explicación corta con una dinámica: detectar una alucinación sobre el Estatuto Tributario, clasificar datos en un semáforo, comparar dos prompts para la misma conciliación y mejorar un prompt propio con la misma IA.',
-                 'Each block pairs a short explanation with an activity: spotting a hallucination about the tax code, sorting data in a traffic light, comparing two prompts for the same bank reconciliation and improving one\'s own prompt with the AI itself.'),
-                ('Los ejercicios se diferencian por nivel, para que quienes empiezan aprendan desde cero y quienes ya usan la herramienta profundicen, todo en la misma sesión.',
-                 'Exercises are split by level, so beginners learn from scratch and experienced users go deeper, all in the same session.')]},
+                ('El taller combina explicaciones breves con dinámicas aplicadas al día a día contable, para que cada concepto se practique en el momento y se traduzca en hábitos de trabajo concretos.',
+                 'The workshop pairs short explanations with activities drawn from day-to-day accounting work, so each concept is practiced on the spot and turns into concrete work habits.'),
+                ('Los ejercicios se diferencian por nivel: quienes se inician aprenden los fundamentos desde cero y quienes ya usan la herramienta profundizan y sistematizan sus buenas prácticas, todo dentro de la misma sesión.',
+                 'Exercises are split by level: beginners learn the fundamentals from scratch while experienced users go deeper and systematize their good practices, all within the same session.')]},
         'gallery': [
+            ('img/cases/taller-portada.webp', ('Portada del taller', 'Workshop cover')),
             ('img/cases/taller-agenda.webp', ('Agenda de la sesión', 'Session agenda')),
-            ('img/cases/taller-ia-generativa.webp', ('¿Qué es la IA generativa?', 'What is generative AI?')),
-            ('img/cases/taller-alucinacion.webp', ('Dinámica: detecta la alucinación', 'Activity: spot the hallucination')),
-            ('img/cases/taller-contable.webp', ('La IA en el ejercicio contable', 'AI in accounting practice')),
-            ('img/cases/taller-privacidad.webp', ('Privacidad: tu cuenta importa', 'Privacy: your account matters')),
-            ('img/cases/taller-semaforo.webp', ('Dinámica: semáforo de datos', 'Activity: data traffic light')),
-            ('img/cases/taller-reglas.webp', ('Reglas del mes de prueba', 'Trial month rules')),
-            ('img/cases/taller-chat-work.webp', ('Chat y Work', 'Chat and Work')),
-            ('img/cases/taller-proyectos.webp', ('Proyectos y complementos', 'Projects and add-ons')),
-            ('img/cases/taller-mito.webp', ('Dinámica: mito o realidad', 'Activity: myth or reality')),
-            ('img/cases/taller-modelos.webp', ('Modelos, tokens y nivel de esfuerzo', 'Models, tokens and effort level')),
-            ('img/cases/taller-dos-prompts.webp', ('Dinámica: el mismo encargo, dos prompts', 'Activity: same task, two prompts')),
-            ('img/cases/taller-estructura.webp', ('Estructura de un buen prompt', 'How to structure a good prompt')),
-            ('img/cases/taller-metaprompting.webp', ('Dinámica: mejora tu prompt con IA', 'Activity: improve your prompt with AI')),
-            ('img/cases/taller-kahoot.webp', ('Juego final tipo Kahoot', 'Final Kahoot-style game'))
+            ('img/cases/taller-agentes.webp', ('Agentes INTEL diseñados para la firma', 'INTEL agents designed for the firm')),
+            ('img/cases/taller-kahoot.webp', ('Evaluación final tipo Kahoot', 'Kahoot-style final assessment')),
+        ],
+        'sections': [
+            {'kind': 'cards', 'over': ('// AGENTES INTEL', '// INTEL AGENTS'), 'title': ('Asistentes de IA a la medida de la firma', 'AI assistants tailored to the firm'),
+             'intro': ('Como complemento del taller diseñé seis GPTs personalizados, configurados con instrucciones específicas para las áreas de la firma. Permiten resolver tareas frecuentes sin repetir el contexto en cada conversación y mantienen siempre la revisión final en manos del profesional.',
+                       'To complement the workshop I designed six custom GPTs, configured with specific instructions for the firm\'s areas. They handle frequent tasks without repeating context in every conversation and always leave the final review to the professional.'),
+             'items': [
+                (('Tributario', 'Tax'), ('Apoyo en liquidaciones, conceptos y análisis de riesgo fiscal.', 'Support with tax filings, opinions and fiscal risk analysis.')),
+                (('Cierre contable', 'Accounting close'), ('Listas de verificación de cierre, revisión de saldos y ajustes.', 'Closing checklists, balance reviews and adjustments.')),
+                (('Nómina', 'Payroll'), ('Novedades de nómina, liquidaciones y planilla de seguridad social (PILA).', 'Payroll changes, settlements and social security filings (PILA).')),
+                (('Auditoría', 'Audit'), ('Diseño de pruebas, registro de hallazgos y seguimiento.', 'Test design, findings log and follow-up.')),
+                (('Gerencial', 'Management'), ('Indicadores, escenarios y análisis de capacidad del equipo.', 'KPIs, scenarios and team capacity analysis.')),
+                (('Prompt Maestro', 'Prompt Master'), ('Ayuda a construir y mejorar las instrucciones que el equipo le da a la IA.', 'Helps build and improve the instructions the team gives the AI.')),
+             ]},
         ],
         'blocks': [
             {'title': ('Contenido', 'Content'), 'items': [
-                ('Qué es la IA generativa y por qué a veces inventa (alucinaciones)', 'What generative AI is and why it sometimes makes things up (hallucinations)'),
-                ('Privacidad: qué cambia en una cuenta corporativa y qué datos nunca se escriben', 'Privacy: what changes in a corporate account and which data is never typed'),
-                ('Chat, Work, GPTs personalizados y Proyectos', 'Chat, Work, custom GPTs and Projects'),
-                ('Modelos, tokens y nivel de esfuerzo', 'Models, tokens and effort level'),
-                ('Estructura de un buen prompt y metaprompting', 'How to structure a good prompt, and metaprompting')]},
-            {'title': ('Dinámicas', 'Activities'), 'items': [
-                ('Detecta la alucinación', 'Spot the hallucination'),
-                ('Semáforo de datos: verde, amarillo o rojo', 'Data traffic light: green, yellow or red'),
-                ('Mito o realidad', 'Myth or reality'),
-                ('El mismo encargo, dos prompts', 'Same task, two prompts'),
-                ('Kahoot final: 12 preguntas en 3 rondas', 'Final Kahoot: 12 questions in 3 rounds')]},
+                ('Fundamentos de la IA generativa y sus límites', 'Generative AI fundamentals and their limits'),
+                ('Protección de datos y privacidad en un entorno corporativo', 'Data protection and privacy in a corporate environment'),
+                ('Funcionalidades clave: chat, GPTs personalizados y Proyectos', 'Key features: chat, custom GPTs and Projects'),
+                ('Selección de modelos y uso eficiente de la herramienta', 'Model selection and efficient use of the tool'),
+                ('Redacción de prompts efectivos y metaprompting', 'Writing effective prompts and metaprompting')]},
+            {'title': ('Metodología', 'Methodology'), 'items': [
+                ('Diagnóstico previo con el equipo y propuesta a la medida', 'Prior assessment with the team and a tailored proposal'),
+                ('Sesión teórico-práctica con ejemplos del sector contable', 'Theory-and-practice session with accounting examples'),
+                ('Ejercicios diferenciados según el nivel de cada participante', 'Exercises tailored to each participant\'s level'),
+                ('Dinámicas grupales y evaluación final gamificada', 'Group activities and a gamified final assessment')]},
             {'title': ('Entregables', 'Deliverables'), 'items': [
-                ('Propuesta a la medida después de conversar con el equipo', 'A tailored proposal after talking with the team'),
-                ('Presentación de 20 diapositivas', '20-slide presentation'),
-                ('Juego tipo Kahoot con guía para el facilitador', 'Kahoot-style game with a facilitator guide'),
-                ('Reglas de uso para el mes de prueba de la herramienta', 'Usage rules for the tool\'s trial month'),
-                ('Material de apoyo y guía de ejercicios', 'Support material and exercise guide')]},
+                ('Propuesta de capacitación a la medida', 'Tailored training proposal'),
+                ('Presentación y material de apoyo para cada asistente', 'Presentation and support material for each attendee'),
+                ('Guía de ejercicios prácticos', 'Practical exercise guide'),
+                ('Lineamientos de uso para el periodo de prueba de la herramienta', 'Usage guidelines for the tool\'s trial period'),
+                ('Seis agentes de IA personalizados para las áreas de la firma', 'Six custom AI agents for the firm\'s areas')]},
         ],
         'process': [
-            (('Bienvenida', 'Welcome'), ('Qué entienden por IA y qué esperan.', 'What they understand by AI and what they expect.')),
-            (('Conceptos', 'Concepts'), ('IA generativa y su uso contable.', 'Generative AI and its use in accounting.')),
-            (('Privacidad', 'Privacy'), ('Semáforo de datos y reglas.', 'Data traffic light and rules.')),
-            (('Funciones', 'Features'), ('Chat, GPTs, Proyectos y modelos.', 'Chat, GPTs, Projects and models.')),
-            (('Prompts', 'Prompts'), ('Estructura y metaprompting.', 'Structure and metaprompting.')),
-            (('Juego y cierre', 'Game and wrap-up'), ('Kahoot y preguntas.', 'Kahoot and questions.')),
+            (('Diagnóstico', 'Assessment'), ('Necesidades y nivel del equipo.', 'Team needs and level.')),
+            (('Propuesta', 'Proposal'), ('Contenido y agenda a la medida.', 'Tailored content and agenda.')),
+            (('Diseño', 'Design'), ('Material, ejercicios y agentes.', 'Materials, exercises and agents.')),
+            (('Taller', 'Workshop'), ('Sesión virtual de 2 horas.', '2-hour online session.')),
+            (('Evaluación', 'Assessment'), ('Juego final y preguntas.', 'Final game and Q&A.')),
         ],
         'results': [
-            ('Todo el equipo arranca con la misma base, sin importar su nivel', 'The whole team starts from the same base, whatever their level'),
-            ('Reglas claras para proteger la información de los clientes', 'Clear rules to protect client information'),
-            ('Cada participante sale con un prompt propio para su rol', 'Each participant leaves with their own prompt for their role'),
+            ('El equipo valoró la sesión de forma muy positiva', 'The team rated the session very positively'),
+            ('Los ocho participantes partieron de una base común, sin importar su nivel', 'All eight participants started from a common base, whatever their level'),
+            ('Lineamientos claros para proteger la información de los clientes', 'Clear guidelines to protect client information'),
+            ('Seis agentes listos para apoyar el trabajo diario de la firma', 'Six agents ready to support the firm\'s daily work'),
         ],
-        'cta': (('¿Quieres que tu equipo use la IA con criterio?', 'Want your team to use AI with judgment?'),
-                ('Diseño talleres a la medida de tu sector, con ejemplos de tu día a día.', 'I design workshops tailored to your industry, with examples from your daily work.')),
+        'cta': (('¿Tu equipo está listo para trabajar con IA?', 'Is your team ready to work with AI?'),
+                ('Diseño capacitaciones a la medida de tu sector para que tu equipo aproveche la IA con seguridad y resultados desde el primer día.', 'I design training tailored to your industry so your team can use AI safely and see results from day one.')),
         'service': 'workshops',
     },
     {
@@ -1070,6 +1110,21 @@ def page(p, prev, nxt, num, total):
             {panels}
         </section>''')
 
+    # ---------- secciones de texto desarrollado: tarjetas o declaraciones ----------
+    for sec in p.get('sections', []):
+        if sec['kind'] == 'pair':
+            items = ''.join(f'<article class="statement reveal">{HUD}{bi("h3", "statement__title", t)}{bi("p", "statement__text", x)}</article>' for t, x in sec['items'])
+        else:
+            items = ''.join(f'<article class="scope reveal"><span class="scope__num">{i + 1:02d}</span>{bi("h3", "scope__title", t)}{bi("p", "scope__text", x)}</article>' for i, (t, x) in enumerate(sec['items']))
+        intro = bi('p', 'section-intro', sec['intro']) if sec.get('intro') else ''
+        out.append(f'''
+        <section class="case-section">
+            {bi('p', 'case-overline', sec['over'])}
+            {bi('h2', 'case-h2', sec['title'])}
+            {intro}
+            <div class="{sec['kind']}-grid">{items}</div>
+        </section>''')
+
     if p.get('challenges'):
         ch = ''.join(f'<article class="case-panel case-panel--alt reveal">{HUD}{bi("h3", "case-row__title", a)}{bi("p", "case-panel__text", b)}</article>' for a, b in p['challenges'])
         out.append(f'''
@@ -1109,7 +1164,7 @@ def page(p, prev, nxt, num, total):
         out.append(f'''
         <section class="case-section archive" id="galeria">
             {bi('p', 'case-overline', ('// ARCHIVO DE TRABAJOS', '// WORK ARCHIVE'))}
-            {bi('h2', 'case-h2', ('Lo que hicimos en esos años', 'What we made in those years'))}
+            {bi('h2', 'case-h2', ('Archivo de proyectos', 'Project archive'))}
             {bi('p', 'archive__note', ev['note'])}
             {''.join(groups)}
             {bi('p', 'case-hint', ('Toca una imagen para verla en pantalla completa.', 'Tap an image to see it full screen.'))}

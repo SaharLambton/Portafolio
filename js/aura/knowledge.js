@@ -185,8 +185,8 @@ window.AURA_KB = {
             id: 'ai',
             keys: ['ia', 'inteligencia artificial', 'machine learning', 'chatbot', 'chatbots', 'asistente', 'asistentes', 'ai', 'artificial intelligence', 'llm', 'gpt', 'claude'],
             answer: {
-                es: 'En IA, Sahar dicta talleres de IA generativa para equipos de trabajo; el más reciente fue para el equipo de una firma de outsourcing contable y tributario que empezaba a usar ChatGPT Work. También automatiza y estandariza procesos, implementa chatbots de atención al cliente y diseña asistentes conversacionales como yo 🤖.',
-                en: 'In AI, Sahar teaches generative AI workshops for teams; the most recent one was for the team of an accounting and tax outsourcing firm starting to use ChatGPT Work. She also automates and standardizes processes, builds customer service chatbots and designs conversational assistants like me 🤖.'
+                es: 'En IA, Sahar dicta talleres de IA generativa para equipos de trabajo; el más reciente fue para el equipo de Intel Tax Outsourcing SAS, firma de outsourcing contable y tributario que empezaba a usar ChatGPT Work. También automatiza y estandariza procesos, implementa chatbots de atención al cliente y diseña asistentes conversacionales como yo 🤖.',
+                en: 'In AI, Sahar teaches generative AI workshops for teams; the most recent one was for the team of Intel Tax Outsourcing SAS, an accounting and tax outsourcing firm starting to use ChatGPT Work. She also automates and standardizes processes, builds customer service chatbots and designs conversational assistants like me 🤖.'
             },
             action: { type: 'go', href: 'index.html#pilares', label: { es: 'Ver los pilares', en: 'See the pillars' } },
             chips: ['services', 'projects']
@@ -337,8 +337,8 @@ window.AURA_KB = {
             id: 'workshops',
             keys: ['taller', 'talleres', 'curso', 'cursos', 'capacitacion', 'capacitaciones', 'formacion en ia', 'ensenar ia', 'workshop', 'workshops', 'course', 'courses', 'training'],
             answer: {
-                es: 'Sahar ofrece talleres y cursos de IA generativa para equipos de empresas: prácticos, adaptados a cada sector y con buenas prácticas de uso responsable. El más reciente fue para un equipo contable de 8 personas que empezaba a usar ChatGPT Work. Se cotizan según el tamaño del grupo y los temas.',
-                en: 'Sahar offers generative AI workshops and courses for company teams: hands-on, tailored to each industry and including responsible-use best practices. The most recent one was for an 8-person accounting team starting to use ChatGPT Work. They are quoted based on group size and topics.'
+                es: 'Sahar ofrece talleres y cursos de IA generativa para equipos de empresas: prácticos, adaptados a cada sector y con buenas prácticas de uso responsable. El más reciente fue para el equipo de Intel Tax Outsourcing SAS, que empezaba a usar ChatGPT Work. Se cotizan según el tamaño del grupo y los temas.',
+                en: 'Sahar offers generative AI workshops and courses for company teams: hands-on, tailored to each industry and including responsible-use best practices. The most recent one was for the Intel Tax Outsourcing SAS team, which was starting to use ChatGPT Work. They are quoted based on group size and topics.'
             },
             action: { type: 'go', href: 'servicios.html#workshops', label: { es: 'Ver talleres', en: 'See workshops' } },
             chips: ['hire', 'ai']
@@ -539,15 +539,15 @@ window.AURA_KB = {
             }
         },
         {
-            id: 'ai-workshop', name: 'Taller de IA', keys: ['taller de ia', 'taller contable', 'contadores', 'contable', 'chatgpt work', 'ai workshop', 'accountants'],
-            brand: '#ff7a2f', kind: { es: 'Cliente real · capacitación', en: 'Real client · training' },
+            id: 'ai-workshop', name: 'Taller de IA', keys: ['taller de ia', 'taller contable', 'intel tax', 'intel', 'contadores', 'contable', 'chatgpt work', 'agentes intel', 'ai workshop', 'accountants'],
+            brand: '#ff7a2f', kind: { es: 'Intel Tax Outsourcing SAS · capacitación', en: 'Intel Tax Outsourcing SAS · training' },
             pillars: ['ai'], card: 'img/thumbs/taller-ia-card.webp', video: '',
-            short: { es: 'Taller práctico de 2 horas para que un equipo contable de 8 personas adopte ChatGPT Work con buenas prácticas y cuidado de los datos.', en: 'A 2-hour hands-on workshop for an 8-person accounting team adopting ChatGPT Work with good practices and data care.' },
+            short: { es: 'Capacitación práctica de 2 horas para que el equipo de Intel Tax Outsourcing SAS adoptara ChatGPT Work con criterio y protección de datos, más seis agentes de IA a la medida.', en: 'A 2-hour hands-on training for the Intel Tax Outsourcing SAS team to adopt ChatGPT Work with judgment and data protection, plus six tailored AI agents.' },
             url: 'taller-ia.html', area: 'ai',
             tech: ['IA generativa', 'ChatGPT Work', 'Prompting'],
             desc: {
-                es: 'Sahar diseñó y dictó un taller de IA para una firma de outsourcing contable y tributario que iba a adoptar ChatGPT Work: 8 personas, la mitad sin experiencia con IA. Cubrió IA generativa y alucinaciones, privacidad de datos, GPTs personalizados y Proyectos, modelos y tokens, prompts y metaprompting, con dinámicas prácticas y un Kahoot final.',
-                en: 'Sahar designed and delivered an AI workshop for an accounting and tax outsourcing firm adopting ChatGPT Work: 8 people, half with no AI experience. It covered generative AI and hallucinations, data privacy, custom GPTs and Projects, models and tokens, prompts and metaprompting, with hands-on activities and a final Kahoot.'
+                es: 'El 29 de septiembre de 2026 Sahar dictó un taller virtual de 2 horas para los 8 integrantes del equipo de Intel Tax Outsourcing SAS, firma de outsourcing contable y tributario que adoptaba ChatGPT Work. Lo diseñó a la medida tras un diagnóstico: IA generativa y sus límites, protección de datos, GPTs y Proyectos, uso eficiente de modelos, prompts y metaprompting, con ejercicios por nivel. También creó seis agentes de IA para las áreas de la firma (tributario, cierre contable, nómina, auditoría, gerencial y Prompt Maestro). El equipo valoró la sesión de forma muy positiva.',
+                en: 'On September 29, 2026 Sahar delivered a 2-hour online workshop for the 8-person team of Intel Tax Outsourcing SAS, an accounting and tax outsourcing firm adopting ChatGPT Work. She tailored it after an assessment: generative AI and its limits, data protection, GPTs and Projects, efficient model use, prompts and metaprompting, with level-based exercises. She also built six AI agents for the firm\'s areas (tax, accounting close, payroll, audit, management and Prompt Master). The team rated the session very positively.'
             },
             tag: { es: 'IA · Capacitación', en: 'AI · Training' }
         },
