@@ -15,8 +15,13 @@
         let index = 0;
         let lastFocus = null;
 
-        function show(i) {
-            index = (i + shots.length) % shots.length;
+        // las flechas recorren solo la galería; las fotos de arriba que no están en ella se ven solas
+        const inReel = shots.filter((s) => !s.closest('.case-shots-hidden')).length;
+        function show(i, direct) {
+            if (direct) index = i;
+            else if (index < inReel) index = (i + inReel) % inReel;
+            else return;
+            box.querySelectorAll('.case-lightbox__nav').forEach((b) => { b.hidden = inReel < 2 || index >= inReel; });
             const s = shots[index];
             img.src = s.dataset.full;
             img.alt = s.querySelector('img').alt;
@@ -24,7 +29,7 @@
         }
         function open(i) {
             lastFocus = document.activeElement;
-            show(i);
+            show(i, true);
             box.hidden = false;
             document.body.style.overflow = 'hidden';
             box.querySelector('.case-lightbox__close').focus();
@@ -47,8 +52,6 @@
             if (e.key === 'ArrowLeft') show(index - 1);
             if (e.key === 'ArrowRight') show(index + 1);
         });
-        // si solo hay una imagen, no hacen falta flechas
-        if (shots.length < 2) box.querySelectorAll('.case-lightbox__nav').forEach((b) => { b.hidden = true; });
     }
 
     /* ---------- Galería deslizable ---------- */
