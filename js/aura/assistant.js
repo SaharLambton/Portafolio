@@ -86,8 +86,8 @@
         you: { es: 'TÚ', en: 'YOU' },
         details: { es: 'Ver detalles', en: 'View details' },
         repo: { es: 'Ver en GitHub', en: 'View on GitHub' },
-        voiceOn: { es: 'Desactivar voz', en: 'Turn voice off' },
-        voiceOff: { es: 'Activar voz', en: 'Turn voice on' },
+        voiceOn: { es: 'Silenciar a ATLAS', en: 'Mute ATLAS' },
+        voiceOff: { es: 'Activar la voz de ATLAS', en: 'Turn ATLAS voice on' },
         tapToHear: { es: '🔊 Toca la pantalla para escuchar a ATLAS', en: '🔊 Tap the screen to hear ATLAS' },
         boot: {
             es: ['> Inicializando núcleo {name}...', '> Cargando módulos: proyectos · habilidades · experiencia', '> Calibrando matriz holográfica', '> Enlace neural establecido ✓'],

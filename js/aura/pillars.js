@@ -19,55 +19,8 @@
         if (!was) { chime(pillar.dataset.pillar); showHolo(pillar.dataset.pillar); }
     }
 
-    /* ---------- Sonido de apertura (Web Audio, sin archivos) ----------
-       Un barrido de aire filtrado, como una compuerta holográfica, y un acorde
-       corto con eco. Cada pilar suena en un tono distinto. Se silencia si la
-       persona apagó la voz de ATLAS o entró sin audio. */
-    const NOTES = { code: [261.6, 392.0, 523.3], ai: [293.7, 440.0, 587.3], design: [329.6, 493.9, 659.3], marketing: [349.2, 523.3, 698.5] };
-    let actx = null;
-    let lastChime = 0;
-    const muted = () => { try { return localStorage.getItem('aura-voice') === 'off'; } catch (e) { return false; } };
-    // el navegador solo deja sonar audio después de un clic o una tecla
-    const unlock = () => {
-        if (!actx) { const AC = window.AudioContext || window.webkitAudioContext; if (AC) actx = new AC(); }
-        if (actx && actx.state === 'suspended') actx.resume();
-    };
-    ['pointerdown', 'keydown', 'touchstart'].forEach((ev) => window.addEventListener(ev, unlock, { passive: true }));
-    function chime(type) {
-        if (!actx || actx.state !== 'running' || muted() || reducedMotion) return;
-        const now = actx.currentTime;
-        if (now - lastChime < 0.18) return;
-        lastChime = now;
-        const out = actx.createGain();
-        out.gain.value = 0.55;
-        // eco corto
-        const delay = actx.createDelay(); delay.delayTime.value = 0.14;
-        const fb = actx.createGain(); fb.gain.value = 0.28;
-        delay.connect(fb); fb.connect(delay);
-        out.connect(actx.destination); out.connect(delay); delay.connect(actx.destination);
-        // barrido de aire
-        const len = Math.floor(actx.sampleRate * 0.45);
-        const buf = actx.createBuffer(1, len, actx.sampleRate);
-        const d = buf.getChannelData(0);
-        for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len);
-        const noise = actx.createBufferSource(); noise.buffer = buf;
-        const bp = actx.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = 6;
-        bp.frequency.setValueAtTime(400, now); bp.frequency.exponentialRampToValueAtTime(3800, now + 0.35);
-        const ng = actx.createGain();
-        ng.gain.setValueAtTime(0.0001, now); ng.gain.exponentialRampToValueAtTime(0.05, now + 0.06); ng.gain.exponentialRampToValueAtTime(0.0001, now + 0.42);
-        noise.connect(bp); bp.connect(ng); ng.connect(out);
-        noise.start(now); noise.stop(now + 0.45);
-        // acorde que sube nota a nota
-        (NOTES[type] || NOTES.code).forEach((f, i) => {
-            const t = now + 0.05 + i * 0.06;
-            const o = actx.createOscillator(); o.type = i === 2 ? 'sine' : 'triangle';
-            o.frequency.setValueAtTime(f * 0.98, t); o.frequency.exponentialRampToValueAtTime(f, t + 0.08);
-            const g = actx.createGain();
-            g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.045, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.7);
-            o.connect(g); g.connect(out);
-            o.start(t); o.stop(t + 0.75);
-        });
-    }
+    /* ---------- Sonido de apertura: lo genera js/sfx.js (independiente de la voz de ATLAS) ---------- */
+    function chime(type) { if (window.SFX && !reducedMotion) window.SFX.play('pillar', type); }
 
     /* ---------- Paneles holográficos con datos reales ---------- */
     const KB = window.AURA_KB || {};
