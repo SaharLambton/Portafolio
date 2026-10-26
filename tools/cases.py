@@ -13,7 +13,7 @@ import os
 import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261026d'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261026e'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -162,48 +162,59 @@ PROJECTS = [
         'title': ('Sports Store', 'Sports Store'),
         'tagline': ('Sitio web para una tienda deportiva con propósito: comercio, becas para jóvenes atletas y contenido educativo para las familias.',
                     'Website for a sports store with a purpose: commerce, scholarships for young athletes and educational content for families.'),
-        'tags': ['HTML5', 'CSS3', 'Responsive', 'Videos de YouTube', 'UI/UX'],
+        'tags': ['HTML5', 'CSS3', 'Flexbox', 'Grid', 'Responsive', 'Trabajo en equipo'],
         'hero': {'video': 'sport.mp4', 'poster': 'img/cases/img-sport.webp'},
         'facts': [
-            (('Formación', 'Program'), ('Programa Computer Programmer · Lambton College', 'Computer Programmer program · Lambton College')),
-            (('Duración', 'Duration'), ('20 días', '20 days')),
-            (('Rol', 'Role'), ('Desarrolladora frontend', 'Frontend developer')),
-            (('Stack', 'Stack'), ('HTML5 · CSS3 · YouTube', 'HTML5 · CSS3 · YouTube')),
+            (('Formación', 'Program'), ('Computer Programmer · curso Front End Web Development I, Lambton College', 'Computer Programmer · Front End Web Development I course, Lambton College')),
+            (('Fecha', 'Date'), ('Julio – agosto de 2023', 'July – August 2023')),
+            (('Equipo', 'Team'), ('Cinco estudiantes', 'Five students')),
+            (('Mi rol', 'My role'), ('Diseño visual y estilos CSS de todo el sitio', 'Visual design and CSS for the whole site')),
         ],
-        'summary': ('Sports Store es el sitio web de una tienda de artículos para los deportes más populares de Canadá. Su propuesta de valor va más allá de la venta: la marca impulsa a los jóvenes atletas con un programa de becas y acompaña a las familias con contenido educativo sobre los beneficios del deporte. El reto fue integrar en un mismo sitio la experiencia comercial y el compromiso social, con una navegación clara y una identidad visual enérgica. Proyecto desarrollado en el programa Computer Programmer de Lambton College, en Ontario (Canadá), bajo estándares profesionales de desarrollo.',
-                    "Sports Store is the website for a store selling gear for Canada's most popular sports. Its value proposition goes beyond sales: the brand supports young athletes through a scholarship program and helps families with educational content about the benefits of sport. The challenge was to bring the shopping experience and the social commitment together in one site, with clear navigation and an energetic visual identity. Developed within the Computer Programmer program at Lambton College in Ontario, Canada, following professional development standards."),
+        'summary': ('Sports Store es el sitio web de una tienda de artículos para los deportes más populares de Canadá. Su propuesta de valor va más allá de la venta: la marca impulsa a los jóvenes atletas con un programa de becas y acompaña a las familias con contenido sobre los beneficios del deporte. Fue un proyecto en equipo de cinco estudiantes en el que cada integrante construyó una página; mi responsabilidad fue la capa visual: escribí los estilos CSS de las cuatro páginas, que le dan al sitio una identidad coherente, su adaptación a distintas pantallas y sus efectos de interacción. Proyecto desarrollado en el programa Computer Programmer de Lambton College, en Ontario (Canadá), bajo estándares profesionales de desarrollo.',
+                    "Sports Store is the website for a store selling gear for Canada's most popular sports. Its value proposition goes beyond sales: the brand supports young athletes through a scholarship program and helps families with content about the benefits of sport. It was a five-student team project in which each member built one page; my responsibility was the visual layer: I wrote the CSS for all four pages, giving the site a coherent identity, its adaptation to different screens and its interaction effects. Developed within the Computer Programmer program at Lambton College in Ontario, Canada, following professional development standards."),
         'sections': [
             {'kind': 'cards', 'over': ('// PROPUESTA DE VALOR', '// VALUE PROPOSITION'), 'title': ('Una tienda que también forma deportistas', 'A store that also builds athletes'),
              'intro': ('El sitio combina cuatro frentes que fortalecen la relación de la marca con su comunidad y le dan a cada visita un motivo para volver.',
-                       'The site combines four fronts that strengthen the brand\'s relationship with its community and give every visit a reason to return.'),
+                       "The site combines four fronts that strengthen the brand's relationship with its community and give every visit a reason to return."),
              'items': [
-                (('Catálogo deportivo', 'Sports catalog'), ('Productos organizados por disciplina —hockey, béisbol, baloncesto y más— para que cada cliente encuentre rápidamente lo que busca.', 'Products organized by sport—hockey, baseball, basketball and more—so every customer quickly finds what they need.')),
-                (('Programa de becas', 'Scholarship program'), ('Una sección dedicada a apoyar a jóvenes atletas, con formulario de solicitud, noticias y términos del programa.', 'A section dedicated to supporting young athletes, with an application form, news and program terms.')),
-                (('Educación para las familias', 'Education for families'), ('Un carrusel de videos que explica a los padres los beneficios de la actividad deportiva para sus hijos.', 'A video carousel that explains to parents the benefits of sport for their children.')),
-                (('Confianza y cercanía', 'Trust and proximity'), ('Una página institucional con la misión y los valores de la marca, y un canal de contacto con sus tiendas en el área metropolitana de Toronto.', 'An about page with the brand\'s mission and values, and a contact channel for its stores in the Greater Toronto Area.')),
+                (('Catálogo con ofertas', 'Catalog with offers'), ('Productos organizados en cinco secciones —ofertas, hockey, baloncesto, fútbol y béisbol—, con precios, descuentos y un menú para saltar a cada categoría.', 'Products organized in five sections—sale, hockey, basketball, soccer and baseball—with prices, discounts and a menu to jump to each category.')),
+                (('Programa de becas', 'Scholarship program'), ('Una invitación a los jóvenes que necesitan apoyo para aplicar a una beca mediante un formulario, con becas nuevas cada mes.', 'An invitation for young people who need support to apply for a scholarship through a form, with new scholarships every month.')),
+                (('Educación para las familias', 'Education for families'), ('Un carrusel de videos para padres sobre los beneficios del deporte en el cuerpo y el cerebro, y más historias en la sección institucional.', 'A video carousel for parents about the benefits of sport for body and brain, plus more stories in the about section.')),
+                (('Confianza y cercanía', 'Trust and proximity'), ('La historia, la misión y las colaboraciones de la marca, horarios de atención, tres tiendas en el área de Toronto con mapa y un formulario de contacto.', "The brand's story, mission and collaborations, opening hours, three stores in the Toronto area with a map and a contact form.")),
              ]},
         ],
-        'gallery': [('img/cases/img-sport.webp', ('Página principal', 'Home page'))],
+        'gallery': [
+            ('img/cases/img-sport.webp', ('Inicio', 'Home')),
+            ('img/cases/sport-productos.webp', ('Productos: menú por categoría', 'Products: category menu')),
+            ('img/cases/sport-nosotros.webp', ('Nosotros: secciones de la marca', 'About: brand sections')),
+            ('img/cases/sport-contacto.webp', ('Contacto: horarios y formulario', 'Contact: hours and form')),
+        ],
         'blocks': [
             {'title': ('Estructura del sitio', 'Site structure'), 'items': [
-                ('Inicio con un hero de alto impacto y navegación clara', 'Home with a high-impact hero and clear navigation'),
-                ('Catálogo de hockey, béisbol, baloncesto y más', 'Catalog for hockey, baseball, basketball and more'),
-                ('Nosotros: misión, valores y compromiso con los jóvenes', 'About: mission, values and commitment to young people'),
-                ('Contacto con formulario y tiendas en el GTA', 'Contact with a form and stores in the GTA')]},
-            {'title': ('Impacto social', 'Social impact'), 'items': [
-                ('Programa de becas con formulario de solicitud', 'Scholarship program with an application form'),
-                ('Carrusel de videos educativos de YouTube', 'Carousel of educational YouTube videos'),
-                ('Noticias, nuevas becas y términos en PDF', 'News, new scholarships and terms in PDF')]},
-            {'title': ('Técnicas aplicadas', 'Techniques applied'), 'items': [
-                ('HTML5 semántico para accesibilidad y SEO', 'Semantic HTML5 for accessibility and SEO'),
-                ('Flexbox, Grid, animaciones y efectos hover', 'Flexbox, Grid, animations and hover effects'),
-                ('Diseño responsive con media queries', 'Responsive design with media queries'),
-                ('Videos de YouTube integrados y adaptables', 'Embedded, responsive YouTube videos')]},
+                ('Inicio: bienvenida, accesos a productos, becas y tiendas, y noticias', 'Home: welcome, shortcuts to products, scholarships and stores, and news'),
+                ('Productos: cinco categorías con precios y descuentos', 'Products: five categories with prices and discounts'),
+                ('Nosotros: historia, misión, colaboraciones, becas y videos', 'About: story, mission, collaborations, scholarships and videos'),
+                ('Contacto: horarios, formulario, tiendas y mapa', 'Contact: hours, form, stores and map')]},
+            {'title': ('Mi aporte: estilos CSS', 'My contribution: CSS'), 'items': [
+                ('Hojas de estilo para las cuatro páginas', 'Stylesheets for all four pages'),
+                ('Paleta azul y gris con acentos verde, naranja y rojo', 'Blue and gray palette with green, orange and red accents'),
+                ('Maquetación con Flexbox y Grid', 'Layouts with Flexbox and Grid'),
+                ('Media queries para adaptar cada página a cualquier pantalla', 'Media queries so every page adapts to any screen'),
+                ('Efectos hover y animaciones', 'Hover effects and animations')]},
+            {'title': ('Contenido integrado', 'Integrated content'), 'items': [
+                ('Videos de YouTube incrustados', 'Embedded YouTube videos'),
+                ('Términos y condiciones en PDF', 'Terms and conditions in PDF'),
+                ('Mapa de las tiendas', 'Store map')]},
+        ],
+        'challenges': [
+            (('Una sola identidad para cuatro páginas', 'One identity across four pages'),
+             ('Cada integrante del equipo construyó una página distinta. Mi tarea fue unificarlas con un mismo lenguaje visual —colores, tipografía, botones, espaciados y comportamiento responsive— para que el sitio se percibiera como una sola marca.',
+              'Each team member built a different page. My task was to unify them with one visual language—colors, typography, buttons, spacing and responsive behavior—so the site would feel like a single brand.')),
         ],
         'results': [
             ('Un sitio completo de cuatro páginas, adaptable a cualquier pantalla', 'A complete four-page website that adapts to any screen'),
+            ('Una identidad visual coherente en un proyecto construido por cinco personas', 'A coherent visual identity in a project built by five people'),
             ('Comercio y responsabilidad social integrados en una misma marca', 'Commerce and social responsibility combined in a single brand'),
-            ('Contenido educativo que acerca la marca a las familias', 'Educational content that brings the brand closer to families'),
         ],
         'cta': (('¿Tu marca tiene una historia que contar?', 'Does your brand have a story to tell?'),
                 ('Desarrollo sitios web que comunican tu propuesta de valor y convierten visitantes en clientes.', 'I build websites that communicate your value proposition and turn visitors into customers.')),
