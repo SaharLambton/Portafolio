@@ -1,17 +1,11 @@
 /* ==========================================================
    SONIDOS DE LA INTERFAZ · se generan con Web Audio, sin archivos
    Son independientes de la voz de ATLAS: silenciar a ATLAS no
-   apaga estos sonidos. Se controlan con el botón de efectos de la
-   barra superior (se guarda en localStorage 'site-sfx').
+   apaga estos sonidos, que siempre están activos.
    Uso desde otros scripts: window.SFX.play('success')
    ========================================================== */
 (function () {
-    const KEY = 'site-sfx';
-    const store = {
-        get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } },
-        set(v) { try { localStorage.setItem(KEY, v); } catch (e) { /* sin almacenamiento */ } }
-    };
-    let enabled = store.get() !== 'off';
+    const enabled = true;
     let ctx = null;
     let master = null;
     const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -108,23 +102,7 @@
         try { SOUNDS[name](arg); } catch (e) { /* el audio nunca debe romper la página */ }
     }
 
-    function setEnabled(on) {
-        enabled = on;
-        store.set(on ? 'on' : 'off');
-        document.querySelectorAll('[data-sfx-toggle]').forEach(syncButton);
-    }
-    function syncButton(btn) {
-        const lang = document.documentElement.lang === 'en' ? 'en' : 'es';
-        btn.classList.toggle('is-on', enabled);
-        btn.setAttribute('aria-pressed', String(enabled));
-        const label = enabled
-            ? (lang === 'en' ? 'Turn interface sounds off' : 'Apagar sonidos de la interfaz')
-            : (lang === 'en' ? 'Turn interface sounds on' : 'Activar sonidos de la interfaz');
-        btn.setAttribute('aria-label', label);
-        btn.title = label;
-    }
-
-    window.SFX = { play, setEnabled, isEnabled: () => enabled, syncButton };
+    window.SFX = { play };
 
     /* ---------- Sonidos automáticos para lo interactivo ---------- */
     const HOVER = 'a[href], button, .pillar, .glance-card, .aura-card, .case-shot, .case-zoom, .swatch, [role="button"], summary, select, .freq';
@@ -141,7 +119,6 @@
     document.addEventListener('click', (e) => {
         const el = e.target.closest('a[href], button, summary, [role="button"], .case-shot, .case-zoom');
         if (!el || el.disabled) return;
-        if (el.matches('[data-sfx-toggle]')) return; // suena al cambiar de estado
         if (el.closest('.aura-lang')) return play('toggleOn');
         if (el.id === 'auraVoice') return play(el.classList.contains('is-on') ? 'toggleOff' : 'toggleOn');
         if (el.matches('.case-shot, .case-zoom')) return play('open');
@@ -155,17 +132,4 @@
         play('click');
     }, true);
 
-    /* ---------- Botón de efectos en la barra superior ---------- */
-    document.addEventListener('click', (e) => {
-        const btn = e.target.closest('[data-sfx-toggle]');
-        if (!btn) return;
-        unlock();
-        const on = !enabled;
-        if (!on) play('toggleOff');
-        setEnabled(on);
-        if (on) setTimeout(() => play('toggleOn'), 30);
-    });
-    // al cambiar de idioma se actualiza la etiqueta del botón
-    new MutationObserver(() => document.querySelectorAll('[data-sfx-toggle]').forEach(syncButton))
-        .observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 })();
