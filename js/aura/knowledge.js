@@ -422,8 +422,8 @@ window.AURA_KB = {
             url: 'sports-store.html', area: 'web',
             tech: ['HTML5', 'CSS3', 'Responsive Design', 'YouTube API'],
             desc: {
-                es: 'Sports Store es el sitio web de una tienda de artículos para los deportes más populares de Canadá que va más allá de la venta: incluye un catálogo por disciplina, un programa de becas para jóvenes atletas con formulario de solicitud, videos educativos para las familias y contacto con sus tiendas en el área de Toronto. Lo desarrolló en el programa Computer Programmer de Lambton College.',
-                en: 'Sports Store is the website for a store selling gear for Canada\'s most popular sports that goes beyond sales: a catalog by sport, a scholarship program for young athletes with an application form, educational videos for families and contact with its stores in the Toronto area. She built it in the Computer Programmer program at Lambton College.'
+                es: 'Sports Store es el sitio web de una tienda de artículos para los deportes más populares de Canadá que va más allá de la venta: incluye un catálogo por disciplina, un programa de becas para jóvenes atletas con formulario de solicitud, videos educativos para las familias y contacto con sus tiendas en el área de Toronto. Fue un proyecto en equipo de cinco estudiantes del programa Computer Programmer de Lambton College (2023), en el que Sahar estuvo a cargo del diseño visual y los estilos CSS de todo el sitio.',
+                en: 'Sports Store is the website for a store selling gear for Canada\'s most popular sports that goes beyond sales: a catalog by sport, a scholarship program for young athletes with an application form, educational videos for families and contact with its stores in the Toronto area. It was a five-student team project in the Computer Programmer program at Lambton College (2023), where Sahar was in charge of the visual design and CSS for the whole site.'
             }
         },
         {
