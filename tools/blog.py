@@ -17,7 +17,7 @@ Tipos de bloque:
 import html
 import os
 
-V = '20261027i'  # versión de CSS/JS (evita caché vieja)
+V = '20261027j'  # versión de CSS/JS (evita caché vieja)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 

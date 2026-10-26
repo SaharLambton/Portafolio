@@ -22,9 +22,6 @@
         // voz de ATLAS: globo de diálogo con ondas / tachado
         voiceOn: '<svg class="i-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h11v8H8l-4 3z"/><path d="M18 7.5a4 4 0 0 1 0 5"/><path d="M20.5 5a7.5 7.5 0 0 1 0 10"/></svg>',
         voiceOff: '<svg class="i-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h11v8H8l-4 3z"/><path d="m3 3 18 18"/></svg>',
-        // sonidos de la interfaz: altavoz
-        sfxOn: '<svg class="i-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>',
-        sfxOff: '<svg class="i-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/></svg>',
         menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>',
         mic: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg>',
         close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>'
@@ -44,7 +41,6 @@
                     <button type="button" data-lang="es" class="active" aria-pressed="true">ES</button>
                     <button type="button" data-lang="en" aria-pressed="false">EN</button>
                 </div>
-                <button type="button" class="aura-icon-btn" id="siteSfx" data-sfx-toggle aria-pressed="true" aria-label="Apagar sonidos de la interfaz">${ICONS.sfxOn}${ICONS.sfxOff}</button>
                 <button type="button" class="aura-icon-btn" id="auraVoice" aria-pressed="false" aria-label="Activar la voz de ATLAS">${ICONS.voiceOn}${ICONS.voiceOff}</button>
                 <button type="button" class="aura-icon-btn aura-menu-btn" id="auraMenu" aria-expanded="false" aria-controls="auraNav" data-es-label="Abrir menú" data-en-label="Open menu" aria-label="Abrir menú">${ICONS.menu}</button>
             </div>`;
@@ -121,7 +117,6 @@
 
     const headerSlot = document.querySelector('[data-site-header]');
     if (headerSlot) headerSlot.innerHTML = headerHTML();
-    if (window.SFX) document.querySelectorAll('[data-sfx-toggle]').forEach(window.SFX.syncButton);
     const footerSlot = document.querySelector('[data-site-footer]');
     if (footerSlot) footerSlot.innerHTML = footerHTML();
 
