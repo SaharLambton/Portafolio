@@ -155,6 +155,18 @@ body.case { --a-bg: var(--case-bg); background: var(--case-bg); }
 .case-panel--alt { border-color: rgba(var(--brand2-rgb), 0.35); background: linear-gradient(165deg, rgba(var(--brand2-rgb), 0.08), rgba(4, 8, 10, 0.75)); }
 .case-panel__text { margin: 0; line-height: 1.65; color: #cfdcd9; }
 
+/* ---------- Secciones de texto desarrollado ---------- */
+.section-intro { margin: -6px 0 26px; max-width: 68ch; font-size: clamp(1rem, 1.3vw, 1.12rem); line-height: 1.7; color: #cfdcd9; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.scope { padding: 22px 22px 24px; border-top: 2px solid var(--brand); background: linear-gradient(rgba(var(--brand-rgb), 0.07), rgba(4, 8, 10, 0.55)); }
+.scope__num { font-family: var(--a-font-mono); font-size: 0.74rem; letter-spacing: 0.2em; color: var(--brand); }
+.scope__title { margin: 10px 0 0; font-family: var(--case-display); font-size: clamp(1.08rem, 1.6vw, 1.25rem); font-weight: 700; color: #fff; }
+.scope__text { margin: 10px 0 0; font-size: 0.95rem; line-height: 1.65; color: #cfdcd9; }
+.pair-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.statement { position: relative; padding: clamp(24px, 3vw, 36px); border: 1px solid rgba(var(--brand-rgb), 0.25); background: radial-gradient(ellipse at 0% 0%, rgba(var(--brand-rgb), 0.1), transparent 65%), rgba(4, 8, 10, 0.6); }
+.statement__title { margin: 0; font-family: var(--case-display); font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 700; color: var(--brand); }
+.statement__text { margin: 14px 0 0; font-size: clamp(0.98rem, 1.3vw, 1.08rem); line-height: 1.75; color: #dbe5e3; }
+
 /* ---------- Galería deslizable ---------- */
 .case-gallery__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; }
 .reel__nav { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
@@ -417,7 +429,7 @@ body.case { --a-bg: var(--case-bg); background: var(--case-bg); }
     .motif--compass, .motif--secure, .motif--orbit, .motif--orb { right: 0; opacity: 0.6; }
 }
 @media (max-width: 640px) {
-    .telemetry__grid, .case-panels, .case-panels--2, .case-results__list { grid-template-columns: 1fr; }
+    .telemetry__grid, .case-panels, .case-panels--2, .case-results__list, .pair-grid { grid-template-columns: 1fr; }
     .telemetry__item { padding-left: 0; border-left: 0; }
     .case-gallery__head { flex-direction: column; align-items: flex-start; }
     .reel { grid-auto-columns: 88%; }
