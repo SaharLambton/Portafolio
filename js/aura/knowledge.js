@@ -496,8 +496,8 @@ window.AURA_KB = {
             url: 'smart-agriculture.html', area: 'code',
             tech: ['TypeScript', 'Node.js', 'POO', 'npm'],
             desc: {
-                es: 'Smart Agriculture es un modelo en TypeScript de una granja inteligente: sensores ambientales, riego automatizado según el clima, detección de enfermedades en plantas y drones. Lo hizo con Julián Casilimas en Lambton College (2024) y lo publicaron como paquete en npm.',
-                en: 'Smart Agriculture is a TypeScript model of a smart farm: environmental sensors, weather-driven automated irrigation, plant disease detection and drones. She built it with Julián Casilimas at Lambton College (2024) and they published it as an npm package.'
+                es: 'Smart Agriculture es un modelo en TypeScript de una granja inteligente: sensores ambientales, riego automatizado según el clima, detección de enfermedades en plantas y drones. Lo hizo con Julián Casilimas en Lambton College (2024) y lo publicaron en npm como el paquete smart-agriculture.',
+                en: 'Smart Agriculture is a TypeScript model of a smart farm: environmental sensors, weather-driven automated irrigation, plant disease detection and drones. She built it with Julián Casilimas at Lambton College (2024) and they published it on npm as the smart-agriculture package.'
             },
             tag: { es: 'IoT · TypeScript', en: 'IoT · TypeScript' }
         },
