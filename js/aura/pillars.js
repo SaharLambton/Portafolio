@@ -14,8 +14,160 @@
         pillar.setAttribute('aria-expanded', String(open));
     }
     function openOnly(pillar) {
+        const was = pillar.classList.contains('is-open');
         pillars.forEach((p) => setOpen(p, p === pillar));
+        if (!was) { chime(pillar.dataset.pillar); showHolo(pillar.dataset.pillar); }
     }
+
+    /* ---------- Sonido de apertura (Web Audio, sin archivos) ----------
+       Un barrido de aire filtrado, como una compuerta holográfica, y un acorde
+       corto con eco. Cada pilar suena en un tono distinto. Se silencia si la
+       persona apagó la voz de AURA o entró sin audio. */
+    const NOTES = { code: [261.6, 392.0, 523.3], ai: [293.7, 440.0, 587.3], design: [329.6, 493.9, 659.3], marketing: [349.2, 523.3, 698.5] };
+    let actx = null;
+    let lastChime = 0;
+    const muted = () => { try { return localStorage.getItem('aura-voice') === 'off'; } catch (e) { return false; } };
+    // el navegador solo deja sonar audio después de un clic o una tecla
+    const unlock = () => {
+        if (!actx) { const AC = window.AudioContext || window.webkitAudioContext; if (AC) actx = new AC(); }
+        if (actx && actx.state === 'suspended') actx.resume();
+    };
+    ['pointerdown', 'keydown', 'touchstart'].forEach((ev) => window.addEventListener(ev, unlock, { passive: true }));
+    function chime(type) {
+        if (!actx || actx.state !== 'running' || muted() || reducedMotion) return;
+        const now = actx.currentTime;
+        if (now - lastChime < 0.18) return;
+        lastChime = now;
+        const out = actx.createGain();
+        out.gain.value = 0.55;
+        // eco corto
+        const delay = actx.createDelay(); delay.delayTime.value = 0.14;
+        const fb = actx.createGain(); fb.gain.value = 0.28;
+        delay.connect(fb); fb.connect(delay);
+        out.connect(actx.destination); out.connect(delay); delay.connect(actx.destination);
+        // barrido de aire
+        const len = Math.floor(actx.sampleRate * 0.45);
+        const buf = actx.createBuffer(1, len, actx.sampleRate);
+        const d = buf.getChannelData(0);
+        for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len);
+        const noise = actx.createBufferSource(); noise.buffer = buf;
+        const bp = actx.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = 6;
+        bp.frequency.setValueAtTime(400, now); bp.frequency.exponentialRampToValueAtTime(3800, now + 0.35);
+        const ng = actx.createGain();
+        ng.gain.setValueAtTime(0.0001, now); ng.gain.exponentialRampToValueAtTime(0.05, now + 0.06); ng.gain.exponentialRampToValueAtTime(0.0001, now + 0.42);
+        noise.connect(bp); bp.connect(ng); ng.connect(out);
+        noise.start(now); noise.stop(now + 0.45);
+        // acorde que sube nota a nota
+        (NOTES[type] || NOTES.code).forEach((f, i) => {
+            const t = now + 0.05 + i * 0.06;
+            const o = actx.createOscillator(); o.type = i === 2 ? 'sine' : 'triangle';
+            o.frequency.setValueAtTime(f * 0.98, t); o.frequency.exponentialRampToValueAtTime(f, t + 0.08);
+            const g = actx.createGain();
+            g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.045, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.7);
+            o.connect(g); g.connect(out);
+            o.start(t); o.stop(t + 0.75);
+        });
+    }
+
+    /* ---------- Paneles holográficos con datos reales ---------- */
+    const KB = window.AURA_KB || {};
+    const P = KB.projects || [];
+    const count = (...ids) => P.filter((p) => p.pillars.some((x) => ids.includes(x))).length;
+    const L = () => (document.documentElement.lang === 'en' ? 'en' : 'es');
+    const CODE = {
+        all: () => ({ es: [['proyectos', P.length], ['desde', 2019], ['pilares', 4], ['idiomas', "'ES / EN'"]], en: [['projects', P.length], ['since', 2019], ['pillars', 4], ['languages', "'ES / EN'"]] }),
+        code: () => ({ es: [['proyectos', count('web', 'code')], ['stack', "['.NET', 'SQL', 'TS']"], ['calidad', "'Jest + CI'"], ['datos', "'+30%'"]], en: [['projects', count('web', 'code')], ['stack', "['.NET', 'SQL', 'TS']"], ['quality', "'Jest + CI'"], ['data', "'+30%'"]] }),
+        ai: () => ({ es: [['proyectos', count('ai')], ['taller', "'Intel Tax'"], ['asistente', "'AURA'"], ['productividad', "'+35%'"]], en: [['projects', count('ai')], ['workshop', "'Intel Tax'"], ['assistant', "'AURA'"], ['productivity', "'+35%'"]] }),
+        design: () => ({ es: [['proyectos', count('design')], ['marcas', 5], ['enUso', "'Armonía'"], ['suite', "'Illustrator'"]], en: [['projects', count('design')], ['brands', 5], ['inUse', "'Armonía'"], ['suite', "'Illustrator'"]] }),
+        marketing: () => ({ es: [['proyectos', count('marketing')], ['interaccion', "'+20%'"], ['analitica', "'Analytics + SEO'"], ['redes', "'MetalTec'"]], en: [['projects', count('marketing')], ['engagement', "'+20%'"], ['analytics', "'Analytics + SEO'"], ['social', "'MetalTec'"]] })
+    };
+    const VAR = { all: 'sahar', code: 'programacion', ai: 'ia', design: 'diseno', marketing: 'marketing' };
+    const VAR_EN = { all: 'sahar', code: 'programming', ai: 'ai', design: 'design', marketing: 'marketing' };
+    // métricas de impacto (resultados de Únicos, 2019–2021) y de portafolio
+    const METRICS = {
+        code: { v: 30, es: ['ORG. DE DATOS', 'bases de datos a medida'], en: ['DATA ORGANIZATION', 'custom databases'], src: 'ÚNICOS' },
+        ai: { v: 35, es: ['PRODUCTIVIDAD', 'software y automatización'], en: ['PRODUCTIVITY', 'software and automation'], src: 'ÚNICOS' },
+        design: { v: 20, es: ['INTERACCIÓN', 'identidad visual y campañas'], en: ['ENGAGEMENT', 'visual identity and campaigns'], src: 'ÚNICOS' },
+        marketing: { v: 20, es: ['INTERACCIÓN', 'campañas con clientes'], en: ['ENGAGEMENT', 'client campaigns'], src: 'ÚNICOS' }
+    };
+    const ROTATE = ['ai', 'code', 'design'];
+    const el = (id) => document.getElementById(id);
+    const codeEl = el('holoCode'), tagEl = el('holoCodeTag');
+    let typing = 0;
+
+    function renderCode(key) {
+        if (!codeEl) return;
+        const lang = L();
+        const lines = (CODE[key] || CODE.all)()[lang];
+        const name = (lang === 'en' ? VAR_EN : VAR)[key] || 'sahar';
+        const html = `<span class="k">const</span> ${name} = {\n` + lines.map(([k, v]) => `  ${k}: <span class="v">${v}</span>,`).join('\n') + '\n};';
+        const plain = html.replace(/<[^>]+>/g, '');
+        if (tagEl) tagEl.textContent = key === 'all' ? 'ALL' : key.toUpperCase();
+        const id = ++typing;
+        if (reducedMotion) { codeEl.innerHTML = html; return; }
+        // efecto de escritura: va mostrando el texto y al final aplica los colores
+        let i = 0;
+        const step = () => {
+            if (id !== typing) return;
+            i = Math.min(plain.length, i + 3);
+            codeEl.textContent = plain.slice(0, i);
+            if (i < plain.length) { codeEl.insertAdjacentHTML('beforeend', '<span class="caret">&nbsp;</span>'); setTimeout(step, 16); }
+            else codeEl.innerHTML = html;
+        };
+        step();
+    }
+
+    function linePoints(v, seed) {
+        // línea que sube hasta el valor de la métrica
+        const pts = [];
+        for (let i = 0; i <= 8; i++) {
+            const k = i / 8;
+            const y = 66 - (v / 40) * 58 * Math.pow(k, 0.8) + Math.sin(i * 1.7 + seed) * 3 * (1 - k * 0.5);
+            pts.push(`${Math.round(k * 160)},${Math.max(4, Math.min(66, y)).toFixed(1)}`);
+        }
+        return pts.join(' ');
+    }
+    let metricTimer = 0, rotateIdx = 0, countId = 0;
+    function renderMetric(key) {
+        const m = METRICS[key];
+        if (!m || !el('holoMetricValue')) return;
+        const lang = L();
+        el('holoMetricLabel').textContent = m[lang][0];
+        el('holoMetricNote').textContent = m[lang][1];
+        el('holoMetricSrc').textContent = m.src;
+        el('holoLineA').setAttribute('points', linePoints(m.v, 0));
+        el('holoLineB').setAttribute('points', linePoints(m.v * 0.7, 2));
+        const valEl = el('holoMetricValue');
+        const id = ++countId;
+        if (reducedMotion) { valEl.textContent = '+' + m.v + '%'; return; }
+        const t0 = performance.now();
+        const step = (now) => { if (id !== countId) return; const k = Math.min(1, (now - t0) / 900); valEl.textContent = '+' + Math.round(m.v * k) + '%'; if (k < 1) requestAnimationFrame(step); };
+        requestAnimationFrame(step);
+    }
+    function startRotation() {
+        clearInterval(metricTimer);
+        if (reducedMotion) return;
+        metricTimer = setInterval(() => {
+            if (document.hidden || pillars.some((p) => p.classList.contains('is-open'))) return;
+            rotateIdx = (rotateIdx + 1) % ROTATE.length;
+            renderMetric(ROTATE[rotateIdx]);
+        }, 4500);
+    }
+    function showHolo(key) { renderCode(key); renderMetric(key); }
+    // al cerrar todos los pilares, los paneles vuelven al resumen general
+    let idleTimer = 0;
+    function maybeReset() {
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(() => { if (!pillars.some((p) => p.classList.contains('is-open'))) renderCode('all'); }, 600);
+    }
+    pillars.forEach((p) => p.addEventListener('mouseleave', maybeReset));
+    pillars.forEach((p) => p.addEventListener('focusout', maybeReset));
+    // si cambia el idioma, se reescriben los paneles
+    new MutationObserver(() => {
+        const open = pillars.find((p) => p.classList.contains('is-open'));
+        showHolo(open ? open.dataset.pillar : 'all');
+        if (!open) renderMetric(ROTATE[rotateIdx]);
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 
     pillars.forEach((pillar) => {
         if (canHover) {
@@ -52,11 +204,20 @@
 
     /* ---------- Aparición al hacer scroll ---------- */
     let inView = false;
+    let holoStarted = false;
+    const startHolo = () => {
+        if (holoStarted) return;
+        holoStarted = true;
+        // si ya hay un pilar abierto (el cursor quedó encima), los paneles muestran ese pilar
+        const open = pillars.find((p) => p.classList.contains('is-open'));
+        if (open) showHolo(open.dataset.pillar); else { renderCode('all'); renderMetric(ROTATE[0]); }
+        startRotation();
+    };
     if ('IntersectionObserver' in window) {
         new IntersectionObserver((entries) => {
             entries.forEach((e) => {
                 inView = e.isIntersecting;
-                if (e.isIntersecting) section.classList.add('is-visible');
+                if (e.isIntersecting) { section.classList.add('is-visible'); startHolo(); }
             });
         }, { threshold: 0.2 }).observe(section);
 
@@ -73,6 +234,7 @@
     } else {
         section.classList.add('is-visible');
         inView = true;
+        startHolo();
     }
 
     /* ---------- Efectos internos (canvas 2D) ---------- */

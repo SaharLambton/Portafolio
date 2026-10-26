@@ -80,7 +80,7 @@
 .pillars__holo {
     position: absolute;
     top: clamp(64px, 9vh, 110px);
-    width: 190px;
+    width: 214px;
     padding: 12px 14px;
     font-family: var(--a-font-mono, monospace);
     font-size: 0.62rem;
@@ -99,7 +99,17 @@
 .pillars__chart { width: 100%; height: 60px; fill: none; stroke: #a970ff; stroke-width: 1.4; filter: drop-shadow(0 0 4px #a970ff); }
 .pillars__chart .b { stroke: #2bf5b0; opacity: 0.6; filter: drop-shadow(0 0 4px #2bf5b0); }
 .pillars__holo-row { display: flex; justify-content: space-between; margin-top: 4px; }
-.pillars__holo-row b { color: #e7fff6; font-weight: 500; }
+.pillars__holo-row b { color: #e7fff6; font-weight: 500; transition: color 0.3s; }
+.pillars__holo-title { display: flex; justify-content: space-between; margin: 0 0 8px; padding-bottom: 6px; border-bottom: 1px solid rgba(43, 245, 176, 0.14); letter-spacing: 0.18em; color: rgba(43, 245, 176, 0.9); }
+.pillars__holo--right .pillars__holo-title { color: #b79cff; border-color: rgba(139, 92, 246, 0.22); }
+.pillars__holo-title b { font-weight: 500; color: #e7fff6; }
+.pillars__code { min-height: 9.3em; }
+.pillars__code .k { color: #b79cff; }
+.pillars__code .v { color: #e7fff6; }
+.pillars__code .caret { display: inline-block; width: 0.55em; background: rgba(43, 245, 176, 0.8); animation: holo-caret 1s steps(1) infinite; }
+@keyframes holo-caret { 50% { opacity: 0; } }
+.pillars__holo-row--note { color: rgba(143, 179, 168, 0.65); font-size: 0.58rem; }
+#holoMetricValue { font-size: 0.9rem; color: #2bf5b0; text-shadow: 0 0 8px rgba(43, 245, 176, 0.6); }
 
 /* ---------- Encabezado ---------- */
 .pillars__head { text-align: center; max-width: 720px; }

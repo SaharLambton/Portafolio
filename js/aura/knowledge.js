@@ -580,7 +580,7 @@ window.AURA_KB = {
     ],
 
     /* Proyectos que aparecen en "Destacados" */
-    featured: ['sell-services', 'zohar', 'smart-agriculture'],
+    featured: ['ai-workshop', 'sell-services', 'aura'],
 
     /* ---------- Tecnologías (para preguntas tipo "¿sabe Python?") ---------- */
     tech: {
