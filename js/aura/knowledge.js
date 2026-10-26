@@ -302,10 +302,10 @@ window.AURA_KB = {
             id: 'design',
             keys: ['diseno', 'disenos', 'branding', 'marca', 'marcas', 'logo', 'logos', 'identidad', 'grafico', 'illustrator', 'design', 'brand', 'brands', 'identity', 'graphic'],
             answer: {
-                es: 'En branding y diseño: 💎 Zohar, identidad de lujo para joyería; 🧭 ODEN, marca inmobiliaria con símbolo de brújula; 🔩 MetalTec, branding completo con web en WordPress; y ✨ Únicos, su propia agencia creativa.',
-                en: 'Branding & design: 💎 Zohar, a luxury jewelry identity; 🧭 ODEN, a real estate brand with a compass symbol; 🔩 MetalTec, full branding plus a WordPress site; and ✨ Únicos, her own creative agency.'
+                es: 'En branding y diseño: 💎 Zohar, identidad de lujo para joyería; 🧭 ODEN, marca inmobiliaria con símbolo de brújula; 🌿 Armonía, marca y empaque para aromáticas naturales; 🔩 MetalTec, branding completo con web en WordPress; y ✨ Únicos, su propia agencia creativa.',
+                en: 'Branding & design: 💎 Zohar, a luxury jewelry identity; 🧭 ODEN, a real estate brand with a compass symbol; 🌿 Armonía, branding and packaging for natural herbal teas; 🔩 MetalTec, full branding plus a WordPress site; and ✨ Únicos, her own creative agency.'
             },
-            projects: ['zohar', 'oden', 'metaltec', 'unicos'],
+            projects: ['zohar', 'oden', 'armonia', 'metaltec', 'unicos'],
             action: { type: 'go', href: 'proyectos.html?area=design', label: { es: 'Ver proyectos de diseño', en: 'See design projects' } }
         },
         {
@@ -462,6 +462,19 @@ window.AURA_KB = {
                 es: 'ODEN es la identidad visual de una inmobiliaria que acompaña a sus clientes hacia el hogar que buscan: un logotipo con una brújula que comunica orientación y confianza, una paleta de grises y dorados, versiones para cada formato, íconos, patrones y piezas publicitarias.',
                 en: 'ODEN is the visual identity for a real estate company that guides its clients to the home they are looking for: a compass logo that conveys guidance and trust, a gray-and-gold palette, versions for every format, icons, patterns and advertising pieces.'
             }
+        },
+        {
+            id: 'armonia', name: 'Aromáticas Armonía', keys: ['armonia', 'aromaticas', 'aromatica', 'infusion', 'infusiones', 'te', 'packaging', 'empaque', 'etiqueta', 'herbal tea', 'tea', 'label'],
+            brand: '#7fa86e', kind: { es: 'Cliente · Aromáticas e infusiones', en: 'Client · Herbal teas' },
+            pillars: ['design'], card: 'img/thumbs/armonia-card.webp', video: '',
+            short: { es: 'Marca y empaque para aromáticas naturales: logo con una A que florece, etiquetas y mockups a medida con IA.', en: 'Branding and packaging for natural herbal teas: a logo with a blooming A, labels and custom AI mockups.' },
+            url: 'armonia.html', area: 'design',
+            tech: ['Branding', 'Packaging', 'Mockups con IA'],
+            desc: {
+                es: 'Armonía es la identidad de marca de una línea de aromáticas e infusiones naturales: un logotipo cuya A florece como una planta, una paleta de verde bosque y crema, un patrón de hojas, la etiqueta ilustrada de Pasión Tropical y mockups a medida generados con IA para ver la marca en cajas, frascos, papelería y una tienda antes de producirla.',
+                en: 'Armonía is the brand identity for a line of natural herbal teas and infusions: a logo whose A blooms like a plant, a forest green and cream palette, a leaf pattern, the illustrated Pasión Tropical label and custom AI-generated mockups to see the brand on boxes, jars, stationery and a storefront before production.'
+            },
+            tag: { es: 'Branding y packaging', en: 'Branding & packaging' }
         },
         {
             id: 'metaltec', name: 'MetalTec Colombia', keys: ['metaltec', 'metal tec', 'metalurgica', 'metallurgical'],

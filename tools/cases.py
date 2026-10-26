@@ -475,6 +475,105 @@ PROJECTS = [
         'service': 'branding',
     },
     {
+        'id': 'armonia', 'file': 'armonia.html', 'name': 'Aromáticas Armonía', 'pillar': 'design',
+        'theme': {'brand': '#f3e6c8', 'brand_rgb': '243, 230, 200', 'brand2': '#7fa86e', 'brand2_rgb': '127, 168, 110',
+                  'bg': '#0e1710', 'display': "'Cormorant Garamond', serif", 'body': "'Exo 2', sans-serif",
+                  'fonts': 'Cormorant+Garamond:wght@500;600;700', 'motif': 'leaves', 'bullet': '❦'},
+        'kicker': ('DISEÑO · BRANDING Y PACKAGING', 'DESIGN · BRANDING AND PACKAGING'),
+        'title': ('Armonía', 'Armonía'),
+        'tagline': ('Identidad de marca y empaque para una línea de aromáticas e infusiones naturales que invita a hacer una pausa.',
+                    'Brand identity and packaging for a line of natural herbal teas and infusions that invites you to pause.'),
+        'tags': ['Branding', 'Logotipo', 'Packaging', 'Etiquetas', 'Mockups con IA'],
+        'hero': {'img': 'img/cases/armonia-hero.webp', 'alt': 'Logo de Armonía sobre verde bosque y fachada de la tienda'},
+        'facts': [
+            (('Cliente', 'Client'), ('Cliente real · aromáticas e infusiones', 'Real client · herbal teas and infusions')),
+            (('Rol', 'Role'), ('Diseñadora de marca y empaque', 'Brand and packaging designer')),
+            (('Alcance', 'Scope'), ('Identidad, etiquetas y mockups', 'Identity, labels and mockups')),
+            (('Mockups', 'Mockups'), ('A medida, generados con IA', 'Custom-made, AI-generated')),
+        ],
+        'summary': ('Aromáticas Armonía elabora infusiones botánicas naturales y necesitaba una marca capaz de competir en el lineal con productos más grandes sin perder su esencia artesanal. Una aromática se elige en segundos y por lo que transmite el empaque, así que la identidad debía comunicar a primera vista lo natural, la calma y el cuidado con que se prepara cada mezcla. El proyecto abarcó el logotipo con sus versiones, la paleta, la tipografía, un patrón de marca, el diseño de etiquetas y una serie de mockups a medida para presentar la marca antes de producirla.',
+                    'Aromáticas Armonía makes natural botanical infusions and needed a brand able to compete on the shelf with bigger products without losing its handcrafted essence. A herbal tea is chosen in seconds, based on what its packaging conveys, so the identity had to communicate at first glance the natural origin, the calm and the care behind every blend. The project covered the logo and its versions, the palette, typography, a brand pattern, label design and a series of custom mockups to present the brand before production.'),
+        'concept': {
+            'title': ('Una pausa que nace de la naturaleza', 'A pause that grows from nature'),
+            'quote': ('Cada taza, un momento de equilibrio.', 'Every cup, a moment of balance.'),
+            'paras': [
+                ('El símbolo es una letra A de la que brotan tallos y hojas: la inicial de la marca convertida en una planta que crece. Así, el nombre y el producto se leen en un solo trazo y el logotipo funciona también solo, como sello, ícono o lacre.',
+                 'The symbol is a letter A sprouting stems and leaves: the brand\'s initial turned into a growing plant. The name and the product read in a single stroke, and the symbol also works on its own as a seal, icon or wax stamp.'),
+                ('La paleta se reduce a dos tonos, verde bosque y crema, para transmitir calma, frescura y confianza. La tipografía, de inspiración clásica con remates orgánicos, aporta el aire artesanal y cálido que diferencia a la marca en el estante.',
+                 'The palette is reduced to two tones, forest green and cream, to convey calm, freshness and trust. The classic-inspired typeface with organic terminals brings the warm, handcrafted feel that sets the brand apart on the shelf.')]},
+        'sections': [
+            {'kind': 'cards', 'over': ('// VALORES DE MARCA', '// BRAND VALUES'), 'title': ('Lo que comunica la identidad', 'What the identity communicates'),
+             'items': [
+                (('Natural', 'Natural'), ('Hojas, tallos y tonos de la tierra que hablan del origen botánico de cada infusión.', 'Leaves, stems and earthy tones that speak of the botanical origin of every infusion.')),
+                (('Bienestar', 'Wellbeing'), ('Una estética serena que asocia la marca con el descanso y el cuidado personal.', 'A serene look that links the brand with rest and self-care.')),
+                (('Artesanal', 'Handcrafted'), ('Tipografía con carácter y materiales como el kraft que transmiten un producto hecho con dedicación.', 'A typeface with character and materials like kraft that convey a product made with care.')),
+                (('Confianza', 'Trust'), ('Un sistema coherente y profesional que da seguridad al comprador desde el primer contacto.', 'A coherent, professional system that reassures buyers from the very first contact.')),
+             ]},
+            {'kind': 'cards', 'over': ('// PACKAGING', '// PACKAGING'), 'title': ('Etiqueta Pasión Tropical', 'Pasión Tropical label'),
+             'intro': ('La marca madre es sobria y cada sabor se expresa con su propia ilustración. Pasión Tropical, una infusión de flor de Jamaica, fresa y mora, se presenta con una selva de flores, frutas y aves tropicales que despierta el antojo antes de abrir la caja.',
+                       'The parent brand is understated, and each flavor expresses itself with its own illustration. Pasión Tropical, an infusion of hibiscus, strawberry and blackberry, comes with a jungle of tropical flowers, fruits and birds that sparks the craving before the box is even opened.'),
+             'items': [
+                (('Frente que vende', 'A front that sells'), ('Nombre del sabor en grande, promesa clara ("Sinfonía frutal de hibiscus, fresas y moras") y contenido neto visible.', 'Large flavor name, a clear promise ("A fruity symphony of hibiscus, strawberries and blackberries") and visible net content.')),
+                (('Reverso que informa', 'A back that informs'), ('Preparación paso a paso, composición, datos del fabricante y código de barras, listos para la venta en tienda.', 'Step-by-step preparation, ingredients, manufacturer details and barcode, ready for retail.')),
+                (('Sistema escalable', 'A scalable system'), ('La misma estructura sirve para nuevos sabores: cambia la ilustración y el color, la marca se mantiene.', 'The same structure works for new flavors: the illustration and color change, the brand stays.')),
+             ]},
+        ],
+        'gallery': [
+            ('img/cases/armonia-logo-crema.webp', ('Logotipo principal', 'Main logo')),
+            ('img/cases/armonia-logo-verde.webp', ('Versión sobre verde', 'Version on green')),
+            ('img/cases/armonia-logo-negro.webp', ('Versión en negativo', 'Negative version')),
+            ('img/cases/armonia-logo-blanco.webp', ('Versión en una tinta', 'One-color version')),
+            ('img/cases/armonia-simbolo.webp', ('Símbolo y colores de marca', 'Symbol and brand colors')),
+            ('img/cases/armonia-patron.webp', ('Patrón de hojas', 'Leaf pattern')),
+            ('img/cases/armonia-etiqueta.webp', ('Etiqueta Pasión Tropical, frente y reverso', 'Pasión Tropical label, front and back')),
+            ('img/cases/armonia-mesa.webp', ('Mockup: línea de productos', 'Mockup: product line')),
+            ('img/cases/armonia-bolsas.webp', ('Mockup: bolsas kraft', 'Mockup: kraft pouches')),
+            ('img/cases/armonia-caja-abierta.webp', ('Mockup: caja de infusiones', 'Mockup: tea box')),
+            ('img/cases/armonia-frascos.webp', ('Mockup: frascos de hierbas', 'Mockup: herb jars')),
+            ('img/cases/armonia-caja-verde.webp', ('Mockup: símbolo en relieve', 'Mockup: embossed symbol')),
+            ('img/cases/armonia-papeleria.webp', ('Mockup: papelería y lacre', 'Mockup: stationery and wax seal')),
+            ('img/cases/armonia-tarjetas.webp', ('Mockup: tarjetas de presentación', 'Mockup: business cards')),
+            ('img/cases/armonia-taza.webp', ('Mockup: momento de consumo', 'Mockup: the tea moment')),
+            ('img/cases/armonia-fachada.webp', ('Mockup: fachada de tienda', 'Mockup: storefront')),
+        ],
+        'palette': [('Verde bosque', 'Forest green', '#374F37'), ('Crema', 'Cream', '#FFF6E4')],
+        'type': [('Citadel of Blackrose', "'Cormorant Garamond', serif", 'Armonía', ('Logotipo: serif de inspiración clásica con remates orgánicos que evocan tallos y hojas.', 'Logotype: classic-inspired serif with organic terminals that evoke stems and leaves.'))],
+        'blocks': [
+            {'title': ('Sistema de logotipo', 'Logo system'), 'img': 4, 'items': [
+                ('Logotipo con símbolo integrado en la A', 'Logo with the symbol built into the A'),
+                ('Versiones sobre crema, verde, negro y blanco', 'Versions on cream, green, black and white'),
+                ('Símbolo independiente para sellos e íconos', 'Standalone symbol for seals and icons')]},
+            {'title': ('Packaging', 'Packaging'), 'img': 6, 'items': [
+                ('Etiqueta frontal y posterior de Pasión Tropical', 'Front and back label for Pasión Tropical'),
+                ('Ilustración propia para cada sabor', 'A dedicated illustration for each flavor'),
+                ('Patrón de hojas para cajas y bolsas', 'Leaf pattern for boxes and pouches')]},
+            {'title': ('Mockups a medida con IA', 'Custom AI mockups'), 'img': 7, 'items': [
+                ('Cajas, bolsas kraft y frascos', 'Boxes, kraft pouches and jars'),
+                ('Papelería, tarjetas y lacre', 'Stationery, cards and wax seal'),
+                ('Fachada de tienda y momento de consumo', 'Storefront and the tea moment')]},
+        ],
+        'challenges': [
+            (('Ver la marca antes de producirla', 'Seeing the brand before producing it'),
+             ('Un emprendimiento no siempre puede imprimir prototipos de cada pieza. Generé con inteligencia artificial mockups a medida, con el logotipo y los colores reales, para que el cliente viera su marca en cajas, frascos, papelería y hasta en una tienda, y pudiera decidir con seguridad antes de invertir en producción.',
+              'A small business cannot always print prototypes of every piece. I used artificial intelligence to generate custom mockups with the real logo and colors, so the client could see the brand on boxes, jars, stationery and even a storefront, and decide with confidence before investing in production.')),
+        ],
+        'process': [
+            (('Investigación', 'Research'), ('Producto, competencia y lineal de aromáticas.', 'Product, competitors and the herbal tea shelf.')),
+            (('Concepto', 'Concept'), ('La A que florece como planta.', 'The A that blooms like a plant.')),
+            (('Identidad', 'Identity'), ('Logotipo, color, tipografía y patrón.', 'Logo, color, typography and pattern.')),
+            (('Packaging', 'Packaging'), ('Etiquetas listas para impresión.', 'Print-ready labels.')),
+            (('Mockups', 'Mockups'), ('Visualización de la marca con IA.', 'Brand visualization with AI.')),
+        ],
+        'results': [
+            ('Una identidad natural y memorable que se distingue en el estante', 'A natural, memorable identity that stands out on the shelf'),
+            ('Un sistema de empaque escalable para nuevos sabores', 'A scalable packaging system for new flavors'),
+            ('Mockups a medida que permitieron aprobar la marca antes de producirla', 'Custom mockups that allowed the brand to be approved before production'),
+        ],
+        'cta': (('¿Tu producto necesita un empaque que se elija a primera vista?', 'Does your product need packaging that gets picked at first sight?'),
+                ('Diseño marcas y etiquetas que cuentan la historia de tu producto y lo hacen destacar en el punto de venta.', 'I design brands and labels that tell your product\'s story and make it stand out at the point of sale.')),
+        'service': 'branding',
+    },
+    {
         'id': 'metaltec', 'file': 'metaltec.html', 'name': 'MetalTec Colombia', 'pillar': 'design',
         'theme': {'brand': '#ff5722', 'brand_rgb': '255, 87, 34', 'brand2': '#7f97a8', 'brand2_rgb': '127, 151, 168',
                   'bg': '#0d1114', 'display': "'Oswald', sans-serif", 'body': "'Exo 2', sans-serif",
@@ -1064,6 +1163,7 @@ MOTIF = {
     'orbit': '<div class="motif motif--orbit" aria-hidden="true"></div>',
     'pipeline': '<div class="motif motif--pipeline" aria-hidden="true"></div>',
     'orb': '<div class="motif motif--orb" aria-hidden="true"></div>',
+    'leaves': '<div class="motif motif--leaves" aria-hidden="true">' + ''.join(f'<svg style="--x:{(i * 41) % 96}%;--y:{(i * 29) % 90}%;--d:{i * 0.9}s;--r:{(i * 47) % 360}deg" viewBox="0 0 40 40"><path d="M20 38 C20 26 20 14 34 4 C34 20 28 30 20 38 Z M20 38 C20 30 14 22 4 18 C6 30 12 36 20 38 Z"/></svg>' for i in range(9)) + '</div>',
     'bubbles': '<div class="motif motif--bubbles" aria-hidden="true"><i></i><i></i><i></i></div>',
     'secure': '<div class="motif motif--secure" aria-hidden="true"><svg viewBox="0 0 120 140"><path d="M60 6 L110 26 V66 C110 100 88 122 60 134 C32 122 10 100 10 66 V26 Z"/><rect x="38" y="62" width="44" height="34" rx="5"/><path d="M46 62 V50 a14 14 0 0 1 28 0 V62"/><circle cx="60" cy="78" r="4"/></svg>'
               + ''.join(f'<span style="--i:{i}">{h}</span>' for i, h in enumerate(['session_start()', 'mysqli_connect()', 'SELECT * FROM users', "$_SESSION['ID']", 'INSERT INTO users', 'UPDATE users SET']))
@@ -1203,7 +1303,12 @@ def page(p, prev, nxt, num, total):
     for i, b in enumerate(p['blocks']):
         lis = ''.join(bi('li', '', x) for x in b['items'][:5])
         txt = f'{bi("h3", "case-row__title", b["title"])}<ul class="case-list">{lis}</ul>'
-        if pool and not ev:
+        if 'img' in b and not ev:
+            # el bloque elige su imagen de la galería
+            gi, (src, cap) = b['img'], gallery[b['img']]
+            pool = [x for x in pool if x[0] != gi]
+            rows.append(f'<article class="case-row"><div class="case-row__media reveal">{zoom(src, cap, gi)}</div><div class="case-row__copy reveal"><span class="case-row__num">0{len(rows) + 2}</span>{txt}</div></article>')
+        elif pool and not ev:
             gi, src, cap = pool.pop(0)
             rows.append(f'<article class="case-row"><div class="case-row__media reveal">{zoom(src, cap, gi)}</div><div class="case-row__copy reveal"><span class="case-row__num">0{len(rows) + 2}</span>{txt}</div></article>')
         else:
