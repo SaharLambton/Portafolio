@@ -13,7 +13,7 @@ import os
 import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261026c'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261026d'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -87,13 +87,13 @@ PROJECTS = [
         'hero': {'video': 'services.mp4', 'poster': 'img/cases/img-services.webp'},
         'links': [(('Ver código en GitHub', 'See code on GitHub'), 'https://github.com/SaharLambton/sell-services')],
         'facts': [
-            (('Tipo', 'Type'), ('Proyecto académico · Lambton College', 'Academic project · Lambton College')),
+            (('Formación', 'Program'), ('Programa Computer Programmer · Lambton College', 'Computer Programmer program · Lambton College')),
             (('Año', 'Year'), ('2023 · actualizado en 2026', '2023 · updated in 2026')),
             (('Rol', 'Role'), ('Desarrolladora full stack', 'Full stack developer')),
             (('Stack', 'Stack'), ('PHP · MySQL · JavaScript · jQuery', 'PHP · MySQL · JavaScript · jQuery')),
         ],
-        'summary': ('Una plataforma de comercio electrónico para comercializar servicios y productos gráficos personalizados, como diseño de logotipos, camisetas, cuadernos y termos. El objetivo era recrear el recorrido completo de un cliente en una tienda real: descubrir la oferta, crear una cuenta, explorar el catálogo, armar su pedido y gestionar sus datos. El frontend se construyó con HTML, CSS, JavaScript y jQuery, y el backend con PHP conectado a una base de datos MySQL que se ejecuta en local con XAMPP.',
-                    'An e-commerce platform to sell custom graphic services and products, such as logo design, t-shirts, notebooks and tumblers. The goal was to recreate a customer\'s full journey in a real store: discover the offer, create an account, browse the catalog, build an order and manage their data. The frontend was built with HTML, CSS, JavaScript and jQuery, and the backend with PHP connected to a MySQL database running locally on XAMPP.'),
+        'summary': ('Una plataforma de comercio electrónico para comercializar servicios y productos gráficos personalizados, como diseño de logotipos, camisetas, cuadernos y termos. El objetivo era recrear el recorrido completo de un cliente en una tienda real: descubrir la oferta, crear una cuenta, explorar el catálogo, armar su pedido y gestionar sus datos. El frontend se construyó con HTML, CSS, JavaScript y jQuery, y el backend con PHP conectado a una base de datos MySQL que se ejecuta en local con XAMPP. Proyecto desarrollado en el programa Computer Programmer de Lambton College, en Ontario (Canadá), bajo estándares profesionales de desarrollo.',
+                    'An e-commerce platform to sell custom graphic services and products, such as logo design, t-shirts, notebooks and tumblers. The goal was to recreate a customer\'s full journey in a real store: discover the offer, create an account, browse the catalog, build an order and manage their data. The frontend was built with HTML, CSS, JavaScript and jQuery, and the backend with PHP connected to a MySQL database running locally on XAMPP. Developed within the Computer Programmer program at Lambton College in Ontario, Canada, following professional development standards.'),
         'sections': [
             {'kind': 'cards', 'over': ('// RECORRIDO DEL USUARIO', '// USER JOURNEY'), 'title': ('Una experiencia de compra de principio a fin', 'An end-to-end shopping experience'),
              'intro': ('Cada etapa del recorrido se diseñó para que el usuario avance sin fricción, desde el primer contacto con la marca hasta la gestión de su cuenta.',
@@ -158,45 +158,56 @@ PROJECTS = [
         'theme': {'brand': '#ff3b4e', 'brand_rgb': '255, 59, 78', 'brand2': '#4cc9f0', 'brand2_rgb': '76, 201, 240',
                   'bg': '#080b12', 'display': "'Bebas Neue', sans-serif", 'body': "'Exo 2', sans-serif",
                   'fonts': 'Bebas+Neue', 'motif': 'sport', 'bullet': '⚡'},
-        'kicker': ('DESARROLLO WEB · SITIO', 'WEB DEVELOPMENT · WEBSITE'),
+        'kicker': ('DESARROLLO WEB · SITIO CORPORATIVO', 'WEB DEVELOPMENT · CORPORATE WEBSITE'),
         'title': ('Sports Store', 'Sports Store'),
-        'tagline': ('Tienda deportiva con propósito: catálogo, becas para jóvenes atletas y recursos educativos.',
-                    'A sports store with purpose: catalog, scholarships for young athletes and educational resources.'),
-        'tags': ['HTML5', 'CSS3', 'Responsive', 'YouTube API', 'UI/UX'],
+        'tagline': ('Sitio web para una tienda deportiva con propósito: comercio, becas para jóvenes atletas y contenido educativo para las familias.',
+                    'Website for a sports store with a purpose: commerce, scholarships for young athletes and educational content for families.'),
+        'tags': ['HTML5', 'CSS3', 'Responsive', 'Videos de YouTube', 'UI/UX'],
         'hero': {'video': 'sport.mp4', 'poster': 'img/cases/img-sport.webp'},
         'facts': [
-            (('Tipo', 'Type'), ('Proyecto académico · Lambton College', 'Academic project · Lambton College')),
+            (('Formación', 'Program'), ('Programa Computer Programmer · Lambton College', 'Computer Programmer program · Lambton College')),
             (('Duración', 'Duration'), ('20 días', '20 days')),
             (('Rol', 'Role'), ('Desarrolladora frontend', 'Frontend developer')),
             (('Stack', 'Stack'), ('HTML5 · CSS3 · YouTube', 'HTML5 · CSS3 · YouTube')),
         ],
-        'summary': ('Un sitio completo para una tienda de artículos de los deportes más populares de Canadá. Va más allá del comercio: incluye un programa de becas para jóvenes atletas y videos educativos para padres sobre los beneficios del deporte, con un fuerte enfoque de responsabilidad social.',
-                    "A complete website for a store selling gear for Canada's most popular sports. It goes beyond commerce: it includes a scholarship program for young athletes and educational videos for parents about the benefits of sport, with a strong social responsibility focus."),
+        'summary': ('Sports Store es el sitio web de una tienda de artículos para los deportes más populares de Canadá. Su propuesta de valor va más allá de la venta: la marca impulsa a los jóvenes atletas con un programa de becas y acompaña a las familias con contenido educativo sobre los beneficios del deporte. El reto fue integrar en un mismo sitio la experiencia comercial y el compromiso social, con una navegación clara y una identidad visual enérgica. Proyecto desarrollado en el programa Computer Programmer de Lambton College, en Ontario (Canadá), bajo estándares profesionales de desarrollo.',
+                    "Sports Store is the website for a store selling gear for Canada's most popular sports. Its value proposition goes beyond sales: the brand supports young athletes through a scholarship program and helps families with educational content about the benefits of sport. The challenge was to bring the shopping experience and the social commitment together in one site, with clear navigation and an energetic visual identity. Developed within the Computer Programmer program at Lambton College in Ontario, Canada, following professional development standards."),
+        'sections': [
+            {'kind': 'cards', 'over': ('// PROPUESTA DE VALOR', '// VALUE PROPOSITION'), 'title': ('Una tienda que también forma deportistas', 'A store that also builds athletes'),
+             'intro': ('El sitio combina cuatro frentes que fortalecen la relación de la marca con su comunidad y le dan a cada visita un motivo para volver.',
+                       'The site combines four fronts that strengthen the brand\'s relationship with its community and give every visit a reason to return.'),
+             'items': [
+                (('Catálogo deportivo', 'Sports catalog'), ('Productos organizados por disciplina —hockey, béisbol, baloncesto y más— para que cada cliente encuentre rápidamente lo que busca.', 'Products organized by sport—hockey, baseball, basketball and more—so every customer quickly finds what they need.')),
+                (('Programa de becas', 'Scholarship program'), ('Una sección dedicada a apoyar a jóvenes atletas, con formulario de solicitud, noticias y términos del programa.', 'A section dedicated to supporting young athletes, with an application form, news and program terms.')),
+                (('Educación para las familias', 'Education for families'), ('Un carrusel de videos que explica a los padres los beneficios de la actividad deportiva para sus hijos.', 'A video carousel that explains to parents the benefits of sport for their children.')),
+                (('Confianza y cercanía', 'Trust and proximity'), ('Una página institucional con la misión y los valores de la marca, y un canal de contacto con sus tiendas en el área metropolitana de Toronto.', 'An about page with the brand\'s mission and values, and a contact channel for its stores in the Greater Toronto Area.')),
+             ]},
+        ],
         'gallery': [('img/cases/img-sport.webp', ('Página principal', 'Home page'))],
         'blocks': [
-            {'title': ('Secciones', 'Sections'), 'items': [
-                ('Inicio con hero impactante y navegación clara', 'Home with a bold hero and clear navigation'),
-                ('Catálogo de hockey, béisbol, basketball y más', 'Catalog for hockey, baseball, basketball and more'),
-                ('Nosotros: misión, valores y compromiso juvenil', 'About: mission, values and youth commitment'),
-                ('Contacto con formulario validado y tiendas en el GTA', 'Contact with a validated form and stores in the GTA')]},
+            {'title': ('Estructura del sitio', 'Site structure'), 'items': [
+                ('Inicio con un hero de alto impacto y navegación clara', 'Home with a high-impact hero and clear navigation'),
+                ('Catálogo de hockey, béisbol, baloncesto y más', 'Catalog for hockey, baseball, basketball and more'),
+                ('Nosotros: misión, valores y compromiso con los jóvenes', 'About: mission, values and commitment to young people'),
+                ('Contacto con formulario y tiendas en el GTA', 'Contact with a form and stores in the GTA')]},
             {'title': ('Impacto social', 'Social impact'), 'items': [
-                ('Programa de becas con formulario de solicitud', 'Scholarship program with application form'),
+                ('Programa de becas con formulario de solicitud', 'Scholarship program with an application form'),
                 ('Carrusel de videos educativos de YouTube', 'Carousel of educational YouTube videos'),
                 ('Noticias, nuevas becas y términos en PDF', 'News, new scholarships and terms in PDF')]},
-            {'title': ('Técnica', 'Technique'), 'items': [
+            {'title': ('Técnicas aplicadas', 'Techniques applied'), 'items': [
                 ('HTML5 semántico para accesibilidad y SEO', 'Semantic HTML5 for accessibility and SEO'),
                 ('Flexbox, Grid, animaciones y efectos hover', 'Flexbox, Grid, animations and hover effects'),
-                ('Diseño mobile-first con media queries', 'Mobile-first design with media queries'),
-                ('Iframes de YouTube responsivos', 'Responsive YouTube iframes')]},
+                ('Diseño responsive con media queries', 'Responsive design with media queries'),
+                ('Videos de YouTube integrados y adaptables', 'Embedded, responsive YouTube videos')]},
         ],
         'results': [
-            ('Sitio de 4 páginas completo y responsive', 'Complete, responsive 4-page website'),
-            ('Comercio y responsabilidad social en una misma marca', 'Commerce and social responsibility in a single brand'),
-            ('Contenido educativo integrado para las familias', 'Educational content built in for families'),
+            ('Un sitio completo de cuatro páginas, adaptable a cualquier pantalla', 'A complete four-page website that adapts to any screen'),
+            ('Comercio y responsabilidad social integrados en una misma marca', 'Commerce and social responsibility combined in a single brand'),
+            ('Contenido educativo que acerca la marca a las familias', 'Educational content that brings the brand closer to families'),
         ],
-        'cta': (('¿Necesitas un sitio web profesional?', 'Need a professional website?'),
-                ('Creo sitios responsive y funcionales para tu negocio.', 'I build responsive, functional websites for your business.')),
-        'service': 'store',
+        'cta': (('¿Tu marca tiene una historia que contar?', 'Does your brand have a story to tell?'),
+                ('Desarrollo sitios web que comunican tu propuesta de valor y convierten visitantes en clientes.', 'I build websites that communicate your value proposition and turn visitors into customers.')),
+        'service': 'web',
     },
     {
         'id': 'little-stars', 'file': 'little-stars.html', 'name': 'Little Stars', 'pillar': 'web',
@@ -639,13 +650,13 @@ PROJECTS = [
         'links': [(('Ver código en GitHub', 'See code on GitHub'), 'https://github.com/SaharLambton/Smart-Agriculture'),
                   (('Ver paquete en npm', 'See npm package'), 'https://www.npmjs.com/package/smart-agriculture')],
         'facts': [
-            (('Tipo', 'Type'), ('Proyecto académico · Lambton College', 'Academic project · Lambton College')),
+            (('Formación', 'Program'), ('Programa Computer Programmer · Lambton College', 'Computer Programmer program · Lambton College')),
             (('Año', 'Year'), ('2024', '2024')),
             (('Equipo', 'Team'), ('Con Julián Casilimas', 'With Julián Casilimas')),
             (('Entrega', 'Delivery'), ('Paquete público en npm · v1.0.1', 'Public npm package · v1.0.1')),
         ],
-        'summary': ('Smart Agriculture propone una base de software para optimizar la producción agrícola mediante tecnología y datos. El sistema modela los componentes de una finca inteligente —sensores ambientales, pronóstico del clima, sistema de riego, drones de vigilancia y detección de enfermedades— y un controlador que combina la información de los sensores con el clima para decidir cuándo regar. Lo desarrollé en equipo con Julián Casilimas: planificamos el trabajo, documentamos las decisiones de diseño y publicamos el resultado como paquete en npm para que pueda instalarse y reutilizarse en otros proyectos.',
-                    'Smart Agriculture proposes a software foundation to optimize farm production through technology and data. The system models the components of a smart farm—environmental sensors, weather forecasting, irrigation, surveillance drones and disease detection—plus a controller that combines sensor and weather data to decide when to irrigate. I built it with Julián Casilimas: we planned the work, documented the design decisions and published the result as an npm package so it can be installed and reused in other projects.'),
+        'summary': ('Smart Agriculture propone una base de software para optimizar la producción agrícola mediante tecnología y datos. El sistema modela los componentes de una finca inteligente —sensores ambientales, pronóstico del clima, sistema de riego, drones de vigilancia y detección de enfermedades— y un controlador que combina la información de los sensores con el clima para decidir cuándo regar. Lo desarrollé en equipo con Julián Casilimas: planificamos el trabajo, documentamos las decisiones de diseño y publicamos el resultado como paquete en npm para que pueda instalarse y reutilizarse en otros proyectos. Proyecto desarrollado en el programa Computer Programmer de Lambton College, en Ontario (Canadá), bajo estándares profesionales de desarrollo, documentación y control de versiones.',
+                    'Smart Agriculture proposes a software foundation to optimize farm production through technology and data. The system models the components of a smart farm—environmental sensors, weather forecasting, irrigation, surveillance drones and disease detection—plus a controller that combines sensor and weather data to decide when to irrigate. I built it with Julián Casilimas: we planned the work, documented the design decisions and published the result as an npm package so it can be installed and reused in other projects. Developed within the Computer Programmer program at Lambton College in Ontario, Canada, following professional standards for development, documentation and version control.'),
         'gallery': [
             ('img/cases/smart-agriculture-npm.webp', ('Paquete publicado en npm', 'Package published on npm')),
         ],
@@ -709,13 +720,13 @@ PROJECTS = [
         'hero': {'code': {'file': 'src/services/Bookstore.ts', 'src': CODE_BOOK}, 'card': 'img/thumbs/library-card.webp'},
         'links': [(('Ver código en GitHub', 'See code on GitHub'), 'https://github.com/SaharLambton/Assigment3')],
         'facts': [
-            (('Tipo', 'Type'), ('Proyecto académico · Lambton College', 'Academic project · Lambton College')),
+            (('Formación', 'Program'), ('Programa Computer Programmer · Lambton College', 'Computer Programmer program · Lambton College')),
             (('Año', 'Year'), ('2024', '2024')),
             (('Rol', 'Role'), ('Desarrolladora', 'Developer')),
             (('Calidad', 'Quality'), ('Pruebas en Jest + integración continua', 'Jest tests + continuous integration')),
         ],
-        'summary': ('Library Management simula la operación de una biblioteca: registro de libros y clientes, préstamos y devoluciones. El reto principal era garantizar que el sistema nunca quedara en un estado inconsistente —por ejemplo, prestar un libro que ya está prestado o recibir la devolución de un libro que el cliente no tiene—. Para lograrlo apliqué programación orientada a objetos, cubrí cada operación con pruebas unitarias en Jest y configuré GitHub Actions para que las pruebas se ejecuten automáticamente con cada cambio.',
-                    'Library Management simulates a library\'s operations: registering books and customers, loans and returns. The main challenge was ensuring the system never reaches an inconsistent state—for example, lending a book that is already on loan or accepting the return of a book the customer does not have. To achieve this I applied object-oriented programming, covered every operation with Jest unit tests and set up GitHub Actions so the tests run automatically on every change.'),
+        'summary': ('Library Management simula la operación de una biblioteca: registro de libros y clientes, préstamos y devoluciones. El reto principal era garantizar que el sistema nunca quedara en un estado inconsistente —por ejemplo, prestar un libro que ya está prestado o recibir la devolución de un libro que el cliente no tiene—. Para lograrlo apliqué programación orientada a objetos, cubrí cada operación con pruebas unitarias en Jest y configuré GitHub Actions para que las pruebas se ejecuten automáticamente con cada cambio. Proyecto desarrollado en el programa Computer Programmer de Lambton College, en Ontario (Canadá), bajo estándares profesionales de desarrollo, documentación y control de versiones.',
+                    'Library Management simulates a library\'s operations: registering books and customers, loans and returns. The main challenge was ensuring the system never reaches an inconsistent state—for example, lending a book that is already on loan or accepting the return of a book the customer does not have. To achieve this I applied object-oriented programming, covered every operation with Jest unit tests and set up GitHub Actions so the tests run automatically on every change. Developed within the Computer Programmer program at Lambton College in Ontario, Canada, following professional standards for development, documentation and version control.'),
         'gallery': [],
         'sections': [
             {'kind': 'cards', 'over': ('// CALIDAD', '// QUALITY'), 'title': ('Cómo se garantiza que funcione', 'How it is guaranteed to work'),
@@ -764,13 +775,13 @@ PROJECTS = [
         'hero': {'code': {'file': 'src/services/BookingService.ts', 'src': CODE_SPACE}, 'card': 'img/thumbs/space-flight-card.webp'},
         'links': [(('Ver código en GitHub', 'See code on GitHub'), 'https://github.com/SaharLambton/Assigment1')],
         'facts': [
-            (('Tipo', 'Type'), ('Proyecto académico · Lambton College', 'Academic project · Lambton College')),
+            (('Formación', 'Program'), ('Programa Computer Programmer · Lambton College', 'Computer Programmer program · Lambton College')),
             (('Año', 'Year'), ('2024', '2024')),
             (('Rol', 'Role'), ('Desarrolladora backend y DevOps', 'Backend and DevOps developer')),
             (('Stack', 'Stack'), ('TypeScript · Jest · Docker · GitHub Actions', 'TypeScript · Jest · Docker · GitHub Actions')),
         ],
-        'summary': ('Space Flight Booking es el backend de una agencia que comercializa vuelos a Marte. Antes de confirmar una reserva, el sistema verifica que el pasajero sea mayor de edad y cuente con certificado médico; si hay cupo, crea la reserva, descuenta el asiento y registra el pago. El proyecto tenía un segundo objetivo igual de importante: aplicar prácticas DevOps, con pruebas automatizadas, una imagen Docker y un pipeline en GitHub Actions que instala, prueba, compila y publica la aplicación.',
-                    'Space Flight Booking is the backend for an agency that sells flights to Mars. Before confirming a booking, the system checks that the passenger is an adult with a medical certificate; if there are seats, it creates the booking, takes the seat and records the payment. The project had a second, equally important goal: applying DevOps practices, with automated tests, a Docker image and a GitHub Actions pipeline that installs, tests, builds and publishes the application.'),
+        'summary': ('Space Flight Booking es el backend de una agencia que comercializa vuelos a Marte. Antes de confirmar una reserva, el sistema verifica que el pasajero sea mayor de edad y cuente con certificado médico; si hay cupo, crea la reserva, descuenta el asiento y registra el pago. El proyecto tenía un segundo objetivo igual de importante: aplicar prácticas DevOps, con pruebas automatizadas, una imagen Docker y un pipeline en GitHub Actions que instala, prueba, compila y publica la aplicación. Proyecto desarrollado en el programa Computer Programmer de Lambton College, en Ontario (Canadá), bajo estándares profesionales de desarrollo, documentación y control de versiones.',
+                    'Space Flight Booking is the backend for an agency that sells flights to Mars. Before confirming a booking, the system checks that the passenger is an adult with a medical certificate; if there are seats, it creates the booking, takes the seat and records the payment. The project had a second, equally important goal: applying DevOps practices, with automated tests, a Docker image and a GitHub Actions pipeline that installs, tests, builds and publishes the application. Developed within the Computer Programmer program at Lambton College in Ontario, Canada, following professional standards for development, documentation and version control.'),
         'gallery': [
             ('img/cases/space-flight-docker.webp', ('Imágenes Docker de la aplicación', 'Docker images of the application')),
         ],
@@ -835,13 +846,13 @@ PROJECTS = [
         'hero': {'img': 'img/cases/jestci-actions.webp', 'alt': 'Historial de ejecuciones del workflow Jest CI en GitHub Actions'},
         'links': [(('Ver código en GitHub', 'See code on GitHub'), 'https://github.com/SaharLambton/Assigment4')],
         'facts': [
-            (('Tipo', 'Type'), ('Curso DevOps Tools and Practices · Lambton College', 'DevOps Tools and Practices course · Lambton College')),
+            (('Formación', 'Program'), ('Computer Programmer · curso DevOps Tools and Practices, Lambton College', 'Computer Programmer · DevOps Tools and Practices course, Lambton College')),
             (('Año', 'Year'), ('2024', '2024')),
             (('Rol', 'Role'), ('Desarrolladora', 'Developer')),
             (('Herramientas', 'Tools'), ('Jest · GitHub Actions · Node.js 16', 'Jest · GitHub Actions · Node.js 16')),
         ],
-        'summary': ('Las pruebas manuales consumen tiempo y dejan pasar errores. En este proyecto configuré la integración continua de una aplicación JavaScript: cada vez que un cambio llega a la rama main, GitHub Actions prepara un servidor, instala el proyecto y ejecuta las pruebas con Jest, sin intervención humana. El historial del repositorio refleja el proceso real: los primeros intentos fallaron, identifiqué la causa, la corregí y desde entonces cada cambio se valida automáticamente.',
-                    'Manual testing takes time and lets bugs slip through. In this project I set up continuous integration for a JavaScript application: whenever a change lands on the main branch, GitHub Actions prepares a server, installs the project and runs the Jest tests with no human intervention. The repository history reflects the real process: the first attempts failed, I identified the cause, fixed it, and since then every change is validated automatically.'),
+        'summary': ('Las pruebas manuales consumen tiempo y dejan pasar errores. En este proyecto configuré la integración continua de una aplicación JavaScript: cada vez que un cambio llega a la rama main, GitHub Actions prepara un servidor, instala el proyecto y ejecuta las pruebas con Jest, sin intervención humana. El historial del repositorio refleja el proceso real: los primeros intentos fallaron, identifiqué la causa, la corregí y desde entonces cada cambio se valida automáticamente. Proyecto desarrollado en el programa Computer Programmer de Lambton College, en Ontario (Canadá), bajo estándares profesionales de desarrollo, documentación y control de versiones.',
+                    'Manual testing takes time and lets bugs slip through. In this project I set up continuous integration for a JavaScript application: whenever a change lands on the main branch, GitHub Actions prepares a server, installs the project and runs the Jest tests with no human intervention. The repository history reflects the real process: the first attempts failed, I identified the cause, fixed it, and since then every change is validated automatically. Developed within the Computer Programmer program at Lambton College in Ontario, Canada, following professional standards for development, documentation and version control.'),
         'gallery': [
             ('img/cases/jestci-actions.webp', ('Ejecuciones del workflow en GitHub Actions', 'Workflow runs in GitHub Actions')),
             ('img/cases/jestci-terminal.webp', ('Pruebas en la terminal', 'Tests in the terminal')),
