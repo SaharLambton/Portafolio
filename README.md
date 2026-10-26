@@ -50,3 +50,15 @@ Pon la URL de un endpoint en `config.aiEndpoint`. Si ATLAS no encuentra respuest
 
 ## Ver el sitio en local
 Abre `index.html` en el navegador, o sirve la carpeta con `python3 -m http.server` y entra a `http://localhost:8000`.
+
+## Blog
+
+`blog.html` y los artículos `blog-*.html` se generan con `tools/blog.py`. Para escribir un artículo nuevo, copia uno de la lista `POSTS`, cambia sus textos (en español e inglés) y ejecuta `python3 tools/blog.py`.
+
+## Testimonios
+
+La sección de testimonios del Inicio y de Servicios aparece sola cuando hay al menos uno en `js/testimonials.js`. Publica solo frases reales y con permiso del cliente.
+
+## Analítica
+
+Las visitas se miden con [GoatCounter](https://www.goatcounter.com), sin cookies. Crea una cuenta, escribe tu código en `GOATCOUNTER_CODE` dentro de `js/analytics.js` y listo. Además de las visitas se registran: descargas del CV, clics en WhatsApp, correo, LinkedIn y GitHub, formularios enviados y planes de servicios generados.

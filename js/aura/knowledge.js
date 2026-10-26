@@ -118,6 +118,17 @@ window.AURA_KB = {
                 }
             }
         },
+        blog: {
+            chips: ['workshops', 'design', 'contact'],
+            intro: {
+                es: 'Estás en el blog de Sahar: artículos sobre IA, diseño y desarrollo a partir de proyectos reales. Pregúntame por cualquiera.',
+                en: 'You\'re on Sahar\'s blog: articles on AI, design and development drawn from real projects. Ask me about any of them.'
+            },
+            enter: {
+                es: 'Bienvenido al blog. Aquí Sahar cuenta paso a paso cómo resuelve cada proyecto.',
+                en: 'Welcome to the blog. Here Sahar explains, step by step, how she tackles each project.'
+            }
+        },
         contact: {
             chips: ['hire', 'cv', 'services'],
             intro: {
@@ -342,6 +353,16 @@ window.AURA_KB = {
             },
             action: { type: 'go', href: 'servicios.html#workshops', label: { es: 'Ver talleres', en: 'See workshops' } },
             chips: ['hire', 'ai']
+        },
+        {
+            id: 'blog',
+            keys: ['blog', 'articulo', 'articulos', 'notas', 'publicaciones', 'escribe', 'article', 'articles', 'posts', 'writing'],
+            answer: {
+                es: 'Sahar escribe en su blog sobre lo que aprende en cada proyecto. Por ahora hay dos artículos: 🧠 cómo preparó un taller de IA generativa para un equipo contable y 🎨 cómo usa mockups con IA para mostrar una marca antes de producirla.',
+                en: 'Sahar writes on her blog about what she learns on each project. For now there are two articles: 🧠 how she prepared a generative AI workshop for an accounting team and 🎨 how she uses AI mockups to show a brand before it is produced.'
+            },
+            action: { type: 'go', href: 'blog.html', label: { es: 'Ir al blog', en: 'Go to the blog' } },
+            chips: ['workshops', 'design']
         },
         {
             id: 'cv',

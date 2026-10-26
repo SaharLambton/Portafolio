@@ -14,6 +14,7 @@
         { id: 'about', href: 'sobre-mi.html', es: 'Sobre mí', en: 'About' },
         { id: 'projects', href: 'proyectos.html', es: 'Proyectos', en: 'Projects' },
         { id: 'services', href: 'servicios.html', es: 'Servicios', en: 'Services' },
+        { id: 'blog', href: 'blog.html', es: 'Blog', en: 'Blog' },
         { id: 'contact', href: 'contacto.html', es: 'Contacto', en: 'Contact' }
     ];
 
@@ -105,13 +106,28 @@
     }
 
     /* ---------- Montaje ---------- */
+    /* ---------- Enlace para saltar al contenido (teclado y lectores de pantalla) ---------- */
+    const mainEl = document.querySelector('main') || document.querySelector('#pilares');
+    if (mainEl) {
+        if (!mainEl.id) mainEl.id = 'contenido';
+        const skip = document.createElement('a');
+        skip.className = 'skip-link';
+        skip.href = '#' + mainEl.id;
+        skip.setAttribute('data-es', 'Saltar al contenido');
+        skip.setAttribute('data-en', 'Skip to content');
+        skip.textContent = 'Saltar al contenido';
+        document.body.prepend(skip);
+    }
+
     const headerSlot = document.querySelector('[data-site-header]');
     if (headerSlot) headerSlot.innerHTML = headerHTML();
     if (window.SFX) document.querySelectorAll('[data-sfx-toggle]').forEach(window.SFX.syncButton);
     const footerSlot = document.querySelector('[data-site-footer]');
     if (footerSlot) footerSlot.innerHTML = footerHTML();
 
-    const float = document.createElement('div');
+    // ATLAS flotante: región complementaria con nombre, para lectores de pantalla
+    const float = document.createElement('aside');
+    float.setAttribute('aria-label', 'ATLAS');
     float.className = 'aura-float' + (isHome ? ' aura-float--home' : '');
     float.id = 'auraFloat';
     float.innerHTML = floatHTML();

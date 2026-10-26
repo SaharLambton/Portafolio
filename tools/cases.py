@@ -13,7 +13,7 @@ import os
 import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261027g'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261027i'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -1221,7 +1221,7 @@ HUD = '<i class="hud hud--tl"></i><i class="hud hud--tr"></i><i class="hud hud--
 def zoom(src, cap, idx, cls=''):
     """Imagen grande que abre el visor en la foto `idx` de la galería."""
     return (f'<button type="button" class="case-zoom {cls}" data-index="{idx}">'
-            f'<img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-zoom__cap", cap)}'
+            f'<img src="{src}" alt="" loading="lazy">{bi("span", "case-zoom__cap", cap)}'
             f'<span class="case-zoom__icon" aria-hidden="true">⤢</span></button>')
 
 
@@ -1379,9 +1379,9 @@ def page(p, prev, nxt, num, total):
         </section>''')
 
     # ---------- galería deslizable ----------
-    slides = ''.join(f'<li class="reel__slide"><button type="button" class="case-shot" data-full="{src}"><img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-shot__cap", cap)}</button></li>' for src, cap in gallery[:shown])
+    slides = ''.join(f'<li class="reel__slide"><button type="button" class="case-shot" data-full="{src}"><img src="{src}" alt="" loading="lazy">{bi("span", "case-shot__cap", cap)}</button></li>' for src, cap in gallery[:shown])
     # las ocultas siguen en el visor para poder ampliarlas desde arriba
-    hidden_shots = ''.join(f'<button type="button" class="case-shot" data-full="{src}"><img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-shot__cap", cap)}</button>' for src, cap in gallery[shown:])
+    hidden_shots = ''.join(f'<button type="button" class="case-shot" data-full="{src}"><img src="{src}" alt="" loading="lazy">{bi("span", "case-shot__cap", cap)}</button>' for src, cap in gallery[shown:])
     many = shown > 1
     nav = (f'<div class="reel__nav"><button type="button" class="reel__btn" data-dir="-1" data-es-label="Anterior" data-en-label="Previous" aria-label="Anterior">‹</button>'
            f'<span class="reel__count"><b>01</b> / {shown:02d}</span>'
@@ -1392,7 +1392,7 @@ def page(p, prev, nxt, num, total):
             title, desc, imgs = g[0], g[1], g[2]
             items = ''
             for src, cap in imgs:
-                items += f'<li><button type="button" class="case-shot" data-full="{src}"><img src="{src}" alt="{e(cap[0])}" loading="lazy">{bi("span", "case-shot__cap", cap)}</button></li>'
+                items += f'<li><button type="button" class="case-shot" data-full="{src}"><img src="{src}" alt="" loading="lazy">{bi("span", "case-shot__cap", cap)}</button></li>'
                 k += 1
             more = f'<a class="archive__link" href="{g[3]}" data-es="Ver el proyecto completo →" data-en="See the full project →">Ver el proyecto completo →</a>' if len(g) > 3 else ''
             groups.append(f'<article class="archive__group reveal"><header class="archive__head">{bi("h3", "archive__title", title)}<span class="archive__count">{len(imgs):02d}</span>{bi("p", "archive__desc", desc)}{more}</header><ul class="archive__grid">{items}</ul></article>')
@@ -1508,6 +1508,7 @@ def page(p, prev, nxt, num, total):
 
     <script src="js/aura/knowledge.js?v={V}"></script>
     <script src="js/bg.js?v={V}"></script>
+    <script src="js/analytics.js?v={V}"></script>
     <script src="js/sfx.js?v={V}"></script>
     <script src="js/site.js?v={V}"></script>
     <script src="js/aura/assistant.js?v={V}"></script>

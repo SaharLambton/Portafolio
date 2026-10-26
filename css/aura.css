@@ -786,7 +786,7 @@ body { background: var(--a-bg); }
     .aura-id__actions { justify-content: center; margin-top: 12px; }
     .aura-stage__label { display: none; }
 }
-@media (max-width: 980px) {
+@media (max-width: 1140px) {
     .aura-topbar { grid-template-columns: auto 1fr auto; }
     .aura-menu-btn { display: grid; }
     .aura-controls { grid-column: 3; }
