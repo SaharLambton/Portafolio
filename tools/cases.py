@@ -525,12 +525,7 @@ PROJECTS = [
              ]},
         ],
         'gallery': [
-            ('img/cases/armonia-logo-crema.webp', ('Logotipo principal', 'Main logo')),
-            ('img/cases/armonia-logo-verde.webp', ('Versión sobre verde', 'Version on green')),
-            ('img/cases/armonia-logo-negro.webp', ('Versión en negativo', 'Negative version')),
-            ('img/cases/armonia-logo-blanco.webp', ('Versión en una tinta', 'One-color version')),
-            ('img/cases/armonia-simbolo.webp', ('Símbolo y colores de marca', 'Symbol and brand colors')),
-            ('img/cases/armonia-patron.webp', ('Patrón de hojas', 'Leaf pattern')),
+            ('img/cases/armonia-identidad.webp', ('Identidad completa: logotipo, versiones, símbolo, color, tipografía, patrón y aplicaciones', 'Complete identity: logo, versions, symbol, color, typography, pattern and applications')),
             ('img/cases/armonia-frente.webp', ('Etiqueta Pasión Tropical: frente', 'Pasión Tropical label: front')),
             ('img/cases/armonia-reverso.webp', ('Etiqueta Pasión Tropical: reverso', 'Pasión Tropical label: back')),
             ('img/cases/armonia-sello.webp', ('Sello de la caja', 'Box seal')),
@@ -548,15 +543,15 @@ PROJECTS = [
         'palette': [('Verde bosque', 'Forest green', '#374F37'), ('Crema', 'Cream', '#FFF6E4')],
         'type': [('Citadel of Blackrose', "'Cormorant Garamond', serif", 'Armonía', ('Logotipo: serif de inspiración clásica con remates orgánicos que evocan tallos y hojas.', 'Logotype: classic-inspired serif with organic terminals that evoke stems and leaves.'))],
         'blocks': [
-            {'title': ('Sistema de logotipo', 'Logo system'), 'img': 4, 'items': [
+            {'title': ('Sistema de logotipo', 'Logo system'), 'img': 9, 'items': [
                 ('Logotipo con símbolo integrado en la A', 'Logo with the symbol built into the A'),
                 ('Versiones sobre crema, verde, negro y blanco', 'Versions on cream, green, black and white'),
                 ('Símbolo independiente para sellos e íconos', 'Standalone symbol for seals and icons')]},
-            {'title': ('Packaging imprimible', 'Printable packaging'), 'img': 6, 'items': [
+            {'title': ('Packaging imprimible', 'Printable packaging'), 'img': 1, 'items': [
                 ('Etiqueta frontal y posterior de Pasión Tropical', 'Front and back label for Pasión Tropical'),
                 ('Sello para cerrar la caja', 'Seal to close the box'),
                 ('Etiquetas para las bolsitas de infusión', 'Tags for the tea bags')]},
-            {'title': ('Mockups a medida con IA', 'Custom AI mockups'), 'img': 10, 'items': [
+            {'title': ('Mockups a medida con IA', 'Custom AI mockups'), 'img': 5, 'items': [
                 ('Cajas, bolsas kraft y frascos', 'Boxes, kraft pouches and jars'),
                 ('Papelería, tarjetas y lacre', 'Stationery, cards and wax seal'),
                 ('Fachada de tienda y momento de consumo', 'Storefront and the tea moment')]},
