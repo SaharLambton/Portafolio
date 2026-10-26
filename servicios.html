@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/aura.css?v=20261027g">
-    <link rel="stylesheet" href="css/site.css?v=20261027g">
-    <link rel="stylesheet" href="css/services.css?v=20261027g">
+    <link rel="stylesheet" href="css/aura.css?v=20261027i">
+    <link rel="stylesheet" href="css/site.css?v=20261027i">
+    <link rel="stylesheet" href="css/services.css?v=20261027i">
 </head>
 <body data-page="services">
     <header class="site-header">
@@ -47,7 +47,7 @@
             <div class="console__body">
                 <div class="console__main" id="consoleMain" aria-live="polite"></div>
 
-                <aside class="console__aura" aria-label="ATLAS">
+                <div class="console__aura" role="group" aria-label="ATLAS">
                     <div class="console__aura-head">
                         <span class="mini-orb" aria-hidden="true"><i class="mini-orb__ring"></i><i class="mini-orb__ring mini-orb__ring--b"></i><i class="mini-orb__core"></i></span>
                         <span><b>ATLAS</b><small data-es="Asistente de misión" data-en="Mission assistant">Asistente de misión</small></span>
@@ -57,7 +57,7 @@
                         <p class="console__log-title" data-es="PLAN EN CONSTRUCCIÓN" data-en="PLAN IN PROGRESS">PLAN EN CONSTRUCCIÓN</p>
                         <ul id="consoleLog"></ul>
                     </div>
-                </aside>
+                </div>
             </div>
         </section>
 
@@ -71,6 +71,9 @@
                 <div class="stat"><span class="stat__value"><span class="stat__num" data-to="2019">2019</span></span><span class="stat__label" data-es="el año en que empecé a crear soluciones digitales" data-en="the year I started building digital solutions">el año en que empecé a crear soluciones digitales</span></div>
             </div>
         </section>
+
+        <!-- Testimonios: aparece cuando hay datos en js/testimonials.js -->
+        <section class="testimonials" data-testimonials hidden aria-label="Testimonios"></section>
 
         <!-- ===================== CATÁLOGO ===================== -->
         <section class="catalog" id="catalogo" aria-labelledby="catalogTitle">
@@ -124,12 +127,14 @@
 
     <footer class="site-footer" data-site-footer></footer>
 
-    <script src="js/aura/knowledge.js?v=20261027g"></script>
-    <script src="js/services-data.js?v=20261027g"></script>
-    <script src="js/bg.js?v=20261027g"></script>
-    <script src="js/sfx.js?v=20261027g"></script>
-    <script src="js/site.js?v=20261027g"></script>
-    <script src="js/services.js?v=20261027g"></script>
-    <script src="js/aura/assistant.js?v=20261027g"></script>
+    <script src="js/aura/knowledge.js?v=20261027i"></script>
+    <script src="js/services-data.js?v=20261027i"></script>
+    <script src="js/bg.js?v=20261027i"></script>
+    <script src="js/testimonials.js?v=20261027i"></script>
+    <script src="js/analytics.js?v=20261027i"></script>
+    <script src="js/sfx.js?v=20261027i"></script>
+    <script src="js/site.js?v=20261027i"></script>
+    <script src="js/services.js?v=20261027i"></script>
+    <script src="js/aura/assistant.js?v=20261027i"></script>
 </body>
 </html>

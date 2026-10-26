@@ -117,6 +117,7 @@
             form.reset();
             setStatus(t('sent'), 'ok');
             if (window.SFX) window.SFX.play('success');
+            if (window.track) window.track('formulario-enviado', 'Formulario de contacto enviado');
             if (window.AuraComment) window.AuraComment('sent', { es: '¡Listo! Tu mensaje ya va en camino hacia Sahar 🚀', en: 'Done! Your message is on its way to Sahar 🚀' });
         } catch (err) {
             setStatus(t('error'), 'error');

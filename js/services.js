@@ -256,6 +256,7 @@
 
     function result() {
         if (window.SFX) window.SFX.play('success');
+        if (window.track) window.track('plan-servicios', 'Plan de servicios generado');
         const p = plan();
         main.innerHTML = '';
         const wrap = document.createElement('div');

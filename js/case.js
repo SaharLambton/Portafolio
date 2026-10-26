@@ -24,8 +24,9 @@
             box.querySelectorAll('.case-lightbox__nav').forEach((b) => { b.hidden = inReel < 2 || index >= inReel; });
             const s = shots[index];
             img.src = s.dataset.full;
-            img.alt = s.querySelector('img').alt;
+            // la miniatura tiene alt vacío (el pie ya la describe): el visor usa el pie como texto alternativo
             cap.textContent = s.querySelector('.case-shot__cap').textContent;
+            img.alt = cap.textContent;
         }
         function open(i) {
             lastFocus = document.activeElement;
