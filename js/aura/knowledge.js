@@ -464,7 +464,7 @@ window.AURA_KB = {
             }
         },
         {
-            id: 'armonia', name: 'Aromáticas Armonía', keys: ['armonia', 'aromaticas', 'aromatica', 'infusion', 'infusiones', 'te', 'packaging', 'empaque', 'etiqueta', 'herbal tea', 'tea', 'label'],
+            id: 'armonia', name: 'Aromáticas Armonía', keys: ['armonia', 'aromaticas', 'aromatica', 'infusion', 'infusiones', 'packaging', 'empaque', 'etiqueta', 'herbal tea', 'tea', 'label'],
             brand: '#7fa86e', kind: { es: 'Cliente · Aromáticas e infusiones', en: 'Client · Herbal teas' },
             pillars: ['design'], card: 'img/thumbs/armonia-card.webp', video: '',
             short: { es: 'Marca y empaque para aromáticas naturales: logo con una A que florece, etiquetas y mockups a medida con IA.', en: 'Branding and packaging for natural herbal teas: a logo with a blooming A, labels and custom AI mockups.' },
