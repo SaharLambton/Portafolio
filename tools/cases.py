@@ -13,7 +13,7 @@ import os
 import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261026a'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261026b'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -81,8 +81,8 @@ PROJECTS = [
                   'fonts': 'Space+Grotesk:wght@500;700', 'motif': 'secure', 'bullet': '🔒'},
         'kicker': ('DESARROLLO WEB · E-COMMERCE', 'WEB DEVELOPMENT · E-COMMERCE'),
         'title': ('Sell Services and Graphic Products', 'Sell Services and Graphic Products'),
-        'tagline': ('Tienda en línea para vender servicios y productos gráficos personalizados, con registro de usuarios, catálogo y carrito.',
-                    'Online store to sell custom graphic services and products, with user accounts, catalog and cart.'),
+        'tagline': ('Tienda en línea de servicios y productos gráficos personalizados, con cuentas de usuario, catálogo, carrito y base de datos MySQL.',
+                    'Online store for custom graphic services and products, with user accounts, catalog, cart and a MySQL database.'),
         'tags': ['PHP', 'MySQL', 'JavaScript', 'jQuery', 'HTML5', 'CSS3', 'XAMPP'],
         'hero': {'video': 'services.mp4', 'poster': 'img/cases/img-services.webp'},
         'links': [(('Ver código en GitHub', 'See code on GitHub'), 'https://github.com/SaharLambton/sell-services')],
@@ -92,13 +92,27 @@ PROJECTS = [
             (('Rol', 'Role'), ('Desarrolladora full stack', 'Full stack developer')),
             (('Stack', 'Stack'), ('PHP · MySQL · JavaScript · jQuery', 'PHP · MySQL · JavaScript · jQuery')),
         ],
-        'summary': ('Una tienda en línea para vender servicios y productos gráficos personalizados, como camisetas, cuadernos y termos. El visitante se registra, inicia sesión con su correo o su apodo, explora el catálogo, agrega productos al carrito y puede editar su perfil. Los usuarios se guardan en una base de datos MySQL conectada con PHP, que corre en local con XAMPP.',
-                    'An online store to sell custom graphic services and products, such as t-shirts, notebooks and tumblers. Visitors sign up, log in with their email or nickname, browse the catalog, add products to the cart and can edit their profile. Users are stored in a MySQL database connected with PHP, running locally with XAMPP.'),
+        'summary': ('Una plataforma de comercio electrónico para comercializar servicios y productos gráficos personalizados, como diseño de logotipos, camisetas, cuadernos y termos. El objetivo era recrear el recorrido completo de un cliente en una tienda real: descubrir la oferta, crear una cuenta, explorar el catálogo, armar su pedido y gestionar sus datos. El frontend se construyó con HTML, CSS, JavaScript y jQuery, y el backend con PHP conectado a una base de datos MySQL que se ejecuta en local con XAMPP.',
+                    'An e-commerce platform to sell custom graphic services and products, such as logo design, t-shirts, notebooks and tumblers. The goal was to recreate a customer\'s full journey in a real store: discover the offer, create an account, browse the catalog, build an order and manage their data. The frontend was built with HTML, CSS, JavaScript and jQuery, and the backend with PHP connected to a MySQL database running locally on XAMPP.'),
+        'sections': [
+            {'kind': 'cards', 'over': ('// RECORRIDO DEL USUARIO', '// USER JOURNEY'), 'title': ('Una experiencia de compra de principio a fin', 'An end-to-end shopping experience'),
+             'intro': ('Cada etapa del recorrido se diseñó para que el usuario avance sin fricción, desde el primer contacto con la marca hasta la gestión de su cuenta.',
+                       'Each stage of the journey was designed so users move forward without friction, from their first contact with the brand to managing their account.'),
+             'items': [
+                (('Descubrir', 'Discover'), ('Página de inicio con un banner que se adapta al hacer scroll y una oferta emergente con cuenta regresiva que incentiva la compra.', 'A home page with a banner that adapts on scroll and a pop-up offer with a countdown that encourages purchase.')),
+                (('Registrarse', 'Sign up'), ('Registro e inicio de sesión con correo o apodo, con validación en el navegador y en el servidor para proteger la calidad de los datos.', 'Sign-up and login with email or nickname, validated in the browser and on the server to protect data quality.')),
+                (('Comprar', 'Shop'), ('Catálogo filtrable por categoría, buscador, detalle de cada producto y carrito con contador y total en tiempo real.', 'A catalog filterable by category, search, product details and a cart with a live count and total.')),
+                (('Gestionar la cuenta', 'Manage the account'), ('Perfil editable que guarda los cambios en la base de datos y cierre de sesión seguro.', 'An editable profile that saves changes to the database, and secure logout.')),
+             ]},
+        ],
         'gallery': [
             ('img/cases/img-services.webp', ('Página principal', 'Home page')),
             ('img/cases/img-services-login-y-registro.webp', ('Login y registro', 'Login and sign-up')),
             ('img/cases/img-services-login.webp', ('Inicio de sesión', 'Sign in')),
             ('img/cases/img-services-register.webp', ('Registro de usuarios', 'User registration')),
+            ('img/cases/sell-tienda.webp', ('Catálogo con filtros y buscador', 'Catalog with filters and search')),
+            ('img/cases/sell-carrito.webp', ('Carrito con total en tiempo real', 'Cart with live total')),
+            ('img/cases/sell-perfil.webp', ('Perfil del usuario', 'User profile')),
         ],
         'blocks': [
             {'title': ('Funcionalidades', 'Features'), 'items': [
@@ -116,27 +130,27 @@ PROJECTS = [
                 ('Contraseñas cifradas con password_hash', 'Passwords hashed with password_hash'),
                 ('Sentencias preparadas contra la inyección SQL', 'Prepared statements against SQL injection'),
                 ('Salidas escapadas contra XSS y regeneración de la sesión', 'Escaped output against XSS and session regeneration'),
-                ('Probado de punta a punta: registro, login, carrito, perfil y cierre de sesión', 'Tested end to end: sign-up, login, cart, profile and logout')]},
+                ('Pruebas de punta a punta: registro, inicio de sesión, carrito, perfil y cierre de sesión', 'End-to-end tests: sign-up, login, cart, profile and logout')]},
         ],
         'challenges': [
-            (('Que la tienda recuerde quién eres', 'Making the store remember you'),
-             ('Usé sesiones de PHP: al iniciar sesión se guardan los datos del usuario, y así su nombre y su perfil lo acompañan de la tienda a la configuración.',
-              'I used PHP sessions: on login the user data is stored, so their name and profile follow them from the store to the settings page.')),
-            (('Revisar mi propio código', 'Reviewing my own code'),
-             ('Al publicarlo revisé el proyecto de 2023: las contraseñas estaban en texto plano y las consultas se armaban a mano. Las cambié por password_hash y sentencias preparadas, y probé que un intento de inyección SQL ya no entra.',
-              'When publishing it I reviewed the 2023 project: passwords were stored in plain text and queries were built by hand. I switched to password_hash and prepared statements, and tested that an SQL injection attempt no longer gets in.')),
-            (('Editar solo lo que cambia', 'Editing only what changes'),
-             ('El formulario de perfil arma la actualización únicamente con los campos que el usuario llenó, para no borrar el resto de sus datos.',
-              'The profile form builds the update only from the fields the user filled in, so the rest of their data is not erased.')),
+            (('Mantener la sesión del usuario', 'Keeping the user signed in'),
+             ('Las sesiones de PHP conservan la identidad del usuario desde el inicio de sesión hasta la tienda y su perfil, y las páginas privadas verifican esa sesión antes de mostrarse.',
+              'PHP sessions keep the user\'s identity from login through the store and their profile, and private pages check that session before rendering.')),
+            (('Revisar y mejorar el propio código', 'Reviewing and improving my own code'),
+             ('Al publicar el proyecto revisé la versión de 2023: las contraseñas se guardaban en texto plano y las consultas se construían de forma manual. Las reemplacé por password_hash y sentencias preparadas, y verifiqué que un intento de inyección SQL ya no tiene efecto.',
+              'When publishing the project I reviewed the 2023 version: passwords were stored in plain text and queries were built by hand. I replaced them with password_hash and prepared statements, and verified that an SQL injection attempt no longer has any effect.')),
+            (('Actualizar solo lo que cambia', 'Updating only what changes'),
+             ('El formulario de perfil construye la actualización únicamente con los campos que el usuario completó, para no sobrescribir el resto de su información.',
+              'The profile form builds the update only from the fields the user filled in, so the rest of their information is not overwritten.')),
         ],
         'results': [
-            ('Flujo completo: registro, login, catálogo, carrito y perfil', 'Complete flow: sign-up, login, catalog, cart and profile'),
-            ('Base de datos MySQL conectada con PHP', 'MySQL database connected with PHP'),
-            ('Código publicado en GitHub con instrucciones para XAMPP y un usuario de prueba', 'Code published on GitHub with XAMPP instructions and a demo user'),
-            ('Siguiente paso: catálogo y pedidos en la base de datos y una pasarela de pagos real', 'Next step: catalog and orders in the database and a real payment gateway'),
+            ('Recorrido de compra completo: registro, inicio de sesión, catálogo, carrito y perfil', 'A complete shopping journey: sign-up, login, catalog, cart and profile'),
+            ('Base de datos MySQL integrada con PHP y protegida con buenas prácticas de seguridad', 'A MySQL database integrated with PHP and protected with security best practices'),
+            ('Código publicado en GitHub con instrucciones de instalación y un usuario de prueba', 'Code published on GitHub with setup instructions and a demo user'),
+            ('Próximo paso: catálogo y pedidos en la base de datos y una pasarela de pagos real', 'Next step: catalog and orders in the database and a real payment gateway'),
         ],
-        'cta': (('¿Necesitas una tienda en línea?', 'Need an online store?'),
-                ('Desarrollo tiendas a la medida de tu negocio, listas para vender.', 'I build stores tailored to your business, ready to sell.')),
+        'cta': (('¿Quieres vender tus productos en línea?', 'Want to sell your products online?'),
+                ('Desarrollo tiendas a la medida de tu negocio, seguras y fáciles de administrar, para que empieces a vender cuanto antes.', 'I build stores tailored to your business, secure and easy to manage, so you can start selling as soon as possible.')),
         'service': 'store',
     },
     {
@@ -191,18 +205,29 @@ PROJECTS = [
                   'fonts': 'Quicksand:wght@500;600;700', 'motif': 'stars', 'bullet': '★'},
         'kicker': ('DESARROLLO WEB · DISEÑO', 'WEB DEVELOPMENT · DESIGN'),
         'title': ('Little Stars', 'Little Stars'),
-        'tagline': ('Tienda de ropa infantil con un diseño suave, amigable y totalmente responsive.',
-                    "Kids' clothing store with a soft, friendly and fully responsive design."),
-        'tags': ['HTML5', 'CSS3', 'Font Awesome', 'Responsive', 'UI/UX'],
+        'tagline': ('Concepto de tienda en línea de ropa infantil: una interfaz cálida y clara que guía a las familias desde la inspiración hasta el producto.',
+                    "A kids' clothing online store concept: a warm, clear interface that guides families from inspiration to product."),
+        'tags': ['HTML5', 'CSS3', 'CSS Grid', 'Flexbox', 'Font Awesome', 'Responsive', 'UI'],
         'hero': {'video': 'store.mp4', 'poster': 'img/cases/img-little-stars.webp'},
         'facts': [
             (('Tipo', 'Type'), ('Proyecto personal de práctica', 'Personal practice project')),
             (('Duración', 'Duration'), ('2 días', '2 days')),
-            (('Rol', 'Role'), ('Desarrolladora frontend', 'Frontend developer')),
+            (('Rol', 'Role'), ('Diseño y desarrollo frontend', 'Frontend design and development')),
             (('Stack', 'Stack'), ('HTML5 · CSS3 · Font Awesome', 'HTML5 · CSS3 · Font Awesome')),
         ],
-        'summary': ('Un sitio para una tienda ficticia de ropa infantil, creado para practicar maquetación y diseño responsive. Simula una experiencia real de e-commerce con énfasis en la estética y la usabilidad: colores pastel, tarjetas de producto y navegación por edades.',
-                    "A website for a fictional kids' clothing store, built to practice layout and responsive design. It simulates a real e-commerce experience with a focus on aesthetics and usability: pastel colors, product cards and browsing by age."),
+        'summary': ('Little Stars es una tienda ficticia de ropa para niñas, niños y bebés, creada para perfeccionar la maquetación y el diseño de interfaces de comercio electrónico. El sitio tiene dos páginas: un inicio que presenta la colección, las categorías y los motivos para comprar, y una tienda con herramientas de búsqueda y tarjetas de producto. La prioridad fue una experiencia visual amable, ordenada y adaptable a distintos tamaños de pantalla.',
+                    "Little Stars is a fictional clothing store for girls, boys and babies, built to refine layout and e-commerce interface design. The site has two pages: a home page that presents the collection, the categories and the reasons to buy, and a shop with search tools and product cards. The priority was a friendly, well-organized visual experience that adapts to different screen sizes."),
+        'sections': [
+            {'kind': 'cards', 'over': ('// DECISIONES DE DISEÑO', '// DESIGN DECISIONS'), 'title': ('Una interfaz pensada para las familias', 'An interface designed for families'),
+             'intro': ('Cada sección responde a una pregunta del comprador: qué hay de nuevo, qué busco, por qué comprar aquí y cómo encuentro lo que necesito.',
+                       "Each section answers a shopper's question: what's new, what am I looking for, why buy here, and how do I find what I need."),
+             'items': [
+                (('Inspiración inmediata', 'Instant inspiration'), ('Un hero con la nueva colección primavera-verano y un llamado a la acción directo a la tienda.', 'A hero featuring the new spring-summer collection and a call to action that leads straight to the shop.')),
+                (('Navegación por categorías', 'Browsing by category'), ('Tarjetas visuales para niñas, niños y bebés que permiten llegar al producto adecuado en un clic.', 'Visual cards for girls, boys and babies that lead to the right product in one click.')),
+                (('Argumentos de confianza', 'Trust signals'), ('Una sección "¿Por qué elegirnos?" que destaca calidad, envío rápido y devolución gratuita, tres factores clave en la decisión de compra.', 'A "Why choose us?" section highlighting quality, fast shipping and free returns, three key factors in the purchase decision.')),
+                (('Búsqueda guiada', 'Guided search'), ('Selectores de categoría y talla por edad, y un buscador, para acortar el camino hasta el producto.', 'Category and age-based size selectors, plus a search bar, to shorten the path to the product.')),
+             ]},
+        ],
         'gallery': [
             ('img/cases/img-little-stars.webp', ('Página principal', 'Home page')),
             ('img/cases/img-little-stars-categorias.webp', ('Categorías populares', 'Popular categories')),
@@ -210,29 +235,29 @@ PROJECTS = [
         ],
         'blocks': [
             {'title': ('Lo que incluye', "What's included"), 'items': [
-                ('Hero con llamado a la acción', 'Hero with call to action'),
-                ('Categorías: niñas, niños y bebés', 'Categories: girls, boys and babies'),
-                ('Tienda con grid de productos y buscador', 'Shop with product grid and search'),
-                ('Filtros por categoría y talla', 'Filters by category and size'),
-                ('Sección "Por qué elegirnos" con íconos', '"Why choose us" section with icons')]},
-            {'title': ('Lo que practiqué', 'What I practiced'), 'items': [
-                ('CSS Grid y Flexbox', 'CSS Grid and Flexbox'),
-                ('Componentes reutilizables: tarjetas y botones', 'Reusable components: cards and buttons'),
-                ('Diseño mobile-first', 'Mobile-first design'),
-                ('HTML semántico y accesible', 'Semantic, accessible HTML')]},
-            {'title': ('Próximos pasos', 'Next steps'), 'items': [
-                ('Filtros dinámicos con JavaScript', 'Dynamic filters with JavaScript'),
+                ('Inicio con hero y llamado a la acción', 'Home page with hero and call to action'),
+                ('Categorías destacadas: niñas, niños y bebés', 'Featured categories: girls, boys and babies'),
+                ('Sección de beneficios con íconos', 'Benefits section with icons'),
+                ('Tienda con tarjetas de producto, precio y botón de compra', 'Shop with product cards, price and buy button'),
+                ('Interfaz de filtros por categoría y talla, y buscador', 'Category and size filter interface, and search bar')]},
+            {'title': ('Técnicas aplicadas', 'Techniques applied'), 'items': [
+                ('Retículas con CSS Grid y alineación con Flexbox', 'Layouts with CSS Grid and alignment with Flexbox'),
+                ('Componentes reutilizables: tarjetas, botones y navegación', 'Reusable components: cards, buttons and navigation'),
+                ('Diseño responsive con media queries', 'Responsive design with media queries'),
+                ('HTML semántico con textos alternativos en las imágenes', 'Semantic HTML with alt text on images')]},
+            {'title': ('Cómo podría crecer', 'How it could grow'), 'items': [
+                ('Filtros y búsqueda funcionales con JavaScript', 'Working filters and search with JavaScript'),
                 ('Carrito con almacenamiento local', 'Cart with local storage'),
-                ('Backend y base de datos de productos', 'Backend and product database'),
+                ('Catálogo administrable desde una base de datos', 'A catalog managed from a database'),
                 ('Pasarela de pagos', 'Payment gateway')]},
         ],
         'results': [
-            ('Interfaz de e-commerce limpia y moderna en solo 2 días', 'Clean, modern e-commerce interface in just 2 days'),
-            ('Paleta suave pensada para un público infantil', 'Soft palette designed for a children audience'),
-            ('Base lista para crecer con funcionalidades reales', 'A solid base ready to grow with real features'),
+            ('Una interfaz de comercio electrónico limpia y coherente desarrollada en dos días', 'A clean, coherent e-commerce interface built in two days'),
+            ('Una paleta suave y cercana, alineada con un público familiar', 'A soft, approachable palette aligned with a family audience'),
+            ('Una base sólida y modular, lista para incorporar funcionalidades reales', 'A solid, modular base ready for real functionality'),
         ],
-        'cta': (('¿Necesitas un diseño web atractivo?', 'Need an attractive web design?'),
-                ('Creo interfaces modernas y responsive para tu negocio.', 'I create modern, responsive interfaces for your business.')),
+        'cta': (('¿Tu tienda necesita una vitrina que invite a comprar?', 'Does your store need a storefront that invites people to buy?'),
+                ('Diseño sitios atractivos, claros y adaptables a cualquier pantalla, pensados para convertir visitas en ventas.', 'I design attractive, clear sites that adapt to any screen, built to turn visits into sales.')),
         'service': 'web',
     },
     {
@@ -347,9 +372,9 @@ PROJECTS = [
                   'fonts': 'Josefin+Sans:wght@400;600;700', 'motif': 'compass', 'bullet': '➤'},
         'kicker': ('DISEÑO · BRANDING CORPORATIVO', 'DESIGN · CORPORATE BRANDING'),
         'title': ('ODEN', 'ODEN'),
-        'tagline': ('Identidad visual para una inmobiliaria: guiando a las personas hacia su hogar ideal.',
-                    'Visual identity for a real estate company: guiding people to their ideal home.'),
-        'tags': ['Branding', 'Logo', 'Identidad visual', 'Inmobiliaria'],
+        'tagline': ('Identidad visual para una inmobiliaria que acompaña a sus clientes hacia el hogar que buscan.',
+                    'Visual identity for a real estate company that guides its clients to the home they are looking for.'),
+        'tags': ['Branding', 'Logotipo', 'Identidad visual', 'Sector inmobiliario'],
         'hero': {'img': 'img/cases/oden-recurso-13.webp', 'alt': 'Logo de ODEN con símbolo de brújula'},
         'facts': [
             (('Cliente', 'Client'), ('Cliente real · inmobiliaria', 'Real client · real estate')),
@@ -357,16 +382,31 @@ PROJECTS = [
             (('Rol', 'Role'), ('Diseñadora de marca', 'Brand designer')),
             (('Herramientas', 'Tools'), ('Adobe Illustrator', 'Adobe Illustrator')),
         ],
-        'summary': ('Identidad visual completa para ODEN, una inmobiliaria que quiere ser la guía confiable de quienes buscan su hogar. El reto: un logo memorable que transmita orientación, confianza y profesionalismo.',
-                    'Complete visual identity for ODEN, a real estate company that wants to be the trusted guide for people looking for a home. The challenge: a memorable logo that conveys guidance, trust and professionalism.'),
+        'summary': ('ODEN es una inmobiliaria que aspira a convertirse en la guía de confianza de quienes buscan vivienda. Comprar o arrendar un hogar es una de las decisiones más importantes en la vida de una persona, por lo que la marca debía transmitir orientación, seguridad y profesionalismo desde el primer contacto. El encargo comprendió el logotipo, sus versiones cromáticas y de formato, íconos para aplicaciones, patrones de marca y piezas publicitarias.',
+                    'ODEN is a real estate company that aims to become the trusted guide for people looking for a home. Buying or renting a home is one of the most important decisions in a person\'s life, so the brand had to convey guidance, security and professionalism from the very first contact. The brief covered the logo, its color and format versions, app icons, brand patterns and advertising pieces.'),
         'concept': {
             'title': ('Guiando hacia tu hogar', 'Guiding you home'),
             'quote': ('La brújula siempre señala el norte.', 'The compass always points north.'),
             'paras': [
-                ('El logo integra una brújula estilizada que simboliza la capacidad de la empresa para orientar a sus clientes en una de las decisiones más importantes de su vida.',
-                 "The logo features a stylized compass that symbolizes the company's ability to guide clients through one of the most important decisions of their lives."),
-                ('El nombre ODEN nace de los socios fundadores. La paleta combina grises profesionales con acentos dorados que aportan calidez y confianza.',
-                 'The name ODEN comes from the founding partners. The palette combines professional grays with gold accents that bring warmth and trust.')]},
+                ('El logotipo integra una brújula estilizada que representa la capacidad de la empresa para orientar a sus clientes en cada etapa de la búsqueda, con la claridad que exige una decisión de esta magnitud.',
+                 "The logo features a stylized compass that represents the company's ability to guide its clients through every stage of the search, with the clarity such an important decision requires."),
+                ('El nombre ODEN surge de los socios fundadores. La paleta combina grises de carácter profesional con acentos dorados que aportan calidez, prestigio y confianza.',
+                 'The name ODEN comes from the founding partners. The palette combines professional grays with gold accents that bring warmth, prestige and trust.')]},
+        'sections': [
+            {'kind': 'cards', 'over': ('// SIMBOLISMO', '// SYMBOLISM'), 'title': ('Lo que comunica la brújula', 'What the compass communicates'),
+             'items': [
+                (('Orientación', 'Guidance'), ('Señala el rumbo correcto y posiciona a ODEN como el aliado que acompaña al cliente durante todo el proceso.', 'It points the right way and positions ODEN as the ally that supports clients throughout the process.')),
+                (('Confianza', 'Trust'), ('Un instrumento preciso y confiable, asociado a la seguridad que el cliente espera al invertir en su vivienda.', 'A precise, reliable instrument, associated with the security clients expect when investing in their home.')),
+                (('Claridad', 'Clarity'), ('Transmite certeza en un momento lleno de preguntas, como es la elección de un nuevo hogar.', 'It conveys certainty at a moment full of questions, such as choosing a new home.')),
+                (('Destino', 'Destination'), ('Representa el camino que culmina en el hogar ideal, la promesa central de la marca.', 'It represents the path that ends at the ideal home, the brand\'s core promise.')),
+             ]},
+            {'kind': 'cards', 'over': ('// PÚBLICO OBJETIVO', '// TARGET AUDIENCE'), 'title': ('Para quién se diseñó la marca', 'Who the brand was designed for'),
+             'items': [
+                (('Jóvenes profesionales', 'Young professionals'), ('Personas que buscan su primera vivienda y necesitan orientación para dar ese paso con seguridad.', 'People looking for their first home who need guidance to take that step with confidence.')),
+                (('Inversionistas inmobiliarios', 'Real estate investors'), ('Clientes que valoran una asesoría profesional y una marca sólida al momento de invertir.', 'Clients who value professional advice and a solid brand when investing.')),
+                (('Familias en crecimiento', 'Growing families'), ('Hogares que buscan más espacio y una empresa que comprenda sus necesidades.', 'Households looking for more space and a company that understands their needs.')),
+             ]},
+        ],
         'gallery': [
             ('img/cases/oden-recurso-6.webp', ('Logo principal en plata', 'Main logo in silver')),
             ('img/cases/oden-recurso-5.webp', ('Logo dorado', 'Gold logo')),
@@ -382,36 +422,34 @@ PROJECTS = [
                     ('Dorado oscuro', 'Dark gold', '#AE7D12'), ('Oro', 'Gold', '#D69427'), ('Dorado brillante', 'Bright gold', '#F59B1A'), ('Dorado claro', 'Light gold', '#F7C257')],
         'type': [('The Munday', "'Josefin Sans', sans-serif", 'ODEN', ('Logotipo: minimalista, con terminaciones cuadradas y curvas sutiles.', 'Logotype: minimalist, with square terminals and subtle curves.'))],
         'blocks': [
-            {'title': ('Simbolismo de la brújula', 'Compass symbolism'), 'items': [
-                ('Orientación: guiar en la dirección correcta', 'Guidance: pointing in the right direction'),
-                ('Confianza: un instrumento confiable', 'Trust: a reliable instrument'),
-                ('Claridad: certeza en decisiones importantes', 'Clarity: certainty in big decisions'),
-                ('Destino: el camino hacia el hogar perfecto', 'Destination: the road to the perfect home')]},
-            {'title': ('Público objetivo', 'Target audience'), 'items': [
-                ('Jóvenes profesionales y su primera vivienda', 'Young professionals and their first home'),
-                ('Inversionistas inmobiliarios', 'Real estate investors'),
-                ('Familias que buscan más espacio', 'Families looking for more space')]},
+            {'title': ('Sistema de logotipo', 'Logo system'), 'items': [
+                ('Versiones en plata, dorado, blanco y negro', 'Versions in silver, gold, white and black'),
+                ('Formatos horizontal, vertical y símbolo', 'Horizontal, vertical and symbol formats'),
+                ('Tipografía minimalista con terminaciones cuadradas', 'Minimalist typography with square terminals')]},
+            {'title': ('Aplicaciones', 'Applications'), 'items': [
+                ('Íconos para aplicaciones y redes sociales', 'Icons for apps and social media'),
+                ('Patrón de marca', 'Brand pattern'),
+                ('Banners publicitarios', 'Advertising banners')]},
             {'title': ('Entregables', 'Deliverables'), 'items': [
-                ('Logo en plata, dorado, blanco y negro', 'Logo in silver, gold, white and black'),
-                ('Versiones horizontal, vertical y símbolo', 'Horizontal, vertical and symbol versions'),
-                ('Íconos para apps y redes sociales', 'Icons for apps and social media'),
-                ('Patrones de marca y banners', 'Brand patterns and banners'),
+                ('Logotipo en todas sus versiones', 'Logo in all its versions'),
+                ('Paleta de grises y dorados', 'Gray and gold palette'),
+                ('Piezas para medios digitales', 'Pieces for digital media'),
                 ('Archivos fuente editables', 'Editable source files')]},
         ],
         'process': [
             (('Investigación', 'Research'), ('Sector, competencia y valores de marca.', 'Industry, competitors and brand values.')),
             (('Concepto', 'Concept'), ('La brújula como guía hacia el hogar.', 'The compass as a guide home.')),
-            (('Diseño', 'Design'), ('Bocetos, logo, tipografía y color.', 'Sketches, logo, typography and color.')),
+            (('Diseño', 'Design'), ('Bocetos, logotipo, tipografía y color.', 'Sketches, logo, typography and color.')),
             (('Variaciones', 'Variations'), ('Versiones cromáticas y formatos.', 'Color versions and formats.')),
             (('Entrega', 'Delivery'), ('Archivos listos para implementar.', 'Files ready to implement.')),
         ],
         'results': [
-            ('Identidad memorable que comunica orientación y confianza', 'A memorable identity that conveys guidance and trust'),
-            ('Logo versátil con múltiples variaciones', 'A versatile logo with multiple variations'),
-            ('Símbolo icónico y fácil de reconocer', 'An iconic, easily recognizable symbol'),
+            ('Una identidad memorable que comunica orientación y confianza', 'A memorable identity that conveys guidance and trust'),
+            ('Un logotipo versátil, con versiones para cada medio y formato', 'A versatile logo with versions for every medium and format'),
+            ('Un símbolo distintivo y fácil de reconocer en el sector inmobiliario', 'A distinctive symbol that is easy to recognize in the real estate sector'),
         ],
-        'cta': (('¿Necesitas una identidad visual para tu empresa?', 'Need a visual identity for your company?'),
-                ('Creo logos memorables y profesionales como el de ODEN.', 'I create memorable, professional logos like ODEN.')),
+        'cta': (('¿Tu empresa necesita una identidad que inspire confianza?', 'Does your company need an identity that inspires trust?'),
+                ('Diseño marcas con un concepto claro y un sistema visual listo para crecer contigo.', 'I design brands with a clear concept and a visual system ready to grow with you.')),
         'service': 'branding',
     },
     {
@@ -421,27 +459,38 @@ PROJECTS = [
                   'fonts': 'Oswald:wght@500;600;700', 'motif': 'iso', 'bullet': '⬢'},
         'kicker': ('DISEÑO · WEB · REDES', 'DESIGN · WEB · SOCIAL'),
         'title': ('MetalTec Colombia', 'MetalTec Colombia'),
-        'tagline': ('Branding integral desde cero para una metalúrgica: identidad, sitio web y redes sociales.',
-                    'End-to-end branding from scratch for a metallurgical company: identity, website and social media.'),
-        'tags': ['Brand design', 'Logo', 'WordPress', 'Illustrator', 'Photoshop', 'Social media'],
+        'tagline': ('Branding integral desde cero para una empresa metalúrgica: identidad visual, material comercial, sitio web y redes sociales.',
+                    'End-to-end branding from scratch for a metalworking company: visual identity, sales material, website and social media.'),
+        'tags': ['Identidad corporativa', 'Logotipo', 'WordPress', 'Material impreso', 'Redes sociales', 'B2B'],
         'hero': {'img': 'img/cases/unicos-metaltec.webp', 'alt': 'Logo de MetalTec Colombia', 'light': True},
         'facts': [
-            (('Cliente', 'Client'), ('Empresa metalúrgica (B2B)', 'Metallurgical company (B2B)')),
+            (('Cliente', 'Client'), ('Empresa metalúrgica (B2B)', 'Metalworking company (B2B)')),
             (('Época', 'Period'), ('Durante Únicos · 2019 – 2021', 'During Únicos · 2019 – 2021')),
             (('Duración', 'Duration'), ('3 a 4 meses', '3 to 4 months')),
             (('Rol', 'Role'), ('Líder de proyecto y directora creativa', 'Project lead and creative director')),
             (('Herramientas', 'Tools'), ('Illustrator · Photoshop · WordPress', 'Illustrator · Photoshop · WordPress')),
         ],
-        'summary': ('MetalTec Colombia diseña, fabrica y mantiene maquinaria de trituración. Creé su marca desde cero: logo e isotipo, brochure y flyers, sitio web corporativo en WordPress y presencia en redes sociales. Un proyecto integral, de la idea a la implementación en todas las plataformas.',
-                    'MetalTec Colombia designs, builds and maintains crushing machinery. I created their brand from scratch: logo and isotype, brochure and flyers, a corporate WordPress website and social media presence. An end-to-end project, from idea to implementation on every platform.'),
+        'summary': ('MetalTec Colombia diseña, fabrica y mantiene maquinaria de trituración para la industria. La empresa necesitaba una imagen que estuviera a la altura de su capacidad técnica y le permitiera competir con solidez en el mercado B2B. Desde Únicos lideré el proyecto completo: la creación de la marca, el material comercial para presentaciones y ferias, el sitio web corporativo y su presencia en redes sociales, de la idea a la implementación en cada plataforma.',
+                    'MetalTec Colombia designs, builds and maintains crushing machinery for industry. The company needed an image that matched its technical capability and allowed it to compete strongly in the B2B market. From Únicos I led the whole project: creating the brand, sales material for presentations and trade shows, the corporate website and its social media presence, from idea to implementation on every platform.'),
         'concept': {
             'title': ('Una "M" hecha de vigas', 'An "M" made of beams'),
             'quote': ('Solidez, innovación y precisión técnica.', 'Solidity, innovation and technical precision.'),
             'paras': [
-                ('El isotipo es una "M" estilizada que alude a las vigas y estructuras metálicas, en perspectiva isométrica para comunicar tridimensionalidad, solidez y precisión.',
-                 'The isotype is a stylized "M" that evokes beams and metal structures, in isometric perspective to convey three-dimensionality, solidity and precision.'),
-                ('El naranja transmite energía e innovación; el gris aporta solidez y confiabilidad. Juntos equilibran la tecnología con la experiencia industrial.',
-                 'Orange conveys energy and innovation; gray brings solidity and reliability. Together they balance technology with industrial experience.')]},
+                ('El isotipo es una "M" estilizada que evoca vigas y estructuras metálicas. Su perspectiva isométrica comunica tridimensionalidad, solidez y precisión, atributos esenciales en la industria metalúrgica.',
+                 'The isotype is a stylized "M" that evokes beams and metal structures. Its isometric perspective conveys three-dimensionality, solidity and precision, essential attributes in the metalworking industry.'),
+                ('El naranja transmite energía e innovación; el gris aporta solidez y confiabilidad. Juntos equilibran la tecnología con la experiencia industrial de la empresa.',
+                 "Orange conveys energy and innovation; gray brings solidity and reliability. Together they balance technology with the company's industrial experience.")]},
+        'sections': [
+            {'kind': 'cards', 'over': ('// ALCANCE DEL PROYECTO', '// PROJECT SCOPE'), 'title': ('Una marca presente en todos los canales', 'A brand present on every channel'),
+             'intro': ('El proyecto abarcó todos los puntos de contacto de la empresa con sus clientes, para que la nueva identidad se percibiera de forma coherente en cada uno de ellos.',
+                       "The project covered every touchpoint between the company and its clients, so the new identity would be perceived consistently in each of them."),
+             'items': [
+                (('Identidad corporativa', 'Corporate identity'), ('Logotipo con tipografía corporativa, isotipo isométrico, versiones a color y monocromáticas, y manual de identidad visual.', 'Logo with corporate typography, isometric isotype, color and monochrome versions, and a visual identity manual.')),
+                (('Material comercial', 'Sales material'), ('Brochure plegable de servicios y flyers con fotografía industrial para presentaciones, visitas comerciales y ferias.', 'A folded services brochure and flyers with industrial photography for presentations, sales visits and trade shows.')),
+                (('Sitio web corporativo', 'Corporate website'), ('Sitio en WordPress adaptable a cualquier pantalla, con secciones de inicio, servicios, empresa, proyectos y contacto.', 'A WordPress site that adapts to any screen, with home, services, company, projects and contact sections.')),
+                (('Redes sociales', 'Social media'), ('Perfiles de Facebook e Instagram, plantillas y un kit gráfico para mantener una comunicación constante y alineada con la marca.', 'Facebook and Instagram profiles, templates and a graphics kit to keep communication consistent and on-brand.')),
+             ]},
+        ],
         'gallery': [
             ('img/cases/unicos-metaltec.webp', ('Logo principal', 'Main logo')),
             ('img/cases/unicos-iso-metaltec.webp', ('Isotipo', 'Isotype')),
@@ -451,14 +500,14 @@ PROJECTS = [
         'palette': [('Naranja', 'Orange', '#FF5722'), ('Gris MetalTec', 'MetalTec gray', '#4A5F6D')],
         'blocks': [
             {'title': ('Identidad visual', 'Visual identity'), 'items': [
-                ('Logo con tipografía corporativa', 'Logo with corporate typography'),
+                ('Logotipo con tipografía corporativa', 'Logo with corporate typography'),
                 ('Isotipo "M" en perspectiva isométrica', 'Isometric "M" isotype'),
                 ('Versiones a color, blanco y negro', 'Color, black and white versions'),
                 ('Manual de identidad visual', 'Visual identity manual')]},
             {'title': ('Desarrollo web', 'Web development'), 'items': [
                 ('Sitio corporativo en WordPress', 'Corporate WordPress website'),
                 ('Diseño responsive', 'Responsive design'),
-                ('Inicio, servicios, nosotros, proyectos y contacto', 'Home, services, about, projects and contact'),
+                ('Inicio, servicios, empresa, proyectos y contacto', 'Home, services, company, projects and contact'),
                 ('Formulario de contacto y SEO básico', 'Contact form and basic SEO')]},
             {'title': ('Impresos y redes', 'Print and social'), 'items': [
                 ('Brochure plegable de servicios', 'Folded services brochure'),
@@ -467,19 +516,19 @@ PROJECTS = [
                 ('Plantillas y kit gráfico para publicaciones', 'Templates and graphics kit for posts')]},
         ],
         'process': [
-            (('Investigación', 'Research'), ('Sector metalúrgico, competencia y público B2B.', 'Metallurgical sector, competitors and B2B audience.')),
+            (('Investigación', 'Research'), ('Sector metalúrgico, competencia y público B2B.', 'Metalworking sector, competitors and B2B audience.')),
             (('Concepto visual', 'Visual concept'), ('Bocetos del isotipo y paleta.', 'Isotype sketches and palette.')),
             (('Diseño y desarrollo', 'Design and build'), ('Manual, impresos, web y redes.', 'Manual, print, web and social.')),
             (('Implementación', 'Launch'), ('Producción, lanzamiento y capacitación.', 'Production, launch and training.')),
         ],
         'results': [
-            ('Imagen corporativa sólida que genera confianza en el sector B2B', 'A solid corporate image that builds trust in the B2B sector'),
-            ('Presencia digital completa: web y redes activas', 'Complete digital presence: website and active social media'),
-            ('Material comercial para presentaciones y ferias', 'Sales material for presentations and trade shows'),
-            ('Posicionamiento moderno en un sector tradicional', 'Modern positioning in a traditional sector'),
+            ('Una imagen corporativa sólida que genera confianza en el mercado B2B', 'A solid corporate image that builds trust in the B2B market'),
+            ('Presencia digital completa: sitio web y redes sociales activas', 'A complete digital presence: website and active social media'),
+            ('Material comercial para presentaciones, visitas y ferias', 'Sales material for presentations, visits and trade shows'),
+            ('Un posicionamiento moderno dentro de un sector tradicional', 'Modern positioning within a traditional sector'),
         ],
-        'cta': (('¿Necesitas crear la identidad de tu marca?', 'Need to create your brand identity?'),
-                ('Desarrollo tu branding completo: logo, web y presencia digital.', 'I build your complete branding: logo, website and digital presence.')),
+        'cta': (('¿Tu empresa necesita una marca a la altura de su experiencia?', 'Does your company need a brand that matches its expertise?'),
+                ('Desarrollo branding integral —identidad, material comercial, web y redes— para que tu empresa compita con una imagen sólida.', 'I deliver end-to-end branding—identity, sales material, web and social media—so your company competes with a solid image.')),
         'service': 'branding',
     },
     {
@@ -1130,7 +1179,7 @@ def page(p, prev, nxt, num, total):
         out.append(f'''
         <section class="case-section">
             {bi('p', 'case-overline', ('// RETOS Y SOLUCIONES', '// CHALLENGES AND SOLUTIONS'))}
-            <div class="case-panels case-panels--2">{ch}</div>
+            <div class="case-panels case-panels--{min(len(p['challenges']), 3)}">{ch}</div>
         </section>''')
 
     # ---------- terminal con la salida real ----------

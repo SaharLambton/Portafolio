@@ -292,8 +292,8 @@ window.AURA_KB = {
             id: 'web',
             keys: ['web', 'sitio', 'sitios', 'pagina web', 'paginas web', 'ecommerce', 'e-commerce', 'tienda', 'tiendas', 'website', 'websites', 'store', 'online shop'],
             answer: {
-                es: 'En desarrollo web destacan: 🛒 Sell Services, una tienda en línea con registro de usuarios, catálogo, carrito y base de datos MySQL (PHP + MySQL); 🏀 Sports Store, tienda deportiva con catálogo dinámico; y 👶 Little Stars, tienda infantil con filtros por edad.',
-                en: 'Web development highlights: 🛒 Sell Services, an online store with user accounts, catalog, cart and a MySQL database (PHP + MySQL); 🏀 Sports Store, a sports shop with a dynamic catalog; and 👶 Little Stars, a kids\' clothing store with age filters.'
+                es: 'En desarrollo web destacan: 🛒 Sell Services, una tienda en línea con registro de usuarios, catálogo, carrito y base de datos MySQL (PHP + MySQL); 🏀 Sports Store, tienda deportiva con catálogo dinámico; y 👶 Little Stars, concepto de tienda infantil con categorías y búsqueda por talla.',
+                en: 'Web development highlights: 🛒 Sell Services, an online store with user accounts, catalog, cart and a MySQL database (PHP + MySQL); 🏀 Sports Store, a sports shop with a dynamic catalog; and 👶 Little Stars, a kids\' clothing store concept with categories and size search.'
             },
             projects: ['sell-services', 'sports-store', 'little-stars'],
             action: { type: 'go', href: 'proyectos.html?area=web', label: { es: 'Ver proyectos web', en: 'See web projects' } }
@@ -430,12 +430,12 @@ window.AURA_KB = {
             id: 'little-stars', name: 'Little Stars', keys: ['little stars', 'ropa infantil', 'ninos', 'kids', 'children'],
             brand: '#ffb3cf', kind: { es: 'Proyecto personal de práctica', en: 'Personal practice project' },
             pillars: ['web', 'design'], card: 'img/thumbs/littlestars-card.webp', video: 'store.mp4',
-            short: { es: 'Tienda de ropa infantil responsive, con catálogo, filtros y categorías por edad.', en: 'Responsive kids\' clothing store with catalog, filters and age categories.' },
+            short: { es: 'Concepto de tienda en línea de ropa infantil con categorías, beneficios destacados y búsqueda por categoría y talla.', en: 'A kids\' clothing online store concept with categories, highlighted benefits and search by category and size.' },
             url: 'little-stars.html', area: 'web',
             tech: ['HTML5', 'CSS3', 'Font Awesome', 'Responsive Design'],
             desc: {
-                es: 'Little Stars es una tienda de ropa infantil con diseño moderno y responsive: hero section, catálogo con filtros y categorías por edad.',
-                en: 'Little Stars is a kids\' clothing store with a modern, responsive design: hero section, catalog with filters and age categories.'
+                es: 'Little Stars es un concepto de tienda en línea de ropa para niñas, niños y bebés, diseñado y maquetado en dos días con HTML5 y CSS3: un inicio con la nueva colección, categorías destacadas y los motivos para comprar, y una tienda con tarjetas de producto e interfaz de búsqueda por categoría y talla, adaptable a cualquier pantalla.',
+                en: 'Little Stars is an online store concept for girls\', boys\' and babies\' clothing, designed and built in two days with HTML5 and CSS3: a home page with the new collection, featured categories and reasons to buy, and a shop with product cards and a search interface by category and size, adaptable to any screen.'
             }
         },
         {
@@ -459,8 +459,8 @@ window.AURA_KB = {
             url: 'oden.html', area: 'design',
             tech: ['Adobe Illustrator', 'Branding', 'Logo Design'],
             desc: {
-                es: 'ODEN es la identidad corporativa de una inmobiliaria: un logo con símbolo de brújula que representa orientación, paleta de grises y dorados y variaciones para aplicaciones digitales.',
-                en: 'ODEN is the corporate identity for a real estate company: a compass-symbol logo representing guidance, a gray-and-gold palette and variations for digital use.'
+                es: 'ODEN es la identidad visual de una inmobiliaria que acompaña a sus clientes hacia el hogar que buscan: un logotipo con una brújula que comunica orientación y confianza, una paleta de grises y dorados, versiones para cada formato, íconos, patrones y piezas publicitarias.',
+                en: 'ODEN is the visual identity for a real estate company that guides its clients to the home they are looking for: a compass logo that conveys guidance and trust, a gray-and-gold palette, versions for every format, icons, patterns and advertising pieces.'
             }
         },
         {
@@ -471,8 +471,8 @@ window.AURA_KB = {
             url: 'metaltec.html', thumb: 'img/thumbs/metaltec.webp', area: 'design',
             tech: ['Brand Design', 'WordPress', 'Adobe Illustrator'],
             desc: {
-                es: 'MetalTec Colombia es un branding integral desde cero para una empresa metalúrgica: logo e isotipo, sitio web en WordPress, brochure y flyers, manual de identidad y redes sociales.',
-                en: 'MetalTec Colombia is end-to-end branding for a metallurgical company: logo and isotype, a WordPress website, brochure and flyers, identity manual and social media.'
+                es: 'MetalTec Colombia es un branding integral desde cero para una empresa que diseña, fabrica y mantiene maquinaria de trituración: logotipo e isotipo isométrico, manual de identidad, brochure y flyers para ferias, sitio web corporativo en WordPress y redes sociales. Sahar lo lideró desde Únicos.',
+                en: 'MetalTec Colombia is end-to-end branding from scratch for a company that designs, builds and maintains crushing machinery: logo and isometric isotype, identity manual, brochure and trade-show flyers, a corporate WordPress website and social media. Sahar led it from Únicos.'
             },
             tag: { es: 'Branding + WordPress', en: 'Branding + WordPress' }
         },
