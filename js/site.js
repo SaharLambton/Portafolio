@@ -1,5 +1,5 @@
 /* ==========================================================
-   SITE · Navegación, pie de página y orbe flotante de AURA
+   SITE · Navegación, pie de página y orbe flotante de ATLAS
    Se comparte en todas las pestañas. La página actual se lee de
    <body data-page="home|about|projects|services|contact">.
    ========================================================== */
@@ -51,7 +51,7 @@
             <div class="site-footer__inner">
                 <div class="site-footer__brand">
                     <span class="site-footer__name">Sahar Chain</span>
-                    <span class="site-footer__status"><i aria-hidden="true"></i>AURA v1.0 · <span data-es="sistema en línea" data-en="system online">sistema en línea</span></span>
+                    <span class="site-footer__status"><i aria-hidden="true"></i>ATLAS v1.0 · <span data-es="sistema en línea" data-en="system online">sistema en línea</span></span>
                 </div>
                 <nav class="site-footer__nav" aria-label="Pie de página">${links}</nav>
                 <div class="site-footer__social">
@@ -66,12 +66,12 @@
     /* ---------- Orbe flotante + chat (en las pestañas internas) ---------- */
     function floatHTML() {
         const panel = isHome ? '' : `
-            <div class="aura-float__panel" id="auraPanel" role="dialog" aria-label="AURA" hidden>
+            <div class="aura-float__panel" id="auraPanel" role="dialog" aria-label="ATLAS" hidden>
                 <div class="aura-dialog">
                     <span class="aura-console__frame" aria-hidden="true"></span>
                     <div class="aura-dialog__head">
                         <i class="aura-dot" aria-hidden="true"></i>
-                        <span>AURA</span>
+                        <span>ATLAS</span>
                         <span class="aura-dialog__status" id="auraStatus">EN LÍNEA</span>
                         <button type="button" class="aura-skip" id="auraSkip" hidden data-es="SALTAR ▸▸" data-en="SKIP ▸▸">SALTAR ▸▸</button>
                         <button type="button" class="aura-float__close" id="auraClose" data-es-label="Cerrar chat" data-en-label="Close chat" aria-label="Cerrar chat">${ICONS.close}</button>
@@ -81,20 +81,20 @@
                 <div class="aura-chips" id="auraChips"></div>
                 <form class="aura-input" id="auraForm" autocomplete="off">
                     <span class="aura-input__prompt" aria-hidden="true">&gt;_</span>
-                    <input id="auraInput" type="text" maxlength="300" data-es-ph="Escribe tu pregunta..." data-en-ph="Type your question..." placeholder="Escribe tu pregunta..." aria-label="Pregunta para AURA">
-                    <button type="button" class="aura-icon-btn" id="auraMic" data-es-label="Hablar con AURA" data-en-label="Talk to AURA" aria-label="Hablar con AURA">${ICONS.mic}</button>
+                    <input id="auraInput" type="text" maxlength="300" data-es-ph="Escribe tu pregunta..." data-en-ph="Type your question..." placeholder="Escribe tu pregunta..." aria-label="Pregunta para ATLAS">
+                    <button type="button" class="aura-icon-btn" id="auraMic" data-es-label="Hablar con ATLAS" data-en-label="Talk to ATLAS" aria-label="Hablar con ATLAS">${ICONS.mic}</button>
                     <button type="submit" class="aura-send" data-es="ENVIAR" data-en="SEND">ENVIAR</button>
                 </form>
             </div>`;
         return `
             <div class="aura-bubble" id="auraBubble" hidden>
-                <span class="aura-bubble__who">AURA</span>
+                <span class="aura-bubble__who">ATLAS</span>
                 <p class="aura-bubble__text" id="auraBubbleText"></p>
                 <p class="aura-bubble__hint" id="auraBubbleHint" hidden data-es="🔊 Toca la pantalla para escucharla" data-en="🔊 Tap the screen to hear her">🔊 Toca la pantalla para escucharla</p>
                 <button type="button" class="aura-bubble__close" id="auraBubbleClose" data-es-label="Cerrar" data-en-label="Close" aria-label="Cerrar">${ICONS.close}</button>
             </div>
             ${panel}
-            <button type="button" class="aura-fab" id="auraFab" aria-expanded="false" data-es-label="Hablar con AURA" data-en-label="Talk to AURA" aria-label="Hablar con AURA">
+            <button type="button" class="aura-fab" id="auraFab" aria-expanded="false" data-es-label="Hablar con ATLAS" data-en-label="Talk to ATLAS" aria-label="Hablar con ATLAS">
                 <span class="mini-orb" aria-hidden="true"><i class="mini-orb__ring"></i><i class="mini-orb__ring mini-orb__ring--b"></i><i class="mini-orb__core"></i></span>
             </button>`;
     }

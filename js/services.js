@@ -73,7 +73,7 @@
 
     const state = { step: 1, goals: [], stage: null, time: null };
 
-    /* ---------- AURA en la consola ---------- */
+    /* ---------- ATLAS en la consola ---------- */
     const auraText = document.getElementById('consoleAura');
     let typeToken = 0;
     async function auraSay(text) {
@@ -305,7 +305,7 @@
         const time = TIMES.find((x) => x.id === state.time);
         const msg = fill(tr(T.result), { list, time: time ? tr(time.aura) : '' });
         auraSay(msg);
-        // la AURA flotante también lo dice (con voz si está activa), una vez por plan
+        // la ATLAS flotante también lo dice (con voz si está activa), una vez por plan
         if (window.AuraComment) window.AuraComment('plan-' + state.goals.join('-') + '-' + state.stage + '-' + state.time, { es: msg, en: msg });
     }
 

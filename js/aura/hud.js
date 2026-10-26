@@ -1,5 +1,5 @@
 /* ==========================================================
-   AURA · HUD decorativo del hero (reloj y flujo de datos)
+   ATLAS · HUD decorativo del hero (reloj y flujo de datos)
    ========================================================== */
 (function () {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

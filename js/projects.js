@@ -20,7 +20,7 @@
     const T = {
         enter: { es: 'Entrar al proyecto →', en: 'Open project →' },
         repo: { es: 'Ver en GitHub ↗', en: 'View on GitHub ↗' },
-        aura: { es: 'Conocer a AURA →', en: 'Meet AURA →' },
+        aura: { es: 'Conocer a ATLAS →', en: 'Meet ATLAS →' },
         done: { es: 'COMPLETADO', en: 'COMPLETED' },
         online: { es: 'EN LÍNEA', en: 'ONLINE' },
         file: { es: 'ARCHIVO', en: 'FILE' }
@@ -288,7 +288,7 @@
         const keepAt = keep ? list.findIndex((p) => p.id === keep) : list.indexOf(current);
         index = keepAt >= 0 ? keepAt : 0;
         render();
-        // AURA comenta la frecuencia una vez por visita
+        // ATLAS comenta la frecuencia una vez por visita
         const comments = KB.pages && KB.pages.projects && KB.pages.projects.filters;
         if (a !== 'all' && comments && comments[a]) {
             const say = () => window.AuraComment && window.AuraComment('filter-' + a, comments[a]);
@@ -327,7 +327,7 @@
     /* ---------- Inicio ---------- */
     const params = new URLSearchParams(window.location.search);
     const initial = params.get('area') || 'all';
-    // si se llega desde un pilar, AURA comenta ese filtro en vez del saludo general
+    // si se llega desde un pilar, ATLAS comenta ese filtro en vez del saludo general
     if (initial !== 'all') window.AURA_SKIP_ENTER = true;
     if (params.get('view')) view = params.get('view');
     tune(initial, { keep: params.get('p') });

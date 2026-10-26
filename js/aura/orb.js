@@ -1,5 +1,5 @@
 /* ==========================================================
-   AURA · Orbe holográfico en WebGL (Three.js r149)
+   ATLAS · Orbe holográfico en WebGL (Three.js r149)
    API pública: window.AuraOrb.setState(state) · .pulse(amount) · .poke()
    Estados: 'idle' | 'thinking' | 'speaking' | 'listening'
    ========================================================== */

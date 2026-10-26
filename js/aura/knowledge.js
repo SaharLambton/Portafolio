@@ -1,14 +1,14 @@
 /* ==========================================================
-   AURA · Base de conocimiento
+   ATLAS · Base de conocimiento
    Aquí vive todo lo que el asistente sabe. Para cambiar su
    nombre, textos o respuestas, edita solo este archivo.
    ========================================================== */
 window.AURA_KB = {
     config: {
-        name: 'AURA',
+        name: 'ATLAS',
         // Cuando conectemos una IA real: URL de un endpoint que reciba
         // POST { message, lang, history } y responda { reply }.
-        // Mientras esté vacío, AURA solo usa esta base local.
+        // Mientras esté vacío, ATLAS solo usa esta base local.
         aiEndpoint: ''
     },
 
@@ -44,7 +44,7 @@ window.AURA_KB = {
         en: 'I don\'t have that in my records yet 🤖. I can tell you about Sahar\'s projects, technologies, experience, services or how to contact her.'
     },
 
-    /* ---------- Comentarios de AURA en cada pestaña ----------
+    /* ---------- Comentarios de ATLAS en cada pestaña ----------
        intro: primer mensaje del chat en esa pestaña.
        enter: comentario al entrar (una vez por visita, en el globo).
        sections: comentario cuando aparece una sección con data-aura-say="clave".
@@ -95,8 +95,8 @@ window.AURA_KB = {
             },
             filters: {
                 web: { es: 'Estos son los desarrollos web: tiendas en línea, sitios corporativos y páginas responsive.', en: 'These are the web builds: online stores, corporate sites and responsive pages.' },
-                code: { es: 'Estos son los proyectos de programación: sistemas en TypeScript y Node.js, pruebas automatizadas, integración continua y yo, AURA.', en: 'These are the programming projects: TypeScript and Node.js systems, automated tests, continuous integration and me, AURA.' },
-                ai: { es: 'En IA están el taller de IA generativa para Intel Tax Outsourcing SAS y yo, AURA, la asistente que te habla 🤖.', en: 'In AI you\'ll find the generative AI workshop for Intel Tax Outsourcing SAS and me, AURA, the assistant talking to you 🤖.' },
+                code: { es: 'Estos son los proyectos de programación: sistemas en TypeScript y Node.js, pruebas automatizadas, integración continua y yo, ATLAS.', en: 'These are the programming projects: TypeScript and Node.js systems, automated tests, continuous integration and me, ATLAS.' },
+                ai: { es: 'En IA están el taller de IA generativa para Intel Tax Outsourcing SAS y yo, ATLAS, la asistente que te habla 🤖.', en: 'In AI you\'ll find the generative AI workshop for Intel Tax Outsourcing SAS and me, ATLAS, the assistant talking to you 🤖.' },
                 design: { es: 'Aquí está el trabajo de branding de Sahar: Zohar, ODEN, Armonía, MetalTec y Únicos. Zohar y Armonía son dos de los más completos.', en: 'Here is Sahar\'s branding work: Zohar, ODEN, Armonía, MetalTec and Únicos. Zohar and Armonía are two of the most complete.' },
                 marketing: { es: 'Estos proyectos incluyen estrategia digital y redes sociales, además del diseño.', en: 'These projects include digital strategy and social media, on top of design.' }
             }
@@ -214,8 +214,8 @@ window.AURA_KB = {
             id: 'whoami',
             keys: ['quien eres', 'que eres', 'como te llamas', 'tu nombre', 'eres una ia', 'eres un robot', 'who are you', 'what are you', 'your name', 'are you a bot', 'are you an ai'],
             answer: {
-                es: 'Soy {name}, la asistente virtual de este portafolio. Conozco todo lo que hay en la página y te guío por ella. Por ahora respondo con mi base de conocimiento local; pronto tendré un cerebro de IA más avanzado 🧠.',
-                en: 'I\'m {name}, this portfolio\'s virtual assistant. I know everything on this site and guide you through it. For now I answer from my local knowledge base; a more advanced AI brain is coming soon 🧠.'
+                es: 'Soy {name}, la asistente virtual de este portafolio. Como el titán que sostiene el mundo, sostengo los cuatro pilares de Sahar: programación, IA, diseño y marketing. Conozco todo lo que hay en la página y te guío por ella. Por ahora respondo con mi base de conocimiento local; pronto tendré un cerebro de IA más avanzado 🧠.',
+                en: 'I\'m {name}, this portfolio\'s virtual assistant. Like the titan who holds up the world, I hold up Sahar\'s four pillars: programming, AI, design and marketing. I know everything on this site and guide you through it. For now I answer from my local knowledge base; a more advanced AI brain is coming soon 🧠.'
             },
             chips: ['about', 'projects']
         },
@@ -282,8 +282,8 @@ window.AURA_KB = {
             id: 'projects',
             keys: ['proyecto', 'proyectos', 'portafolio', 'portfolio', 'trabajos', 'muestra', 'ejemplos', 'casos', 'projects', 'project', 'work samples', 'case study', 'showcase'],
             answer: {
-                es: 'Sahar tiene 14 proyectos: 🌐 desarrollo web (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, Armonía, MetalTec, Únicos), 💻 programación (Smart Agriculture, Library Management, Space Flight Booking, Jest CI) y 🧠 IA (el taller para Intel Tax y AURA, la asistente que te está hablando). ¿Qué área te interesa?',
-                en: 'Sahar has 14 projects: 🌐 web development (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, Armonía, MetalTec, Únicos), 💻 programming (Smart Agriculture, Library Management, Space Flight Booking, Jest CI) and 🧠 AI (the Intel Tax workshop and AURA, the assistant talking to you). Which area interests you?'
+                es: 'Sahar tiene 14 proyectos: 🌐 desarrollo web (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, Armonía, MetalTec, Únicos), 💻 programación (Smart Agriculture, Library Management, Space Flight Booking, Jest CI) y 🧠 IA (el taller para Intel Tax y ATLAS, la asistente que te está hablando). ¿Qué área te interesa?',
+                en: 'Sahar has 14 projects: 🌐 web development (Sell Services, Sports Store, Little Stars), 🎨 branding (Zohar, ODEN, Armonía, MetalTec, Únicos), 💻 programming (Smart Agriculture, Library Management, Space Flight Booking, Jest CI) and 🧠 AI (the Intel Tax workshop and ATLAS, the assistant talking to you). Which area interests you?'
             },
             action: { type: 'go', href: 'proyectos.html', label: { es: 'Ir a proyectos', en: 'Go to projects' } },
             chips: ['web', 'design', 'code']
@@ -396,7 +396,7 @@ window.AURA_KB = {
     /* ---------- Proyectos ----------
        pillars: áreas a las que pertenece (web, code, ai, design, marketing) → frecuencias de la pestaña Proyectos.
        card / video: imagen o video de la tarjeta (si no hay, se muestra un gráfico).
-       short: resumen de la tarjeta · desc: lo que responde AURA.
+       short: resumen de la tarjeta · desc: lo que responde ATLAS.
        brand: color de la marca (tiñe la pantalla de la Bóveda) · kind: tipo de proyecto.
        Para agregar un proyecto, copia uno de estos bloques y ajústalo.
        ------------------------------------------------------------ */
@@ -565,15 +565,15 @@ window.AURA_KB = {
             tag: { es: 'IA · Capacitación', en: 'AI · Training' }
         },
         {
-            id: 'aura', name: 'AURA', keys: ['aura project', 'proyecto aura', 'asistente del portafolio', 'portfolio assistant'],
+            id: 'aura', name: 'ATLAS', keys: ['atlas', 'aura', 'proyecto atlas', 'atlas project', 'asistente del portafolio', 'portfolio assistant'],
             brand: '#a970ff', kind: { es: 'Este portafolio · En línea', en: 'This portfolio · Online' },
             pillars: ['ai', 'code'], card: 'img/thumbs/aura-card.webp', video: '',
             short: { es: 'La asistente de este portafolio: chat bilingüe con base de conocimiento, voz y un orbe 3D en WebGL.', en: 'This portfolio\'s assistant: a bilingual chat with a knowledge base, voice and a 3D WebGL orb.' },
-            url: 'aura.html', area: 'ai',
+            url: 'atlas.html', area: 'ai',
             tech: ['JavaScript', 'Three.js', 'Web Speech API'],
             desc: {
-                es: 'AURA es la asistente de este portafolio: responde en español e inglés con una base de conocimiento propia, habla con la voz del navegador, entiende preguntas por micrófono y vive en un orbe 3D hecho con WebGL. Está preparada para conectarse a un modelo de IA.',
-                en: 'AURA is this portfolio\'s assistant: she answers in Spanish and English from her own knowledge base, speaks with the browser\'s voice, understands questions through the microphone and lives in a 3D orb built with WebGL. She is ready to connect to an AI model.'
+                es: 'ATLAS es la asistente de este portafolio: responde en español e inglés con una base de conocimiento propia, habla con la voz del navegador, entiende preguntas por micrófono y vive en un orbe 3D hecho con WebGL. Está preparada para conectarse a un modelo de IA.',
+                en: 'ATLAS is this portfolio\'s assistant: she answers in Spanish and English from her own knowledge base, speaks with the browser\'s voice, understands questions through the microphone and lives in a 3D orb built with WebGL. She is ready to connect to an AI model.'
             },
             tag: { es: 'IA · Asistente conversacional', en: 'AI · Conversational assistant' }
         }

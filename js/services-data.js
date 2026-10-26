@@ -75,7 +75,7 @@ window.SERVICES = [
             { es: 'Chatbot para tu sitio web', en: 'Chatbot for your website' },
             { es: 'Respuestas automáticas en WhatsApp y redes', en: 'Automated replies on WhatsApp and social media' },
             { es: 'Entrenado con la información de tu negocio', en: 'Trained on your business information' },
-            { es: 'Asistentes con voz como AURA', en: 'Voice assistants like AURA' }
+            { es: 'Asistentes con voz como ATLAS', en: 'Voice assistants like ATLAS' }
         ]
     },
     {

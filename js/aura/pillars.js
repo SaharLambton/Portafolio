@@ -22,7 +22,7 @@
     /* ---------- Sonido de apertura (Web Audio, sin archivos) ----------
        Un barrido de aire filtrado, como una compuerta holográfica, y un acorde
        corto con eco. Cada pilar suena en un tono distinto. Se silencia si la
-       persona apagó la voz de AURA o entró sin audio. */
+       persona apagó la voz de ATLAS o entró sin audio. */
     const NOTES = { code: [261.6, 392.0, 523.3], ai: [293.7, 440.0, 587.3], design: [329.6, 493.9, 659.3], marketing: [349.2, 523.3, 698.5] };
     let actx = null;
     let lastChime = 0;
@@ -77,7 +77,7 @@
     const CODE = {
         all: () => ({ es: [['proyectos', P.length], ['desde', 2019], ['pilares', 4], ['idiomas', "'ES / EN'"]], en: [['projects', P.length], ['since', 2019], ['pillars', 4], ['languages', "'ES / EN'"]] }),
         code: () => ({ es: [['proyectos', count('web', 'code')], ['stack', "['.NET', 'SQL', 'TS']"], ['calidad', "'Jest + CI'"], ['datos', "'+30%'"]], en: [['projects', count('web', 'code')], ['stack', "['.NET', 'SQL', 'TS']"], ['quality', "'Jest + CI'"], ['data', "'+30%'"]] }),
-        ai: () => ({ es: [['proyectos', count('ai')], ['taller', "'Intel Tax'"], ['asistente', "'AURA'"], ['productividad', "'+35%'"]], en: [['projects', count('ai')], ['workshop', "'Intel Tax'"], ['assistant', "'AURA'"], ['productivity', "'+35%'"]] }),
+        ai: () => ({ es: [['proyectos', count('ai')], ['taller', "'Intel Tax'"], ['asistente', "'ATLAS'"], ['productividad', "'+35%'"]], en: [['projects', count('ai')], ['workshop', "'Intel Tax'"], ['assistant', "'ATLAS'"], ['productivity', "'+35%'"]] }),
         design: () => ({ es: [['proyectos', count('design')], ['marcas', 5], ['enUso', "'Armonía'"], ['suite', "'Illustrator'"]], en: [['projects', count('design')], ['brands', 5], ['inUse', "'Armonía'"], ['suite', "'Illustrator'"]] }),
         marketing: () => ({ es: [['proyectos', count('marketing')], ['interaccion', "'+20%'"], ['analitica', "'Analytics + SEO'"], ['redes', "'MetalTec'"]], en: [['projects', count('marketing')], ['engagement', "'+20%'"], ['analytics', "'Analytics + SEO'"], ['social', "'MetalTec'"]] })
     };
@@ -192,7 +192,7 @@
         });
     });
 
-    /* ---------- "Preguntar a AURA" ---------- */
+    /* ---------- "Preguntar a ATLAS" ---------- */
     section.querySelectorAll('.pillar__ask').forEach((btn) => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
