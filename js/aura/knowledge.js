@@ -302,10 +302,10 @@ window.AURA_KB = {
             id: 'design',
             keys: ['diseno', 'disenos', 'branding', 'marca', 'marcas', 'logo', 'logos', 'identidad', 'grafico', 'illustrator', 'design', 'brand', 'brands', 'identity', 'graphic'],
             answer: {
-                es: 'En branding y diseño: 💎 Zohar, identidad de lujo para joyería; 🧭 ODEN, marca inmobiliaria con símbolo de brújula; 🔩 MetalTec, branding completo con web en WordPress; y ✨ Únicos, su propia agencia creativa.',
-                en: 'Branding & design: 💎 Zohar, a luxury jewelry identity; 🧭 ODEN, a real estate brand with a compass symbol; 🔩 MetalTec, full branding plus a WordPress site; and ✨ Únicos, her own creative agency.'
+                es: 'En branding y diseño: 💎 Zohar, identidad de lujo para joyería; 🧭 ODEN, marca inmobiliaria con símbolo de brújula; 🌿 Armonía, marca y empaque para aromáticas naturales; 🔩 MetalTec, branding completo con web en WordPress; y ✨ Únicos, su propia agencia creativa.',
+                en: 'Branding & design: 💎 Zohar, a luxury jewelry identity; 🧭 ODEN, a real estate brand with a compass symbol; 🌿 Armonía, branding and packaging for natural herbal teas; 🔩 MetalTec, full branding plus a WordPress site; and ✨ Únicos, her own creative agency.'
             },
-            projects: ['zohar', 'oden', 'metaltec', 'unicos'],
+            projects: ['zohar', 'oden', 'armonia', 'metaltec', 'unicos'],
             action: { type: 'go', href: 'proyectos.html?area=design', label: { es: 'Ver proyectos de diseño', en: 'See design projects' } }
         },
         {
@@ -462,6 +462,19 @@ window.AURA_KB = {
                 es: 'ODEN es la identidad visual de una inmobiliaria que acompaña a sus clientes hacia el hogar que buscan: un logotipo con una brújula que comunica orientación y confianza, una paleta de grises y dorados, versiones para cada formato, íconos, patrones y piezas publicitarias.',
                 en: 'ODEN is the visual identity for a real estate company that guides its clients to the home they are looking for: a compass logo that conveys guidance and trust, a gray-and-gold palette, versions for every format, icons, patterns and advertising pieces.'
             }
+        },
+        {
+            id: 'armonia', name: 'Aromáticas Armonía', keys: ['armonia', 'aromaticas', 'aromatica', 'infusion', 'infusiones', 'packaging', 'empaque', 'etiqueta', 'herbal tea', 'tea', 'label'],
+            brand: '#7fa86e', kind: { es: 'Cliente · Aromáticas · 2026', en: 'Client · Herbal teas · 2026' },
+            pillars: ['design'], card: 'img/thumbs/armonia-card.webp', video: '',
+            short: { es: 'Marca y empaque para aromáticas naturales: logo con una A que florece, etiquetas y mockups a medida con IA.', en: 'Branding and packaging for natural herbal teas: a logo with a blooming A, labels and custom AI mockups.' },
+            url: 'armonia.html', area: 'design',
+            tech: ['Branding', 'Packaging', 'Mockups con IA'],
+            desc: {
+                es: 'Armonía es una marca de aromáticas premium, natural y accesible, creada a comienzos de 2026 a partir de un solo dato: el nombre. Sahar diseñó el logotipo, cuya A florece como una planta, la paleta de verde bosque y crema, el patrón de hojas, las piezas imprimibles del primer lanzamiento, Pasión Tropical (etiquetas, sello de caja y etiquetas de bolsita), y mockups a medida generados con IA. La marca está pensada tanto para reuniones de empresa como para el consumidor del día a día, y hoy el cliente la usa en sus productos.',
+                en: 'Armonía is a premium, natural and affordable herbal tea brand, created in early 2026 from a single starting point: the name. Sahar designed the logo, whose A blooms like a plant, the forest green and cream palette, the leaf pattern, the printable pieces for the first launch, Pasión Tropical (labels, box seal and tea bag tags), and custom AI-generated mockups. The brand is designed for business meetings as well as everyday consumers, and the client uses it on its products today.'
+            },
+            tag: { es: 'Branding y packaging', en: 'Branding & packaging' }
         },
         {
             id: 'metaltec', name: 'MetalTec Colombia', keys: ['metaltec', 'metal tec', 'metalurgica', 'metallurgical'],

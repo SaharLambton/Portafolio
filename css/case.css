@@ -406,6 +406,13 @@ body.case { --a-bg: var(--case-bg); background: var(--case-bg); }
 .motif--bubbles i:nth-child(1) { width: 320px; height: 320px; right: 2%; top: -6%; background: #3b82f6; }
 .motif--bubbles i:nth-child(2) { width: 220px; height: 220px; right: 22%; bottom: 4%; background: #ec4899; animation-delay: -3s; }
 .motif--bubbles i:nth-child(3) { width: 140px; height: 140px; left: 34%; top: 10%; background: #84cc16; animation-delay: -6s; }
+
+/* Armonía: hojas que flotan */
+.motif--leaves { inset: 0; }
+.motif--leaves svg { position: absolute; left: var(--x); top: var(--y); width: 46px; height: 46px; fill: rgba(var(--brand2-rgb), 0.16); transform: rotate(var(--r)); animation: leaf-drift 9s ease-in-out var(--d) infinite alternate; }
+.motif--leaves svg:nth-child(3n) { width: 72px; height: 72px; fill: rgba(var(--brand-rgb), 0.08); }
+@keyframes leaf-drift { to { transform: rotate(calc(var(--r) + 24deg)) translateY(-18px); } }
+.case--leaves .case-title { font-weight: 600; letter-spacing: 0.04em; }
 @keyframes blob-float { to { transform: translate(-20px, 16px) scale(1.06); } }
 
 /* AURA: anillos del orbe */

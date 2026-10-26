@@ -475,6 +475,117 @@ PROJECTS = [
         'service': 'branding',
     },
     {
+        'id': 'armonia', 'file': 'armonia.html', 'name': 'Aromáticas Armonía', 'pillar': 'design',
+        'theme': {'brand': '#f3e6c8', 'brand_rgb': '243, 230, 200', 'brand2': '#7fa86e', 'brand2_rgb': '127, 168, 110',
+                  'bg': '#0e1710', 'display': "'Cormorant Garamond', serif", 'body': "'Exo 2', sans-serif",
+                  'fonts': 'Cormorant+Garamond:wght@500;600;700', 'motif': 'leaves', 'bullet': '❦'},
+        'kicker': ('DISEÑO · BRANDING Y PACKAGING', 'DESIGN · BRANDING AND PACKAGING'),
+        'title': ('Armonía', 'Armonía'),
+        'tagline': ('Una marca de aromáticas premium, natural y accesible: de un nombre a una identidad completa y un empaque listo para el lanzamiento.',
+                    'A premium, natural and affordable herbal tea brand: from a name to a complete identity and packaging ready for launch.'),
+        'tags': ['Branding', 'Logotipo', 'Packaging', 'Etiquetas', 'Mockups con IA'],
+        'hero': {'img': 'img/cases/armonia-hero.webp', 'alt': 'Logo de Armonía sobre verde bosque y fachada de la tienda'},
+        'facts': [
+            (('Cliente', 'Client'), ('Cliente real · marca en uso', 'Real client · brand in use')),
+            (('Fecha', 'Date'), ('Comienzos de 2026', 'Early 2026')),
+            (('Rol', 'Role'), ('Diseñadora de marca y empaque', 'Brand and packaging designer')),
+            (('Mockups', 'Mockups'), ('A medida, generados con IA', 'Custom-made, AI-generated')),
+        ],
+        'summary': ('El cliente llegó con una sola certeza: el nombre, Armonía. Su objetivo era lanzar una marca de aromáticas de alta calidad, pensadas para acompañar el bienestar y aliviar distintos síntomas, que se viera premium sin dejar de ser económica. Debía estar a la altura de una reunión importante en una empresa y, al mismo tiempo, al alcance de cualquier persona que quiere refrescarse o relajarse en casa con un té de calidad. A partir de ese nombre desarrollé la identidad completa, las etiquetas del primer lanzamiento y una serie de mockups a medida para presentar la marca antes de producirla. Hoy el cliente la utiliza en sus productos.',
+                    'The client came with a single certainty: the name, Armonía. The goal was to launch a line of high-quality herbal teas, designed to support wellbeing and ease different symptoms, that looked premium while staying affordable. It had to be fit for an important business meeting and, at the same time, within reach of anyone who wants to cool off or relax at home with a quality tea. Starting from that name, I developed the complete identity, the labels for the first launch and a series of custom mockups to present the brand before production. Today the client uses it on its products.'),
+        'concept': {
+            'title': ('Premium, natural y para todos', 'Premium, natural and for everyone'),
+            'quote': ('Cada taza, un momento de equilibrio.', 'Every cup, a moment of balance.'),
+            'paras': [
+                ('El símbolo es una letra A de la que brotan tallos y hojas: la inicial de la marca convertida en una planta que crece. Así, el nombre y el producto se leen en un solo trazo, y el símbolo funciona por sí solo como sello, ícono o lacre.',
+                 'The symbol is a letter A sprouting stems and leaves: the brand\'s initial turned into a growing plant. The name and the product read in a single stroke, and the symbol works on its own as a seal, icon or wax stamp.'),
+                ('La elegancia la aportan una tipografía de inspiración clásica y una paleta reducida a verde bosque y crema; lo natural, las hojas, el kraft y los tonos de la tierra. El resultado es una marca que se siente cuidada y de calidad sin verse inalcanzable.',
+                 'Elegance comes from a classic-inspired typeface and a palette reduced to forest green and cream; the natural feel, from leaves, kraft and earthy tones. The result is a brand that feels carefully made and high-quality without looking out of reach.')]},
+        'sections': [
+            {'kind': 'cards', 'over': ('// EL ENCARGO', '// THE BRIEF'), 'title': ('Lo que buscaba el cliente', 'What the client was looking for'),
+             'items': [
+                (('Premium pero accesible', 'Premium yet affordable'), ('Una imagen de alta calidad que no aleje al comprador por precio ni por pretensión.', 'A high-quality image that does not push buyers away on price or pretension.')),
+                (('Elegante y natural', 'Elegant and natural'), ('Transmitir que es un producto natural, cuidado y hecho con ingredientes de calidad.', 'Convey a natural, carefully made product with quality ingredients.')),
+                (('Bienestar', 'Wellbeing'), ('Aromáticas pensadas para acompañar el bienestar y aliviar distintos síntomas.', 'Herbal teas designed to support wellbeing and ease different symptoms.')),
+                (('Una línea que crece', 'A growing line'), ('Lanzar primero una infusión fría, Pasión Tropical, y sumar después una versión caliente.', 'Launch a cold infusion first, Pasión Tropical, and add a hot version later.')),
+             ]},
+            {'kind': 'cards', 'over': ('// PÚBLICO OBJETIVO', '// TARGET AUDIENCE'), 'title': ('Para quién se diseñó la marca', 'Who the brand was designed for'),
+             'items': [
+                (('Empresas', 'Companies'), ('Un té que se ve bien servido en una reunión importante y deja una buena impresión ante clientes y socios.', 'A tea that looks right at an important meeting and makes a good impression on clients and partners.')),
+                (('Consumidores del día a día', 'Everyday consumers'), ('Personas que buscan refrescarse en casa con una bebida natural, rica y a buen precio.', 'People who want to cool off at home with a natural, tasty, well-priced drink.')),
+                (('Quienes buscan una pausa', 'Those seeking a pause'), ('Quienes quieren relajarse con un té de calidad y cuidar su bienestar.', 'Those who want to relax with a quality tea and take care of their wellbeing.')),
+             ]},
+            {'kind': 'cards', 'over': ('// PACKAGING', '// PACKAGING'), 'title': ('El primer lanzamiento: Pasión Tropical', 'The first launch: Pasión Tropical'),
+             'intro': ('Pasión Tropical es una infusión fría de flor de Jamaica, fresa, mora y limoncillo. Diseñé sus piezas imprimibles para el primer empaque: la marca madre se mantiene sobria y el sabor se expresa con una selva de flores, frutas y aves tropicales que despierta el antojo antes de abrir la caja.',
+                       'Pasión Tropical is a cold infusion of hibiscus, strawberry, blackberry and lemongrass. I designed its printable pieces for the first package: the parent brand stays understated, while the flavor comes alive with a jungle of tropical flowers, fruits and birds that sparks the craving before the box is even opened.'),
+             'items': [
+                (('Frente que vende', 'A front that sells'), ('El nombre del sabor en grande, una promesa clara ("Sinfonía frutal de hibiscus, fresas y moras") y el contenido neto: 20 bolsas de infusión.', 'The flavor name up front, a clear promise ("A fruity symphony of hibiscus, strawberries and blackberries") and the net content: 20 tea bags.')),
+                (('Reverso que informa', 'A back that informs'), ('Preparación paso a paso, composición, datos del fabricante y código de barras, listo para la venta.', 'Step-by-step preparation, ingredients, manufacturer details and barcode, ready for retail.')),
+                (('Sello y bolsitas', 'Seal and tea tags'), ('Un sello para cerrar la caja y etiquetas con el símbolo para cada bolsita, que llevan la marca hasta la taza.', 'A seal to close the box and tags with the symbol for each tea bag, carrying the brand all the way to the cup.')),
+             ]},
+        ],
+        'gallery': [
+            ('img/cases/armonia-logo-crema.webp', ('Logotipo principal', 'Main logo')),
+            ('img/cases/armonia-logo-verde.webp', ('Versión sobre verde', 'Version on green')),
+            ('img/cases/armonia-logo-negro.webp', ('Versión en negativo', 'Negative version')),
+            ('img/cases/armonia-logo-blanco.webp', ('Versión en una tinta', 'One-color version')),
+            ('img/cases/armonia-simbolo.webp', ('Símbolo y colores de marca', 'Symbol and brand colors')),
+            ('img/cases/armonia-patron.webp', ('Patrón de hojas', 'Leaf pattern')),
+            ('img/cases/armonia-frente.webp', ('Etiqueta Pasión Tropical: frente', 'Pasión Tropical label: front')),
+            ('img/cases/armonia-reverso.webp', ('Etiqueta Pasión Tropical: reverso', 'Pasión Tropical label: back')),
+            ('img/cases/armonia-sello.webp', ('Sello de la caja', 'Box seal')),
+            ('img/cases/armonia-bolsita.webp', ('Etiquetas para las bolsitas', 'Tea bag tags')),
+            ('img/cases/armonia-mesa.webp', ('Mockup: línea de productos', 'Mockup: product line')),
+            ('img/cases/armonia-bolsas.webp', ('Mockup: bolsas kraft', 'Mockup: kraft pouches')),
+            ('img/cases/armonia-caja-abierta.webp', ('Mockup: caja de infusiones', 'Mockup: tea box')),
+            ('img/cases/armonia-frascos.webp', ('Mockup: frascos de hierbas', 'Mockup: herb jars')),
+            ('img/cases/armonia-caja-verde.webp', ('Mockup: símbolo en relieve', 'Mockup: embossed symbol')),
+            ('img/cases/armonia-papeleria.webp', ('Mockup: papelería y lacre', 'Mockup: stationery and wax seal')),
+            ('img/cases/armonia-tarjetas.webp', ('Mockup: tarjetas de presentación', 'Mockup: business cards')),
+            ('img/cases/armonia-taza.webp', ('Mockup: momento de consumo', 'Mockup: the tea moment')),
+            ('img/cases/armonia-fachada.webp', ('Mockup: fachada de tienda', 'Mockup: storefront')),
+        ],
+        'palette': [('Verde bosque', 'Forest green', '#374F37'), ('Crema', 'Cream', '#FFF6E4')],
+        'type': [('Citadel of Blackrose', "'Cormorant Garamond', serif", 'Armonía', ('Logotipo: serif de inspiración clásica con remates orgánicos que evocan tallos y hojas.', 'Logotype: classic-inspired serif with organic terminals that evoke stems and leaves.'))],
+        'blocks': [
+            {'title': ('Sistema de logotipo', 'Logo system'), 'img': 4, 'items': [
+                ('Logotipo con símbolo integrado en la A', 'Logo with the symbol built into the A'),
+                ('Versiones sobre crema, verde, negro y blanco', 'Versions on cream, green, black and white'),
+                ('Símbolo independiente para sellos e íconos', 'Standalone symbol for seals and icons')]},
+            {'title': ('Packaging imprimible', 'Printable packaging'), 'img': 6, 'items': [
+                ('Etiqueta frontal y posterior de Pasión Tropical', 'Front and back label for Pasión Tropical'),
+                ('Sello para cerrar la caja', 'Seal to close the box'),
+                ('Etiquetas para las bolsitas de infusión', 'Tags for the tea bags')]},
+            {'title': ('Mockups a medida con IA', 'Custom AI mockups'), 'img': 10, 'items': [
+                ('Cajas, bolsas kraft y frascos', 'Boxes, kraft pouches and jars'),
+                ('Papelería, tarjetas y lacre', 'Stationery, cards and wax seal'),
+                ('Fachada de tienda y momento de consumo', 'Storefront and the tea moment')]},
+        ],
+        'challenges': [
+            (('Premium sin ser inalcanzable', 'Premium without being out of reach'),
+             ('La marca debía verse digna de una sala de juntas y, a la vez, cercana para el consumidor de todos los días. La respuesta fue una elegancia sobria: dos colores, una tipografía clásica y materiales naturales como el kraft, que comunican calidad sin sugerir un precio elevado.',
+              'The brand had to look fit for a boardroom and, at the same time, approachable for everyday consumers. The answer was understated elegance: two colors, a classic typeface and natural materials like kraft, which communicate quality without suggesting a high price.')),
+            (('Ver la marca antes de producirla', 'Seeing the brand before producing it'),
+             ('Un emprendimiento no siempre puede imprimir prototipos de cada pieza. Generé con inteligencia artificial mockups a medida, con el logotipo y los colores reales, para que el cliente viera su marca en cajas, frascos, papelería y hasta en una tienda, y decidiera con seguridad antes de invertir en producción.',
+              'A small business cannot always print prototypes of every piece. I used artificial intelligence to generate custom mockups with the real logo and colors, so the client could see the brand on boxes, jars, stationery and even a storefront, and decide with confidence before investing in production.')),
+        ],
+        'process': [
+            (('Encargo', 'Brief'), ('Un nombre, un público doble y un primer sabor.', 'A name, a dual audience and a first flavor.')),
+            (('Concepto', 'Concept'), ('La A que florece como planta.', 'The A that blooms like a plant.')),
+            (('Identidad', 'Identity'), ('Logotipo, color, tipografía y patrón.', 'Logo, color, typography and pattern.')),
+            (('Packaging', 'Packaging'), ('Etiquetas, sello y bolsitas imprimibles.', 'Printable labels, seal and tea tags.')),
+            (('Mockups', 'Mockups'), ('Visualización de la marca con IA.', 'Brand visualization with AI.')),
+        ],
+        'results': [
+            ('Una marca en uso, que el cliente aplica hoy en sus productos', 'A brand in use, applied by the client on its products today'),
+            ('Una identidad premium y natural que sigue siendo cercana para el consumidor', 'A premium, natural identity that stays approachable for consumers'),
+            ('Un sistema de empaque listo para sumar nuevos sabores, como la versión caliente', 'A packaging system ready for new flavors, such as the hot version'),
+        ],
+        'cta': (('¿Tu producto necesita un empaque que se elija a primera vista?', 'Does your product need packaging that gets picked at first sight?'),
+                ('Diseño marcas y etiquetas que cuentan la historia de tu producto y lo hacen destacar en el punto de venta.', 'I design brands and labels that tell your product\'s story and make it stand out at the point of sale.')),
+        'service': 'branding',
+    },
+    {
         'id': 'metaltec', 'file': 'metaltec.html', 'name': 'MetalTec Colombia', 'pillar': 'design',
         'theme': {'brand': '#ff5722', 'brand_rgb': '255, 87, 34', 'brand2': '#7f97a8', 'brand2_rgb': '127, 151, 168',
                   'bg': '#0d1114', 'display': "'Oswald', sans-serif", 'body': "'Exo 2', sans-serif",
@@ -1064,6 +1175,7 @@ MOTIF = {
     'orbit': '<div class="motif motif--orbit" aria-hidden="true"></div>',
     'pipeline': '<div class="motif motif--pipeline" aria-hidden="true"></div>',
     'orb': '<div class="motif motif--orb" aria-hidden="true"></div>',
+    'leaves': '<div class="motif motif--leaves" aria-hidden="true">' + ''.join(f'<svg style="--x:{(i * 41) % 96}%;--y:{(i * 29) % 90}%;--d:{i * 0.9}s;--r:{(i * 47) % 360}deg" viewBox="0 0 40 40"><path d="M20 38 C20 26 20 14 34 4 C34 20 28 30 20 38 Z M20 38 C20 30 14 22 4 18 C6 30 12 36 20 38 Z"/></svg>' for i in range(9)) + '</div>',
     'bubbles': '<div class="motif motif--bubbles" aria-hidden="true"><i></i><i></i><i></i></div>',
     'secure': '<div class="motif motif--secure" aria-hidden="true"><svg viewBox="0 0 120 140"><path d="M60 6 L110 26 V66 C110 100 88 122 60 134 C32 122 10 100 10 66 V26 Z"/><rect x="38" y="62" width="44" height="34" rx="5"/><path d="M46 62 V50 a14 14 0 0 1 28 0 V62"/><circle cx="60" cy="78" r="4"/></svg>'
               + ''.join(f'<span style="--i:{i}">{h}</span>' for i, h in enumerate(['session_start()', 'mysqli_connect()', 'SELECT * FROM users', "$_SESSION['ID']", 'INSERT INTO users', 'UPDATE users SET']))
@@ -1203,7 +1315,12 @@ def page(p, prev, nxt, num, total):
     for i, b in enumerate(p['blocks']):
         lis = ''.join(bi('li', '', x) for x in b['items'][:5])
         txt = f'{bi("h3", "case-row__title", b["title"])}<ul class="case-list">{lis}</ul>'
-        if pool and not ev:
+        if 'img' in b and not ev:
+            # el bloque elige su imagen de la galería
+            gi, (src, cap) = b['img'], gallery[b['img']]
+            pool = [x for x in pool if x[0] != gi]
+            rows.append(f'<article class="case-row"><div class="case-row__media reveal">{zoom(src, cap, gi)}</div><div class="case-row__copy reveal"><span class="case-row__num">0{len(rows) + 2}</span>{txt}</div></article>')
+        elif pool and not ev:
             gi, src, cap = pool.pop(0)
             rows.append(f'<article class="case-row"><div class="case-row__media reveal">{zoom(src, cap, gi)}</div><div class="case-row__copy reveal"><span class="case-row__num">0{len(rows) + 2}</span>{txt}</div></article>')
         else:
