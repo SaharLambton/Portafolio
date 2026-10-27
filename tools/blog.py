@@ -17,7 +17,7 @@ Tipos de bloque:
 import html
 import os
 
-V = '20261027j'  # versión de CSS/JS (evita caché vieja)
+V = '20261027k'  # versión de CSS/JS (evita caché vieja)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -143,6 +143,9 @@ def head(title, desc, css):
     <title>{e(title)}</title>
     <meta name="description" content="{e(desc)}">
     <meta name="theme-color" content="#020406">
+    <link rel="icon" href="img/icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="img/icons/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">

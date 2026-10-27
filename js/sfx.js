@@ -23,6 +23,12 @@
         if (ctx.state === 'suspended') ctx.resume();
     }
     ['pointerdown', 'keydown', 'touchstart'].forEach((ev) => window.addEventListener(ev, unlock, { capture: true, passive: true }));
+    // Se crea apenas carga la página: si la persona ya hizo clic en otra página del sitio,
+    // el navegador suele permitir el audio de inmediato, sin esperar un clic nuevo.
+    unlock();
+    // si quedó en pausa, se reintenta al mover el cursor o hacer scroll
+    const retry = () => { if (ctx && ctx.state !== 'running') ctx.resume(); };
+    ['pointermove', 'scroll', 'wheel'].forEach((ev) => window.addEventListener(ev, retry, { passive: true }));
     const ready = () => enabled && ctx && ctx.state === 'running';
 
     /* ---------- Piezas básicas ---------- */
@@ -66,6 +72,10 @@
     const SOUNDS = {
         // pasar el cursor: un destello muy corto y suave
         hover: () => tone(2600, { dur: 0.04, gain: 0.008, to: 3000 }),
+        // pasar el cursor por tarjetas e información (más grave que el de los botones)
+        card: () => { tone(1480, { type: 'sine', dur: 0.05, gain: 0.008, to: 1760 }); },
+        // una sección aparece al hacer scroll: escaneo suave
+        scan: () => { tone(1900, { type: 'sine', dur: 0.09, gain: 0.006, to: 2600 }); tone(2850, { type: 'sine', t: 0.05, dur: 0.06, gain: 0.004 }); },
         // clic en botones
         click: () => { tone(1250, { type: 'triangle', dur: 0.06, gain: 0.03 }); tone(1870, { type: 'sine', t: 0.03, dur: 0.07, gain: 0.02 }); },
         // ir a otra página
@@ -96,7 +106,7 @@
     function play(name, arg) {
         if (!ready() || !SOUNDS[name]) return;
         const now = performance.now();
-        const gap = name === 'hover' ? 70 : name === 'pillar' ? 180 : 40;
+        const gap = name === 'hover' || name === 'card' ? 70 : name === 'scan' ? 160 : name === 'pillar' ? 180 : 40;
         if (now - (lastPlay[name] || 0) < gap) return;
         lastPlay[name] = now;
         try { SOUNDS[name](arg); } catch (e) { /* el audio nunca debe romper la página */ }
@@ -105,16 +115,32 @@
     window.SFX = { play };
 
     /* ---------- Sonidos automáticos para lo interactivo ---------- */
-    const HOVER = 'a[href], button, .pillar, .glance-card, .aura-card, .case-shot, .case-zoom, .swatch, [role="button"], summary, select, .freq';
+    const HOVER = 'a[href], button, .pillar, .glance-card, .aura-card, .blog-card, .case-shot, .case-zoom, .swatch, [role="button"], summary, select, input, textarea, .freq, .opt';
+    // tarjetas e información: suenan con un tono más suave que los botones
+    const CARDS = '.skill-chips li, .skill-card, .tl-card, .about-fact, .lang-meter, .svc, .rec, .step, .stat, .channel, .testimonial, .scope, .statement, .case-panel, .case-row__media, .post__fig, .post__tip, .post__quote';
     let lastHover = null;
     if (canHover) {
         document.addEventListener('pointerover', (e) => {
-            const el = e.target.closest(HOVER);
+            const el = e.target.closest(HOVER) || e.target.closest(CARDS);
             if (el === lastHover) return;
             lastHover = el;
+            if (!el || el.disabled) return;
             // los pilares tienen su propio sonido al abrirse
-            if (el && !el.classList.contains('pillar') && !el.disabled) play('hover');
+            if (el.classList.contains('pillar')) return;
+            play(el.matches(HOVER) ? 'hover' : 'card');
         }, { passive: true });
+    }
+
+    /* ---------- Escaneo al aparecer secciones (Sobre mí, Servicios, proyectos, blog) ---------- */
+    const SCAN = '.tl-item, .skill-card, .band, .step, .stat, .faq__item, .case-section, .post__h2, .blog-card, .testimonial';
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((en) => { if (en.isIntersecting) { play('scan'); io.unobserve(en.target); } });
+        }, { threshold: 0.35 });
+        const watch = () => document.querySelectorAll(SCAN).forEach((el) => io.observe(el));
+        // el catálogo de servicios se dibuja con JavaScript: se espera a que exista
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => setTimeout(watch, 400));
+        else setTimeout(watch, 400);
     }
     document.addEventListener('click', (e) => {
         const el = e.target.closest('a[href], button, summary, [role="button"], .case-shot, .case-zoom');

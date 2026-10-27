@@ -13,7 +13,7 @@ import os
 import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '20261027j'  # versión de los archivos CSS/JS (evita caché vieja)
+V = '20261027k'  # versión de los archivos CSS/JS (evita caché vieja)
 
 
 def e(s):
@@ -1481,6 +1481,9 @@ def page(p, prev, nxt, num, total):
     <title>{e(lang_title)}</title>
     <meta name="description" content="{desc}">
     <meta name="theme-color" content="{t['bg']}">
+    <link rel="icon" href="img/icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="img/icons/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="{fonts}" rel="stylesheet">
